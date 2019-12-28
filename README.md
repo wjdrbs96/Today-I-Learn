@@ -21,7 +21,7 @@
   <br><li>예외처리와 스레드</li>
   <br><li>JDBC 프로그래밍</li>
     <ul>
-      <li>데이터베이스와 MYSQL</li>
+      <li>데이터베이스와 MSQL</li>
       <li>SQL</li>
       <li>JDBC 프로그래밍 </li>
     </ul>
