@@ -1,5 +1,5 @@
-<h3> Java Grammar Basic </h3>
-
+### Java Grammar Basic
+    자바 기본 문법을 공부하는 공간입니다
 
 * 상속(inheritance)
 * 다형성(Polymorphism)
