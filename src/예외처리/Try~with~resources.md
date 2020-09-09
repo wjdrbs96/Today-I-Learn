@@ -1,4 +1,6 @@
-### 자동 자원 반환 - try - with - resources
+## 자동 자원 반환 - try - with - resources
+
+<br>
 
 JDK1.7부터 `try-with-resources` 이라는 `try-catch`문의 변형이 새로 추가되었다. 주로 입출력에 사용되는 클래스 중에서는
 사용한 후에 꼭 닫아 줘야 하는 것들이 있다. 그래야 사용했던 자원(resources)이 반환되기 때문이다.
