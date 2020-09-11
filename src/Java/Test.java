@@ -1,23 +1,22 @@
 package Java;
 
 public class Test {
-    static {
-        System.out.println("statc { }");       // 클래스 초기화 블럭
-    }
-
-    {
-        System.out.println("{ }");             // 인스턴스 초기화 블럭
-    }
-
-    public Test() {
-        System.out.println("생성자");
-    }
-
     public static void main(String[] args) {
-        System.out.println("Test test = new Test();");
-        Test test = new Test();
+        FireEngine fe = new FireEngine();
 
-        System.out.println("Test test2 = new Test();");
-        Test test2 = new Test();
+        if (fe instanceof FireEngine) {
+            System.out.println("This is a FireEngine instance");
+        }
+        if (fe instanceof Car) {
+            System.out.println("This is a Car instance");
+        }
+        if (fe instanceof Object) {
+            System.out.println("This is a Object instance");
+        }
+        System.out.println(fe.getClass().getName());
     }
 }
+
+class Car { }
+
+class FireEngine extends Car { }
