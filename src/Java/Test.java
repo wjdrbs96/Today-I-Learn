@@ -2,9 +2,10 @@ package Java;
 
 public class Test {
     public static void main(String[] args) {
-        String str3 = new String("JAVA");
-        String str4 = new String("JAVA");
-        System.out.println(str3 == str4);           // false
+        StringBuffer sb1 = new StringBuffer("ABC");
+        StringBuffer sb2 = new StringBuffer("ABC");
+        System.out.println(sb1 == sb2);        // false
+        System.out.println(sb1.equals(sb2));   // false
     }
 }
 
