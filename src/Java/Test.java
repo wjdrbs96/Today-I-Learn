@@ -2,10 +2,14 @@ package Java;
 
 public class Test {
     public static void main(String[] args) {
-        StringBuffer sb1 = new StringBuffer("ABC");
-        StringBuffer sb2 = new StringBuffer("ABC");
-        System.out.println(sb1 == sb2);        // false
-        System.out.println(sb1.equals(sb2));   // false
+        String str1 = new String("abc");
+        String str2 = new String("abc");
+
+        System.out.println(str1.equals(str2));
+        System.out.println(str1.hashCode());
+        System.out.println(str2.hashCode());
+        System.out.println(System.identityHashCode(str1));
+        System.out.println(System.identityHashCode(str2));
     }
 }
 
