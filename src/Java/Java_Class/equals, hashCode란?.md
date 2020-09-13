@@ -49,9 +49,10 @@ public class Test {
 ab == ab으로 같습니다
 ```
 
-
 `int`는 `primitive Type`이기 때문에 `값`을 비교해서 `true`가 나오는 것을 알 수 있다. `String`클래스는 `new`연산자를 이용한 것이
 아니라 `객체 리터럴 ""`을 이용해서 `상수풀`의 값을 참조하기 때문에 같은 주소 값을 참조하고 있기 때문에 `true`를 반환한다.
+
+<br>
 
 ```java
 public class Test {
@@ -85,6 +86,8 @@ public class Object {
 
 다시 `Object`클래스 내부의 `equals`메소드를 보면 `==`연산자를 이용해서 `주소값`을 비교하는 코드인 것을 알 수 있다.
 또한 가장 최상위 클래스 `Object`에 정의되어 있기 때문에 하위클래스에서 `오버라이딩`해서 사용할 수 있다.
+
+<br>
 
 ```java
 public class Test {
@@ -133,6 +136,8 @@ public class Test {
 결과는 `같습니다`가 나오게 된다. `아까는 주소값을 비교한다 했는데 주소값이 다른데 왜지?`라고 생각할 수 있다. 다르게 나오는 이유는
 `String`클래스에서 `equals 메소드를 오버라이딩`했기 때문에 `같습니다`가 나오는 것이다.
 
+<br>
+
 ```java
 public class String {
     public boolean equals(Object anObject) {
@@ -162,6 +167,7 @@ public class String {
 위와 같이 `String`클래스에서 `equals 메소드를 오버라이딩`했기 때문에 `주소값`이 아니라 `내용 값`으로 비교하여 `true`, `false`를
 반환하게 되는 것이다.
 
+<br>
 
 ```java
 public class Test {
@@ -248,7 +254,7 @@ true
 
 <br>
 
-### hashCode값이 다르게 나오는 이유는 무엇일까?
+## hashCode값이 다르게 나오는 이유는 무엇일까?
 
 String 클래스는 `hashCode`메소드를 문자열이 같으면, 동일한 해시코드를 반환하도록 `오버라이딩`하였다. 그리고
 `System.identityHashCode()`는 Object클래스의 `hashCode`메소드처럼 객체의 주소값으로 해시코드를 생성하기 때문에 모든 객체에
