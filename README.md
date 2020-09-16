@@ -13,10 +13,10 @@
 
 * [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
 
-* [Overriding vs Overloading]()
+* [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
 
 <br>
 
 ### Data Structrue
 
-* [Graph]()
+* [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Data_Structrue/Graph.md)

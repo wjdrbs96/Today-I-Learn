@@ -64,6 +64,8 @@ class Child extends Parent {
 위의 코드를 보면 알 수 있듯이 부모클래스의 메소드보다 자식클래스의 `오버라이딩`된 메소드의 예외가 적거나 같아야 한다.
 `하지만 주의해야할 점은 단순히 선언된 예외의 개수의 문제가 아니라는 것이다`
 
+<br>
+
 ```java
 class Parent {
     void parentMethod() throws IOException, SQLException {
