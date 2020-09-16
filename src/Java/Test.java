@@ -1,24 +1,13 @@
 package Java;
 
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
-        int b = input.nextInt();
-        String s = input.next();
-
-        System.out.println(printString(s, a));
-        System.out.println(printString(s, a, b));
-    }
-
-    static String printString(String s, int a) {
-        return s.substring(a);
-    }
-
-    static String printString(String s, int a, int b) {
-        return s.substring(a, b);
+        List<String> list = Arrays.asList("abc", "aaa", "bbb", "ddd", "aaa");
+        Collections.sort(list, (s1, s2) -> s2.compareTo(s1));
     }
 }
 

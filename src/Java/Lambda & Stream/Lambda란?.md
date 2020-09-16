@@ -113,7 +113,68 @@ interface MyFunction {
 인터페이스를 구현한 익명클래스의 객체를 위와 같이 생성하여 사용할 수 있다. 
 
 
+<br>
 
+```java
+public class Test {
+    public static void main(String[] args) {
+        MyFunction f = (int a, int b) -> a > b ? a : b;
+        int big = f.max(5, 3);
+    }
+}
+```
 
+위와 같이 익명객체를 람다식을 이용하여 대체할 수 있다. 이처럼 `MyFunction`인터페이스를 구현한 익명 객체를 람다식으로 대체가 가능한 이유는,
+람다식도 실제로는 익명객체이고, MyFunction인터페이스를 구현한 익명 객체의 메소드 max()와 람다식의 매게변수의 타입과 개수 그리고 반환값이 일치하기 때문이다.
 
- 
+<br>
+
+하나의 메소드가 선언된 인터페이스를 정의해서 람다식을 다루는 것은 기존의 자바의 규칙들을 어기지 않으면서도 자연스럽다.
+그래서 인터페이스를 통해 람다식을 다루기로 결정되었으며, 람다식을 다루기 위한 인터페이스를 `함수형 인터페이스(functional interface)`라고 부르기로 했다.
+
+```java
+@FunctionalInterface
+public interface Test {  // 함수형 인터페아스 MyFunction을 정의
+    public abstract int max(int a, int b);
+}
+```
+
+`단, 함수형 인터페이스에는 오직 하나의 추상메소드만 정의되어 있어야 한다`는 제약이 있다. 그래야 람다식과 인터페이스의 메소드가 1:1로 연결될 수 있기 때문이다.
+반면에 static메소드와 default메소드의 개수에는 제약이 없다.
+
+<br>
+
+```java
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("abc", "aaa", "bbb", "ddd", "aaa");
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s2.compareTo(s1);
+            }
+        });
+    }
+}
+```
+
+람다식을 사용하지 않는다면 위와 같이 복잡하게 사용해야 했지만, 람다식을 이용하면 아래와 같이 간단하게 할 수 있다.
+
+```java
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("abc", "aaa", "bbb", "ddd", "aaa");
+        Collections.sort(list, (s1, s2) -> s2.compareTo(s1));
+    }
+}
+```
+
