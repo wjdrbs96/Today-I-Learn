@@ -132,6 +132,8 @@ public class Test {
 하나의 메소드가 선언된 인터페이스를 정의해서 람다식을 다루는 것은 기존의 자바의 규칙들을 어기지 않으면서도 자연스럽다.
 그래서 인터페이스를 통해 람다식을 다루기로 결정되었으며, 람다식을 다루기 위한 인터페이스를 `함수형 인터페이스(functional interface)`라고 부르기로 했다.
 
+<br>
+
 ```java
 @FunctionalInterface
 public interface Test {  // 함수형 인터페아스 MyFunction을 정의
@@ -178,3 +180,107 @@ public class Test {
 }
 ```
 
+<br>
+
+### 함수형 인터페이스 타입의 매게변수와 반환타입
+
+함수형 인터페이스 `MyFunction`이 아래와 같이 정의 되어 있다고 가정하자.
+
+
+```java
+@FunctionalInterface
+public interface MyFunction {
+    
+    void myMethod();  // 추상메소드
+}
+```
+
+```
+void aMethod(MyFunction f) {
+    f.myMethod();
+}
+```
+
+그리고 위와 같이 매게변수 타입이 `MyFunction` 타입이라면, 위의 메소드를 호출할 때 어떻게 해야할까?
+
+<br>
+
+메소드를 호출할 때 람다식을 참조하는 참조변수를 매게변수로 지정해야한다. 예를들면 아래와 같다.
+
+```
+MyFunction f = () -> System.out.println("myMethod()");
+aMethod(f);
+```
+
+또는 참조변수 없이 아래와 같이 직접 람다식을 매게변수로도 넘길 수 있다.
+
+```
+aMethod(() -> System.out.println("myMethod()"));  // 람다식을 매게변수로 지정
+```
+
+<br>
+
+그리고 메서드의 반환타입이 `함수형 인터페이스`라면 이 함수형 인터페이스의 추상메소드와 동등한 람다식을 가리키는 참조변수를
+반환하거나 람다식을 직접 반환할 수 있다.
+
+```
+MyFunction myMethod() {
+    MyFunction f = () -> {};
+    return f;
+}
+```
+
+람다식을 참조변수로 다룰 수 있다는 것은 메소드를 통해 람다식을 주고받을 수 있따는 것을 의미한다. 즉, 변수처럼 메소드를 주고받는 것이 가능해진 것이다.
+
+<br>
+
+### Example Code
+
+```java
+@FunctionalInterface
+public interface MyFunction {
+
+    void run();
+}
+
+class LambdaEx1 {
+    static void execute(MyFunction f) {    // 매게변수가 MyFunction
+        f.run();
+    }
+
+    static MyFunction getMyFunction() {   // 반환타입이 MyFunction
+        MyFunction f = () -> System.out.println("f3.run()");
+        return f;
+    }
+
+    public static void main(String[] args) {
+        MyFunction f1 = () -> System.out.println("f1.run()");
+
+        MyFunction f2 = new MyFunction() {
+            @Override
+            public void run() {  // public 반드시 붙여야 함
+                System.out.println("f2.run()");
+            }
+        };
+
+        MyFunction f3 = getMyFunction();
+        f1.run();
+        f2.run();
+        f3.run();
+
+        execute(f1);
+        execute(() -> System.out.println("run()"));
+    }
+}
+```
+
+```
+f1.run()
+f2.run()
+f3.run()
+f1.run()
+run()
+```
+
+예제 코드를 보면 위에서 정리했던 내용이 모두 나온다. 예를들면 인터페이스를 구현할 때 `익명 클래스`를 사용하지 않고 `람다식`을 이용할 수 있다.
+그리고 `반환타입`이 인터페이스 타입, `매게변수 타입`이 인터페이스 타입인 경우를 보여주고 있다.
