@@ -2,17 +2,12 @@ package Java;
 
 public class Test {
     public static void main(String[] args) {
-        Car car = new Car();
-        Car car2 = null;
-        FireEngine fe = null;
-
-        fe = (FireEngine)car;
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.method(100);
     }
 }
 
-class Car { }
-
-class FireEngine extends Car { }
 
 
 

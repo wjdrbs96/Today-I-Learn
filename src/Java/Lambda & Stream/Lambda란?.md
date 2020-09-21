@@ -284,3 +284,57 @@ run()
 
 예제 코드를 보면 위에서 정리했던 내용이 모두 나온다. 예를들면 인터페이스를 구현할 때 `익명 클래스`를 사용하지 않고 `람다식`을 이용할 수 있다.
 그리고 `반환타입`이 인터페이스 타입, `매게변수 타입`이 인터페이스 타입인 경우를 보여주고 있다.
+
+<br>
+
+### 외부 변수를 참조하는 람다식
+
+```java
+@FunctionalInterface
+public interface MyFunction {
+
+    void myMethod();
+}
+
+class Outer {
+    int val = 10;
+    
+    class Inner {
+        int val = 20;
+        
+        void method(int i) {  // void method(final int i) { }
+            int val = 30;     // final int val = 30; 
+            // i = 30;         // 에러. 상수의 값을 변경할 수 없음
+            
+            MyFunction f = () -> {
+                System.out.println("i : " + i);
+                System.out.println("val : " + val);
+                System.out.println("this.val : " + this.val);
+                System.out.println("Outer.this.val : " + Outer.this.val);
+            };
+            
+            f.myMethod();
+        } 
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.method(100);
+    }
+}
+```
+
+```
+i : 100
+val : 30
+this.val : 20
+Outer.this.val : 10
+```
+
+`람다식 내에서 참조하는 지역변수는 final이 붙지 않았어도 상수로 간주된다` 따라서 위의 코드를 보면 람다식 내의 `지역변수 i와 val`을
+참조하고 있으므로 람다식 내에서나 다른 어느곳에서도 값을 변경하는 일은 허용되지 않는다. 

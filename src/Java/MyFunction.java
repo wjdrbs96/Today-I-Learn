@@ -3,36 +3,28 @@ package Java;
 @FunctionalInterface
 public interface MyFunction {
 
-    void run();
+    void myMethod();
 }
 
-class LambdaEx1 {
-    static void execute(MyFunction f) {    // 매게변수가 MyFunction
-        f.run();
-    }
+class Outer {
+    int val = 10;
 
-    static MyFunction getMyFunction() {   // 반환타입이 MyFunction
-        MyFunction f = () -> System.out.println("f3.run()");
-        return f;
-    }
+    class Inner {
+        int val = 20;
 
-    public static void main(String[] args) {
-        MyFunction f1 = () -> System.out.println("f1.run()");
+        void method(int i) {  // void method(final int i) { }
+            int val = 30;     // final int val = 30;
+            //i = 30;         // 에러. 상수의 값을 변경할 수 없음
 
-        MyFunction f2 = new MyFunction() {
-            @Override
-            public void run() {  // public 반드시 붙여야 함
-                System.out.println("f2.run()");
-            }
-        };
+            MyFunction f = () -> {
+                System.out.println("i : " + i);
+                System.out.println("val : " + val);
+                System.out.println("this.val : " + this.val);
+                System.out.println("Outer.this.val : " + Outer.this.val);
+            };
 
-        MyFunction f3 = getMyFunction();
-        f1.run();
-        f2.run();
-        f3.run();
-
-        execute(f1);
-        execute(() -> System.out.println("run()"));
+            f.myMethod();
+        }
     }
 }
 
