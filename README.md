@@ -19,6 +19,8 @@
 
 * [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
 
+* [Function Interface]()
+
 <br>
 
 ### Data Structrue
