@@ -21,6 +21,8 @@
 
 * [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
 
+* [Java8 Interface]()
+
 <br>
 
 ### Data Structrue
