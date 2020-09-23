@@ -1,13 +1,37 @@
 package Java.ExampleCode;
 
-import java.util.function.Function;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
 
 public class Test {
-    public static void main(String[] args) {
-        Function<Integer, Integer> plus = (i) -> i + 10;
-        Function<Integer, Integer> multiply = (i) -> i * 2;
 
-        System.out.println(plus.andThen(multiply).apply(2));
+    private void run() {
+        int baseNumber = 10;
+
+        // 로컬 클래스
+        class LocalClass {
+            void printBaseNumber() {
+                int baseNumber = 11;
+                System.out.println(baseNumber);
+            }
+        }
+
+
+        // 익명 클래스
+        Consumer<Integer> integerConsumer = new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(baseNumber);
+            }
+        };
+
+        // 람다
+        IntConsumer printInt = (i) -> {
+            System.out.println(i + baseNumber);
+        };
+    }
+
+    public static void main(String[] args) {
     }
 }
 

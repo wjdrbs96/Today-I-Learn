@@ -338,3 +338,47 @@ Outer.this.val : 10
 
 `람다식 내에서 참조하는 지역변수는 final이 붙지 않았어도 상수로 간주된다` 따라서 위의 코드를 보면 람다식 내의 `지역변수 i와 val`을
 참조하고 있으므로 람다식 내에서나 다른 어느곳에서도 값을 변경하는 일은 허용되지 않는다. 
+
+
+<br>
+
+### 스코프 정리
+
+```java
+public class Test {
+
+    private void run() {
+        int baseNumber = 10;
+
+        // 로컬 클래스
+        class LocalClass {
+            void printBaseNumber() {
+                int baseNumber = 11;
+                System.out.println(baseNumber);
+            }
+        }
+
+
+        // 익명 클래스
+        Consumer<Integer> integerConsumer = new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(baseNumber);
+            }
+        };
+
+        // 람다
+        IntConsumer printInt = (i) -> {
+            System.out.println(i + baseNumber);
+        };
+    }
+}
+```
+
+위의 코드가 있을 때 `익명클래스`, `로컬클래스`는 내부 `스코프`를 가지기 때문에 내부에 `baseNumber`라는 변수를 선언하면
+`Test`클래스에 있는 `baseNumber` 필드가 가려지고 내부에 선언된 `baseNumber` 변수를 사용하게 된다.
+
+<br>
+
+하지만, `람다`는 `Test`클래스의 스코프와 같기 때문에 `람다`내부에서 다시한번 `baseNumber`를 선언할 수 없다.
+
