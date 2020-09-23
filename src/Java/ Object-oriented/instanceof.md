@@ -61,13 +61,13 @@ public class Test {
     public static void main(String[] args) {
         FireEngine fe = new FireEngine();
 
-        if (fe instanceof FireEngine) {
+        if (fe instanceof FireEngine) {  // 다운캐스팅 가능
             System.out.println("This is a FireEngine instance");
         }
-        if (fe instanceof Car) {
+        if (fe instanceof Car) {         // 업캐스팅 가능
             System.out.println("This is a Car instance");
         }
-        if (fe instanceof Object) {
+        if (fe instanceof Object) {      // 업캐스팅 가능
             System.out.println("This is a Object instance");
         }
         System.out.println(fe.getClass().getName());

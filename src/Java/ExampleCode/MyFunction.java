@@ -1,4 +1,4 @@
-package Java;
+package Java.ExampleCode;
 
 @FunctionalInterface
 public interface MyFunction {
