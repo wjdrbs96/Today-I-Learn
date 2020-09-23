@@ -18,7 +18,9 @@
 
 `Function` 인터페이스에 정의되어 있는 두 개의 `디폴트 메소드`를 살펴보려 한다. 
 
-* ### compose 메소드
+<br>
+
+### compose 메소드
 
 `compose`메소드의 사용법을 아래의 예시를 보면서 이해해보자.
 
@@ -39,10 +41,9 @@ public class Test {
 `compose` 메소드가 사용된 곳을 보면 `plus.compose(multiply)`를 볼 수 있다. 이 뜻은 `multiply` 참조변수에 해당하는 람다식을
 먼저 계산하고 그 결과값으로 `plus` 참조변수의 람다식에 입력값으로 넣겠다는 의미이다. 따라서 결과는 14가 나온다.
 
-
 <br>
 
-* ### andThen 메소드
+### andThen 메소드
 
 `andThen` 메소드는 `compose` 메소드의 반대라고 생각하면 된다. 
 
