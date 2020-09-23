@@ -14,6 +14,57 @@
 
 <br>
 
+### `Function` 인터페이스
+
+`Function` 인터페이스에 정의되어 있는 두 개의 `디폴트 메소드`를 살펴보려 한다. 
+
+* ### compose 메소드
+
+`compose`메소드의 사용법을 아래의 예시를 보면서 이해해보자.
+
+```java
+import java.util.function.Function;
+
+public class Test {
+    public static void main(String[] args) {
+        Function<Integer, Integer> plus = (i) -> i + 10;
+        Function<Integer, Integer> multiply = (i) -> i * 2;
+
+        Function<Integer, Integer> plusAndMultiply = plus.compose(multiply);
+        System.out.println(plusAndMultiply.apply(2));   // 14
+    }
+}
+```
+
+`compose` 메소드가 사용된 곳을 보면 `plus.compose(multiply)`를 볼 수 있다. 이 뜻은 `multiply` 참조변수에 해당하는 람다식을
+먼저 계산하고 그 결과값으로 `plus` 참조변수의 람다식에 입력값으로 넣겠다는 의미이다. 따라서 결과는 14가 나온다.
+
+
+<br>
+
+* ### andThen 메소드
+
+`andThen` 메소드는 `compose` 메소드의 반대라고 생각하면 된다. 
+
+```java
+import java.util.function.Function;
+
+public class Test {
+    public static void main(String[] args) {
+        Function<Integer, Integer> plus = (i) -> i + 10;
+        Function<Integer, Integer> multiply = (i) -> i * 2;
+
+        System.out.println(plus.andThen(multiply).apply(2));  // 24
+    }
+}
+```
+
+이번에는 `plus` 람다식을 먼저 실행하고, 그 결과값을 `multiply` 메소드의 입력값으로 넣어 실행하게 된다. 
+
+
+
+<br>
+
 ### 조건식의 표현에 사용되는 `Predicate`
 
 `Predicate`는 `Function`의 변형으로, 반환타입이 `boolean`이라는 것만 다르다. `Predicate`는 조건식을 람다식으로 표현하는데 사용된다.

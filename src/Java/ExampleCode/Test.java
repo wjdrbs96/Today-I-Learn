@@ -1,25 +1,15 @@
 package Java.ExampleCode;
 
+import java.util.function.Function;
+
 public class Test {
     public static void main(String[] args) {
-        FireEngine fe = new FireEngine();
+        Function<Integer, Integer> plus = (i) -> i + 10;
+        Function<Integer, Integer> multiply = (i) -> i * 2;
 
-        if (fe instanceof FireEngine) {
-            System.out.println("This is a FireEngine instance");
-        }
-        if (fe instanceof Car) {
-            System.out.println("This is a Car instance");
-        }
-        if (fe instanceof Object) {
-            System.out.println("This is a Object instance");
-        }
-        System.out.println(fe.getClass().getName());
+        System.out.println(plus.andThen(multiply).apply(2));
     }
 }
-
-class Car { }
-
-class FireEngine extends Car { }
 
 
 
