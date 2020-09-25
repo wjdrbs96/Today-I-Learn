@@ -1,21 +1,19 @@
 package Java.ExampleCode;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Spliterator;
+import java.util.stream.Stream;
 
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("gyun");
-        list.add("hyunwoo");
-        list.add("bobae");
-        list.add("toby");
+        String[] strArr = {"aaa", "ddd", "ccc"};
+        List<String> strList = Arrays.asList(strArr);
 
-        Spliterator<String> spliterator = list.spliterator();
-        Spliterator<String> stringSpliterator = spliterator.trySplit();
-        while (spliterator.tryAdvance(System.out::println));
-        System.out.println("=================");
-        while (stringSpliterator.tryAdvance(System.out::println));
+//        Stream<String> stream = strList.stream();
+//        Stream<String> stream1 = Arrays.stream(strArr);
+
+        Stream<String> sorted = strList.stream().sorted();
+        sorted.forEach(System.out::println);
+        sorted.forEach(System.out::println);  // 에러
     }
 }
