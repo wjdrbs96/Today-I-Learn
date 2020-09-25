@@ -30,4 +30,4 @@
 ### Web
 
 - [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Web/URL%20vs%20URI.md)
-
+- [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Web/RestAPI.md)
