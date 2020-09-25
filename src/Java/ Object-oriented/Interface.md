@@ -146,3 +146,75 @@ public class Test {
 ```
 
 인터페이스 내부에 `static method`를 선언하면 일반적인 `static method`처럼 사용할 수 있다.
+
+
+<br>
+
+### `Interable` 기본메소드
+
+* `forEach()` 메소드
+
+forEach() 메소드는 이름으로 알 수 있듯이 for문의 역할을 하는데 인자로 `Consumer` 타입을 받는 메소드이다.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("gyun");
+        list.add("hyunwoo");
+        list.add("bobae");
+        list.add("toby");
+
+        list.forEach((s) -> System.out.println(s));  // 아래 줄 처럼 줄여서 쓰기 가능
+        list.forEach(System.out::println);   
+    }
+}
+```
+
+`Iterable` 인터페이스에 `default` 메소드로 정의되어 있는 `forEach()` 메소드를 위와 같이 편리하게 사용할 수 있다.
+
+<br>
+
+* `spliterator()` 메소드
+
+spliterator() 메소드는 `Iterable` 인터페이스 있는 `default` 메소드이다. 메소드 역할은 `iterator()` 메소드에 `split()`기능만 추가된 것이라고
+생각하면 된다.
+
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Spliterator;
+
+public class Test {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("gyun");
+        list.add("hyunwoo");
+        list.add("bobae");
+        list.add("toby");
+
+        Spliterator<String> spliterator = list.spliterator();
+        Spliterator<String> stringSpliterator = spliterator.trySplit();
+        while (spliterator.tryAdvance(System.out::println));
+        System.out.println("=================");
+        while (stringSpliterator.tryAdvance(System.out::println));
+    }
+}
+```
+
+```
+bobae
+toby
+=================
+gyun
+hyunwoo
+```
+
+그래서 위와 같이 `tryAdvance()` 메소드를 사용하면 `Iterable` 메소드의 `hasNext()`와 같은 역할이고 `trySplit()`을 하면 쪼개는 메소드이다.
+따라서 결과도 위와 같이 나오는 것도 확인할 수 있다.
+
+
