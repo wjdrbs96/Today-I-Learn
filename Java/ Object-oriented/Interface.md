@@ -150,7 +150,7 @@ public class Test {
 
 <br>
 
-### `Interable` 기본메소드
+### `Iterable` 기본메소드
 
 * `forEach()` 메소드
 
