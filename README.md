@@ -3,31 +3,31 @@
 
 ### Java
 
-- [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/initialization.md)
+- [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
 - [try-with-resources](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Exception%20handling/Try~with~resources.md)
-- [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/instanceof.md)
-- [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
-- [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
-- [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
-- [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/Polymorphism.md)
-- [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
-- [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
-- [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/%20Object-oriented/Interface.md)
-- [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Java/Lambda%20%26%20Stream/methodReference.md)
-- [Stream]()
+- [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
+- [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
+- [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
+- [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
+- [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
+- [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
+- [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
+- [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
+- [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/methodReference.md)
+- [Stream](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
 
 
 ### Data Structrue
 
-- [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Data_Structrue/Graph.md)
+- [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
 
 
 ### DataBase
 
-- [Relation Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/DataBase/Relation.md)
+- [Relation Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Relation.md)
 
 
 ### Web
 
-- [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Web/URL%20vs%20URI.md)
-- [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/src/Web/RestAPI.md)
+- [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/URL%20vs%20URI.md)
+- [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/RestAPI.md)
