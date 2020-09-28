@@ -1,19 +1,15 @@
 package ExampleCode;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
 public class Test {
     public static void main(String[] args) {
-        String[] strArr = {"aaa", "ddd", "ccc"};
-        List<String> strList = Arrays.asList(strArr);
+        Account account = new Account();
 
-//        Stream<String> stream = strList.stream();
-//        Stream<String> stream1 = Arrays.stream(strArr);
-
-        Stream<String> sorted = strList.stream().sorted();
-        sorted.forEach(System.out::println);
-        sorted.forEach(System.out::println);  // 에러
+        account.deposit(10000);
+        try {
+            account.withdraw(30000);
+        } catch (BalanceException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
