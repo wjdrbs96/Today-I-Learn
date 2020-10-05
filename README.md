@@ -33,3 +33,7 @@
 - [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/URL%20vs%20URI.md)
 - [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/RestAPI.md)
 - [HTTP Method](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/HTTP%20Method.md)
+
+### AWS
+
+- [EC2 Basic settings](https://pangtrue.tistory.com/240)
