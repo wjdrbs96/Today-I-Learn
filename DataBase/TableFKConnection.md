@@ -24,13 +24,13 @@ CREATE TABLE blog (
 
 <img src="https://user-images.githubusercontent.com/45676906/95062345-cedb3400-0737-11eb-8094-d3ad2e808499.png">
 
-<br> <br>
+<br> 
 
-테이블을 만들고 나면 위와 같은 화면을 볼 수 있다.
+#### 테이블을 만들고 나면 위와 같은 화면을 볼 수 있다.
 
 <img src="https://user-images.githubusercontent.com/45676906/95059777-532bb800-0734-11eb-8b3b-a411e541e7db.png">
 
-<br> <br>
+<br>
 
 그리고 위와 같이 `Foreign Key` 탭으로 이동하자. 
 
