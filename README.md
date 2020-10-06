@@ -26,8 +26,7 @@
 
 ### Algorithm
 
-- [TimeComplexity]()
-- [Greedy]()
+- [Greedy](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Algorithm/Greedy.md)
  
 ### DataBase
 
