@@ -40,7 +40,8 @@
 - [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/URL%20vs%20URI.md)
 - [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/RestAPI.md)
 - [HTTP Method](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/HTTP%20Method.md)
-- [인증(Authentication) vs 인가(Authorization)]()
+- [인증(Authentication) vs 인가(Authorization)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Authentication%20vs%20Authorization.md)
+- [OAuth 2.0]()
 
 ### AWS
 
