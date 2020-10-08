@@ -34,6 +34,7 @@
 - [MySQL workbench Foreign Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/TableFKConnection.md)
 - [Integrity Constraint](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Integrity.md)
 - [Mapping Cardinality](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/mapping_cardinality.md)
+- [MySQL Workbench ERD 생성]()
 
 ### Web
 
@@ -41,7 +42,7 @@
 - [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/RestAPI.md)
 - [HTTP Method](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/HTTP%20Method.md)
 - [인증(Authentication) vs 인가(Authorization)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Authentication%20vs%20Authorization.md)
-- [OAuth 2.0]()
+- [OAuth 2.0](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Oauth.md)
 
 ### AWS
 
