@@ -131,6 +131,9 @@
 - 어플리케이션이 Confidential Client일 때 id와 secret을 가지고 인증하는 방식이다.
 - 로그인시에 API에 POST로 grant_type=client_credentials 라고 넘긴다.
 
-### Reference
+
+<br>
+
+# Reference
 
 [https://showerbugs.github.io/2017-11-16/OAuth-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C](https://showerbugs.github.io/2017-11-16/OAuth-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C)
