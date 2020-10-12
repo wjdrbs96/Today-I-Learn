@@ -23,6 +23,12 @@
 `git init` 명령어 후에 `ls -al`을 해보면 `.git` 파일이 생성 된 것을 알 수 있다. `.git`은 로컬 Git 저장소라고 생각하면 된다.
 이 저장소 안에 모든 커밋들이 들어있다.
 
+```
+. : 현재 디렉토리
+.. : 부모 디렉토리
+.git : 로컬 저장소
+```
+
 <br>
 
 ### 3. git add
@@ -37,6 +43,8 @@
 git add 파일이름 (하나의 파일만을 add)
 git add . (.을 사용하면 변경된 모든 파일을 add)
 ```
+
+<br>
 
 ### 3-1 git status
 
@@ -112,7 +120,7 @@ Git은 생성하거나 수정하고 나서 git add 명령으로 추가하지 않
 
 <br>
 
-## 전체 요약
+# 전체 요약
 
 ![image](https://user-images.githubusercontent.com/45676906/95775271-11cf7580-0cfd-11eb-817a-a3316448dd5c.png)
 
