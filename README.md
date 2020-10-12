@@ -35,7 +35,7 @@
 - [Integrity Constraint](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Integrity.md)
 - [Mapping Cardinality](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/mapping_cardinality.md)
 - [MySQL Workbench ERD 생성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD_Make.md)
-- [NoSQL이란?]()
+- [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
 
 ### Web
 
@@ -54,5 +54,5 @@
 ### Git
 
 - [Git vs Github](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/Git%20vs%20Github.md)
-- [Git 명령어]()
+- [Git 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/git%20%EB%AA%85%EB%A0%B9%EC%96%B4.md)
 
