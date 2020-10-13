@@ -134,7 +134,7 @@ Git은 생성하거나 수정하고 나서 git add 명령으로 추가하지 않
 
 ### git push origin 브랜치이름 (ex: git push origin master)
 
-`origin`은 원격서버를 의미한다고 생각하면 된다. 
+`origin`은 원격서버를 의미한다고 생각하면 된다. 따라서 `git push origin master`를 하면 `Github`에 `master`브랜치에 코드를 올리는 과정이라 생각하면 된다.
 
 ![스크린샷 2020-10-13 오전 2 45 07](https://user-images.githubusercontent.com/45676906/95775836-1d6f6c00-0cfe-11eb-93eb-b8f0d86d4fa1.png)
 
@@ -153,7 +153,8 @@ Git은 생성하거나 수정하고 나서 git add 명령으로 추가하지 않
 
 <br>
 
-위의 명령어를 모두 다 알아야 하는 것은 아니지만 이런 명령어들이 있구나 하면서 참고하면 좋을 것 같다.
+위의 명령어를 모두 다 알아야 하는 것은 아니지만 이런 명령어들이 있구나 하면서 참고하면 좋을 것 같다. 
+다음 글에서는 `GitKraken`을 이용해서 `Git`을 사용하는 법을 정리하려 한다.
 
 
 
