@@ -148,6 +148,124 @@ public class Test2 {
 }
 ```
 
- 
+<br>
 
+### 정렬 - sorted()
+
+```
+Stream<T> sorted()
+Stream<T> sorted<Comparator<? super T> comparator)
+```
+
+sorted는 지정된 Comparator로 스트림을 정렬하는데, Comparator대신 int값을 반환하는 람다식을 사용하는 것도 가능하다. Comparator를 지정하지 않으면
+스트림 요소의 기본 정렬 기준(Comparable)으로 정렬한다. 단, 스트림의 요소가 Comparable을 구현한 클래스가 아니면 예외가 발생한다.
+
+```java
+import java.util.stream.Stream;
+
+public class Test2 {
+    public static void main(String[] args) {
+        Stream<String> strStream = Stream.of("dd", "aaa", "cc", "b");
+        strStream.sorted().forEach(System.out::print);                               // 오름차순 정렬
+
+        System.out.println();
+        Stream<String> strStream1 = Stream.of("dd", "aaa", "cc", "b");
+        strStream1.sorted((s1, s2) -> s2.compareTo(s1)).forEach(System.out::printf);  // 역순 정렬
+    }
+}
+```
+ 
+<br>
+
+### 변환 - map()
+
+스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있다. 이 때 사용하는 것이 바로 `map()`이다.
+이 메소드의 선언부는 아래와 같으며, `매게변수로 T타입을 R타입으로 변환해서 반환하는 함수를 지정해야한다.`
+
+```
+Stream<R> map(Function<? super T, ? extends R> mapper)
+``` 
+
+예를 들어 File의 스트림에서 파일의 이름만 뽑아서 출력하고 싶을 때, 아래와 같이 `map()`을 이용하면 File객체에서 파일의 이름(String)만 간단히 뽑아낼 수 있다.
+
+```java
+import java.io.File;
+import java.util.stream.Stream;
+
+public class Test2 {
+    public static void main(String[] args) {
+        Stream<File> fileStream = Stream.of(new File("Ex1.java"), new File("Ex1"), new File("Ex1.txt"));
+        Stream<String> stringStream = fileStream.map(File::getName);
+        stringStream.forEach(System.out::println);
+    }
+}
+```
+```
+Ex1.java
+Ex1
+Ex1.txt
+```
+
+<br>
+
+그리고, `map()`도 `filter()`처럼 하나의 스트림에 여러 번 적용할 수 있다. 
+
+```java
+import java.io.File;
+import java.util.stream.Stream;
+
+public class Test2 {
+    public static void main(String[] args) {
+        Stream<File> fileStream = Stream.of(new File("Ex1.java"), new File("Ex1"), new File("Ex1.txt"));
+        fileStream.map(File::getName)
+                .filter(s -> s.indexOf('.') != -1)   // 확장자가 없는 것은 제외
+                .map(s -> s.substring(s.indexOf('.') + 1)) // 확장자만 출력하기 위함
+                .map(String::toUpperCase)  // 대문자로 변경 
+                .distinct()   // 중복 제거 
+                .forEach(System.out::println);  
+    }
+}
+```
+
+<br>
+
+### flatMap() - Stream<T[]>를 Stream<T>로 변환
+
+스트림의 요소가 배열이거나 map()의 연산결과가 배열인 경우, 즉 `스트림의 타입이 Stream<T>인 경우, Stream<T>로 다루는 것이 더 편리`할 때가 있다.
+그럴 때는 `map()대신 flatMap()을 사용하면 된다.`
+
+```java
+import java.util.stream.Stream;
+
+public class Test2 {
+    public static void main(String[] args) {
+        Stream<String[]> strArrStream = Stream.of(
+                new String[]{"abc", "def", "ghi"},
+                new String[]{"ABC", "DEF", "GHI"}
+        );
+    }
+}
+```
+
+각 요소의 문자열들을 합쳐서 문자열이 요소인 스트림, `즉 Stream<String>으로 만들려면 어떻게 해야할까?`
+
+<br>
+
+먼저 스트림의 요소를 변환해야하니까 일단 map()을 써야할 것이고 여기에 배열을 스트림으로 만들어주는 Arrays.stream(T[])를 함께 사용해보자.
+
+```
+Stream<Stream<String>> strStrStream = strArrStream.map(Arrays::stream);
+```
+
+예상한 것과 달리, Stream<String[]>을 `map(Arrays::stream)`으로 변환할 결과는 Stream<String>이 아닌, Stream<Stream<String>>이다. 즉, 스트림의 스트림인 것이다.
+
+<br>
+
+각 요소의 문자열들이 합쳐지지 않고, 스트림의 스트림 형태로 되어버렸다. 이 때, 간단히 map()을 아래와 같이 flatMap()으로 바꾸기만 하면 원하는 결과를 얻을 수 있다.
+
+<br>
+
+```
+Stream<String> strStream = strArrStream.flatMap(Arrays::stream);
+```
 
