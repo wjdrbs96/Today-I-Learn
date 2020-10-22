@@ -8,7 +8,7 @@
 
 <br>
 
-# CLI로 `git branch`와 `git checkout`: 새로운 브랜치 생성과 이동
+# `git branch`와 `git checkout`: 새로운 브랜치 생성과 이동
 
 
 ## 1. `git branch`: 새로운 브랜치 생성
@@ -26,6 +26,8 @@ git branch
 git branch 브랜치이름
 ex) git branch feature_jg
 ```
+
+<br>
 
 `git branch 브랜치이름` 명령을 실행하면 `브랜치이름`의 브랜치가 만들어진다. 위의 명령어라면 `feature_jg` 브랜치가 만들어진다.
 
@@ -189,6 +191,7 @@ git stash pop (stash의 가장 최근에 넣어둔 것을 꺼내온다)
 
 
 먼저 `feature_jg` 브랜치에서 `branch.md` 파일을 수정한 후에 위와 같이 `commit`을 하면 다른 브랜치로 넘어갈 수 있다.
+그리고 이제 하나의 기능이 다 완성이 되어서 브랜치를 넘어갈 때 임시로 했던 커밋들을 합치는 과정을 해보자.
 
 <br>
 
