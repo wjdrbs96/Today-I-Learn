@@ -200,6 +200,9 @@ git stash pop (stash의 가장 최근에 넣어둔 것을 꺼내온다)
 ```
 git rebase -i HEAD~~
 Tip: ~은 커밋 내역 하나를 의미한다. 포시한 수 만큼 커밋을 되돌린다. 하나면 최종 커밋 내역일 것이고 두 개면 최종 커밋 내역과 바로 전 커밋 내역이 된다. 
+
+git rebase -i HEAD~i 
+ex) git rebase -i HEAD~3 (3개의 커밋을 합칠 수 있다)
 ```
 
 <img width="712" alt="스크린샷 2020-10-22 오후 7 14 48" src="https://user-images.githubusercontent.com/45676906/96858162-dbcb8780-149a-11eb-9161-830bd5844f6b.png">
