@@ -1,8 +1,12 @@
 # .gitignore란?
 
 `.gitignore`파일이란 `Git 버전 관리에서 제외할 파일 목록을 지정하는 파일`이다. git으로 프로젝트를 관리할 때, 그 프로젝트 안의
-특정파일들은 관리할 필요가 없는 경우가 있다. 예를들면 NodeJS npm Module, 컴파일된 파일이 있다. 그리고 서버파트의 예로 반드시 `.gitignore`를
-해야 하는 것이 있다. (AWS RDS(Id, password), S3(엑세스키, 비번), JWT Secret Key 등등은 `절대로` Git에 올려서는 안된다.
+특정파일들은 관리할 필요가 없는 경우가 있다. 
+
+### 예를들면 
+
+- NodeJS npm Module, 컴파일된(class) 파일이 있다. 
+- 서버파트의 예로 반드시 `.gitignore`를 해야 하는 것이 있다. (AWS RDS(Id, password), S3(엑세스키, 비번), JWT Secret Key 등등은 `절대로` Git에 올려서는 안된다.
 
 <br>
 
@@ -55,13 +59,34 @@
 
 ### 무슨말 인지 아래의 실습을 보면서 이해해보자. 
 
-위에서 만들었던 `study.md` 파일을 아래와 같이 `.gitignore`에 적어보자. 
+위에서 만들었던 `study.md` 파일을 먼저 `Github`에 올려보자. 그리고 아래와 같이 `.gitignore`에 `study.md`를 추가해보자. 
 
 ![스크린샷 2020-10-22 오전 3 19 34](https://user-images.githubusercontent.com/45676906/96766020-69fd2a80-1415-11eb-8a18-bfcecce06408.png)
 
 <br>
 
+그리고 `study.md` 파일을 수정한 후에 다시  `GitKraken`을 보면 아래와 같이 Git이 추적하고 있음을 알 수 있다. 
 
+<img width="399" alt="스크린샷 2020-10-22 오후 3 46 04" src="https://user-images.githubusercontent.com/45676906/96834875-b2503300-147d-11eb-8061-ac685159da1e.png">
+
+<br>
+
+이러한 경우에는 아래의 명령어를 통해서 수동으로 파일을 제외시켜야 한다.
+
+```
+git rm -r --cached .  (현재 레포지토리의 캐시를 모두 삭제한다.)
+git add .
+git status
+git commit -m "fixed untracked files"
+```
+
+<br>
+
+![스크린샷 2020-10-22 오후 3 52 15](https://user-images.githubusercontent.com/45676906/96835460-8f724e80-147e-11eb-9723-ecc84af671a5.png)
+
+<br>
+
+위와 같이 `delete study.md`를 보면 알 수 있듯이 `.gitignore`가 적용이 되어 Git의 추적을 받지 않게 되는 것을 알 수 있다.
 
 <br>
 
