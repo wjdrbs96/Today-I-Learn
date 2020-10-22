@@ -21,7 +21,6 @@ git branch
 
 <img width="662" alt="스크린샷 2020-10-22 오후 4 24 21" src="https://user-images.githubusercontent.com/45676906/96838612-0c072c00-1483-11eb-9f78-e4bd65c0c7a7.png">
 
-<br>
 
 ```
 git branch 브랜치이름
