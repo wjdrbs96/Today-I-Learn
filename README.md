@@ -55,4 +55,7 @@
 
 - [Git vs Github](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/Git%20vs%20Github.md)
 - [Git 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/git%20%EB%AA%85%EB%A0%B9%EC%96%B4.md)
-
+- [기본 유닉스 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/%EA%B8%B0%EB%B3%B8%EC%9C%A0%EB%8B%89%EC%8A%A4%EB%AA%85%EB%A0%B9%EC%96%B41.md)
+- [vi editor 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/vi%EC%97%90%EB%94%94%ED%84%B0%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+- [.gitignore란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/gitignore%EB%9E%80%3F.md)
+- [브랜치 관리]()
