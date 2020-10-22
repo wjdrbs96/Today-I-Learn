@@ -34,13 +34,13 @@
 
 <br>
 
-## 진짜로 그런지 일반 파일을 만들어보자.
+## 진짜로 그런지 파일을 하나 더 만들어보자.
 
 ![스크린샷 2020-10-22 오전 3 08 29](https://user-images.githubusercontent.com/45676906/96760381-de36ce80-1413-11eb-86ed-c14d876ba55e.png)
 
 <br>
 
-`study.md` 파일을 위와 같이 만들었다. 다시 `GitKraken`에서 확인을 해보자. 
+.gitignore에 적지 않은 `study.md` 파일을 위와 같이 만들었다. 다시 `GitKraken`에서 확인을 해보자. 
 
 <img width="391" alt="스크린샷 2020-10-22 오전 3 09 07" src="https://user-images.githubusercontent.com/45676906/96760771-f4448f00-1413-11eb-9f99-1becf03828d0.png">
 
