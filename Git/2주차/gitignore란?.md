@@ -46,7 +46,7 @@
 
 <br>
 
-이번에는 `study.md` 파일이 보이는 것을 알 수 있다. 이렇게 `.gitignore`에 추가하면 git의 추적을 받지 않는 파일이 된다는 의미이다. 
+이번에는 `study.md` 파일이 보이는 것을 알 수 있다. 이렇게 `.gitignore`에 추가하면 git의 추적을 받지 않는 파일이 되는 것이 입증이 되었다. 
 
 
 <br>
@@ -90,7 +90,7 @@ git commit -m "fixed untracked files"
 
 <br>
 
-## 알아두면 좋은 곳
+# 알아두면 좋은 곳
 
 [여기](https://www.toptal.com/developers/gitignore) 접속해보면 아래와 같은 화면을 만날 수 있다.  
 
@@ -125,4 +125,4 @@ git commit -m "fixed untracked files"
 
 <br>
 
-그러면 위와 같은 `.gitignore` 파일을 생성해준다. 만약에 본인이 하는 프로젝트에 `.gitignore` 파일이 필요하다면 이렇게 만드는 것도 좋은 방법인 것 같다.
+그러면 위와 같은 `.gitignore` 파일을 생성해준다. 만약에 본인이 하는 프로젝트에 `.gitignore` 파일이 필요하다면 이렇게 만드는 것도 하나의 방법인 것 같다.
