@@ -6,9 +6,9 @@
 - 목적과 기능별로 분리를 하여 작업할 수 있어 효율적이다.
 - 버전 관리를 모르던 상황이면 복사와 붙여넣기로 실험을 해야 했었을 것이지만, Git의 브랜치 기능을 통해서 복사 붙혀넣기를 하지 않고 실험할 수 있다.
 
+<br>
 
-
-# CLI로 해보는 `git branch`와 `git checkout`: 새로운 브랜치 생성과 이동
+# CLI로 `git branch`와 `git checkout`: 새로운 브랜치 생성과 이동
 
 
 ## 1. `git branch`: 새로운 브랜치 생성
@@ -32,7 +32,6 @@ ex) git branch feature_jg
 
 <img width="662" alt="스크린샷 2020-10-22 오후 4 26 11" src="https://user-images.githubusercontent.com/45676906/96838815-4ec90400-1483-11eb-9527-cc5ed4531a26.png">
 
-<br>
 
 위와 같이 브랜치를 만들고 `git branch`를 통해서 현재 branch를 확인해보면 `feature_jg`가 추가된 것을 볼 수 있다.
 (`Tip: 위의 *가 붙어 있는게 현재 위치하고 있는 브랜치이다.`)
@@ -48,7 +47,6 @@ ex) git checkout feature_jg
 
 <img width="661" alt="스크린샷 2020-10-22 오후 4 31 34" src="https://user-images.githubusercontent.com/45676906/96839424-255ca800-1484-11eb-92e6-7a3c4bba2843.png">
 
-<br>
 
 위와 같이 브랜치가 `master -> feature_jg`로 이동이 되었다. 
 
@@ -100,7 +98,6 @@ vi branch.md
 
 <img width="661" alt="스크린샷 2020-10-22 오후 4 38 43" src="https://user-images.githubusercontent.com/45676906/96840164-0f031c00-1485-11eb-8f07-0868689c734e.png">
 
-<br>
 
 ### 그런데 여기서 master 브랜치(다른 브랜치)로 넘어가고 싶다면 어떻게 할까?
 
@@ -141,7 +138,6 @@ git stash는 아직 마무리하지 않은 작업을 스택에 잠시 저장할 
 
 <img width="658" alt="스크린샷 2020-10-22 오후 4 53 44" src="https://user-images.githubusercontent.com/45676906/96841769-26db9f80-1487-11eb-8f40-7117e4793c83.png">
 
-<br>
 
 위와 같이 수정했던 내용이 `stash`에 저장이 된 것을 볼 수 있다.
 
@@ -192,7 +188,6 @@ git stash pop (stash의 가장 최근에 넣어둔 것을 꺼내온다)
 
 <img width="705" alt="스크린샷 2020-10-22 오후 6 49 03" src="https://user-images.githubusercontent.com/45676906/96855117-424ea680-1497-11eb-95f1-114a56c0a54d.png">
 
-<br>
 
 먼저 `feature_jg` 브랜치에서 `branch.md` 파일을 수정한 후에 위와 같이 `commit`을 하면 다른 브랜치로 넘어갈 수 있다.
 
@@ -207,7 +202,6 @@ Tip: ~은 커밋 내역 하나를 의미한다. 포시한 수 만큼 커밋을 �
 
 <img width="712" alt="스크린샷 2020-10-22 오후 7 14 48" src="https://user-images.githubusercontent.com/45676906/96858162-dbcb8780-149a-11eb-9161-830bd5844f6b.png">
 
-<br>
 
 `rebase` 명령어를 치면 위와 같은 화면을 볼 수 있다. 두 커밋의 요약 정보가 커밋 메세지로 표시된다.
 
@@ -223,7 +217,6 @@ Tip: ~은 커밋 내역 하나를 의미한다. 포시한 수 만큼 커밋을 �
 
 <img width="714" alt="스크린샷 2020-10-22 오후 7 17 16" src="https://user-images.githubusercontent.com/45676906/96858490-47adf000-149b-11eb-9c33-9731654ed4cd.png">
 
-<br>
 
 삭제할 커밋메세지를 `fixup`으로 바꾼 후에 `ESC + wq`로 저장을 하자. 그리고 다시 확인을 해보면 커밋이 하나로 합쳐진 것을 확인할 수 있다.
 
@@ -237,7 +230,6 @@ git commit --amend
 
 <img width="702" alt="스크린샷 2020-10-22 오후 7 24 57" src="https://user-images.githubusercontent.com/45676906/96859348-5c3eb800-149c-11eb-85b6-b40ed92f4fa5.png">
 
-<br>
 
 위의 명령어를 친 후에 네모 표시에 있는 커밋메세지를 수정한 후에 `ESC + wq`로 저장하면 커밋메세지를 수정할 수 있다. 
 
