@@ -1,16 +1,12 @@
 package ExampleCode;
 
-public class Test2 {
-    static int data = 10;
-    public static void main(String[] args) {
-        int data = 5;
-        data++;
-        System.out.println(data);
-        ttt();
-    }
+import java.util.Optional;
 
-    static void ttt() {
-        data++;
-        System.out.println(data);
+public class Test2 {
+    public static void main(String[] args) {
+        Integer integer = Optional.of("")
+                .filter(x -> x.length() > 0)
+                .map(Integer::parseInt).orElse(-1);
+        System.out.println(integer.intValue());
     }
 }
