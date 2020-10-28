@@ -12,7 +12,7 @@
 - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
 - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
 - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
-- [enums이란?]()
+- [enums]()
 - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
 - [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
 - [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
@@ -23,7 +23,8 @@
 
 ### JavaScript
 
-- [스코프(Scope)]()
+- [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
+- [실행 컨텍스트(Execution Context)란?]()
 
 
 ### Data Structrue
@@ -66,5 +67,5 @@
 - [vi editor 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/vi%EC%97%90%EB%94%94%ED%84%B0%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [.gitignore란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/gitignore%EB%9E%80%3F.md)
 - [CLI 브랜치 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/CLI%EB%A1%9C%20%ED%95%B4%EB%B3%B4%EB%8A%94%20%EB%B8%8C%EB%9E%9C%EC%B9%98%EA%B4%80%EB%A6%AC.md)
-- [Git Flow]()
-- [Git Merge, Conflict & Resolve]()
+- [Git Flow](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/3%EC%A3%BC%EC%B0%A8/Git-Flow.md)
+- [Git Merge, Conflict & Resolve](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/3%EC%A3%BC%EC%B0%A8/%EB%B8%8C%EB%9E%9C%EC%B9%98%20%ED%86%B5%ED%95%A9%ED%95%98%EA%B8%B0.md)
