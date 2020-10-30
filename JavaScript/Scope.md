@@ -119,3 +119,11 @@ wrapper();
  함수를 처음 선언하는 순간, 함수 내부의 변수는 자기 스코프로부터 가장 가까운 곳(상위 범위에서)에 있는 변수를 계속 참조하게 된다. 
  위의 예시에서는 log 함수 안의 name 변수는 선언 시 가장 가까운 전역변수 name을 참조하게 됩니다. 
  그래서 wrapper 안에서 log를 호출해도 지역변수 name='Gyun'를 참조하는 게 아니라 그대로 전역변수 name의 값인 Gyunny가 나오는 것이다.
+ 
+<br>
+
+# Reference
+
+- [https://poiemaweb.com/js-execution-context](https://poiemaweb.com/js-execution-context)
+- [https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0](https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0)
+
