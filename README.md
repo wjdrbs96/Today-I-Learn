@@ -56,8 +56,7 @@
 
 ### DevOps
 
-- Docker
-    - [Mac OS Docker 설치](https://whitepaek.tistory.com/38)
+- [Mac OS Docker 설치](https://whitepaek.tistory.com/38)
 
 
 ### AWS
