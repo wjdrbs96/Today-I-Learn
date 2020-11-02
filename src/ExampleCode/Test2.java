@@ -1,18 +1,27 @@
 package ExampleCode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+public class Test2<T> {
+    String title;
+    T first, second;
 
-public class Test2 {
+    public Test2(String title) {
+        this.title = title;
+    }
+
+    void add(T o) {
+        if (first == null) {
+            first = o;
+        }
+        else if (second == null) {
+            second = o;
+        }
+        else {
+            first = second;
+            second = o;
+        }
+    }
+
     public static void main(String[] args) {
-        List<String> animals = new ArrayList<>();
-        animals.add("dog");
-        animals.add("horse");
-        animals.add("cat");
-
-        Collections.sort(animals, (s1, s2) -> s2.length() - s1.length());
-
-        System.out.println(animals.get(0));
+        Test2<Integer> test2 = new Test2<>("제목입니다");
     }
 }
