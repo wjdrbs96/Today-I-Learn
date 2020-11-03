@@ -74,3 +74,48 @@ git fetch : 로컬 저장소와 원격 저장소의 변경 사항이 다를 때 
 
 <br>
 
+
+```
+git add .
+git status 
+git commit -m "커밋 메세지"
+git push origin master
+```
+
+위와 같이 진행하면 아래와 같이 거절 메세지를 볼 수 있다.
+
+<img width="695" alt="스크린샷 2020-11-03 오후 11 33 54" src="https://user-images.githubusercontent.com/45676906/97998143-1800cf80-1e2d-11eb-95b0-6e6ac496168c.png">
+
+자세히 보면 push를 하기 전에 pull을 하라고 한다. 
+
+<br>
+
+## push하기 전에 pull하라는 이유가 무엇일까?
+
+지금까지 잘 따라왔다면 바로 알 수 있을 것이다. Github 레포지토리의 README.md를 수정한 내용이 나의 로컬 저장소에 최신화 되어 있지 않기 때문에
+pull을 통해 remote Repository의 커밋을 가져와 나의 로컬 저장소와 합친 후에 push를 해야한다.
+
+<br>
+
+```
+git pull origin master
+```
+
+위의 명령어를 입력하면 아래와 같이 Merge를 하는 화면을 볼 수 있다.
+
+
+<img width="692" alt="스크린샷 2020-11-03 오후 11 36 51" src="https://user-images.githubusercontent.com/45676906/97998491-82197480-1e2d-11eb-931d-d04d15464e7c.png">
+
+그러면 아래와 같은 결과를 볼 수 있다. 
+
+<img width="686" alt="스크린샷 2020-11-03 오후 11 37 57" src="https://user-images.githubusercontent.com/45676906/97998588-a5dcba80-1e2d-11eb-83e3-5b4a26aca7f3.png">
+
++는 추가 -는 삭제가 된 것을 뜻한다. 
+
+<br>
+
+그리고 `git push origin master`를 진행하면 remote 레포지토리에 push를 할 수 있다. 
+
+<img width="1792" alt="스크린샷 2020-11-03 오후 11 39 40" src="https://user-images.githubusercontent.com/45676906/97998810-e9cfbf80-1e2d-11eb-8821-127a35ec5d04.png">
+
+그리고 `GitKraken`을 확인하면 위와 같이 잘 Merge가 된 것도 확인할 수 있다. 
