@@ -76,7 +76,7 @@
 - [MarkDown 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [Octotree 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/Octotree.md)
 - [Clone vs Fork의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/Clone%20vs%20Fork.md)
-- [remote 사용법]()
+- [remote 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/remote%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [pull과 fetch의 차이는?]()
 
 
