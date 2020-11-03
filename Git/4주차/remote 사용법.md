@@ -109,4 +109,5 @@ git에서는 서로 관련 기록이 없는 이질적인 두 프로젝트를 병
 
 ```
 git pull origin 브랜치명 --allow-unrelated-histories
+ex) git pull origin master --allow-unrelated-histories
 ```
