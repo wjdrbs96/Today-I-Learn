@@ -6,7 +6,7 @@ clone과 fork의 차이는 무엇인지 하나씩 알아보자.
 
 # 1. clone이란?
 
-- clone은 특정 Repository를 나의 로컬 PC에 복사하여 저장하는 기능이다. clone한 원본 repository를 remote 저장소 origin으로 갖고 있다. 
+- clone은 특정 원격 Repository를 나의 로컬 PC에 복사하여 가져오는 기능이다.
 
 - 원격 공간에서는 수정하거나 작업할 수 없기 때문에 clone을 통해 원격에 공개된 저장소를 작업할 로컬 공간에 내려 받는 기능이다.
 
@@ -40,6 +40,23 @@ pull request 하기 전까지는 내 github에 있는 fork한 repository에만 �
 내가 만든 코드가 승인되면 해당 저장소에 Merge 된다.
 
 ![스크린샷 2020-11-03 오전 1 25 25](https://user-images.githubusercontent.com/45676906/97892556-7ff2df80-1d73-11eb-9fdc-064586883914.png)
+
+<br>
+
+## Fork 예시
+
+### Fork 한 원본 레포지토리
+
+<img width="1792" alt="스크린샷 2020-11-03 오전 1 30 14" src="https://user-images.githubusercontent.com/45676906/97893173-479fd100-1d74-11eb-81d9-6ebc13087d5e.png">
+
+<br>
+
+### Fork 한 후에 나의 Github Repository
+
+<img width="1792" alt="스크린샷 2020-11-03 오전 1 30 07" src="https://user-images.githubusercontent.com/45676906/97893166-453d7700-1d74-11eb-90df-3e392e3c2195.png">
+
+그러면 위와 같이 `아이디/레포지토리이름`을 보았을 때 `아이디`가 다른 것을 알 수 있다. 
+
 
 <br>
 
