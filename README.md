@@ -72,7 +72,7 @@
 - [.gitignore란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/gitignore%EB%9E%80%3F.md)
 - [CLI 브랜치 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/CLI%EB%A1%9C%20%ED%95%B4%EB%B3%B4%EB%8A%94%20%EB%B8%8C%EB%9E%9C%EC%B9%98%EA%B4%80%EB%A6%AC.md)
 - [Git Flow](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/3%EC%A3%BC%EC%B0%A8/Git-Flow.md)
-- [Git Merge, Conflict & Resolve](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/3%EC%A3%BC%EC%B0%A8/%EB%B8%8C%EB%9E%9C%EC%B9%98%20%ED%86%B5%ED%95%A9%ED%95%98%EA%B8%B0.md)
+- [Git Merge, Conflict & Resolve란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/3%EC%A3%BC%EC%B0%A8/%EB%B8%8C%EB%9E%9C%EC%B9%98%20%ED%86%B5%ED%95%A9%ED%95%98%EA%B8%B0.md)
 - [MarkDown 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [Octotree 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/Octotree.md)
 - [Clone vs Fork의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/Clone%20vs%20Fork.md)
