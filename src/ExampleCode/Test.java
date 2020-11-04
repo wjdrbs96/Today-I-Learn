@@ -1,19 +1,30 @@
 package ExampleCode;
 
-import java.util.Set;
-import java.util.TreeSet;
+public class Test<T> {
+    private String title;
+    private T first, second;
 
-public class Test {
+    public Test(String title) {
+        this.title = title;
+    }
+
+    void add(T o) {
+        if (first == null) {
+            first = o;
+        } else if (second == null) {
+            second = null;
+        }
+        else {
+            first = second;
+            second = o;
+        }
+    }
+
     public static void main(String[] args) {
-        Set<String> set = new TreeSet<>();
+        Test<String> testString = new Test<>("String title");
+        Test<Integer> testInteger = new Test<>("Integer title");
 
-        set.add("1");
-        set.add("2");
-        set.add("3");
-        set.add("1");
-        set.add("2");
-
-        set.forEach(System.out::println);
+        testString.add("String");
+        testInteger.add(1);
     }
 }
-

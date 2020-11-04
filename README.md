@@ -44,6 +44,7 @@
 - [Mapping Cardinality](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/mapping_cardinality.md)
 - [MySQL Workbench ERD 생성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD_Make.md)
 - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
+- [Data Modeling이란?]()
 
 ### Web
 
