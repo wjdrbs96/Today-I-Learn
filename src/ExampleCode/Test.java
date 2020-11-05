@@ -1,30 +1,27 @@
 package ExampleCode;
 
-public class Test<T> {
-    private String title;
-    private T first, second;
+public class Test {
+    String name;
+    String address;
 
-    public Test(String title) {
-        this.title = title;
+    private static final Test test = new Test();
+
+    public Test() {
+
     }
 
-    void add(T o) {
-        if (first == null) {
-            first = o;
-        } else if (second == null) {
-            second = null;
-        }
-        else {
-            first = second;
-            second = o;
-        }
+    public Test(String name) {
+        this.name = name;
+    }
+
+    public static Test getTest() {
+        return test;
     }
 
     public static void main(String[] args) {
-        Test<String> testString = new Test<>("String title");
-        Test<Integer> testInteger = new Test<>("Integer title");
+        Test ttt = new Test("이름"); // 생성자를 통해 객체 생성 => 매번 새로운 객체
 
-        testString.add("String");
-        testInteger.add(1);
+        Test ttt1 = getTest(); // 정적 팩토리 메소드를 통해 객체 생성
     }
 }
+

@@ -21,6 +21,11 @@
 - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
 - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
 
+### Effective Java
+
+- 2장 객체 생성의 파괴
+    - [아이템1 : 생성자 대신 정적 팩터리 메소드를 고려하라]()
+
 ### JavaScript
 
 - [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
