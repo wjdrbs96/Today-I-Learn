@@ -143,12 +143,57 @@ public class Test {
 - 컬렉션 프레임워크는 이 45개 클래스를 공개하지 않기 때문에 API를 훨씬 작게 만들 수 있었다. API가 작아진 것은 물론 개념적인 무게, 즉 프로그래머가 API를 사용하기 위해 익혀야 하는 개념의 수와 난이도도 낮췄다.
 - 정적 팩토리 메소드를 사용하는 사용자는 얻은 객체를 인터페이스만으로 다루게 된다. 
 
+```java
+public interface Item {
+
+    void print();
+
+    static Item createItem(String name){
+        return new Book(name);
+    }
+}
+
+class Book implements Item
+{
+    String name;
+
+    Book(String name){
+        this.name = name;
+    }
+
+    @Override
+    public void print() {
+        System.out.println(name);
+    }
+}
+```
+
 <br>
 
 ### 장점4 : 리턴하는 객체의 클래스가 입력 매게변수에 따라 달라질 수 있다. 
 
 - `입력 매게변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.` 반환 타입의 하위 타입이기만 하면 어떤 클래스의 객체를 반환하든 상관없다.
 - 가령 EnumSet 클래스는 public 생성자 없이 오직 정적 팩토리만 제공하는데, OpenJDK에서는 원소의 수에 따라 두 가지 하위 클래스 중 하나의 인스턴스를 반환한다. 
+
+```java
+public interface Number {
+
+    static Number createNumber(int num){
+        if (num > -1000 && num < 1000){
+            return new SmallNum();
+        }
+        return new BigNum();
+    }
+}
+
+class SmallNum implements Number{
+
+}
+
+class BigNum implements Number{
+
+}
+```
 
 
 <br>
