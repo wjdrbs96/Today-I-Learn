@@ -26,7 +26,7 @@
 - [2장 객체 생성의 파괴](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
     - [아이템1 : 생성자 대신 정적 팩터리 메소드를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item1.md)
     - [아이템2 : 생성자에 매게변수가 많다면 빌더를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item2.md)
-    - [아이템3 : private 생성자나 열거 타입으로 싱글턴임을 보증하라]()
+    - [아이템3 : private 생성자나 열거 타입으로 싱글턴임을 보증하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item3.md)
 
 ### JavaScript
 
