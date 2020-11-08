@@ -27,7 +27,7 @@
     - [아이템1 : 생성자 대신 정적 팩터리 메소드를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item1.md)
     - [아이템2 : 생성자에 매게변수가 많다면 빌더를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item2.md)
     - [아이템3 : private 생성자나 열거 타입으로 싱글턴임을 보증하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item3.md)
-    - [아이템4 : 인스턴스화를 막으려거든 private 생성자를 사용하라]()
+    - [아이템4 : 인스턴스화를 막으려거든 private 생성자를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item4.md)
 
 ### JavaScript
 
