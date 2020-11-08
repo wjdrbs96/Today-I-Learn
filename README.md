@@ -52,6 +52,7 @@
 - [MySQL Workbench ERD 생성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD_Make.md)
 - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
 - [Data Modeling이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Data%20Modeling.md)
+- [정규화란?]()
 
 ### Web
 
