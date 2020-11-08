@@ -31,6 +31,8 @@
 
 ### JavaScript
 
+- [Call Stack & 실행 컨텍스트란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
+- [원시타입(Primitive Type)이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
 - [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
 - [실행 컨텍스트(Execution Context)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Execution_Context.md)
 
