@@ -4,7 +4,7 @@
 ### Java
 
 - [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
-- [Primitive Type vs Reference Type]()
+- [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
 - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
 - [try-with-resources](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/Try~with~resources.md)
 - [User Define Exception](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/UserDefineException.md)
