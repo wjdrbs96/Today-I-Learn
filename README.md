@@ -62,7 +62,9 @@
 - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
 - [Data Modeling이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Data%20Modeling.md)
 - [Transaction이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98.md)
+- [회복과 병행 제어란?]()
 - [정규화란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EC%A0%95%EA%B7%9C%ED%99%94.md)
+
 
 ### Web
 
