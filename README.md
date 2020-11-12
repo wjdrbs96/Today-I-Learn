@@ -1,30 +1,45 @@
 # Today I Learn
 
 
-### Java
+## Java
 
-- [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
-- [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
-- [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
-- [try-with-resources](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/Try~with~resources.md)
-- [User Define Exception](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/UserDefineException.md)
-- [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
-- [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
-- [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
-- [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
-- [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
-- [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
-- [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
-- [Process & Thread란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
-- [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
-- [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
-- [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
-- [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/methodReference.md)
-- [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
-- [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
-- [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
+- ### Java Basic
+    - [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
+    - [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
 
-### Effective Java
+- ### OOP
+    - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
+    - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
+    - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
+    - [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
+    - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
+   
+
+- ### java.lang
+    - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
+    - [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
+    - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
+
+- ### Exception Handling
+    - [try-with-resources](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/Try~with~resources.md)
+    - [User Define Exception](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/UserDefineException.md)
+
+- ### Thread
+    - [Process & Thread란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
+
+
+- ### lambda & Stream
+    - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
+    - [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
+    - [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
+    - [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/methodReference.md)
+    - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
+    - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
+    - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
+
+
+
+## Effective Java
 
 - [2장 객체 생성의 파괴](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
     - [아이템1 : 생성자 대신 정적 팩터리 메소드를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item1.md)
@@ -35,7 +50,7 @@
     - [아이템6 : 불필요한 객체 생성을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item6.md)
     - [아이템7 : 다 쓴 객체 참조를 해제하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item7.md)
 
-### JavaScript
+## JavaScript
 
 - [Call Stack이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
 - [원시타입(Primitive Type)이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
@@ -44,16 +59,16 @@
 - [Primitive Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
 - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
 
-### Data Structrue
+## Data Structrue
 
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
 
 
-### Algorithm
+## Algorithm
 
 - [Greedy](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Algorithm/Greedy.md)
  
-### DataBase
+## DataBase
 
 - [Relation Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Relation.md)
 - [MySQL workbench Foreign Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/TableFKConnection.md)
@@ -67,7 +82,7 @@
 - [정규화란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EC%A0%95%EA%B7%9C%ED%99%94.md)
 
 
-### Web
+## Web
 
 - [URL vs URI](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/URL%20vs%20URI.md)
 - [REST API](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/RestAPI.md)
@@ -76,21 +91,21 @@
 - [OAuth 2.0란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Oauth.md)
 - [MSA란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/MSA.md)
 
-### DevOps
+## DevOps
 
 - [Docker란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DevOps/Docker/Docker%EB%9E%80%3F.md)
 
 
-### AWS
+## AWS
 
 - [EC2 Basic settings](https://pangtrue.tistory.com/240)
 
-### Unix
+## Unix
 
 - [기본 유닉스 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/%EA%B8%B0%EB%B3%B8%EC%9C%A0%EB%8B%89%EC%8A%A4%EB%AA%85%EB%A0%B9%EC%96%B41.md) 
 - [vi editor 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/vi%EC%97%90%EB%94%94%ED%84%B0%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 
-### Git
+## Git
 
 - [Git vs Github](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/Git%20vs%20Github.md)
 - [Git 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/1%EC%A3%BC%EC%B0%A8/git%20%EB%AA%85%EB%A0%B9%EC%96%B4.md)
