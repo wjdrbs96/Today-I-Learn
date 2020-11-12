@@ -98,7 +98,8 @@
 
 ## AWS
 
-- [EC2 Basic settings](https://pangtrue.tistory.com/240)
+- [EC2 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2.md)
+- [EC2 Java Setting](https://pangtrue.tistory.com/240)
 
 ## Unix
 
