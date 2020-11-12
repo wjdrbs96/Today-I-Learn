@@ -72,10 +72,10 @@
 ## DataBase
 
 - [Relation Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Relation.md)
-- [MySQL workbench Foreign Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/TableFKConnection.md)
+- [데이터 언어란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%96%B8%EC%96%B4.md)
 - [Integrity Constraint](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Integrity.md)
-- [Mapping Cardinality](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/mapping_cardinality.md)
-- [MySQL Workbench ERD 생성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD_Make.md)
+- [Mapping Cardinality](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%AC%B4%EA%B2%B0%EC%84%B1%EC%9D%B4%EB%9E%80.md)
+- [MySQL Workbench ERD 생성하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD%20%EB%A7%8C%EB%93%9C%EB%8A%94%EB%B2%95.md)
 - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
 - [Data Modeling이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Data%20Modeling.md)
 - [Transaction이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98.md)
