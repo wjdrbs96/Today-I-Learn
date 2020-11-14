@@ -63,6 +63,10 @@
 - [Primitive Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
 - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
 
+### NodeJS
+
+- [Sequelize 시작하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
+
 ## Data Structrue
 
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
