@@ -52,7 +52,7 @@ where 옵션은 쿼리에서의 WHERE 역할과 같다. 원하는 row만 꺼내�
 
 <br>
 
-## Sequelize findAll
+## `Sequelize findAll`
 
 ```javascript
 const { User } = require('./model/index.js');
@@ -65,7 +65,7 @@ const user = await User.findALl({
 });
 ```
 
-## SQL findAll Query
+## `SQL findAll Query`
 
 ```sql
 SELECT email, userName FROM users WHERE address = '경기도 군포시';
@@ -150,8 +150,13 @@ User.findAll({
     status: 'active'
   }
 });
-// SELECT * FROM post WHERE authorId = 12 AND status = 'active';
 ```
+```sql
+SELECT * FROM post WHERE authorId = 12 AND status = 'active';
+```
+
+<br>
+
 ```javascript
 const { Op } = require("sequelize");
 Post.findAll({
@@ -162,7 +167,9 @@ Post.findAll({
     ]
   }
 });
-// SELECT * FROM post WHERE authorId = 12 AND status = 'active';
+```
+```sql
+SELECT * FROM post WHERE authorId = 12 AND status = 'active';
 ```
 
 이렇게 AND를 사용하는 방법은 다양하다. 
@@ -181,7 +188,9 @@ Post.findAll({
     ]
   }
 });
-// SELECT * FROM post WHERE authorId = 12 OR authorId = 13;
+```
+```sql
+SELECT * FROM post WHERE authorId = 12 OR authorId = 13;
 ```
 
 ```javascript
@@ -193,14 +202,16 @@ Post.destroy({
     }
   }
 });
-// DELETE FROM post WHERE authorId = 12 OR authorId = 13;
+```
+```sql
+DELETE FROM post WHERE authorId = 12 OR authorId = 13;
 ```
 
 이렇게 OR를 사용하는 방법도 다양하게 있다. 
 
 <br>
 
-## Sequelize에서 연산자 사용법
+## `Sequelize에서 연산자 사용법`
 
 ```javascript
 const { Op } = require("sequelize");
@@ -247,6 +258,58 @@ Post.findAll({
 
 <br>
 
+
+## `Like` 사용법
+
+```javascript
+await User.findAll({
+  where: {
+   userName: {
+     [Op.like]: "%" + 'Gyunny' + "%",
+    },
+   },
+});
+```
+```sql
+// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`userName` LIKE '%Gyunny%';
+```
+
+<br>
+
+## `Like` & `And` 사용
+
+```javascript
+await User.findAll({
+   where: {
+     userName: {
+       [Op.like]: "%" + 'Gyunny' + "%",
+     },
+     id: 1
+   },
+});
+```
+```sql
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`userName` LIKE '%Gyunny%' AND `User`.`id` = 1;
+```
+
+
+<br>
+
+## 예제
+
+```javascript
+await User.findAll({
+   where: {
+     id: {
+       [Op.lt]: 1000,
+     }
+   }
+});
+// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`id` < 1000;
+```
+
+<br>
+
 ## `IN` 연산자 사용법
 
 ```javascript
@@ -260,7 +323,7 @@ User.findAll({
 
 <br>
 
-## 그룹화(GROUP BY)
+## `그룹화(GROUP BY)`
 
 ```javascript
 User.findAll({ group: 'userName' });
@@ -270,7 +333,7 @@ User.findAll({ group: 'userName' });
 
 <br>
 
-## Order 사용 법
+## `Order 사용 법`
 
 ```javascript
 const test = await User.findOne({
@@ -284,7 +347,7 @@ const test = await User.findOne({
 
 <br>
 
-## Limit & paging 처리
+## `Limit & paging 처리`
 
 ```javascript
 User.findAll({ limit: 10 });
@@ -299,7 +362,7 @@ User.findAll({ offset: 5, limit: 5 });
 
 <br>
 
-## Sequelize Update(수정)
+## `Sequelize Update(수정)`
 
 ```javascript
 await User.update({ userName: "Gyunny" }, {
@@ -313,7 +376,7 @@ await User.update({ userName: "Gyunny" }, {
 
 <br>
 
-## Sequelize delete(삭제)
+## `Sequelize delete(삭제)`
 
 ```javascript
 // Delete everyone named "Jane"
@@ -326,6 +389,9 @@ await User.destroy({
 // DELETE FROM users WHERE id = 2;
 ```
 
+<br>
+
+### 고급 쿼리는 다음 글에서 정리 ~_~
 
 <br>
 
