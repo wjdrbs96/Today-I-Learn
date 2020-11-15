@@ -193,6 +193,8 @@ Post.findAll({
 SELECT * FROM post WHERE authorId = 12 OR authorId = 13;
 ```
 
+<br>
+
 ```javascript
 const { Op } = require("sequelize");
 Post.destroy({
