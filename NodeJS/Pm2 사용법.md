@@ -88,3 +88,14 @@ cd ~/.pm2/logs
 <img width="655" alt="스크린샷 2020-11-17 오전 1 17 22" src="https://user-images.githubusercontent.com/45676906/99278637-a7b56d80-2872-11eb-83b0-e9314d7d9774.png">
 
 - 로그가 저장되어 있는 곳이다. 
+
+<br>
+
+## `pm2 모니터 보기`
+
+```
+pm2 monit 
+```
+
+<img width="666" alt="스크린샷 2020-11-17 오전 1 19 45" src="https://user-images.githubusercontent.com/45676906/99278911-fc58e880-2872-11eb-91a7-55362a34caeb.png">
+
