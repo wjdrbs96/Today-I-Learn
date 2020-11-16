@@ -71,6 +71,7 @@
 - [Sequelize Basic Query 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B8%B0%EB%B3%B8%EC%BF%BC%EB%A6%AC%EB%AC%B8.md)
 - [Sequelize 관계 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B4%80%EA%B3%84.md)
 - [Multer S3 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Multer%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+- [pm2 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Pm2%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 
 ## Data Structrue
 
