@@ -106,6 +106,7 @@
 - [인증(Authentication) vs 인가(Authorization)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Authentication%20vs%20Authorization.md)
 - [OAuth 2.0란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Oauth.md)
 - [MSA란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/MSA.md)
+- [API 명세서 wiki로 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/API%20%EB%AA%85%EC%84%B8%EC%84%9C%20wiki%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
 
 ## DevOps
 
