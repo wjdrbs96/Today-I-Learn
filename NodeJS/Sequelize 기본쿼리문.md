@@ -273,7 +273,7 @@ await User.findAll({
 });
 ```
 ```sql
-// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`userName` LIKE '%Gyunny%';
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`userName` LIKE '%Gyunny%';
 ```
 
 <br>
@@ -307,7 +307,9 @@ await User.findAll({
      }
    }
 });
-// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`id` < 1000;
+```
+```sql
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`id` < 1000;
 ```
 
 <br>
@@ -320,7 +322,9 @@ User.findAll({
    id: [1,2,3] 
   }
 });
-// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`id` IN (1, 2, 3);
+```
+```sql
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` WHERE `User`.`id` IN (1, 2, 3);
 ```
 
 <br>
@@ -329,8 +333,9 @@ User.findAll({
 
 ```javascript
 User.findAll({ group: 'userName' });
-
-// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` GROUP BY `userName`;
+```
+```sql
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` GROUP BY `userName`;
 ```
 
 <br>
@@ -343,8 +348,9 @@ const test = await User.findOne({
       ['userName', 'DESC']
    ]
 })
-
-// SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` ORDER BY `User`.`userName` DESC LIMIT 1
+```
+```sql
+SELECT `id`, `email`, `userName`, `password`, `salt` FROM `User` AS `User` ORDER BY `User`.`userName` DESC LIMIT 1
 ```
 
 <br>
@@ -372,8 +378,9 @@ await User.update({ userName: "Gyunny" }, {
     id: 2
   }
 });
-
-// UPDATE users SET userName = "Gyunny" WHERE id = 2;
+```
+```sql
+UPDATE users SET userName = "Gyunny" WHERE id = 2;
 ```
 
 <br>
@@ -387,8 +394,9 @@ await User.destroy({
     id: 1
   }
 });
-
-// DELETE FROM users WHERE id = 2;
+```
+```sql
+DELETE FROM users WHERE id = 2;
 ```
 
 <br>
