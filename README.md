@@ -110,6 +110,7 @@
 - [OAuth 2.0란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Oauth.md)
 - [MSA란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/MSA.md)
 - [API 명세서 wiki로 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/API%20%EB%AA%85%EC%84%B8%EC%84%9C%20wiki%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
+- [비즈니스 로직(Business Logic)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%A1%9C%EC%A7%81%EC%9D%B4%EB%9E%80%3F.md)
 
 ## DevOps
 
