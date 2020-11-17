@@ -74,6 +74,7 @@
 - [Sequelize 관계 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B4%80%EA%B3%84.md)
 - [Multer S3 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Multer%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
 - [pm2 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Pm2%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+- [Controller - Service 계층 분리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Controller-Service%20%EA%B3%84%EC%B8%B5%EB%B6%84%EB%A6%AC.md)
 
 ## Data Structrue
 
