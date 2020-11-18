@@ -66,6 +66,7 @@
 - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
 - [암묵적 타입변환, 명시적 타입변환](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/4.%20explicit%20coercion.md)
 - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
+- [Airbnb JavaScript Style 가이드](https://github.com/tipjs/javascript-style-guide)
 
 ### NodeJS
 
