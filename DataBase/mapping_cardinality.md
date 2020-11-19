@@ -16,28 +16,6 @@
 in-structor로부터 student로의 관계 집합은 일대다이다. 만약 한 명의 학생이 여러 명의 지도교수를 가질 수 있다고 한다면(공동 지도교수를 가지는 경우처럼), 그 관꼐 집합은 다대다 이다.
 ```
  
-<br>
-
-## Example
-
-<img src="https://user-images.githubusercontent.com/45676906/95230496-f10aaa00-083c-11eb-853b-f41010f2c0de.png">
-
-
-* `일대일` : 한명의 교수는 `최대 한명의 학생을` 지도할 수 있고, 한명의 학생은 `최대 한명의 지도교수`를 가질 수 있음을 가리킨다.
-
-<br>
-
-<img src="https://user-images.githubusercontent.com/45676906/95231152-c1a86d00-083d-11eb-8266-62ad8c9340e2.png">
-
-
-* `일대다` : 한명의 교수는 `많은 학생을 지도할 수 있지만`, 한명의 학생은 `최대 한명의 지도교수`를 가질 수 있음을 가리킨다.
-
-<br>
-
-<img src="https://user-images.githubusercontent.com/45676906/95231158-c2d99a00-083d-11eb-8456-b0b71bfa937a.png">
-
-
-* `다대다` : 한명의 교수는 `많은 학생을 지도할 수 있고`, 한명의 학생도 `많은 지도교수를 가질 수 있음`을 가리킨다.
 
   
 
