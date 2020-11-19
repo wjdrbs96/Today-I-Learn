@@ -5,7 +5,6 @@
 
 <img width="1244" alt="스크린샷 2020-11-15 오후 11 57 27" src="https://user-images.githubusercontent.com/45676906/99188248-5176fa80-279e-11eb-87aa-60e4d41265ae.png">
 
-관계에 맞게 사용하면 되는데 어떻게 사용하는 건지 차근차근 알아보자.
 
 <br>
 
@@ -17,7 +16,12 @@
 
 ![스크린샷 2020-11-16 오전 12 03 03](https://user-images.githubusercontent.com/45676906/99188405-19bc8280-279f-11eb-8cd2-6c58373858c4.png)
 
-여기서 `hasOne`과 `belongsTo`가 반대가 되면 안된다. `Profile` 테이블에 `User`테이블의 PK값이 `외래키`로 들어가야 하기 때문에 순서를 지켜야 한다. 
+여기서 주의할 점은 `hasOne`과 `belongsTo`가 반대가 되면 안된다. `Profile` 테이블에 `User`테이블의 PK값이 `외래키`로 들어가야 하기 때문에 순서를 지켜야 한다. 
+영어를 그대로 해석해봐도 이해할 수 있다. `User - hasOne - Profile`을 해석해보면 User가 Profile 1개를 가진다. 그리고 `Profile - belongsTo - User`는 Profile이 User에 속한다. 라고 해석하면 된다.
+
+<br>
+
+따라서 Profile 테이블이 User 테이블에 속한다라는 의미는 Profile 테이블에 외래키(FK: userIdx)가 들어간다고 생각할 수 있다.
 
 <br> <br>
 
@@ -44,6 +48,22 @@
 
 지금 상황은 `여러명의 사용자`가 `여러 개의 좋아요`를 누를 수 있기 때문에 `다대다`관계이다. 
 
+<br>
+
+논리적으로 `M:N관계`의 표현은 가능하지만, 2개의 테이블만으로 구현하는 것은 불가능하다. `다대다`관계를 실제로 구현하기 위해서는 각 테이블의 Primary Key를 외래키(FK)로 
+참조 하고 있는 연결테이블(매핑테이블)을 사용해야 한다. (`M:N관계가 완전히 해소될 때까지 분리해야 한다.`)
+
+<br>
+
+일반적으로 `N : M 관계`는 두 테이블의 기본키를 컬럼으로 갖는 또 다른 테이블을 생성해서 관리한다.
+
 ![스크린샷 2020-11-16 오전 1 26 56](https://user-images.githubusercontent.com/45676906/99190628-e253d300-27aa-11eb-800e-c208cad8b040.png)
 
-그리고 `belongsToMany`를 통해서 `M:N`관계를 설정 할 수 있고, 
+- `belongsToMany`를 통해서 `M:N`관계를 설정 할 수 있다.
+- `through`를 통해서 테이블의 이름을 정할 수 있다. (`매핑테이블`을 만들어 M:N 관계를 분리하는 과정이다. through를 통해서 User 테이블의 PK값과 Post 테이블의 PK값을 가진 Like 테이블이 생성된다.)
+- `as`를 통하여 별칭을 지정할 수도 있다. 위의 예에서는 Post는 `Liked`, User는 `Liker`로 지정하였다. 
+
+
+![스크린샷 2020-11-20 오전 12 36 05](https://user-images.githubusercontent.com/45676906/99687885-8221a180-2ac8-11eb-9adc-3d8d494b5f7f.png)
+
+그리고 `npm start`를 해보면 위와 같은 관계로 테이블이 만들어지게 된다.
