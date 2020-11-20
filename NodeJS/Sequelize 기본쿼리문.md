@@ -26,7 +26,7 @@ const user = await User.create({
 INSERT INTO users (email, password, userName, salt) VALUES("Gyunny@naver.com", "password", "Gyunny", "salt");
 ```
 
-`SQL 쿼리`를 이용해서 `insert`하는 것과 `Sequelize create`를 이용해서 하는 것의 차이를 볼 수 있다. 
+`Sequelize create`는 `SQL 쿼리`로 `insert`하는 것이다. 시퀄라이즈 문법과 SQL 문법의 차이를 비교하면서 보자.
 
 <br>
 
@@ -45,10 +45,11 @@ const user = await User.findOne({
 ## `SQL findOne Query`
 
 ```sql
-SELECT * FROM users WHERE name = 'Gyunny';
+SELECT `id`, `email`, `userName` FROM `User` AS `User` WHERE `User`.`userName` = 'Gyunny' LIMIT 1;;
 ```
 
-where 옵션은 쿼리에서의 WHERE 역할과 같다. 원하는 row만 꺼내올 수 있는 기능이다. 
+`findOne`은 말 그대로 where 옵션에 맞는 하나를 찾아오는 것이다. SQL WHERE과 쓰임새는 같고 원하는 row만 꺼내올 수 있는 기능이다. 
+그리고 마지막에 `LIMIT 1` 옵션이 붙는다. 
 
 <br>
 
@@ -414,9 +415,6 @@ await User.destroy({
 DELETE FROM users WHERE id = 2;
 ```
 
-<br>
-
-### 고급 쿼리는 다음 글에서 정리 ~_~
 
 <br>
 
