@@ -1,8 +1,11 @@
-# API 명세서 wiki로 만들기
+# API 명세서란?
 
 - API 명세서란 `서버`개발자와 `클라이언트` 개발자가 약속을 하는 것이다. 예를들어, 어떤 URI에 A라는 요청을 하면 B라는 응답을 주겠다, A라는 요청에는 어떤 것이 필요하다 등등의 약속을 하는 것이다. 
+- 클라이언트가 서버에서 만든 API를 사용하기 위한 설명서이다. 
 
 <br>
+
+# API 명세서 wiki로 만들기
 
 ![스크린샷 2020-11-17 오전 2 38 22](https://user-images.githubusercontent.com/45676906/99287797-09c7a000-287e-11eb-8783-a452bdcf729c.png)
 
@@ -22,8 +25,16 @@
 
 <br>
 
-API 명세서 내용에는 `URI`는 무엇이며, `Request Header`는 무엇이고, `Request Body`에는 무엇이 오는지를 적어주면 된다. 그리고 그에 따라
-서버에서 어떤 `Response Body`가 갈 것인지, 필요한 데이터가 없거나 서버 에러가 발생하면 어떤 응답을 줄 것인지 적어주면 된다.
+### API 명세서 내용
+
+- `URI`는 무엇인가? (ex: /users/signup)
+- `HTTP Method`를 어떤 것인가?(ex: GET, POST, PUT, DELETE)
+- `Content-type` 명시하기 (ex: `Content-Type: application/json` => Reqeust-Body, Response-Body의 데이터 형식에 대해 적어주면 된다.(application-json은 json 형식으로 보내겠다는 뜻이다.)
+- `Request Header`에는 어떤 것이 담기는가? (ex: AccessToken)
+- `Request Body`에는 무엇이 오는지를 적어주면 된다. (ex: 회원가입이라면 loginId, password)
+- 서버에서 응답으로 어떻게  `Response Body`가 만들어질 것인지?
+- 클라이언트에서 필요한 데이터를 보내지 않았거나, 서버 에러가 발생하면 어떤 응답을 줄 것인지 적어주면 된다. (에러, 예외 처리)
+
 
 <img width="1792" alt="스크린샷 2020-11-17 오전 2 45 57" src="https://user-images.githubusercontent.com/45676906/99288486-07197a80-287f-11eb-85cb-eef3601c0b10.png">
 
