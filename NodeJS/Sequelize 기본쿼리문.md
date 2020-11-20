@@ -158,6 +158,21 @@ SELECT * FROM post WHERE authorId = 12 AND status = 'active';
 <br>
 
 ```javascript
+User.findAll({
+  attribute: ['name', 'age'],
+  where: {
+    married: 1,
+    age: { [Op.gt]: 30 },
+  },
+})
+```
+```sql
+SELECT name, age FROM users WHERE married = 1 AND age > 30;
+```
+
+<br>
+
+```javascript
 const { Op } = require("sequelize");
 Post.findAll({
   where: {
