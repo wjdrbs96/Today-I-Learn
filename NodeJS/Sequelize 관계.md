@@ -8,7 +8,7 @@
 
 <br>
 
-## 한명의 사용자가 하나의 프로필을 가진다. 
+## `일대일`: 한명의 사용자가 하나의 프로필을 가진다. 
 
 <img width="687" alt="스크린샷 2020-11-16 오전 12 01 40" src="https://user-images.githubusercontent.com/45676906/99188363-e843b700-279e-11eb-88cf-1d08472ed191.png">
 
@@ -30,14 +30,14 @@ db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id'});
 db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 ```
 
-그리고 `User와 Comment의 관계는 일다다`이다. 한명의 유저는 여러개의 댓글을 쓸 수 있고, 댓글을 쓴 사람은 한명이기 때문이다.
+`User와 Comment의 관계는 일다다`이다. 한명의 유저는 여러개의 댓글을 쓸 수 있고, 댓글을 쓴 사람은 한명이기 때문이다.
 위와 같이 외래키의 이름을 직접 지정할 수 있다. `hasMany가 sourceKey 속성`이고, `belongsTo가 targetKey 속성`을 갖는다. id는 유저 테이블의 PK 값이다.
 
 
 
 <br> <br>
 
-## 한명의 사용자는 여러 개의 게시글을 작성할 수 있다.
+## `일대다`: 한명의 사용자는 여러 개의 게시글을 작성할 수 있다.
 
 <img width="687" alt="스크린샷 2020-11-16 오전 12 03 54" src="https://user-images.githubusercontent.com/45676906/99188428-3789e780-279f-11eb-9e62-3b130c638be9.png">
 
@@ -50,7 +50,7 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 
 ![스크린샷 2020-11-16 오전 12 11 05](https://user-images.githubusercontent.com/45676906/99188631-41f8b100-27a0-11eb-81fc-3a31d2242ac6.png)
  
-위와 같이 외래키 이름을 정해주지 않으면 `테이블이름 + id`로 설정된다.
+위와 같이 외래키 이름을 정해주지 않으면 기본 이름인 `테이블이름 + id`로 설정된다.
 
 <br>
 
@@ -62,20 +62,27 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 
 <br>
 
+### `관계형 데이터베이스에서 다대다 관계는 2개의 테이블 사이에 매핑 테이블이 필요하다.`
+
 논리적으로 `M:N관계`의 표현은 가능하지만, `2개의 테이블만으로 구현하는 것은 불가능하다.`(생각해보면 당연한 것 같다.) `다대다`관계를 실제로 구현하기 위해서는 각 테이블의 Primary Key를 외래키(FK)로 
 참조 하고 있는 연결테이블(매핑테이블)을 사용해야 한다. (`M:N관계가 완전히 해소될 때까지 분리해야 한다.`)
 
 <br>
 
-일반적으로 `N : M 관계`는 두 테이블의 기본키를 컬럼으로 갖는 또 다른 테이블을 생성해서 관리한다.
+예를들어, User - User 사이에 팔로잉, 팔로워의 관계도 `다대다`관계이다. 이 때 어떤 사람이 팔로우 하는 사람이 누구인지, 팔로워는 누가 있는지에 대한 정보를 `매핑 테이블에` 담는다. 
+
+<br>
+
+또 다른 예시를 보면서 이해해보자. `N : M 관계`는 두 테이블의 기본키를 컬럼으로 갖는 또 다른 테이블을 생성해서 관리한다.
 
 ![스크린샷 2020-11-16 오전 1 26 56](https://user-images.githubusercontent.com/45676906/99190628-e253d300-27aa-11eb-800e-c208cad8b040.png)
 
-- `belongsToMany`를 통해서 `M:N`관계를 설정 할 수 있다.
-- `through`를 통해서 테이블의 이름을 정할 수 있다. (`매핑테이블`을 만들어 M:N 관계를 분리하는 과정이다. through를 통해서 User 테이블의 PK값과 Post 테이블의 PK값을 가진 Like 테이블이 생성된다.)
-- `as`를 통하여 별칭을 지정할 수도 있다. 위의 예에서는 Post는 `Liked`, User는 `Liker`로 지정하였다. 
+- `belongsToMany`를 통해서 `M:N`관계를 설정 한다.
+- `through`를 통해서 `매핑 테이블`의 이름을 정할 수 있다. (`매핑테이블`을 만들어 M:N 관계를 분리하는 과정이다. through를 통해서 User 테이블의 PK값과 Post 테이블의 PK값을 가진 Like 테이블이 생성된다.)
+- 매핑테이블을 통해서 인덱스로 다대다 관계를 연결시킨다.
+- `as`를 통하여 별칭을 지정할 수도 있다. 위의 예에서는 Post는 `Liked(좋아요 받은 게시글)`, User는 `Liker(좋아요 누른 사람)`로 지정하였다. 
 
 
 ![스크린샷 2020-11-20 오전 12 36 05](https://user-images.githubusercontent.com/45676906/99687885-8221a180-2ac8-11eb-9adc-3d8d494b5f7f.png)
 
-그리고 `npm start`를 해보면 위와 같은 관계로 테이블이 만들어지게 된다.
+그리고 `npm start`를 해보면 위와 같은 관계를 갖는 테이블이 만들어지게 된다.
