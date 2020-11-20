@@ -35,7 +35,7 @@ sequelize init
 
 <br>
 
-간략하게 말하면 `models` 폴더는 테이블과 대응이 되며 테이블에 관한 설정을 담당하는 곳이고, `config` 폴더는 DB와 연결을 위한 설정파일 이라고 생각하면 될 것 같다.
+간략하게 말하면 `models` 폴더는 테이블과 대응이 되며 테이블에 관한 설정을 담당하는 곳이고, `config` 디렉토리는 설정을 위한 파일이 담긴 곳이라고 생각하면 될 것 같다.
 
 <br>
 
@@ -59,6 +59,8 @@ if (config.use_env_variable) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+module.exports = db;
 ```
 
 현재 위의 코드는 config 파일에 설정되어 있는 파일과 연결을 한 후에 sequelize 객체를 만들어서 모듈화한 것이라고 생각하면 좋을 것 같다.
@@ -119,6 +121,9 @@ sequelize.sync({ alter: false })
     - 테이블이 생성되고 이미 존재하는 경우 먼저 삭제 후 생성
 - sequelize-sync({ alter: true })
     - 데이터베이스에 있는 테이블의 상태를 확인한 후 테이블에서 필요한 변경을 수행하여 모델과 일치시킨다. 
+
+
+<br>
 
 그리고 `npm start`를 해보면 콘솔에 `데이터베이스 연결 성공`이라는 로그를 확인하면 지금까지 성공이다.
 
