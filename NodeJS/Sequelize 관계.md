@@ -95,7 +95,7 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 
 <br>
 
-### 예를들어
+### 예를들어 아래와 같이 나중에 클라이언트에게 응답을 줄 때, `Liker(좋아요 누른 사람)`으로 구분하여 보내줄 때 편리하다. 
 
 ```json
 {
@@ -125,5 +125,3 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
     ]
 }
 ```
-
-위와 같이 나중에 클라이언트에게 응답을 줄 때, `Liker(좋아요 누른 사람)`으로 구분하여 보내줄 때 편리하다. 
