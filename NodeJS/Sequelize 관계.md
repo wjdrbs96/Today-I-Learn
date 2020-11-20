@@ -21,7 +21,19 @@
 
 <br>
 
-따라서 Profile 테이블이 User 테이블에 속한다라는 의미는 Profile 테이블에 외래키(FK: userIdx)가 들어간다고 생각할 수 있다.
+따라서 Profile 테이블이 User 테이블에 속한다라는 의미는 Profile 테이블에 외래키(FK: userIdx)가 들어간다고 생각할 수 있다. 위와 같이 외래키를 지정해주지 않으면 `테이블이름 +id`로 외래키가 지정된다.
+
+<br>
+
+```javascript
+db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id'});
+db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
+```
+
+그리고 `User와 Comment의 관계는 일다다`이다. 한명의 유저는 여러개의 댓글을 쓸 수 있고, 댓글을 쓴 사람은 한명이기 때문이다.
+위와 같이 외래키의 이름을 직접 지정할 수 있다. `hasMany가 sourceKey 속성`이고, `belongsTo가 targetKey 속성`을 갖는다. id는 유저 테이블의 PK 값이다.
+
+
 
 <br> <br>
 
@@ -50,7 +62,7 @@
 
 <br>
 
-논리적으로 `M:N관계`의 표현은 가능하지만, 2개의 테이블만으로 구현하는 것은 불가능하다. `다대다`관계를 실제로 구현하기 위해서는 각 테이블의 Primary Key를 외래키(FK)로 
+논리적으로 `M:N관계`의 표현은 가능하지만, `2개의 테이블만으로 구현하는 것은 불가능하다.`(생각해보면 당연한 것 같다.) `다대다`관계를 실제로 구현하기 위해서는 각 테이블의 Primary Key를 외래키(FK)로 
 참조 하고 있는 연결테이블(매핑테이블)을 사용해야 한다. (`M:N관계가 완전히 해소될 때까지 분리해야 한다.`)
 
 <br>
