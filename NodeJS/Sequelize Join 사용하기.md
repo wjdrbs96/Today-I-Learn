@@ -226,6 +226,10 @@ SELECT users.userId FROM users JOIN likes ON users.userId = likes.userId;
 
 <br>
 
+그리고 `through` 옵션은 무엇인가 하면 위에서 through를 통해서 `다대다 관계`의 `매핑 테이블`을 만들었다. 이 때 매핑 테이블에 적용할 수 있는 옵션이다.  
+
+<br>
+
 따라서 그냥 시퀄라이즈의 문법?이라 생각하고 받아들이면 될 것 같다. 그래서 코드를 실행한 후에 시퀄라이즈가 만든 쿼리를 보면 아래와 같다.
 
 ```sql
@@ -236,5 +240,35 @@ LEFT OUTER JOIN ( `Likes` AS `Liker->Likes` INNER JOIN `User` AS `Liker` ON `Lik
 ON `Post`.`id` = `Liker->Likes`.`PostId`;
 ```
 
+<br>
 
+## PostMan 응답 결과
 
+```json
+{
+    "status": 200,
+    "message": "조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "title": "제목",
+            "contents": "내용",
+            "createdAt": "2020-11-20T04:11:37.000Z",
+            "updatedAt": "2020-11-20T04:11:37.000Z",
+            "UserId": 1,
+            "User": {
+                "id": 1,
+                "userName": "test",
+                "email": "test@@naver.com"
+            },
+            "Liker": [
+                {
+                    "id": 1,
+                    "email": "test@@naver.com",
+                    "userName": "test"
+                }
+            ]
+        }
+    ]
+}
+```
