@@ -52,6 +52,8 @@ SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `P
 - ### required: 'false' => `LEFT OUTER JOIN`
 - ### required: 'true' => `INNER JOIN`
 
+<br>
+
 ```javascript
 const posts = await Post.findAll({
    // join 옵션 => include
@@ -190,7 +192,9 @@ const posts = await Post.findAll({
 db.Post.belongsToMany(db.User, { through: 'Likes', as: 'Liker'}); 
 ```
 
-이게 Sequelize가 매우 헷갈리면서도 중요한 부분이다. 왜 헷갈리는지는 쿼리를 작성했을 때와 비교해서 확이해보자. 
+<br>
+
+이게 Sequelize가 매우 헷갈리면서도 중요한 부분이다. 왜 헷갈리는지는 쿼리를 작성했을 때와 비교해서 확인해보자. 
 
 ```sql
 # 게시글을 작성한 유저
