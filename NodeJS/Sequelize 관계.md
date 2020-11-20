@@ -86,3 +86,44 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 ![스크린샷 2020-11-20 오전 12 36 05](https://user-images.githubusercontent.com/45676906/99687885-8221a180-2ac8-11eb-9adc-3d8d494b5f7f.png)
 
 그리고 `npm start`를 해보면 위와 같은 관계를 갖는 테이블이 만들어지게 된다.
+
+<br>
+
+## `as`를 통해서 별칭을 만드는 이유는 무엇일까?
+
+`나중에 보면 User에는 게시글을 쓴 사람도 있고, 좋아요를 누른 사람도 있을 것이다.` 이것을 구분하여 보기 좋게 하기 위해서 별칭을 주는 것이다. 
+
+<br>
+
+### 예를들어
+
+```json
+{
+    "status": 200,
+    "message": "조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "title": "제목",
+            "contents": "내용",
+            "createdAt": "2020-11-20T04:11:37.000Z",
+            "updatedAt": "2020-11-20T04:11:37.000Z",
+            "UserId": 1,
+            "User": {   
+                "id": 1,
+                "userName": "test",
+                "email": "test@@naver.com"
+            },
+            "Liker": [
+                {
+                    "id": 1,
+                    "email": "test@@naver.com",
+                    "userName": "test" 
+                }
+            ]
+        }
+    ]
+}
+```
+
+위와 같이 나중에 클라이언트에게 응답을 줄 때, `Liker(좋아요 누른 사람)`으로 구분하여 보내줄 때 편리하다. 
