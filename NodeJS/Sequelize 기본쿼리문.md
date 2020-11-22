@@ -110,6 +110,40 @@ SELECT foo, COUNT(hats) AS n_hats, bar FROM users
 
 <br>
 
+### 다른 `Count` 사용법
+
+```javascript
+const praiseCount1 = await user.count({
+  include: [{
+    model: praise,
+    as: 'praiser',
+  }],
+})
+```
+```sql
+SELECT count(`users`.`id`) AS `count` 
+FROM `users` AS `users` 
+LEFT OUTER JOIN ( `isDo` AS `praiser->isDo` INNER JOIN `praise` AS `praiser` ON `praiser`.`id` = `praiser->isDo`.`praiseId`) 
+ON `users`.`id` = `praiser->isDo`.`userId`;
+```
+
+위의 경우는 `users`테이블과 `praise`테이블은 `M대N 관계`라서 `매핑테이블`까지 이용해서 `JOIN`을 하는 상황이다. 
+여기서 봐야할 점은 `테이블이름.count({})`를 사용할 수 있다는 것을 알면 될 것 같다.
+
+<br>
+
+### 하나 더 Count 예시
+
+```javascript
+const praiseCount = await User.count({});
+```
+```sql
+SELECT count(*) AS `count` FROM `User` AS `User`;
+```
+
+
+<br>
+
 ### Sequelize에서 `max`, `min`, `sum` 사용법 
 
 ### `max` 사용법
