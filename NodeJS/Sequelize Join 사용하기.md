@@ -18,136 +18,25 @@ db.Post.belongsTo(db.User);
 
 위와 같이 `hasMany`를 이용해서 `일대다` 관계를 만들었다.
 
-<br>
-
-그리고 바로 Sequelize 문법을 이용해서 `JOIN`을 해보자. 
-
 ```javascript
 const posts = await Post.findAll({
-   // join 옵션 => include
-   // User 테이블과 Post 테이블을 조인
    include: [{
      model: User,  // 작성자
      attributes: ['id', 'userName', 'email' ],
-   }, {
-     model: User,  // 좋아요 누른 사람
-     as: 'Liker', // 별칭 사용(index.js에서 만든 것)
-     through: { attributes: [] }   // through를 통해서 생성된 테이블에만 적용됨
    }],
 });
-``` 
-
-Sequelize에서 JOIN을 하려면 `include` 옵션을 사용하면 된다. 위의 코드를 보면 Post.findAll({ include: [{ model: 조인할 테이블 이름}] }) 이런 형식으로 작성했다.
-
-<br>
-
-따라서 `Post` 테이블과 `User` 테이블을 JOIN 하는 것이다. 그리고 `attributes` 옵션을 통해서 원하는 컬럼만 뽑아낼 수 있다.
-
+```
 ```sql
-SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email` FROM `Posts` AS `Post` LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`;
+SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email` 
+FROM `Posts` AS `Post` LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`;
 ```
 
-위와 같이 특별한 옵션을 주지 않는다면 기본 옵션이 `LEFT OUTER JOIN` 이다. 다른 JOIN을 사용하고 싶다면 아래의 옵션을 사용하면 된다.
+Sequelize에서 JOIN을 하려면 `include` 옵션을 사용하면 된다. 그러면 위와 같은 쿼리가 생성된다. 따로 특별한 옵션을 주지 않는다면 `default`는 `LEFT OUTER JOIN`이다.
+따라서 아래와 같이 `required` 옵션을 이용해서 `JOIN`을 선택할 수 있다. 
 
 - ### required: 'false' => `LEFT OUTER JOIN`
 - ### required: 'true' => `INNER JOIN`
 
-<br>
-
-```javascript
-const posts = await Post.findAll({
-   // join 옵션 => include
-   // User 테이블과 Post 테이블을 조인
-   include: [{
-     model: User,  // 작성자
-     attributes: ['id', 'userName', 'email' ],
-     required: 'true',
-   }, {
-     model: User,  // 좋아요 누른 사람
-     as: 'Liker', // 별칭 사용(index.js에서 만든 것)
-     through: { attributes: [] }   // through를 통해서 생성된 테이블에만 적용됨
-   }],
-});
-```
-```sql
-SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email` FROM `Posts` AS `Post` INNER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`;
-```
-
-위와 같이 `required: 'true'` 옵션을 주면 `INNER JOIN`으로 바뀐 것도 볼 수 있다. 
-
-<br>
-
-JOIN을 한 후에 `PostMan`을 통해서 응답 결과를 보면 아래와 같이 나온다. (나의 DB에 저장되어 있는 내용이다.)
-
-```json
-{
-    "status": 200,
-    "message": "조회 성공",
-    "data": [
-        {
-            "id": 1,
-            "title": "제목",
-            "contents": "내용",
-            "postImageUrl": null,
-            "createdAt": "2020-11-20T04:11:37.000Z",
-            "updatedAt": "2020-11-20T04:11:37.000Z",
-            "UserId": 1,
-            "User": {
-                "id": 1,
-                "userName": "test",
-                "email": "test@@naver.com"
-            }
-        }
-    ]
-}
-```
- 
-위의 결과를 보면 마지막에 `User` 객체가 그대로 반환된 것을 볼 수 있다. 이렇게 이러한 형식으로 응답을 하고 싶지 않다면 `raw: true` 옵션을 적용하면 된다.
-
-```javascript
-const posts = await Post.findAll({
-   // join 옵션 => include
-   // User 테이블과 Post 테이블을 조인
-   include: [{
-     model: User,  // 작성자
-     attributes: ['id', 'userName', 'email' ],
-     required: 'true',
-   }, {
-     model: User,  // 좋아요 누른 사람
-     as: 'Liker', // 별칭 사용(index.js에서 만든 것)
-     through: { attributes: [] }   // through를 통해서 생성된 테이블에만 적용됨
-   }],
-   raw: true,
-});
-```
-```sql
-SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email` FROM `Posts` AS `Post` LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`;
-```
- 
-위와 같이 `raw: true`를 적용했을 때, 쿼리는 위와 같고 응답의 결과는 어떻게 나오는지 확인해보자.
-
-```json
-{
-    "status": 200,
-    "message": "조회 성공",
-    "data": [
-        {
-            "id": 1,
-            "title": "제목",
-            "contents": "내용",
-            "postImageUrl": null,
-            "createdAt": "2020-11-20T04:11:37.000Z",
-            "updatedAt": "2020-11-20T04:11:37.000Z",
-            "UserId": 1,
-            "User.id": 1,
-            "User.userName": "test",
-            "User.email": "test@@naver.com"
-        }
-    ]
-}
-```
-
-이번에는 아까와는 응답의 형식이 다른 것을 볼 수 있다. 
 
 <br>
 
@@ -158,7 +47,15 @@ db.User.belongsToMany(db.Post, { through: 'Likes', as: 'Liked'});  // 좋아요 
 db.Post.belongsToMany(db.User, { through: 'Likes', as: 'Liker'});  // 좋아요 누른 사람  + as 옵션을 통해서 User를 Liker로 별칭
 ```
 
-위와 같이 `belongsToMany`를 통해서 `다대다` 관계를 설정한다. Post 테이블의 별칭은 `Liked(좋아요 받은 게시글)`, User 테이블의 별칭은 `Liker(좋아요 누른 사람)`으로 정하였다.
+`다대다` 관계에서는 `belongsToMany`를 이용해야 한다. 관계형 디비에서는 `다대다` 관계에 있는 테이블을 표현할 수 없기 때문에 중간에 연결을 시켜줄 수 있는 `매핑테이블`이 필요하다.
+
+<br>
+
+위의 코드의 `through: '매핑테이블이름'`을 이용하면 아래처럼 `매핑테이블`이 생긴다. 그러면 시퀄라이즈에서 `User` 테이블의 PK값, `Post` 테이블의 PK값을 담은 `매핑테이블`을 만들어준다.
+
+<br>
+
+Post 테이블의 별칭은 `Liked(좋아요 받은 게시글)`, User 테이블의 별칭은 `Liker(좋아요 누른 사람)`으로 정하였다.
 그리고 `through`를 통하여 `User` 테이블과 `Post` 테이블의 `매핑 테이블`인 `Likes` 테이블을 만들었다. (User 테이블의 PK, Post 테이블의 PK를 가진다.)
 
 ![스크린샷 2020-11-20 오전 12 36 05](https://user-images.githubusercontent.com/45676906/99687885-8221a180-2ac8-11eb-9adc-3d8d494b5f7f.png)
@@ -272,3 +169,81 @@ ON `Post`.`id` = `Liker->Likes`.`PostId`;
     ]
 }
 ```
+
+<br>
+
+## 추가 기능
+
+```json
+{
+    "status": 200,
+    "message": "조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "title": "제목",
+            "contents": "내용",
+            "postImageUrl": null,
+            "createdAt": "2020-11-20T04:11:37.000Z",
+            "updatedAt": "2020-11-20T04:11:37.000Z",
+            "UserId": 1,
+            "User": {
+                "id": 1,
+                "userName": "test",
+                "email": "test@@naver.com"
+            }
+        }
+    ]
+}
+```
+ 
+JOIN 해서 반환되는 형태를 보면 위의 같이 마지막에 `User` 객체가 그대로 반환된 것을 볼 수 있다. 이렇게 객체의 형식으로 데이터 구조를 만들기 싶지 않다면 `raw: true` 옵션을 적용하면 된다.
+
+<br>
+
+```javascript
+const posts = await Post.findAll({
+   // join 옵션 => include
+   // User 테이블과 Post 테이블을 조인
+   include: [{
+     model: User,  // 작성자
+     attributes: ['id', 'userName', 'email' ],
+     required: 'true',
+   }, {
+     model: User,  // 좋아요 누른 사람
+     as: 'Liker', // 별칭 사용(index.js에서 만든 것)
+     through: { attributes: [] }   // through를 통해서 생성된 테이블에만 적용됨
+   }],
+   raw: true,
+});
+```
+```sql
+SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email` 
+FROM `Posts` AS `Post` LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`;
+```
+ 
+위와 같이 `raw: true`를 적용했을 때, 쿼리는 위와 같고 응답의 결과는 어떻게 나오는지 확인해보자.
+
+
+```json
+{
+    "status": 200,
+    "message": "조회 성공",
+    "data": [
+        {
+            "id": 1,
+            "title": "제목",
+            "contents": "내용",
+            "postImageUrl": null,
+            "createdAt": "2020-11-20T04:11:37.000Z",
+            "updatedAt": "2020-11-20T04:11:37.000Z",
+            "UserId": 1,
+            "User.id": 1,
+            "User.userName": "test",
+            "User.email": "test@@naver.com"
+        }
+    ]
+}
+```
+
+이번에는 데이터 구조와 User 안에 데이터들이 있는 것이 아니라 위와 같이 바뀐 것을 볼 수 있다. 
