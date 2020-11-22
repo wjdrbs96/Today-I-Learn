@@ -95,17 +95,34 @@ SELECT foo, bar AS baz, qux FROM users
 ```javascript
 const sequelize = require('sequelize');
 
-Model.findAll({
-  attributes: [
-    'foo',
-    [sequelize.fn('COUNT', sequelize.col('hats')), 'n_hats'],
-    'bar'
-  ]
-});
+const praiseCount = await user.findAll({
+   attributes: [[sequelize.fn('COUNT', 'id'), 'likeCount']],
+   include: [{
+     model: praise,
+     as: 'praiser',
+   }]
+})
 ```
 
 ```sql
-SELECT foo, COUNT(hats) AS n_hats, bar FROM users
+SELECT `users`.`id`, COUNT('id') AS `likeCount`, `praiser`.`id` AS `praiser.id`, `praiser`.`daily_praise` AS `praiser.daily_praise`, `praiser`.`mission_praise` AS `praiser.mission_praise`, `praiser`.`createdAt` AS `praiser.createdAt`, `praiser`.`updatedAt` AS `praiser.updatedAt`, `praiser->isDo`.`is_do` AS `praiser.isDo.is_do`, `praiser->isDo`.`userId` AS `praiser.isDo.userId`, `praiser->isDo`.`praiseId` AS `praiser.isDo.praiseId` 
+FROM `users` AS `users` LEFT OUTER JOIN ( `isDo` AS `praiser->isDo` INNER JOIN `praise` AS `praiser` ON `praiser`.`id` = `praiser->isDo`.`praiseId`) 
+ON `users`.`id` = `praiser->isDo`.`userId`;
+```
+
+<br>
+
+### `Count` 예시1
+
+```javascript
+const sequelize = require('sequelize');
+
+const praiseCount = await user.findAll({
+   attributes: [[sequelize.fn('COUNT', 'id'), 'likeCount']]
+})
+```
+```sql
+SELECT COUNT('id') AS `likeCount` FROM `users` AS `users`;
 ```
 
 <br>
@@ -132,7 +149,7 @@ ON `users`.`id` = `praiser->isDo`.`userId`;
 
 <br>
 
-### 하나 더 Count 예시
+### 하나 더 `Count` 예시
 
 ```javascript
 const praiseCount = await User.count({});
