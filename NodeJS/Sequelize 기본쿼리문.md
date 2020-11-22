@@ -93,6 +93,8 @@ SELECT foo, bar AS baz, qux FROM users
 ### `sequelize.fn`은 `집계 함수`를 사용하는 경우 사용할 수 있다. 
 
 ```javascript
+const sequelize = require('sequelize');
+
 Model.findAll({
   attributes: [
     'foo',
