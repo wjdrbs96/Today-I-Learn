@@ -68,7 +68,7 @@
 - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
 - [Airbnb JavaScript Style 가이드](https://github.com/tipjs/javascript-style-guide)
 
-### NodeJS
+## NodeJS
 
 - [Sequelize 시작하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 - [Sequelize Basic Query 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B8%B0%EB%B3%B8%EC%BF%BC%EB%A6%AC%EB%AC%B8.md)
