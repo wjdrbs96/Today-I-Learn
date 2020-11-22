@@ -6,7 +6,6 @@
 
 ## `일대다` 관계에서 JOIN 하는 법을 알아보자. 
 
-<br>
 
 `User`와 `Post`의 관계는 `일대다`관계이다. 왜냐하면 하나의 유저는 여러 개의 게시글을 쓸 수 있고, 게시글을 쓴 사람은 한명이기 때문이다. 
 
@@ -17,6 +16,8 @@ db.Post.belongsTo(db.User);
 ```
 
 위와 같이 `hasMany`를 이용해서 `일대다` 관계를 만들었다.
+
+<br>
 
 ```javascript
 const posts = await Post.findAll({
@@ -131,11 +132,14 @@ SELECT users.userId FROM users JOIN likes ON users.userId = likes.userId;
 
 ```sql
 SELECT `Post`.`id`, `Post`.`title`, `Post`.`contents`, `Post`.`postImageUrl`, `Post`.`createdAt`, `Post`.`updatedAt`, `Post`.`UserId`, `User`.`id` AS `User.id`, `User`.`userName` AS `User.userName`, `User`.`email` AS `User.email`, `Liker`.`id` AS `Liker.id`, `Liker`.`email` AS `Liker.email`, `Liker`.`userName` AS `Liker.userName`, `Liker`.`password` AS `Liker.password`, `Liker`.`salt` AS `Liker.salt` 
-FROM `Posts` AS `Post` 
-LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id`  # 처음에 User와 Post 테이블의 JOIN
+FROM `Posts` AS `Post` LEFT OUTER JOIN `User` AS `User` ON `Post`.`UserId` = `User`.`id` 
 LEFT OUTER JOIN ( `Likes` AS `Liker->Likes` INNER JOIN `User` AS `Liker` ON `Liker`.`id` = `Liker->Likes`.`UserId`) 
 ON `Post`.`id` = `Liker->Likes`.`PostId`;
 ```
+
+- 처음에는 `Post 테이블`과 `User 테이블`이 `JOIN`을 하는 것을 볼 수 있다. 
+- 그리고 `(Likes AS Liker->Likes INNER JOIN User AS Liker ON Liker.id = Liker->Likes.UserId)` 이러한 쿼리도 만들어진 것을 볼 수 있는데 이게 위에서 만든 별칭으로 인해 만들어진 것이라 생각하면 된다.(Likes 테이블과 User 테이블의 JOIN)
+
 
 <br>
 
@@ -169,6 +173,32 @@ ON `Post`.`id` = `Liker->Likes`.`PostId`;
     ]
 }
 ```
+
+<br>
+
+## 시퀄라이즈 컬럼 꺼내기
+
+A 테이블에 a, b 컬럼이 있고 B 테이블에 a, b 컬럼이 있을 때 두 개의 테이블을 JOIN 한 후에 컬럼을 꺼내오는 상황을 생각해보자.
+그러면 `A.a, A.b 또는 B.c, B.d`로 구분을 해주어야 한다. 
+
+```javascript
+const praiseResult = await praise.findAll({
+   attributes: ['createdAt', 'daily_praise'],
+   include:[{
+      model: praiseTarget,
+      required: 'false',
+      attributes: ['name'],
+   }]
+})
+```
+```sql
+SELECT `praise`.`id`, `praise`.`createdAt`, `praise`.`daily_praise`, `praiseTarget`.`id` AS `praiseTarget.id`, `praiseTarget`.`name` AS `praiseTarget.name` 
+FROM `praise` AS `praise` INNER JOIN `praiseTarget` AS `praiseTarget` 
+ON `praise`.`id` = `praiseTarget`.`praiseId`;
+```
+
+`attributes`를 옵션을 통해서 테이블의 컬럼을 꺼낼 수 있다. 코드를 보면 `include` 하기 전에 `attribute`로 praise 테이블의 컬럼을 빼고
+`include 안에 attribute 속성을 적어 praiseTarget 테이블의 컬럼을 꺼낼 수 있다.`
 
 <br>
 
