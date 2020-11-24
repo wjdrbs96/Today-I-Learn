@@ -31,8 +31,8 @@ db.Post.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id'});
 ```
 
 `User와 Comment의 관계는 일다다`이다. 한명의 유저는 여러개의 댓글을 쓸 수 있고, 댓글을 쓴 사람은 한명이기 때문이다.
-위와 같이 외래키의 이름을 직접 지정할 수 있다. `hasMany가 sourceKey 속성`이고, `belongsTo가 targetKey 속성`을 갖는다. id는 유저 테이블의 PK 값이다.
-
+위와 같이 외래키의 이름을 직접 지정할 수 있다. `hasMany가 sourceKey 속성`이고, `belongsTo가 targetKey 속성`을 갖는다. id는 유저 테이블의 PK 값이다.(말 그대로 해석해보면 Post 테이블의 target은 User 테이블의 PK값 id라는 뜻이다.)
+`그리고 외래키는 'commenter'라는 이름으로 만들겠다는 뜻이다.`
 
 
 <br> <br>
