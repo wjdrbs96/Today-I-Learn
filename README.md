@@ -58,16 +58,26 @@
 
 ## JavaScript
 
-- [Call Stack이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
-- [원시타입(Primitive Type)이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
-- [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
-- [함수 범위, 블록 범위, 렉시컬(lexical) 범위](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/6.scope.md)
-- [실행 컨텍스트(Execution Context)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Execution_Context.md)
-- [Primitive Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
-- [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
-- [암묵적 타입변환, 명시적 타입변환](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/4.%20explicit%20coercion.md)
-- [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
-- [전역 변수 vs 지역 변수](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%20%EB%AC%B8%EC%A0%9C%EC%A0%90.md)
+- ### 원시 값과 객체의 비교
+    - [원시타입(Primitive Type)이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
+ 
+- ### 타입 변환
+    - [암묵적 타입변환, 명시적 타입변환](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/4.%20explicit%20coercion.md)
+    
+    
+- ### 스코프
+    - [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
+    - [함수 범위, 블록 범위, 렉시컬(lexical) 범위](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/6.scope.md)
+    - [var, let, const 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/var%2C%20let%2C%20const%20%EC%B0%A8%EC%9D%B4.md)
+    - [전역 변수 vs 지역 변수](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%20%EB%AC%B8%EC%A0%9C%EC%A0%90.md)
+
+- ### 실행 컨텍스트
+    - [실행 컨텍스트(Execution Context)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Execution_Context.md)
+
+- ### 기타
+    - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
+    - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
+    - [Call Stack이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
 
 
 ## NodeJS
