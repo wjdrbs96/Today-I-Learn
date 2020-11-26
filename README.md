@@ -67,7 +67,7 @@
 - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
 - [암묵적 타입변환, 명시적 타입변환](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/4.%20explicit%20coercion.md)
 - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
-
+- [전역 변수 vs 지역 변수](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%20%EB%AC%B8%EC%A0%9C%EC%A0%90.md)
 
 
 ## NodeJS
