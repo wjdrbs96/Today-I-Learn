@@ -85,7 +85,6 @@ INNER JOIN은 테이블 2개의 교집합을 구하는 것이라고 했다.
 SELECT * FROM users INNER JOIN post ON users.id = post.userId
 ```
 
-<br>
 
 ### `결과`
 
@@ -107,8 +106,6 @@ SELECT * FROM users INNER JOIN post ON users.id = post.userId
 ```sql
 SELECT * FROM users LEFT JOIN post ON user.id = post.userId
 ```
-
-<br>
 
 ### `결과`
 
@@ -132,6 +129,8 @@ SELECT * FROM users LEFT JOIN post ON user.id = post.userId
 ```sql
 SELECT * FROM users RIGHT JOIN post ON users.id = post.userId
 ```
+
+### `결과`
 
 | id | email | userName | id | title | contents | userId |
 |----|-----|------|----|-----|------|--- |
@@ -158,8 +157,6 @@ SELECT * FROM users u LEFT OUTER JOIN posts pON u.id = p.userId
 UNION
 SELECT * FROM users u RIGHT OUTER JOIN posts pON u.id = p.userId;
 ```
-
-<br>
 
 ## `결과`
 
