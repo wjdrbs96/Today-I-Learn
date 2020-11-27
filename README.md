@@ -124,6 +124,7 @@
     - [DBMS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/DBMS%EB%9E%80%3F.md)
     - [MySQL Workbench ERD 생성하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD%20%EB%A7%8C%EB%93%9C%EB%8A%94%EB%B2%95.md)
     - [Entity Relationship model 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/E-R%EB%AA%A8%EB%8D%B8%EC%9D%B4%EB%9E%80%3F.md)
+    - [스키마란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EC%8A%A4%ED%82%A4%EB%A7%88%EB%9E%80%3F.md)
     - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
     - [Data Modeling이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Data%20Modeling.md)
     - [정규화란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EC%A0%95%EA%B7%9C%ED%99%94.md)
