@@ -116,9 +116,9 @@
     - [회복과 병행 제어란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%ED%9A%8C%EB%B3%B5%EA%B3%BC%EB%B3%91%ED%96%89%EC%A0%9C%EC%96%B4.md)
 
 - ### MongoDB
-    - [MongoDB란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84.md)
-    - [MongoDB Authentication 오류 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EA%B6%8C%ED%95%9C%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0.md)
-    - [MongoDB Query 문법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%EC%BF%BC%EB%A6%AC.md)
+    - [MongoDB란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84.md)
+    - [MongoDB Authentication 오류 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EA%B6%8C%ED%95%9C%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0.md)
+    - [MongoDB Query 문법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%EC%BF%BC%EB%A6%AC.md)
 
 - ### 기타
     - [DBMS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/DBMS%EB%9E%80%3F.md)
