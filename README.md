@@ -128,7 +128,7 @@
     - [NoSQL이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/NoSQL.md)
     - [Data Modeling이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Data%20Modeling.md)
     - [정규화란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EC%A0%95%EA%B7%9C%ED%99%94.md)
-
+    - [데이터베이스 설계](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84.md)
 
 ## Web
 
