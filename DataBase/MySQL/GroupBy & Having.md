@@ -8,10 +8,6 @@
 
 <br>
 
-## `사용법`
-
-<br>
-
 ### `컬럼 그룹화`
 
 ```sql
@@ -68,7 +64,6 @@ SELECT type, COUNT(name) as cnt FROM collection GROUP BY type
 
 이러면 type이 같은 것끼리 그룹화해서 묶여진다. 한마디로 남자, 여자의 그룹이 생기게 된다. 결과는 어떻게 나오는지 봐보자.
 
-<br>
 
 ### `결과`
 
