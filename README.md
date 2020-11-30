@@ -160,6 +160,7 @@
 - [EC2 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2.md)
 - [EC2 Java 설치](https://pangtrue.tistory.com/240)
 - [MySQL Workbench로 RDS 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Workbench%EC%97%90%EC%84%9C%20RDS%20%EC%A0%91%EC%86%8D%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [ELB(Elastic Load Balancing)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/ELB%EB%9E%80%3F.md)
 
 ## Unix
 
