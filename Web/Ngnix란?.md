@@ -69,4 +69,82 @@
 
 ![스크린샷 2020-12-01 오전 3 04 51](https://user-images.githubusercontent.com/45676906/100646913-0c4bee80-3382-11eb-8c6f-f6ff2170dce9.png)
 
-그리고 위와 같이 ip 주소를 접근하게 되면 `Nginx`가 위에서 지정했던 `proxy_pass`로 요청을 보내서 위와 같은 화면이 뜨는 것을 볼 수 있다.
+그리고 위와 같이 EC2 ip주소의 80번 포트로 접근을 했지만,  `Nginx`가 위에서 지정했던 `proxy_pass`로 요청을 보내서 위와 같은 3000번 포트의 서버 화면이 뜨는 것을 볼 수 있다.
+
+<br>
+
+## `Nginx를 이용하여 로드밸런싱 적용하기`
+
+![load](https://t1.daumcdn.net/cfile/tistory/9993C74F5D9CC6C501)
+
+위와 같이 서버를 2대 띄워놓고 `Nginx`를 이용해서 `로드 밸런싱` 해주는 것을 구현해보려 한다. 
+
+<br>
+
+![스크린샷 2020-12-02 오전 12 06 46](https://user-images.githubusercontent.com/45676906/100757904-45439c00-3432-11eb-8ee5-8710f74a69ca.png)
+
+현재 nodejs-express 서버가 2대 돌아가고 있다. `하나는 3000번 포트`, `나머지 하나는 3001번 포트`로 열려있다.
+
+```
+cd /etc/nginx/sites-available  (디렉토리 이동) 
+sudo vi default                (파일 열기)
+``` 
+
+![스크린샷 2020-12-02 오전 12 13 06](https://user-images.githubusercontent.com/45676906/100759904-8472ec80-3434-11eb-870e-68d312a6783c.png)
+
+그러면 위와 같이 `server { }` 코드가 있을 것이다. 위의 `upstream nodejs_server{ }`는 내가 직접 작성한 것이다. 
+
+```
+upstream 원하는 이름 {
+    server 로드밸런싱 원하는ip
+    server 로드밸런싱 원하는ip
+}
+
+ex)
+upstream nodejs_server {
+    server 52.79.90.119:3000
+    server 52.79.90.119:3001
+}
+```
+
+그리고 `location` 안에 `proxy_pass`에 위에서 작성했던 이름을 적어주면 된다. 나는 `nodejs_server`라고 했기 때문에 이것을 적었다.
+
+<img width="661" alt="스크린샷 2020-12-02 오전 12 29 46" src="https://user-images.githubusercontent.com/45676906/100760824-85f0e480-3435-11eb-912d-677d43c9d1be.png">
+
+<br>
+
+그리고 보면 nginx의 기본 설정 파일을 담당하는 `nginx.conf`가 존재한다. 다른 블로그를 찾아봤을 때 이 파일에다 수정을 하는 사람도 많아서 매우 헷갈렸는데 여기에 수정을 하지 않아도 되는 이유는 다음과 같다.
+
+<img width="729" alt="스크린샷 2020-12-02 오전 12 36 52" src="https://user-images.githubusercontent.com/45676906/100761709-88077300-3436-11eb-92b7-b140fee2342b.png">
+
+`nginx.conf` 파일을 들어가고 `http { }`안을 보면 위와 같이 `include`를 볼 수 있다. 이것을 이용해서 외부 파일을 연결시키기 때문에 `nginx.conf` 파일 자체를 수정하지 않아도 되는 것이다.
+
+<br>
+
+### `Nginx 서버 재시작`
+
+```
+sudo service nginx restart (서버 재시작)
+```
+
+따라서 이제 `Nginx Load Balancing` 설정은 끝났으니 실제로 잘 동작을 하는지 확인해보자.
+
+
+<img width="1792" alt="스크린샷 2020-12-02 오전 12 40 30" src="https://user-images.githubusercontent.com/45676906/100762294-25fb3d80-3437-11eb-9b6b-65f55870c636.png">
+
+80번 포트로 접속을 했는데 내가 만들었던 `3000번` 포트의 서버가 실행이 되었다. 로드밸런싱이 적용이 된 건지 확인을 하기 위해서 새로고침을 해보았다.
+
+<br>
+
+<img width="1792" alt="스크린샷 2020-12-02 오전 12 40 39" src="https://user-images.githubusercontent.com/45676906/100762298-272c6a80-3437-11eb-8455-961c1fdfc8c3.png">
+
+그러면 위와 같이 이번에도 80번 포트로 접근을 했는데 `3001번` 포트의 서버가 실행이 된 것을 볼 수 있다. 
+
+<br>
+
+## `Nginx 명령어 정리`
+
+```
+sudo service nginx start (서버 시작)
+sudo service nginx restart (서버 재시작)
+```
