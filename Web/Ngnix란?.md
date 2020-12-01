@@ -60,6 +60,11 @@
 
 여기서 `cd sites-available`을 들어가보자. 그러면 default 라는 파일이 존재할 것인데 `sudo vi default`를 통해서 열어보자.
 
+```
+cd sites-available
+sudo vi default
+```
+
 <img width="665" alt="스크린샷 2020-12-01 오전 3 02 46" src="https://user-images.githubusercontent.com/45676906/100646737-c3943580-3381-11eb-9062-bdef6cb58654.png">
 
 그리고 위와 같이 `server_name`에는 본인이 사용하고 있는 EC2의 ip 주소 또는 localhost 등등 사용하고자 하는 것을 입력하면 된다. 
