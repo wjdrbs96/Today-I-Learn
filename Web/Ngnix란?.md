@@ -67,7 +67,7 @@
 
 <br>
 
-![스크린샷 2020-12-01 오전 3 04 51](https://user-images.githubusercontent.com/45676906/100646913-0c4bee80-3382-11eb-8c6f-f6ff2170dce9.png)
+<img width="536" alt="스크린샷 2020-12-02 오전 12 45 02" src="https://user-images.githubusercontent.com/45676906/100762734-b0dc3800-3437-11eb-9a14-57f65fb24b4a.png">
 
 그리고 위와 같이 EC2 ip주소의 80번 포트로 접근을 했지만,  `Nginx`가 위에서 지정했던 `proxy_pass`로 요청을 보내서 위와 같은 3000번 포트의 서버 화면이 뜨는 것을 볼 수 있다.
 
@@ -130,13 +130,13 @@ sudo service nginx restart (서버 재시작)
 따라서 이제 `Nginx Load Balancing` 설정은 끝났으니 실제로 잘 동작을 하는지 확인해보자.
 
 
-<img width="1792" alt="스크린샷 2020-12-02 오전 12 40 30" src="https://user-images.githubusercontent.com/45676906/100762294-25fb3d80-3437-11eb-9b6b-65f55870c636.png">
+<img width="537" alt="스크린샷 2020-12-02 오전 12 45 16" src="https://user-images.githubusercontent.com/45676906/100762739-b2a5fb80-3437-11eb-8ee3-86bd1bc361d3.png">
 
 80번 포트로 접속을 했는데 내가 만들었던 `3000번` 포트의 서버가 실행이 되었다. 로드밸런싱이 적용이 된 건지 확인을 하기 위해서 새로고침을 해보았다.
 
 <br>
 
-<img width="1792" alt="스크린샷 2020-12-02 오전 12 40 39" src="https://user-images.githubusercontent.com/45676906/100762298-272c6a80-3437-11eb-8455-961c1fdfc8c3.png">
+<img width="536" alt="스크린샷 2020-12-02 오전 12 45 02" src="https://user-images.githubusercontent.com/45676906/100762734-b0dc3800-3437-11eb-9a14-57f65fb24b4a.png">
 
 그러면 위와 같이 이번에도 80번 포트로 접근을 했는데 `3001번` 포트의 서버가 실행이 된 것을 볼 수 있다. 
 
