@@ -54,7 +54,8 @@
     - [아이템8 : finalizer와 cleaner 사용을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item8.md)
     - [아이템9 : try-finally보다는 try-with-resources를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item9.md)
 
-
+- [3장 모든 객체의 공통 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/3%EC%9E%A5)
+    - [아이템11 : equals를 재정의하려거든 hashCode도 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item11.md)
 
 ## JavaScript
 
