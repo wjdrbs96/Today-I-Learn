@@ -42,7 +42,7 @@
 
 <br>
 
-## `AWS에 Nginx 설치하는 법`
+## `AWS EC2에 Nginx 설치하는 법`
 
 ```
 설치: sudo apt-get install nginx 
