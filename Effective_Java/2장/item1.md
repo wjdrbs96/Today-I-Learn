@@ -357,7 +357,7 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
 
 ### `service provider framework의 컴포넌트`
    
-- 서비스 인터페이스(service interface): 구현체의 동작 정의합니다.
+- 서비스 인터페이스(service interface): 구현체의 동작을 정의합니다.
     - `JDBC) Connection`
   
 - 제공자 등록 API (provider registration API): provider가 구현체를 등록할 때 사용합니다.
@@ -377,6 +377,9 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
 ## `단점1 : 상속을 하려면 public이나 protected 생성자가 필요하니 정적 팩토리 메소드만 제공하면 하위 클래스를 만들 수 없다.`
 
 위에서 보았던 `Collections` 클래스를 보면 생성자의 접근제어자가 `private`인 것을 보았습니다. 그렇기 때문에 이 클래스는 누군가의 부모 클래스가 될 수 없습니다. 
+
+![스크린샷 2020-12-04 오후 4 31 19](https://user-images.githubusercontent.com/45676906/101134797-43eebb00-364e-11eb-83fd-8582d98b495e.png)
+
 
 <br>
 
