@@ -183,6 +183,7 @@
 - [remote 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/remote%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [pull과 fetch의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/pull%EA%B3%BC%20fetch%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)
 - [Commit Message 규칙](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/%EC%BB%A4%EB%B0%8B%EB%A9%94%EC%84%B8%EC%A7%80.md)
+- [알아두면 좋은 브랜치 전략](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4%20%EC%A2%8B%EC%9D%80%20%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%A0%84%EB%9E%B5.md)
 
 ## Github
 
