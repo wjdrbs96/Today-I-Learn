@@ -88,6 +88,7 @@
     - [Sequelize Basic Query 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B8%B0%EB%B3%B8%EC%BF%BC%EB%A6%AC%EB%AC%B8.md)
     - [Sequelize 관계 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B4%80%EA%B3%84.md)
     - [Sequelize JOIN 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20Join%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+    - [Sequelize JOIN 사용시 데이터 구조 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20JOIN%20%ED%9B%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B5%AC%EC%A1%B0%20%EA%B0%84%EB%8B%A8%ED%9E%88%20%ED%95%98%EA%B8%B0.md)
 
 - [Middleware란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4%EB%9E%80%3F.md)
 - [Multer S3 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Multer%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
