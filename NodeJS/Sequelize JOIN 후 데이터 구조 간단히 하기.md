@@ -91,7 +91,7 @@ ON `mindmap`.`id` = `hasKeyword->mindmap_keyword`.`mindmapId` WHERE `mindmap`.`i
 
 <br>
 
-이제 데이터구조를 간단하게 만들어보겠습니다. 그 전에 먼저 `raw: true`, `through: {}`를 아래와 같이 제외 시켜보겠습니다. 
+데이터 구조를 간단히 만들어 보기 전에 먼저 `raw: true`, `through: {}`를 아래와 같이 제외 시켜보겠습니다. 
 
 ![스크린샷 2020-12-06 오전 12 15 03](https://user-images.githubusercontent.com/45676906/101247390-bfd72900-375c-11eb-817b-17db06227933.png)
 
