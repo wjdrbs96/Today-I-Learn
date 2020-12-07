@@ -378,15 +378,15 @@ public abstract class EnumSet<E extends Enum<E>> extends AbstractSet<E>
 
 위에서 보았던 `Collections` 클래스를 보면 생성자의 접근제어자가 `private`인 것을 보았습니다. 그렇기 때문에 이 클래스는 누군가의 부모 클래스가 될 수 없습니다. 
 
-![스크린샷 2020-12-04 오후 4 31 19](https://user-images.githubusercontent.com/45676906/101134797-43eebb00-364e-11eb-83fd-8582d98b495e.png)
-
-
 <br>
 
 ## `단점2 : 정적 팩토리 메소드는 프로그래머가 찾기 어렵다.`
 
 일반적으로 자바 API Docs를 보면 생성자는 상단에 있기 때문에 찾기가 쉽습니다. 하지만 정적 팩토리 메소드는 다른 메소드와 구분 없이 함께 보여주고 
 사용자가 정적 팩토리 메소드 방식 클래스를 인스턴스화할 방법을 알아내야 하는데 찾기 쉽지 않다는 단점이 있습니다.  
+
+![스크린샷 2020-12-04 오후 4 31 19](https://user-images.githubusercontent.com/45676906/101134797-43eebb00-364e-11eb-83fd-8582d98b495e.png)
+
 
 <br>
 
