@@ -58,6 +58,9 @@
     - [아이템11 : equals를 재정의하려거든 hashCode도 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item11.md)
     - [아이템12 : toString을 항상 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item12.md)
 
+- [4장 클래스와 인터페이스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
+    - [아이템17 : 변경 가능성을 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item17.md)
+
 ## JavaScript
 
 - ### 원시 값과 객체의 비교
