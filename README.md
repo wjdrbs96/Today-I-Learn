@@ -56,6 +56,7 @@
 
 - [3장 모든 객체의 공통 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/3%EC%9E%A5)
     - [아이템11 : equals를 재정의하려거든 hashCode도 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item11.md)
+    - [아이템12 : toString을 항상 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item12.md)
 
 ## JavaScript
 
