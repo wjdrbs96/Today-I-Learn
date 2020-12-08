@@ -203,6 +203,7 @@ public class Test2 {
 
 Effective Java 책에서는 아래와 같이 `좋은 hashCode를 만드는 방법`에 대해서 나열하고 있습니다.
 
+<br> 
 
 ## `좋은 hashCode를 만드는 방법`
 
