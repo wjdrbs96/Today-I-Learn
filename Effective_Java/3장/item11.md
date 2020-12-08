@@ -137,7 +137,7 @@ public final class PhoneNumber {
 }
 ```
 
-위의 코드는 10장에서 나온 `PhoneNumber` 클래스입니다. 
+위의 코드는 아이템10 에서 나온 `PhoneNumber` 클래스입니다. 
 
 <br>
 
