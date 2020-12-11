@@ -197,7 +197,7 @@ public class Test {
 
 ### `플라이웨이트 패턴이란?`
 
-> 플라이웨이트 패턴 (Flyweight pattern) : 데이터를 공유하여 메모리를 절약하는 패턴, 공통으로 사용되는 객체는 한번만 사용되고 Pool에의해서 관리, 사용된다.
+> 플라이웨이트 패턴 (Flyweight pattern) : 데이터를 공유하여 메모리를 절약하는 패턴, 공통으로 사용되는 객체는 한번만 사용되고 Pool에 의해서 관리, 사용된다.
 > (JVM의 String Pool에서 같은 String이 잇는지 먼저 찾는다. [불변객체 String])
 
 <br>
