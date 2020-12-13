@@ -59,7 +59,7 @@ public class NutritionFacts {
         NutritionFacts cocaCola =
                 new NutritionFacts(240, 8, 100, 0, 35, 27);
     }
-    
+   
 }
 ```
 
