@@ -60,6 +60,7 @@
 
 - [4장 클래스와 인터페이스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
     - [아이템17 : 변경 가능성을 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item17.md)
+    - [아이템22 : 인터페이스는 타입을 정의하는 용도로만 사용하라]()
 
 - [5장 제네릭](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/5%EC%9E%A5)
     - [아이템26 : 로 타입은 사용하지 말라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item26.md)
