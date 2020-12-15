@@ -70,6 +70,8 @@
     - [아이템35: ordinal 메소드 대신 인스턴스 필드를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item35.md)
     - [아이템40: @Override 애너테이션을 일관되게 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item40.md)
 
+- [7장 람다와 스트림](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/7%EC%9E%A5)
+    - [아이템42: 익명 클래스보다는 람다를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item42.md)
 
 ## JavaScript
 
