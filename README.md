@@ -61,8 +61,11 @@
 - [4장 클래스와 인터페이스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
     - [아이템17 : 변경 가능성을 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item17.md)
 
-- [5장 제네릭]()
+- [5장 제네릭](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/5%EC%9E%A5)
     - [아이템26 : 로 타입은 사용하지 말라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item26.md)
+    - [아이템27 : 배열보다는 리스트를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item27.md)    
+    - [아이템28 : 배열보다는 리스트를 사용하라]()
+    - [아이템35: ordinal 메소드 대신 인스턴스 필드를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item35.md)
 
 ## JavaScript
 
