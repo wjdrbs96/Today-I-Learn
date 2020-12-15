@@ -73,6 +73,7 @@
 - [7장 람다와 스트림](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/7%EC%9E%A5)
     - [아이템42: 익명 클래스보다는 람다를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item42.md)
     - [아이템43: 람다보다는 메소드 참조를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item43.md)
+    - [아이템44: 표준 함수형 인터페이스를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item44.md)
 
 ## JavaScript
 
