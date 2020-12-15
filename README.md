@@ -65,7 +65,11 @@
     - [아이템26 : 로 타입은 사용하지 말라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item26.md)
     - [아이템27 : 배열보다는 리스트를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item27.md)    
     - [아이템28 : 배열보다는 리스트를 사용하라]()
+    
+- [6장 열거 타입과 애너테이션](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/6%EC%9E%A5)
     - [아이템35: ordinal 메소드 대신 인스턴스 필드를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item35.md)
+    - [아이템40: @Override 애너테이션을 일관되게 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item40.md)
+
 
 ## JavaScript
 
