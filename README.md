@@ -60,7 +60,8 @@
 
 - [4장 클래스와 인터페이스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
     - [아이템17 : 변경 가능성을 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item17.md)
-    - [아이템22 : 인터페이스는 타입을 정의하는 용도로만 사용하라]()
+    - [아이템22 : 인터페이스는 타입을 정의하는 용도로만 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item22.md)
+    - [아이템23: 태그 달린 클래스보다는 클래스 계층구조를 활용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item23.md)
 
 - [5장 제네릭](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/5%EC%9E%A5)
     - [아이템26 : 로 타입은 사용하지 말라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item26.md)
@@ -68,6 +69,7 @@
     - [아이템28 : 배열보다는 리스트를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item28.md)
     
 - [6장 열거 타입과 애너테이션](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/6%EC%9E%A5)
+    - [아이템34: int 상수 대신 열거 타입을 사용하라]()
     - [아이템35: ordinal 메소드 대신 인스턴스 필드를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item35.md)
     - [아이템40: @Override 애너테이션을 일관되게 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item40.md)
 
@@ -75,6 +77,7 @@
     - [아이템42: 익명 클래스보다는 람다를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item42.md)
     - [아이템43: 람다보다는 메소드 참조를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item43.md)
     - [아이템44: 표준 함수형 인터페이스를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item44.md)
+    - [아이템45: 스트림은 주의해서 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item45.md)
 
 ## JavaScript
 
