@@ -82,8 +82,7 @@ public class Test {
 
 [여기](https://sabarada.tistory.com/41) 를 참고하면 좋을 거 같습니다. 
 
-
-- ### `toList, toSet 메소드`
+### `toList, toSet 메소드`
 
 toList collector는 모든 Stream elements를 List나 Set instance로 변경하는 메서드입니다. 
 
@@ -103,8 +102,9 @@ public class Test {
 }
 ```
 
+<br>
 
-- ### `toMap 메소드`
+### `toMap 메소드`
 
 toMap collector는 Stream elements들을 Map instance로 변경하는 메서드입니다.
 
@@ -119,7 +119,9 @@ Map<String, Integer> result = givenList.stream()
   .collect(toMap("key", String::length, (item, identicalItem) -> item));
 ```
 
-- ### `groupingBy 메소드`
+<br>
+
+### `groupingBy 메소드`
 
 database를 조작할 때나 사용하던 group by를 Collection으로 사용할 수 있습니다.
 
@@ -146,7 +148,7 @@ public class Test {
 
 <br>
 
-- ### `joining`
+### `joining`
 
 joining은 Stream을 List가 아닌 String으로 붙여주거나 할 때 사용하는 메서드입니다.
 
