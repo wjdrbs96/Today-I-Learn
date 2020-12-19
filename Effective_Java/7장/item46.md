@@ -80,10 +80,12 @@ public class Test {
 
 ## 이와 같이 `Collectors`는 스트림에서 매우 중요합니다. 
 
-[여기](https://sabarada.tistory.com/41) 를 참고하면 좋을 거 같습니다. 
+[여기](https://sabarada.tistory.com/41) 를 참고하면 좋을 거 같습니다.
+
+<br> 
 
 ### `toList, toSet 메소드`
-
+ 
 toList collector는 모든 Stream elements를 List나 Set instance로 변경하는 메서드입니다. 
 
 ```java
