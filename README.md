@@ -80,6 +80,8 @@
     - [아이템45: 스트림은 주의해서 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item45.md)
     - [아이템46: 스트림에서는 부작용 없는 함수를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item46.md)
     - [아이템47 : 반환 타입으로는 스트림보다 컬렉션이 낫다](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item47.md)
+ 
+- [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
     - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
 
 ## JavaScript
