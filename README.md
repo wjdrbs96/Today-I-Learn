@@ -83,6 +83,7 @@
  
 - [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
     - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
+    - [아이템53 : 가변인수는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item53.md)
 
 ## JavaScript
 
