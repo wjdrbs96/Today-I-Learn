@@ -87,8 +87,10 @@
 
 - [9장 일반적인 프로그래밍 원칙](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/9%EC%9E%A5)
     - [아이템57 : 지역변수의 범위를 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item57.md)
+    - [아이템58 : 전통적인 for 문보다는 for-each 문을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item58.md)
     - [아이템61 : 박싱된 기본 타입보다는 기본 타입을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item61.md)
     - [아이템63 : 문자열 연결은 느리니 주의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item63.md)
+    - [아이템64 : 객체는 인터페이스를 사용해 참조하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item64.md)
 
 ## JavaScript
 
