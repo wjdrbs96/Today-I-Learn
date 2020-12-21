@@ -37,7 +37,7 @@ private final Collection<Stamp> stamps = "...";
     - 자바 명세는 class 리터럴에 매게변수화 타입을 사용하지 못하게 했습니다. 예를들어 `List.class, String[].class, int.class`는 허용하고 List<String>.class와 List<?>.class는 허용하지 않는다.
 
 - `instanceof` 연산자와 관련이 있다. 아래의 코드는 제너릭 타입에 instanceof를 사용하는 올바른 예입니다. 
-
+ㅇ
 ```
 if (o instanceof Set) {        // 로 타입
     Set<?> s = (Set<?>) o;     // 와일드카드 타입
