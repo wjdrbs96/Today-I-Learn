@@ -82,6 +82,7 @@
 - [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
     - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
     - [아이템50 : 적시에 방어적 복사본을 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item50.md)
+    - [아이템51 : 메소드 시그니처를 신중히 설계하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item51.md)
     - [아이템53 : 가변인수는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item53.md)
     - [아이템54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item54.md)
 
