@@ -1,6 +1,5 @@
 # Today I Learn
 
-
 ## Java
 
 - ### Java Basic
@@ -38,7 +37,6 @@
     - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
     - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
     - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
-
 
 
 ## Effective Java
@@ -83,12 +81,14 @@
  
 - [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
     - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
+    - [아이템50 : 적시에 방어적 복사본을 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item50.md)
     - [아이템53 : 가변인수는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item53.md)
     - [아이템54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item54.md)
 
 - [9장 일반적인 프로그래밍 원칙](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/9%EC%9E%A5)
     - [아이템57 : 지역변수의 범위를 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item57.md)
     - [아이템58 : 전통적인 for 문보다는 for-each 문을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item58.md)
+    - [아이템60 : 정확한 답이 필요하다면 float와 double을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item60.md)
     - [아이템61 : 박싱된 기본 타입보다는 기본 타입을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item61.md)
     - [아이템63 : 문자열 연결은 느리니 주의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item63.md)
     - [아이템64 : 객체는 인터페이스를 사용해 참조하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item64.md)
@@ -132,6 +132,7 @@
 - [Controller - Service 계층 분리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Controller-Service%20%EA%B3%84%EC%B8%B5%EB%B6%84%EB%A6%AC.md)
 - [dotenv 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/dotenv%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [apiDocs 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/apiDocs%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+
 
 ## Data Structrue
 
