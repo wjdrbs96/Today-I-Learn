@@ -78,13 +78,16 @@
     - [아이템45: 스트림은 주의해서 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item45.md)
     - [아이템46: 스트림에서는 부작용 없는 함수를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item46.md)
     - [아이템47 : 반환 타입으로는 스트림보다 컬렉션이 낫다](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item47.md)
+    - [아이템48 : 스트림 병렬화는 주의해서 적용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item48.md)
  
 - [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
     - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
     - [아이템50 : 적시에 방어적 복사본을 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item50.md)
     - [아이템51 : 메소드 시그니처를 신중히 설계하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item51.md)
+    - [아이템52 : 다중정의는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item52.md)
     - [아이템53 : 가변인수는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item53.md)
     - [아이템54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item54.md)
+    - [아이템55 : 옵셔널 반환은 신중히 하라](https://github.com/delicious-tangerine/effective-java/blob/master/8%EC%9E%A5/item55.md)
 
 - [9장 일반적인 프로그래밍 원칙](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/9%EC%9E%A5)
     - [아이템57 : 지역변수의 범위를 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item57.md)
