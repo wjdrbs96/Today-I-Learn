@@ -97,6 +97,12 @@
     - [아이템63 : 문자열 연결은 느리니 주의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item63.md)
     - [아이템64 : 객체는 인터페이스를 사용해 참조하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item64.md)
 
+- [10장 예외](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/10%EC%9E%A5)
+    - [아이템69 : 예외는 진짜 예외 상황에만 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item69.md)
+    - [아이템70 : 복구할 수 있는 상황에는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item70.md)
+    - [아이템71 : 필요 없는 검사 예외 사용은 피하라]()
+    - [아이템76 : 가능한 한 실패 원자적으로 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item76.md)
+
 ## JavaScript   
 
 - ### 원시 값과 객체의 비교
