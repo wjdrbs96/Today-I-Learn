@@ -1,6 +1,6 @@
 ## instanceof 연산자
 
-참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해 `instanceof연산자`를 사용한다. 주로 조건문에 사용되며, 
+참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해 `instanceof 연산자`를 사용한다. 주로 조건문에 사용되며, 
 `instanceof`의 왼쪽에는 `참조변수`를 오른쪽에는 `타입(클래스명)`이 피연산자로 위치한다. 그리고 연산의 결과로 boolean값인 true와
 false 중의 하나를 반환한다.
 
@@ -86,7 +86,7 @@ This is a Object instance
 Java.FireEngine
 ```
 
-코드의 결과는 위와 같다. 생성된 인스턴스의 타입은 `FireEngine` 이지만, `Object`타입과 `Car`타입의 `instanceof연산`에서도 true를 결과로 얻었다.
+코드의 결과는 위와 같다. 생성된 인스턴스의 타입은 `FireEngine` 이지만, `Object`타입과 `Car`타입의 `instanceof 연산`에서도 true를 결과로 얻었다.
 왜냐하면 `FireEngine`클래스는 `Car`클래스와 `Object`클래스를 상속받았기 때문에, `FireEngine`인스턴스는 `Object`인스턴스와 
 `Car`인스턴스를 포함하고 있는 셈이기 때문이다.
  
