@@ -12,7 +12,7 @@
 - ### OOP
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
     - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
-    - [inferface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
+    - [interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
     - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
     - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
