@@ -1,3 +1,12 @@
+## `인터페이스 특징`
+
+```
+모든 멤버 변수는 public static final 이어야 하며, 이를 생략할 수 있다. 
+모든 메소드는 public abstract 이어야 하며, 이를 생략할 수 있다. (단, static 메소드와 default 메소드는 예외)
+```
+
+<br>
+
 ## 인터페이스 default Method, static Method
 
 자바 8버전부터 추가된 `inferface` 기능에 대해서 알아보자.
@@ -114,6 +123,8 @@ public interface Bar {
 
 위와 같이 `Foo`인터페이스와 `Bar`인터페이스 내부에 둘다 `printName()`이라는 `default method`가 존재한다고 가정해보자.
 
+> 인터페이스는 인터페이스로부터만 상속받을 수 있으며, 클래스와는 달리 다중상속, 즉 여러 개의 인터페이스로부터 상속을 받는 것이 가능하다.
+
 <br>
 
 ```java
@@ -145,7 +156,7 @@ public class Test {
 }
 ```
 
-인터페이스 내부에 `static method`를 선언하면 일반적인 `static method`처럼 사용할 수 있다.
+인터페이스 내부에 `static method`를 선언하면 일반적인 `static method`처럼 사용할 수 있다. (인터페이스의 static 메소드의 접근 제어자는 항상 public 이다.)
 
 
 <br>
