@@ -33,7 +33,7 @@
 - ### lambda & Stream
     - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
     - [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
-    - [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
+    - [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface-Java8.md)
     - [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/methodReference.md)
     - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
     - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
@@ -82,7 +82,7 @@
     - [아이템48 : 스트림 병렬화는 주의해서 적용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item48.md)
  
 - [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
-    - [아이템49 : 매게변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
+    - [아이템49 : 매개변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
     - [아이템50 : 적시에 방어적 복사본을 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item50.md)
     - [아이템51 : 메소드 시그니처를 신중히 설계하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item51.md)
     - [아이템52 : 다중정의는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item52.md)
