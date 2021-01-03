@@ -23,6 +23,7 @@
     - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 - ### Exception Handling
+    - [Check Exception vs Unchecked Exception](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/%EC%B2%B4%ED%81%AC%EC%98%88%EC%99%B8%20vs%20%EC%96%B8%EC%B2%B4%ED%81%AC%EC%98%88%EC%99%B8.md)
     - [try-with-resources](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/Try~with~resources.md)
     - [User Define Exception](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Exception%20handling/UserDefineException.md)
 
