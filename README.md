@@ -12,7 +12,7 @@
 - ### OOP
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
     - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
-    - [interface-default method](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface.md)
+    - [Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/interface.md)
     - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
     - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
@@ -24,9 +24,9 @@
     - [Iterable과 Iterator](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Iterator%EC%99%80%20Iterable.md)
    
 - ### java.lang
-    - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
-    - [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/equals%2C%20hashCode%EB%9E%80%3F.md)
-    - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
+    - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
+    - [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/equals%2C%20hashCode%EB%9E%80%3F.md)
+    - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 - ### java.io
     - [파일 입출력](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/26%EC%9E%A5)
@@ -45,7 +45,6 @@
 - ### lambda & Stream
     - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
     - [Function Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/java.util.function.Package.md)
-    - [Java8 Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Interface-Java8.md)
     - [Method Reference](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/methodReference.md)
     - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
     - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
