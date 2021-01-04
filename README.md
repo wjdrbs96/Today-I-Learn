@@ -21,6 +21,7 @@
     - [List](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/22%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98.md)
     - [Set](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/23%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98(Set%EA%B3%BC%20Queue).md)
     - [Map](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/24%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98%20Map.md)
+    - [Iterable과 Iterator](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Iterator%EC%99%80%20Iterable.md)
    
 - ### java.lang
     - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_Class/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
@@ -52,6 +53,7 @@
 
 - ### Etc
     - [자바 7부터 달라진 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/30%EC%9E%A5/Java%207%EC%97%90%EC%84%9C%20%EB%8B%AC%EB%9D%BC%EC%A7%84%20%EA%B2%83%EB%93%A4%EC%9D%80%3F.md)
+    - [자바 8에 추가된 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/32%EC%9E%A5)
 
 ## Effective Java
 
@@ -257,3 +259,7 @@
 - [Pull Request를 통해 프로젝트 기여하기](https://devlog-wjdrbs96.tistory.com/222?category=882255)
 - [협업시 Projects와 Issue 사용하기](https://devlog-wjdrbs96.tistory.com/227?category=882255)
 - [Pull Request를 통해 코드 리뷰하는 법](https://devlog-wjdrbs96.tistory.com/231?category=882255)
+
+## Retrospect
+   
+- [개발자를 꿈꾸는 대학생의 2020년 회고](https://devlog-wjdrbs96.tistory.com/240)    
