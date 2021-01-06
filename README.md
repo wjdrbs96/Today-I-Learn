@@ -26,7 +26,7 @@
 - ### java.lang
     - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
     - [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/equals%2C%20hashCode%EB%9E%80%3F.md)
-    - [clone 메소드란?]()
+    - [clone 메소드란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/clone%20%EB%A9%94%EC%86%8C%EB%93%9C%EB%9E%80%3F.md)
     - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 - ### java.io
@@ -55,69 +55,6 @@
     - [자바 7부터 달라진 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/30%EC%9E%A5/Java%207%EC%97%90%EC%84%9C%20%EB%8B%AC%EB%9D%BC%EC%A7%84%20%EA%B2%83%EB%93%A4%EC%9D%80%3F.md)
     - [자바 8에 추가된 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/32%EC%9E%A5)
 
-## Effective Java
-
-- [2장 객체 생성의 파괴](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
-    - [아이템1 : 생성자 대신 정적 팩터리 메소드를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item1.md)
-    - [아이템2 : 생성자에 매게변수가 많다면 빌더를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item2.md)
-    - [아이템3 : private 생성자나 열거 타입으로 싱글턴임을 보증하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item3.md)
-    - [아이템4 : 인스턴스화를 막으려거든 private 생성자를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item4.md)
-    - [아이템5 : 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item5.md)
-    - [아이템6 : 불필요한 객체 생성을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item6.md)
-    - [아이템7 : 다 쓴 객체 참조를 해제하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item7.md)
-    - [아이템8 : finalizer와 cleaner 사용을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item8.md)
-    - [아이템9 : try-finally보다는 try-with-resources를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item9.md)
-
-- [3장 모든 객체의 공통 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/3%EC%9E%A5)
-    - [아이템11 : equals를 재정의하려거든 hashCode도 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item11.md)
-    - [아이템12 : toString을 항상 재정의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/3%EC%9E%A5/item12.md)
-
-- [4장 클래스와 인터페이스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
-    - [아이템17 : 변경 가능성을 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item17.md)
-    - [아이템22 : 인터페이스는 타입을 정의하는 용도로만 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item22.md)
-    - [아이템23: 태그 달린 클래스보다는 클래스 계층구조를 활용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/4%EC%9E%A5/item23.md)
-
-- [5장 제네릭](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/5%EC%9E%A5)
-    - [아이템26 : 로 타입은 사용하지 말라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item26.md)
-    - [아이템27 : 비검사 경고를 제거하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item27.md)    
-    - [아이템28 : 배열보다는 리스트를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/5%EC%9E%A5/item28.md)
-    
-- [6장 열거 타입과 애너테이션](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/6%EC%9E%A5)
-    - [아이템34: int 상수 대신 열거 타입을 사용하라]()
-    - [아이템35: ordinal 메소드 대신 인스턴스 필드를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item35.md)
-    - [아이템40: @Override 애너테이션을 일관되게 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/6%EC%9E%A5/item40.md)
-
-- [7장 람다와 스트림](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/7%EC%9E%A5)
-    - [아이템42: 익명 클래스보다는 람다를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item42.md)
-    - [아이템43: 람다보다는 메소드 참조를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item43.md)
-    - [아이템44: 표준 함수형 인터페이스를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item44.md)
-    - [아이템45: 스트림은 주의해서 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item45.md)
-    - [아이템46: 스트림에서는 부작용 없는 함수를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item46.md)
-    - [아이템47 : 반환 타입으로는 스트림보다 컬렉션이 낫다](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item47.md)
-    - [아이템48 : 스트림 병렬화는 주의해서 적용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/7%EC%9E%A5/item48.md)
- 
-- [8장 메소드](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
-    - [아이템49 : 매개변수가 유효한지 검사하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item49.md)
-    - [아이템50 : 적시에 방어적 복사본을 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item50.md)
-    - [아이템51 : 메소드 시그니처를 신중히 설계하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item51.md)
-    - [아이템52 : 다중정의는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item52.md)
-    - [아이템53 : 가변인수는 신중히 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item53.md)
-    - [아이템54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/8%EC%9E%A5/item54.md)
-    - [아이템55 : 옵셔널 반환은 신중히 하라](https://github.com/delicious-tangerine/effective-java/blob/master/8%EC%9E%A5/item55.md)
-
-- [9장 일반적인 프로그래밍 원칙](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/9%EC%9E%A5)
-    - [아이템57 : 지역변수의 범위를 최소화하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item57.md)
-    - [아이템58 : 전통적인 for 문보다는 for-each 문을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item58.md)
-    - [아이템60 : 정확한 답이 필요하다면 float와 double을 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item60.md)
-    - [아이템61 : 박싱된 기본 타입보다는 기본 타입을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item61.md)
-    - [아이템63 : 문자열 연결은 느리니 주의하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item63.md)
-    - [아이템64 : 객체는 인터페이스를 사용해 참조하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/9%EC%9E%A5/item64.md)
-
-- [10장 예외](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/10%EC%9E%A5)
-    - [아이템69 : 예외는 진짜 예외 상황에만 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item69.md)
-    - [아이템70 : 복구할 수 있는 상황에는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item70.md)
-    - [아이템71 : 필요 없는 검사 예외 사용은 피하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item71.md)
-    - [아이템76 : 가능한 한 실패 원자적으로 만들라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/10%EC%9E%A5/item76.md)
 
 ## JavaScript   
 
