@@ -4,11 +4,11 @@
 
 |함수형 인터페이스 | 메소드 | 설명 |
 |---------|-----------|----------------|
-| java.lang.Runnable|void run() | 매게변수도 없고, 반환값도 없음 |
-| Supplier<T> | T get() | 매게변수는 없고, 반환값만 있음 |
-| Consumer<T> | void accept(T t) | Supplier와 반대로 매게변수만 있고 반환값이 없음 |
-| Function<T, R> | R apply(T t) | 일반적인 함수, 하나의 매게변수를 받아서 결과를 반환 |
-| Predicate<T> | boolean test(T t) | 조건식을 표현하는데 사용됨. 매게변수는 하나, 반환 타입은 boolean |
+| java.lang.Runnable|void run() | 매개변수도 없고, 반환값도 없음 |
+| Supplier<T> | T get() | 매개변수는 없고, 반환값만 있음 |
+| Consumer<T> | void accept(T t) | Supplier와 반대로 매개변수만 있고 반환값이 없음 |
+| Function<T, R> | R apply(T t) | 일반적인 함수, 하나의 매개변수를 받아서 결과를 반환 |
+| Predicate<T> | boolean test(T t) | 조건식을 표현하는데 사용됨. 매개변수는 하나, 반환 타입은 boolean |
 
 메소드 반환값의 유무에 따라 `4개의 함수형 인터페이스`가 정의되어 있다. 
 
@@ -91,21 +91,21 @@ public class Test {
 
 |함수형 인터페이스 | 메소드 | 설명 |
 |---------|-----------|----------------|
-| BiConsumer<T, U> | void accept(T t, U u) | 두개의 매게변수만 있고, 반환값이 없음 |
-| BiPredicate<T, U> | boolean test(T t, U u) | 조건식을 표현하는데 사용됨. 매게변수는 둘, 반환값은 boolean |
-| BiFunction(T, U, R> | R apply(T t, U u) | 두 개의 매게변수를 받아서 하나의 결과를 반환 |
+| BiConsumer<T, U> | void accept(T t, U u) | 두개의 매개변수만 있고, 반환값이 없음 |
+| BiPredicate<T, U> | boolean test(T t, U u) | 조건식을 표현하는데 사용됨. 매개변수는 둘, 반환값은 boolean |
+| BiFunction(T, U, R> | R apply(T t, U u) | 두 개의 매개변수를 받아서 하나의 결과를 반환 |
 
 
 <br>
 
 ### `UnaryOperator`와 `BinaryOperator`
 
-Function의 또 다른 변형으로 UnaryOperator와 BinaryOperator가 있는데, 매게변수의 타입과 반환타입의 타입이 모두 일치한다는 점만 제외하고는 `Function`과 같다.
+Function의 또 다른 변형으로 UnaryOperator와 BinaryOperator가 있는데, 매개변수의 타입과 반환타입의 타입이 모두 일치한다는 점만 제외하고는 `Function`과 같다.
 
 |함수형 인터페이스 | 메소드 | 설명 |
 |---------|-----------|---------------------|
-| UnaryOperator<T> | T apply(T t) | Function의 자손, Function과 달리 매게변수와 결과의 타입이 같다. |
-| BinaryOperator<T> | T apply(T t, T t) | BiFunction의 자손, BiFunction과 달리 매게변수와 결과의 타입이 같다. |
+| UnaryOperator<T> | T apply(T t) | Function의 자손, Function과 달리 매개변수와 결과의 타입이 같다. |
+| BinaryOperator<T> | T apply(T t, T t) | BiFunction의 자손, BiFunction과 달리 매개변수와 결과의 타입이 같다. |
 
 
 <br>
