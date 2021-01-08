@@ -87,6 +87,7 @@
 ## Design Pattern
 
 - [Singleton Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/5.%20%EC%8B%B1%EA%B8%80%ED%84%B4%20%ED%8C%A8%ED%84%B4.md)
+- [Observer Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/2.%20%EC%98%B5%EC%A0%80%EB%B2%84%20%ED%8C%A8%ED%84%B4.md)
 
 ## NodeJS
 
