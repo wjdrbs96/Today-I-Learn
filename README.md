@@ -42,8 +42,8 @@
 - ### Thread
     - [Process & Thread란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [Java Thread-1](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C%EC%9D%98%20%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%8A%A4%EB%A0%88%EB%93%9C.md)
-    - [Fork & Join Framework](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/fork%20%26%20join%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8D.md)
     - [Java Thread-2](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C%EC%9D%98%20%EC%93%B0%EB%A0%88%EB%93%9C-2.md)
+    - [Fork & Join Framework](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/fork%20%26%20join%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8D.md)
     - [싱글쓰레드 vs 멀티쓰레드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%EC%8B%B1%EA%B8%80%EC%93%B0%EB%A0%88%EB%93%9C%EC%99%80%20%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [volatile](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/volatile%EB%9E%80%3F.md)
 
@@ -83,6 +83,10 @@
     - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
     - [Call Stack이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
 
+
+## Design Pattern
+
+- [Singleton Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/5.%20%EC%8B%B1%EA%B8%80%ED%84%B4%20%ED%8C%A8%ED%84%B4.md)
 
 ## NodeJS
 
