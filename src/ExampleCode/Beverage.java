@@ -1,4 +1,4 @@
 package ExampleCode;
 
-public class Subject {
+public class Beverage {
 }
