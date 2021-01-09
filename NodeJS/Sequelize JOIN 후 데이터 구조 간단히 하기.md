@@ -113,6 +113,8 @@ ON `mindmap`.`id` = `hasKeyword->mindmap_keyword`.`mindmapId` WHERE `mindmap`.`i
 
 위와 같이 `include` 안에서 `attributes`는 전부 빈 배열로 놓고 `GROUP BY`로 그룹을 지정하고 `count`하는 것은 `include` 밖으로 빼면 됩니다. 
 
+> const sequelize = require('sequelize') 을 이용해서 fn, col을 사용할 수 있습니다.
+
 <img width="727" alt="스크린샷 2020-12-06 오전 1 03 34" src="https://user-images.githubusercontent.com/45676906/101247827-ded6ba80-375e-11eb-969b-f3cdac99cbbe.png">
 
 그러면 위와 같이 데이터 구조가 깔끔해진 것을 볼 수 있습니다. 
