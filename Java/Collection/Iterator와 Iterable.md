@@ -101,3 +101,20 @@ public interface ListIterator<E> extends Iterator<E> {
 위의 메소드를 보면 `previousIndex()`, `nextIndex()`, `previous()`, `hasPrevious()`들이 추가로 있는 것을 볼 수 있습니다. 
 Iterator는 `단방향`으로만 이동할 수 있는데 반해 `ListIterator`은 `양방향`으로의 이동이 가능합니다. 
 (다만 ArrayList나 LinkedList와 같이 List 인터페이스를 구현한 컬렉션에서만 사용할 수 있습니다.)
+
+<br>
+
+## `부가 정리`
+
+Map 인터페이스가 Collection 인터페이스의 하위 타입이 아닌 이유는 Collection 인터페이스가 Iterable 인터페이스의 하위 인터페이스이기 때문입니다.
+
+Iterable 인터페이스의 주석을 보면 아래와 같이 되어 있습니다. 
+
+```
+Implementing this interface allows an object to be the target of
+the "for-each loop" statement.
+```
+
+즉, List, Set, Queue와 같이 목록형 자료구조는 forEach를 쓸 수 있지만, Map 같이 key-value는 Iterable이 정의한 `object to be the target of the "for-each loop" statement.`
+에 맞지 않기 때문에 하위 인터페이스가 아닙니다. 
+
