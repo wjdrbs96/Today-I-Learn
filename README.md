@@ -2,6 +2,9 @@
 
 ## Java
 
+- ### Data Type
+    - [float과 double의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Data-Type/float%20vs%20double%20%EC%B0%A8%EC%9D%B4%EB%8A%94%3F.md)
+
 - ### Java Basic
     - [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
     - [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
@@ -56,9 +59,9 @@
     - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
 
 - ### Etc
+    - [BigDecimal이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/1%EC%A3%BC%EC%B0%A8%20%EA%B3%BC%EC%A0%9C/BigDecimal%EC%9D%B4%EB%9E%80%3F.md)
     - [자바 7부터 달라진 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/30%EC%9E%A5/Java%207%EC%97%90%EC%84%9C%20%EB%8B%AC%EB%9D%BC%EC%A7%84%20%EA%B2%83%EB%93%A4%EC%9D%80%3F.md)
     - [자바 8에 추가된 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/32%EC%9E%A5)
-
 
 ## JavaScript   
 
