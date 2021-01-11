@@ -22,6 +22,7 @@
    
 - ### Collection Framework   
     - [List](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/22%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98.md)
+        - [ArrayList와 LinkedList 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/ArrayList%20vs%20LinkedList.md)
     - [Set](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/23%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98(Set%EA%B3%BC%20Queue).md)
     - [Map](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/24%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98%20Map.md)
     - [Iterable과 Iterator](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Iterator%EC%99%80%20Iterable.md)
@@ -101,6 +102,7 @@
     - [Sequelize 관계 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20%EA%B4%80%EA%B3%84.md)
     - [Sequelize JOIN 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20Join%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
     - [Sequelize JOIN 사용시 데이터 구조 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Sequelize%20JOIN%20%ED%9B%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B5%AC%EC%A1%B0%20%EA%B0%84%EB%8B%A8%ED%9E%88%20%ED%95%98%EA%B8%B0.md)
+    - [Sequelize에서 query 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/sequelize%EC%97%90%EC%84%9C%20query%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
 
 - [Middleware란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4%EB%9E%80%3F.md)
 - [Multer S3 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Multer%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
@@ -136,7 +138,7 @@
 
 - ### MySQL
     - [SQL 테이블 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/createTable.md)
-    - [SQL JOIN이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/JOIN%EC%9D%B4%EB%9E%80%3F.md)
+    - [SQL JOIN이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/JOIN%EC%9D%B4%EB%9E%80%3F.md)
     - [GROUP BY & HAVING](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/GroupBy%20%26%20Having.md)
     - [MySQL Workbench ERD 생성하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD%20%EB%A7%8C%EB%93%9C%EB%8A%94%EB%B2%95.md)
 
