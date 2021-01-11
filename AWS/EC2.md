@@ -17,7 +17,7 @@ ex) sudo ssh -i 'AWS.pem' ubuntu@52.79.90.119
 
 ## EC2 접속 커스텀 하기 
 
-매번 위와 같이 입력을 한 후에 접속하기는 매우 번거롭기 때문에 커스텀을 해보자. 
+매번 위와 같이 입력을 한 후에 접속하기는 매우 번거롭기 때문에 커스텀을 해보자. (해당 작업은 로컬 터미널에서 진행해야 한다.)
 
 ```
 cd ~/.ssh/
@@ -28,14 +28,14 @@ vi config
 Host [ssh 접속을 할때 IP 대신 사용할 호스트명]
   HostName [EC2의 EIP 주소]
   User ec2-user
-  IdentityFile ~/.ssh/{pem 키 이름}
+  IdentityFile ~/.ssh/{pem 키 이름}   // 본인 pem 파일이 있는 경로를 설정해야 한다.
 
 예를들면 아래와 같이 수정하면 된다. 
 
 Host sopt
   HostName 52.79.90.119
   User ubuntu
-  IdentityFile ~/Desktop/AWS/SOPT_Server_AWS.pem
+  IdentityFile ~/Desktop/AWS/SOPT_Server_AWS.pem       
 
 그리고 나는 Host를 sopt로 했기 때문에 이제 ssh sopt로 접속이 가능하다. 
 ```
