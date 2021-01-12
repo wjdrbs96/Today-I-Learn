@@ -81,7 +81,7 @@ public class Test {
 
 ### 그러면 `상수 풀`은 어떤 곳일까?
 
-너무 내용이 길어져서 따로 빼서 정리하려 합니다. `상수 풀`에 대한 자세한 내용은 [여기]() 에서 확인하면 됩니다.
+너무 내용이 길어져서 따로 빼서 정리하려 합니다. `상수 풀`에 대한 자세한 내용은 [여기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/JVM/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md) 에서 확인하면 됩니다.
 
 <br>
 
