@@ -1,21 +1,5 @@
 ## String 클래스란?
 
-String클래스에는 문자열을 저장하기 위해서 문자형 배열 참조변수(char[]) value를 인스턴스 변수로 정의해놓고 있습니다.
-
-인스턴스 생성 시 생성자의 매게변수로 입력는 문자열은 이 인스턴스 변수(value)에 `문자형 배열(char[])로 저장`됩니다.
-
-```java
-public final class String
-    implements java.io.Serializable, Comparable<String>, CharSequence {
-
-    private final char value[];
-
-    public String(char value[]) {
-        this.value = Arrays.copyOf(value, value.length);
-    }
-}
-```
-
 그리고 String 클래스를 보면 final인 것을 볼 수 있습니다. final class는 `더 이상 확장할 수 없다`는 특징을 가지고 있습니다. 
 다시 말해서 String 클래스는 다른 클래스의 부모가 될 수 없고, 있는 그대로 써야한다는 뜻입니다. 
 
