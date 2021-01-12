@@ -32,6 +32,10 @@ s2 문자열도 마찬가지로 `상수 풀`에서 해당 문자열이 있는지
 
 `문자열 리터럴을 캐싱하고 재사용`하면 문자열 풀의 다른 문자열 변수가 동일한 개체를 참조하기 때문에 `힙 공간을 많이 절약`할 수 있습니다. 문자열 상수 풀은 이러한 장점을 가지고 사용됩니다.
 
+![sangsu](https://www.baeldung.com/wp-content/uploads/2018/08/Why_String_Is_Immutable_In_Java.jpg)
+
+<br>
+
 이렇게 `상수 풀`을 사용하는데 String이 불변 객체가 아니라면 어떻게 될까요?
 
 ```java
