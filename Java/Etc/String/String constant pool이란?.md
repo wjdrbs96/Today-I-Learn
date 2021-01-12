@@ -1,7 +1,11 @@
-# `String constant pool이란?`
+# `들어가기 전에`
 
-이번 글에서는 String `상수 풀`에 대해서 정리해보려 합니다. 어느정도의 사전 지식은 있다고 생각하고 정리 하려고 합니다. 
-기본적인 내용을 먼저 보고 오려면 [String vs StringBuilder vs StringBuffer 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md) 를 보고 오면 됩니다.
+어느정도의 사전 지식은 있다고 생각하고 정리 하려고 합니다. 
+기본적인 내용을 잘 모르겠다면 [String vs StringBuilder vs StringBuffer 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md) 를 보고 오시면 됩니다.
+
+<br>
+
+# `String constant pool이란?`
 
 ```java
 public class Test {
@@ -17,27 +21,76 @@ public class Test {
 
 ### `그러면 상수풀은 어디에 있는 것일까요?`
 
-`상수 풀`에 대해서 알려면 JVM에 대해서 알아야 합니다. 하지만 JVM 글이 아니기 때문에 JVM에 대해서 자세히 정리하지는 않습니다.
+`상수 풀`에 대해서 알려면 JVM에 대해서 어느정도 알아야 합니다. 하지만 JVM 글이 아니기 때문에 JVM에 대해서 자세히 정리하지는 않겠습니다.
 
 ![jvm](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxKh6U%2FbtqCPzYJhpS%2FoKDKiaPoWqwqU86rf7IVVk%2Fimg.png)
 
-간단하게 말하면 `상수 풀`은 `Runtime Data Area` 안에 존재합니다. 하지만 그 안에서도 자바 버전이 바뀔 때마다 `상수 풀`의 위치는 조금씩 바뀌었는데 어떻게 바뀌었고 왜 바뀌었는지에 대해서 알아보겠습니다.
-
-![runtime](https://mirinae312.github.io/img/jvm_memory/JVMHeap.png)
-
-Runtime Data Area 안에 Heap의 구조를 보면 위와 같이 되어 있습니다. 
-
-자바 7 이전에는 String 상수풀을 permanent 영역에서 관리를 했는데 이 영역은 메모리 사이즈가 고정이 되어 있어서 `상수 풀이 빈번하게 등록이` 일어나면 `OutOfMemery Error`를 발생시킨다는 문제가 있었습니다.
-(그리고 상수풀에 있는 것들은 GC가 되지 않는다는 문제도 있었습니다.)
-
-그래서 자바 7에서는 `String constant pool`을 GC가 될 수 있게 Heap에다 저장을 했습니다. 그래서 `OutOfMemory Error`를 줄일 수 있었습니다. 
+간단하게 말하면 현재 JVM에서는 `상수 풀`은 `Runtime Data Area` 안에 존재합니다. 하지만 자바 버전이 바뀔 때마다 `상수 풀`의 위치와 특징들이 조금씩 바뀌었는데 어떻게 바뀌었고 왜 바뀌었는지에 대해서 알아보겠습니다.
 
 <br>
 
+### `Java Heap 구조`
+
+![runtime](https://mirinae312.github.io/img/jvm_memory/JVMHeap.png)
+
+`Runtime Data Area` 안에 `Heap`의 구조를 보면 위와 같이 되어 있습니다.  
+
+여기서 `permanent 영역`이 Java 7, Java 8에서 변화가 있었습니다. 어떤 변화인지 자세히 알아보겠습니다. 
+
+<br>
+
+### `Java7: permanent 영역`
+
+자바 8에서 Java Heap과 Perm 영역은 아래와 같은 역할을 수행합니다.
+
+- `Java Heap`
+    - PerGen에 있는 클래스의 인스턴스 저장
+    - `-Xms(min)`, `-Xmx(max)`로 사이즈 조정
+- `PermGen`
+    - 클래스와 메소드의 메타데이터 저장
+    - 상수 풀 정보
+    - JVM, JIT 관련 데이터
+    - static 변수 저장
+    - `-XX: PermSize(min)`, `-XX: MaxPermSize(max)`로 사이즈 조정
+    
+그래서 Perm에 대해서 아래와 같이 설명합니다.
+
+> Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보, Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고 합니다.
+
+Perm 영역은 메모리 사이즈도 고정이기 때문에 String 상수 풀이 많이 생기거나 많은 클래스 정보들이 등록되었을 때 `OutOfMemory Error`가 발생할 가능성이 존재해서 위험하다는 특징을 가지고 있습니다. 
+
+그래서 자바 8에서는 아래와 같은 변경사항이 생겼습니다. 
+
+<br>
+
+### `Java8: Metaspace 영역`
+
+> 자바 8부터는 자바 7에 있는 Perm 영역이 삭제되고 Native 영역으로 이동하여 Metaspace 영역으로 변경되었습니다. 
+> 다만 기존 Perm에 존재하는 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였습니다.
+
 ![java8](https://t1.daumcdn.net/cfile/tistory/993ADD3E5C7681222D)
 
-자바 8에서 부터는 메모리 구조가 위와 같이 변경되었습니다. 그리고 상수풀은 Method Area에서 관리하게 됩니다.
+<br>
 
+### `왜 Perm이 제거되고 Metaspace 영역이 추가된 것일까요?`
+
+> 최근 Java 8에서 JVM 메모리 구조적인 개선 사항으로 Perm 영역이 Metaspace 영역으로 전환되고 기존 Perm 영역은 사라지게 되었다. Metaspace 영역은 Heap이 아닌 Native 메모리 영역으로 취급하게 된다. 
+> (Heap 영역은 JVM에 의해 관리된 영역이며, Native 메모리는 OS 레벨에서 관리하는 영역으로 구분된다) 
+> Metaspace가 Native 메모리를 이용함으로서 개발자는 영역 확보의 상한을 크게 의식할 필요가 없어지게 되었다.
+
+위와 같은 이유라고 합니다. 정리하면, 각종 메타 정보를 OS가 관리하는 영역으로 옮겨 Perm 영역의 사이즈 제한을 없앤 것이라고 할 수 있습니다.
+
+![스크린샷 2021-01-13 오전 3 59 33](https://user-images.githubusercontent.com/45676906/104360004-c161f100-5553-11eb-8feb-113324656a2b.png)
+
+<br>
+
+> 자바 7에서 `MaxPermSize`는  85,983,232 byte, 즉 82 MB 정도 나왔다고 합니다.
+>
+> 반면 자바 8에서 `MaxMetaspaceSize`는  18,446,744,073,709,547,520 byte, 즉 17,592,186,044,415 MB 정도 된다고 합니다.
+
+<br>
+
+따라서 현재는 아래와 같은 JVM 구조를 가지게 됩니다. 
 
 ![runtime](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbDyjp6%2FbtqCO0WAzvo%2FXkJYTnuUOHD5Wy1Rn2mK60%2Fimg.png)
 
@@ -59,16 +112,29 @@ Runtime Data Area 안에 Heap의 구조를 보면 위와 같이 되어 있습니
 
 <br>
 
-> 정확하게는 잘 모르겠다... 메모리가 올라가고 등등 구조가 어떻게 바뀌고.. 아직 완성 못한 글..
+## `참고하기`
+
+```
+현재 Hotspot의 클래스 메타 데이터, interned String, class static 변수들은 Java heap의 permanent generation에 저장됩니다. 
+permanent generation은 Hotspot이 관리하며, 앞에서 말한 것들을 모두 저장하므로 반드시 충분한 공간을 갖고 있어야 합니다. 
+클래스 메타 데이터와 static 변수들은 클래스가 로드될 때 permanent generation에 할당되고, 클래스가 언로드될 때 gc 처리됩니다. 
+interned String은 permanent generation의 gc가 발생할 때 같이 수집됩니다.
+```
+```
+구현 제안서에 따르면 클래스 메타 데이터는 네이티브 메모리에 할당하고, interned String와 클래스 statics는 Java heap으로 이동합니다. 
+Hotspot은 클래스 메타 데이터에 대한 네이티브 메모리를 명시적으로 할당하고 해제할 것입니다. 
+새 클래스 메타 데이터의 할당은 네이티브 메모리의 사용 가능한 양에 의해 제한되며, 커맨드 라인을 통해 설정된 -XX:MaxPermSize 값으로 고정되지 않습니다.
+```
 
 <br>
 
 # Reference
 
+[https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
 [https://www.baeldung.com/java-string-pool](https://www.baeldung.com/java-string-pool)
 [https://coding-start.tistory.com/205](https://coding-start.tistory.com/205)
-[https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
 [https://swiftymind.tistory.com/112](https://swiftymind.tistory.com/112)
+[https://stackoverflow.com/questions/4918399/where-does-javas-string-constant-pool-live-the-heap-or-the-stack](https://stackoverflow.com/questions/4918399/where-does-javas-string-constant-pool-live-the-heap-or-the-stack)
 
 
 
