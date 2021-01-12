@@ -5,7 +5,7 @@
 
 <br>
 
-# `String constant pool이란?`
+# `String Constant pool이란?`
 
 ```java
 public class Test {
@@ -130,10 +130,10 @@ Hotspot은 클래스 메타 데이터에 대한 네이티브 메모리를 명시
 
 # Reference
 
-[https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
-[https://www.baeldung.com/java-string-pool](https://www.baeldung.com/java-string-pool)
-[https://coding-start.tistory.com/205](https://coding-start.tistory.com/205)
-[https://swiftymind.tistory.com/112](https://swiftymind.tistory.com/112)
+[https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/) <br>
+[https://www.baeldung.com/java-string-pool](https://www.baeldung.com/java-string-pool) <br> 
+[https://coding-start.tistory.com/205](https://coding-start.tistory.com/205) <br> 
+[https://swiftymind.tistory.com/112](https://swiftymind.tistory.com/112) <br>
 [https://stackoverflow.com/questions/4918399/where-does-javas-string-constant-pool-live-the-heap-or-the-stack](https://stackoverflow.com/questions/4918399/where-does-javas-string-constant-pool-live-the-heap-or-the-stack)
 
 
