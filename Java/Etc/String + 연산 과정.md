@@ -5,8 +5,6 @@ String에서 `+ 연산`은 사용하지 말고 `StringBuilder`를 사용하라�
 `문자열 연결 연산자(+)`는 여러 문자열을 하나로 합쳐주는 편리한 수단입니다. 그런데 한 줄짜리 출력값 혹은 작고 크기가 고정된 객체의 문자열 표현을 만들 때라면 괜찮지만, 
 본격적으로 사용하기 시작하면 성능 저하를 피하기 어렵습니다. 
 
-`문자열 연결 연산자로 문자열 n개를 잇는 시간은 n^2에 비레`하기 때문입니다. 문자열은 불변이라서 두 문자열을 연결할 경우 양쪽의 내용을 모두 복사해야 하므로 성능 저하는 피할 수 없는 결과입니다.
-
 
 ```java
 public class Test {
@@ -70,6 +68,116 @@ StringBuilder와 StringBuffer의 상위 클래스인 `AbstractStringBuilder` 클
 
 여기서도 `System.arraycopy()`를 통해 복사하는 과정을 진행합니다. 
 
+뭔가 막~~ 복잡해보이지만.. 저도 이해하기가 어렵습니다. 그래서 결론은 그냥 어떤 복사하는 과정이 일어나기 때문에 성능에 좋지 않다 정도만 일단은 이해하면 될 것 같습니다.
 
+그래서 맨 처음 코드의 동작 원리를 정리해보면 아래와 같이 복잡합니다. 
 
+```
+StringBuilder builder = new StringBuilder();
+builder.append("Gyunny");
+builder.append(" Love");
+String s = builder.toString();
+```
 
+여기서 마지막에 StringBuilder의 toString() 메소드를 호출하는데 내부 코드를 보겠습니다.
+
+```java
+public final class StringBuilder {
+    @Override
+    public String toString() {
+        // Create a copy, don't share the array
+        return new String(value, 0, count);
+    }
+}
+```
+
+내부적으로 `new String()`으로 String 객체를 새로 만드는 것을 볼 수 있습니다. String의 + 연산을 할 때 많은 일이 일어난다는 것을 알 수 있습니다.
+
+<br>
+
+## `String + 연산을 StringBuilder로 바꿔주는 예시`
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        String str = "Gyuuny";
+        String result = str + " Java" + " Love";
+        System.out.println(result);
+    }
+}
+```
+```
+String s = "Gyunny";
+String s1 = (new StringBuilder()).append(s).append(" Java")..append(" Love").toString();
+```
+
+위와 같은 과정을 수행되기 때문에 이것이 for문 같이 반복문으로 + 연산을 수행한다면 반복문의 횟수 만큼 StringBuilder 객체가 생생되고 append 메소드, toString() 호출이 발생하게 됩니다.
+
+<br>
+
+### `String concat() 메소드`
+
+```java
+public final class String {
+    public String concat(String str) {
+        int otherLen = str.length();
+        if (otherLen == 0) {
+            return this;
+        }
+        int len = value.length;
+        char buf[] = Arrays.copyOf(value, len + otherLen);
+        str.getChars(buf, len);
+        return new String(buf, true);
+    }
+}
+```
+
+문자열을 연결해주는 `concat()` 메소드도 위와 코드 같이 새로운 char 배열에 복사를 한 후에 `new String()`을 통해서 새로운 String 객체를 만들어주는 것을 볼 수 있습니다. 
+
+<br>
+
+## `StringBuilder vs String 성능 측정`
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        stringBuilderTest();
+        stringTest();
+    }
+
+    public static void stringTest(){
+
+        String result = "";
+        long start = System.currentTimeMillis();
+
+        for(int i = 0 ; i < 100000; i++){
+            result += "test";
+        }
+        long end = System.currentTimeMillis();
+
+        System.out.println("String exec time : " + (end - start));
+    }
+
+    public static void stringBuilderTest(){
+
+        StringBuilder result = new StringBuilder();
+        long start = System.currentTimeMillis();
+
+        for(int i = 0 ; i < 100000; i++){
+            result.append("test");
+        }
+        long end = System.currentTimeMillis();
+
+        System.out.println("String builder exec time : " + (end - start));
+
+    }
+}
+```
+```
+String builder exec time : 5
+String exec time : 14249
+```
+
+위와 같이 String에서 + 연산을 사용하면 `StringBuilder`로 바꿔주긴 합니다. 하지만 반복문의 횟수만큼 StringBuilder 객체가 만들어지고 + 연산 내부적으로 많은 일들이 일어나서(위에서 본 것 처럼) 시간이 많이 걸리는 것을 볼 수 있습니다. 
+
+따라서 많은 문자열 연결 연산이 필요하다면 StringBuilder를 사용해야 합니다.
