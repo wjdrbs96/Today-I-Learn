@@ -51,6 +51,8 @@ JDK 5 이상에서는 여러분들이 String의 더하기 연산을 할 경우, 
 따라서, 일일이 더하는 작업을 직접 변환할 필요는 없습니다. 
 
 하지만 `for 루프와 같이 반복 연산을 할 때에는 자동으로 변환해주지 않는다는`점을 기억해야 합니다.
+
+간략하게 설명하면 위와 같은데 `String 문자열 연산`에 자세히 알고 싶다면 [여기]() 에서 확인하면 됩니다.
  
 <br>
 
@@ -79,31 +81,11 @@ public class Test {
 
 ### 그러면 `상수 풀`은 어떤 곳일까?
 
-`상수 풀`에 대해서 알려면 JVM에 대해서 알아야 합니다. 하지만 JVM 글이 아니기 때문에 자세히 보지는 않고 간략하게 보면서 `상수 풀`에 대해서 알아보겠습니다.
-
-![jvm](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxKh6U%2FbtqCPzYJhpS%2FoKDKiaPoWqwqU86rf7IVVk%2Fimg.png)
-
-JVM은 위와 같은 구조로 되어 있습니다. 여기서 볼 곳은 `Runtime Data Area` 입니다.
-
-![runtime](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbDyjp6%2FbtqCO0WAzvo%2FXkJYTnuUOHD5Wy1Rn2mK60%2Fimg.png)
-
-`Runtime Data Area`를 자세히 보면 위와 같이 되어 있습니다. 흔히 우리가 new를 이용해서 객체를 생성할 때 저장된다고 하는 `Heap`이 존재하는 곳입니다.
+너무 내용이 길어져서 따로 빼서 정리하려 합니다. `상수 풀`에 대한 자세한 내용은 [여기]() 에서 확인하면 됩니다.
 
 <br>
 
-### `Method Area란?`
-
-클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간입니다. 
-프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장합니다.
-이 때, 그 클래스의 `클래스변수(static)(class variable)`도 Method Area(메서드 영역)에 함께 생성됩니다.
-                         
-또한 `Runtime constant pool` 은 Method area 내부에 존재하는 영역으로, 이는 상수 자료형을 저장하여 참조하고 중복을 막는 역할을 수행합니다.
-
-따라서 상수풀은 JVM 내에 `Runtime Data Area` -> `Method Area` 안에 존재하는 것을 알 수 있습니다. 
-
-<br>
-
-### 예제
+### `코드 예제`
 
 ```java
 public class Test {
