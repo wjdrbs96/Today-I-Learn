@@ -70,7 +70,7 @@ StringBuilder와 StringBuffer의 상위 클래스인 `AbstractStringBuilder` 클
 
 뭔가 막~~ 복잡해보이지만.. 저도 이해하기가 어렵습니다. 그래서 결론은 그냥 어떤 복사하는 과정이 일어나기 때문에 성능에 좋지 않다 정도만 일단은 이해하면 될 것 같습니다.
 
-그래서 맨 처음 코드의 동작 원리를 정리해보면 아래와 같이 복잡합니다. 
+그래서 맨 처음 코드의 동작 원리를 정리해보면 아래와 같이 동작합니다. 
 
 ```
 StringBuilder builder = new StringBuilder();
