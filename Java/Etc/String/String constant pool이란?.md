@@ -41,7 +41,7 @@ public class Test {
 
 ### `Java7: permanent 영역`
 
-자바 8에서 Java Heap과 Perm 영역은 아래와 같은 역할을 수행합니다.
+자바 7에서 Java Heap과 Perm 영역은 아래와 같은 역할을 수행합니다.
 
 - `Java Heap`
     - PerGen에 있는 클래스의 인스턴스 저장
