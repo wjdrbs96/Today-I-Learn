@@ -19,13 +19,15 @@
     - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
     - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
-   
+
 - ### Collection Framework   
     - [List](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/22%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98.md)
         - [ArrayList와 LinkedList 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/ArrayList%20vs%20LinkedList.md)
     - [Set](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/23%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98(Set%EA%B3%BC%20Queue).md)
     - [Map](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/24%EC%9E%A5/%EC%BB%AC%EB%A0%89%EC%85%98%20Map.md)
     - [Iterable과 Iterator](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Iterator%EC%99%80%20Iterable.md)
+    - [Arrays](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Arrays%EB%9E%80%3F.md)
+    - [Comparable과 Comparator 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Comparator%20vs%20Comparable%20%EC%B0%A8%EC%9D%B4.md)
    
 - ### java.lang
     - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)       
@@ -62,6 +64,9 @@
     - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
     - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
     - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
+
+- ### Networking
+    - [Socket](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/28%EC%9E%A5/%EB%8B%A4%EB%A5%B8%20%EC%84%9C%EB%B2%84%EB%A1%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%ED%95%98%EB%A9%B4%20%EB%90%98%EB%82%98%EC%9A%94%3F.md)
 
 - ### Etc
     - [인코딩(Encoding) & 디코딩(Decoding)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9D%B8%EC%BD%94%EB%94%A9%2C%20%EB%94%94%EC%BD%94%EB%94%A9.md)
@@ -175,6 +180,8 @@
 - [API 명세서 wiki로 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/API%20%EB%AA%85%EC%84%B8%EC%84%9C%20wiki%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
 - [비즈니스 로직(Business Logic)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%A1%9C%EC%A7%81%EC%9D%B4%EB%9E%80%3F.md)
 - [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Ngnix%EB%9E%80%3F.md)
+- [Nginx로 Proxy Server 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Nginx%20%ED%94%84%EB%A1%9D%EC%8B%9C%20%EC%84%9C%EB%B2%84.md)
+
 
 ## DevOps
 
