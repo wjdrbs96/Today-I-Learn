@@ -84,3 +84,24 @@ sudo service nginx restart (Nginx 재시작)
 `52.79.90.119/home`으로 접속해도 `52.79.90.119:3000/home`과 같은 결과를 얻는 것도 볼 수 있습니다. 
 
 이렇게 Nginx를 이용해서 프록시 서버를 만드는 방법에 대해서 알아보았습니다. 
+
+<br>
+
+## `파일 업로드 오류 해결`
+
+Nginx를 적용하면 기존에 잘 되던 AWS에 파일 업로드 하는 API가 안되는 상황을 볼 수 있습니다. 
+
+![error](https://blog.leocat.kr/assets/img/2020-04-21-nginx-413-request-entity-too-large.png)
+
+위와 같은 에러를 볼 것입니다. 
+이유는 용량이 큰 파일을 업로드 했기 때문입니다. 설정에서 너무 큰 사이즈의 request를 보내지 못하도록 제한을 걸 수 있는데 이러한 사이즈 설정을 바꿔주면 됩니다.
+  
+
+```
+cd /etc/nginx
+sudo vi nginx.conf
+```
+
+![스크린샷 2021-01-14 오후 7 18 36](https://user-images.githubusercontent.com/45676906/104578136-af8c6500-569d-11eb-895e-1c51aed43260.png)
+
+`http { }`안에 위와 같이 설정해주면 됩니다. 
