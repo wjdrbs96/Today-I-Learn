@@ -46,7 +46,7 @@
 
 ```
 설치: sudo apt-get install nginx 
-제거: sudo apt-get remote nginx
+완전제거: sudo apt-get purge nginx nginx-common nginx-full
 버전확인: nginx -v 
 ```
 
