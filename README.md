@@ -8,6 +8,7 @@
 - ### Java Basic
     - [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
     - [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
+    - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [Java Call By Reference vs Call By Value](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Call%20by%20Reference%20vs%20Call%20By%20Value.md)
     - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
@@ -16,7 +17,6 @@
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
     - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
     - [Interface](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/interface.md)
-    - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [instanceof](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/instanceof.md)
     - [final](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/final.md)
 
@@ -181,7 +181,6 @@
 - [비즈니스 로직(Business Logic)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%A1%9C%EC%A7%81%EC%9D%B4%EB%9E%80%3F.md)
 - [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Ngnix%EB%9E%80%3F.md)
 - [Nginx로 Proxy Server 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Nginx%20%ED%94%84%EB%A1%9D%EC%8B%9C%20%EC%84%9C%EB%B2%84.md)
-
 
 ## DevOps
 
