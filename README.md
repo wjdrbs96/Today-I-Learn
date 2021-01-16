@@ -56,6 +56,7 @@
     - [Fork & Join Framework](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/fork%20%26%20join%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8D.md)
     - [싱글쓰레드 vs 멀티쓰레드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%EC%8B%B1%EA%B8%80%EC%93%B0%EB%A0%88%EB%93%9C%EC%99%80%20%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [volatile](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/volatile%EB%9E%80%3F.md)
+    - [ThreadLocal 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/ThreadLocal%EC%9D%B4%EB%9E%80%3F.md)
 
 - ### lambda & Stream
     - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
@@ -100,9 +101,10 @@
 
 ## Design Pattern
 
-- [Singleton Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/5.%20%EC%8B%B1%EA%B8%80%ED%84%B4%20%ED%8C%A8%ED%84%B4.md)
 - [Observer Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/2.%20%EC%98%B5%EC%A0%80%EB%B2%84%20%ED%8C%A8%ED%84%B4.md)
 - [Decorator Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/3.%20%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%8A%B8%20%ED%8C%A8%ED%84%B4.md)
+- [Factory Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/4.%20%ED%8C%A9%ED%86%A0%EB%A6%AC%20%ED%8C%A8%ED%84%B4.md)
+- [Singleton Pattern](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Design_Pattern/5.%20%EC%8B%B1%EA%B8%80%ED%84%B4%20%ED%8C%A8%ED%84%B4.md)
 
 ## NodeJS
 
