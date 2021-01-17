@@ -271,20 +271,20 @@ public class ArrayListLinkedListTest {
 ```
 ```
 = 순차적으로 추가하기 =
-ArrayList : 315
-LinkedList : 2267
- 
+ArrayList : 126
+LinkedList : 171
+
 = 중간에 추가하기 =
-ArrayList : 4848
-LinkedList : 26
- 
+ArrayList : 1695
+LinkedList : 10
+
 = 중간에서 삭제하기 =
-ArrayList : 4144
-LinkedList : 267
- 
+ArrayList : 1303
+LinkedList : 122
+
 = 순차적으로 삭제하기 =
-ArrayList : 11
-LinkedList : 26
+ArrayList : 8
+LinkedList : 23
 ```
 
 - `순차적으로 추가하기`
