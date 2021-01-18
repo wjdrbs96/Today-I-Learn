@@ -108,7 +108,7 @@ public class Test {
 ```
 ```
 String s = "Gyunny";
-String s1 = (new StringBuilder()).append(s).append(" Java")..append(" Love").toString();
+String s1 = (new StringBuilder()).append(s).append(" Java").append(" Love").toString();
 ```
 
 위와 같은 과정을 수행되기 때문에 이것이 for문 같이 반복문으로 + 연산을 수행한다면 반복문의 횟수 만큼 StringBuilder 객체가 생생되고 append 메소드, toString() 호출이 발생하게 됩니다.
