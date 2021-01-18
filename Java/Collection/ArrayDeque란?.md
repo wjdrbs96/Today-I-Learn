@@ -174,3 +174,8 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
 위와 같이 배열의 길이의 2배 만큼 늘리는 것을 볼 수 있습니다. 그 외적인 `Stack`, `Queue` 구조로 할 수 있는 메소드들이 있습니다. 
 
+<br>
+
+# `Reference`
+
+- [https://www.baeldung.com/java-lifo-thread-safe](https://www.baeldung.com/java-lifo-thread-safe)
