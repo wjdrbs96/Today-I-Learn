@@ -133,7 +133,7 @@ void recordRemoval(HashMap<K,V> m) {…}
 
 Java HashMap에서는 `분리 연결법`을 사용하기 때문에 put() 메소드의 코드도 아래와 같습니다. 
 
-```
+```java
 public V put(K key, V value) { if (table == EMPTY_TABLE) { inflateTable(threshold); // table 배열 생성 } // HashMap에서는 null을 키로 사용할 수 있다. if (key == null) return putForNullKey(value); // value.hashCode() 메서드를 사용하는 것이 아니라, 보조 해시 함수를 이용하여 // 변형된 해시 함수를 사용한다. "보조 해시 함수" 단락에서 설명한다.  
         int hash = hash(key);
 
@@ -241,7 +241,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 기본 생성자를 사용하면 버킷의 수가 16이기 때문에 계속 2배로 늘어가는 과정이 발생하게 되면 속도가 많이 느려지기 때문에 버킷의 수를 직접 지정하는 것이 성능상 좋습니다.
 
-```
+```java
 // 인자로 사용하는 newCapacity는 언제나 2a이다.
 void resize(int newCapacity) {  
         Entry[] oldTable = table;
@@ -307,7 +307,7 @@ index = X.hashCode() % M을 계산할 때 사용하는 M 값은 소수일 때 in
 
 `보조 해시 함수(supplement hash function)`의 목적은 '키'의 해시 값을 변형하여, 해시 충돌 가능성을 줄이는 것입니다. 이 보조 해시 함수는 JDK 1.4에 처음 등장했습니다. Java 5 ~ Java 7은 같은 방식의 보조 해시 함수를 사용하고, Java 8부터는 다시 새로운 방식의 보조 해시 함수를 사용하고 있습니다.
 
-```
+```java
 final int hash(Object k) {  
         // Java 7부터는 JRE를 실행할 때, 데이터 개수가 일정 이상이면
         // String 객체에 대해서 JVM에서 제공하는 별도의 옵션으로
@@ -384,3 +384,8 @@ public int hashCode() {
 - `31이 소수이기 때문입니다.`
 - `어떤 수에 31을 곱하면 빠르게 계산할 수 있기 때문입니다. 31N = 32N - N인데, 2^5이니 어떤 수에 대한 32를 곱한 값을 shift 연산으로 쉽게 구현할 수 있습니다. 즉, (N << 5) - N과 같습니다.`
 
+<br>
+
+# `Reference`
+
+- [https://d2.naver.com/helloworld/831311](https://d2.naver.com/helloworld/831311) 
