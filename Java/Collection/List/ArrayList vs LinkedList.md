@@ -337,3 +337,6 @@ LinkedList : 23
 ## `ArrayList vs LinkedList 시간복잡도`
 
 ![time](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc47wrr%2FbtqNG0s9sD1%2FGE9KaZbmsXUbPKVzOkon20%2Fimg.png)
+
+- 배열의 경우는 연속적으로 메모리상에 존재하고, 참조변수 하나당 4byte이기 때문에 `시작배열 주소 + n * 데이터 타입의 크기`를 통해서 원하는 인덱스에 쉽게 접근할 수 있습니다. 
+- 하지만 LinkedList는 불연속적으로 위치한 각 요소들이 서로 연결된 것이라 처음부터 n번째 데이터까지 차례대로 따라가야만 원하는 값을 얻을 수 있습니다. 즉, LinkedList는 저장해야하는 데이터의 개수가 많아질수록 데이터를 읽어 오는 시간, `접근 시간(access time)`이 길어진다는 단점이 있습니다. 
