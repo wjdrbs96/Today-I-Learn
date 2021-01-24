@@ -13,11 +13,13 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
 그런데 `Stack 클래스 대신에 ArrayDeque 클래스를 사용해서 LIFO 구조를 만들어라` 라는 말이 있습니다. 
 
-먼저 스택 클래스의 문제점에 대해서 살펴보겠습니다.
+`왜냐하면 Stack 클래스는 LIFO 구조를 유지하기 위해서는 Vector 클래스를 상속받으면 안되지만 자바 초기 버전부터 존재하다 보니 자바에서 잘못 상속을 한 경우입니다.`
+
+따라서 스택 클래스에는 큰 문제점 3가지가 존재하는데 어떤 것인지 살펴보겠습니다.
 
 <br>
 
-## `Stack 클래스의 문제점 2가지`
+## `Stack 클래스의 문제점 3가지`
 
 ```java
 public class Stack<E> extends Vector<E> {
@@ -68,10 +70,12 @@ public class Stack<E> extends Vector<E> {
 Stack 클래스는 Vector 클래스를 확장하고 있는 것을 볼 수 있습니다. 그리고 메소드들 마다 `synchronized` 키워드를 붙혀 멀티 스레드 환경에서 `Thread-Safe`한 것을 볼 수 있습니다. 
 (push 메소드도 내부 코드를 따라가다 보면 Vector 클래스의 push를 사용해 synchronized가 되어있습니다.)
 
-Stack 클래스의 단점 2가지를 정리하면 아래와 같습니다. 
+Stack 클래스의 단점 3가지를 정리하면 아래와 같습니다. 
 
-- `Stack 클래스를 만들 때 초기 용량을 설정할 수 없다.`
 - `모든 메소드에 synchronized가 있기 때문에 단일 스레스 환경에서는 성능이 떨어진다.`
+- `Vector 클래스를 상속받았기 때문에 LIFO 구조를 유지하는 것이 아니라 중간에서 데이터를 삭제하고 삽입하는 것이 가능합니다.`
+- `Stack 클래스를 만들 때 초기 용량을 설정할 수 없다.`
+
 
 <br>
 
