@@ -1,6 +1,6 @@
 # `Stack 클래스란 무엇인가?`
 
-Stack 이라는 자료구조는 메모리에서도 쓰이고 실생활에서도 볼 수 있는 자료구조 입니다. 
+Stack 이라는 자료구조는 메모리에서도 쓰이고 실생활에서도 볼 수 있는 자료구조 입니다. (`수식계산`, `수식괄호검사`, `웹브라우저의 뒤로/앞으로`)
 
 ![stack](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FYhtxB%2FbtqHsbZTFED%2FDhCPI65pmzfsqETjti138k%2Fimg.jpg)
 
