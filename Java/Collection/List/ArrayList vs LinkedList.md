@@ -332,3 +332,8 @@ LinkedList : 23
 
 > 다르고자 하는 데이터의 개수가 변하지 않는 경우라면, ArrayList가 최상의 선택이겠지만, 데이터 개수의 변경이 잦다면 LinkedList를 사용하는 것이 더 나은 선택이 될 것입니다.
 
+<br>
+
+## `ArrayList vs LinkedList 시간복잡도`
+
+![time](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc47wrr%2FbtqNG0s9sD1%2FGE9KaZbmsXUbPKVzOkon20%2Fimg.png)
