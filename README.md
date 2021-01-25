@@ -32,6 +32,7 @@
         - [Java HashMap은 어떻게 동작하는가?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Map/Java%20HashMap%20%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.md)
     - [Queue](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java/Collection/Queue)
         - [Queue에서 ArrayList 대신 LinkedList를 사용하는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Queue/Queue%EA%B0%80%20ArrayList%EB%8C%80%EC%8B%A0%20LinkedList%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+        - [PriorityQueue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Queue/PriorityQueue%EB%9E%80%3F.md)
         - [Deque](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Queue/Deque%EB%9E%80%3F.md)
             - [ArrayDeque](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Queue/ArrayDeque%EB%9E%80%3F.md)
     - [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Stack%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%9E%80%3F.md)
