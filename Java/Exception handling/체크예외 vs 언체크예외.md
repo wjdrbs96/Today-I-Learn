@@ -85,7 +85,7 @@ public class ArrayTest {
 
 ## `체크 예외와 언체크 예외의 Rollback 여부`
 
-![image](https://user-images.githubusercontent.com/45676906/105691015-0d436b80-5f40-11eb-994d-58c55b8d47b8.png)
+![image](https://user-images.githubusercontent.com/45676906/105691109-2cda9400-5f40-11eb-9003-a14873c2eaf2.png)
 
 `체크 예외`와 `언체크 예외`의 차이점 중에 같이 보아야 할 점은 `Rollback`의 여부입니다. 
 
