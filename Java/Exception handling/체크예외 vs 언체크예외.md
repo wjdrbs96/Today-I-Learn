@@ -6,7 +6,7 @@
 - `에러(Error)`
 - `언체크 예외(Unchecked Exception)`
 
-![test](http://www.nextree.co.kr/content/images/2016/09/Exception-Class.png)
+![image](https://user-images.githubusercontent.com/45676906/105691109-2cda9400-5f40-11eb-9003-a14873c2eaf2.png)
 
 자바에서 `에러`, `예외` 관련된 클래스들의 계층구조는 위와 같습니다. `Throwable` 클래스를 기준으로 `Error`, `Exception` 클래스로 나뉘어집니다. 
 
@@ -85,7 +85,7 @@ public class ArrayTest {
 
 ## `체크 예외와 언체크 예외의 Rollback 여부`
 
-![image](https://user-images.githubusercontent.com/45676906/105691109-2cda9400-5f40-11eb-9003-a14873c2eaf2.png)
+![image](https://user-images.githubusercontent.com/45676906/105691015-0d436b80-5f40-11eb-994d-58c55b8d47b8.png)
 
 `체크 예외`와 `언체크 예외`의 차이점 중에 같이 보아야 할 점은 `Rollback`의 여부입니다. 
 
