@@ -214,7 +214,3 @@ Iterator와 Enumeration의 관계도 ArrayList와 Vector의 관계와 같습니�
 - `ArrayList 초기 용량은 10이고 초과하면 1.5배로 늘림, Vector의 초기용량은 10, 초과하면 2배로 늘림`
 - `ArrayList는 Iterator만 사용할 수 있고, Vector는 Enumeration, Iterator 둘 다 사용할 수 있음`
 - `Vector 클래스는 컬렉션 프레임워크 이전에 나온 클래스이고, 현재 소스 코드 호환 때문에 남아 있는 클래스 이기 때문에 ArrayList를 사용하자.`
-
-
-
-  
