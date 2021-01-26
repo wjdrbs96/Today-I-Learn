@@ -12,7 +12,8 @@
     - [Java Call By Reference vs Call By Value](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Call%20by%20Reference%20vs%20Call%20By%20Value.md)
     - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
-
+    - [Generic Type erasure란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/21%EC%9E%A5/Type%20erasure%EB%9E%80%3F.md)
+    
 - ### OOP
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
     - [Polymorphism](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Polymorphism.md)
@@ -139,14 +140,16 @@
 
 ## Data Structrue
 
+- [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Stack.md)
+- [Queue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Queue.md)
+- [LinkedList](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/LinkedList.md)
+
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
 
 - ### Tree
     - [이진트리란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Tree/%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%EB%9E%80%3F.md)
     - [이진탐색트리란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Tree/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%ED%8A%B8%EB%A6%AC%EB%9E%80%3F.md)
 
-- [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Stack.md)
-- [Queue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Queue.md)
 
 ## Algorithm
 
