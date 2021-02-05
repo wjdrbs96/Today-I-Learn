@@ -1,4 +1,4 @@
-package ExampleCode;
+package Test;
 
 public class Test {
 }
