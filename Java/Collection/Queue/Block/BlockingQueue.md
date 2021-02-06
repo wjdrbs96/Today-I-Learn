@@ -141,3 +141,10 @@ public class Consumer implements Runnable{
 위와 같이 `put`을 하고 나서 3초씩 대기하는 코드를 작성하였습니다. 그러면 첫 번째 원소가 INSERT 된 후에 3초를 대기하면 `Consumer` 쓰레드에서 `take()` 과정이 일어날 것입니다. 
 
 하지만 위에서 보았던 것처럼 `take()` 메소드는 큐가 비어있다면 `put()` 과정이 일어날 때까지 대기하게 됩니다. 그래서 비어있는 큐에 take() 작업을 해서 예외가 발생하는 것이 아니라 정상적으로 결과가 출력됩니다. 
+
+<br>
+
+# `Reference`
+
+- [http://tutorials.jenkov.com/java-util-concurrent/blockingqueue.html](http://tutorials.jenkov.com/java-util-concurrent/blockingqueue.html)
+
