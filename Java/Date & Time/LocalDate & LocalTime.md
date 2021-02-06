@@ -11,7 +11,7 @@ jdk 1.8부터 `java.time 패키지`가 추가되었습니다.
 
 <br>
 
-# `LocalDate & LocalTime 이란?`
+# `java.time 패키지의 핵심 클래스`
 
 날짜와 시간을 하나로 표현하는 Calendar 클래스와는 달리, java.time 패키지에서는 날짜와 시간을 별도의 클래스로 분리해 놓았습니다. 
 
