@@ -96,15 +96,59 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
     네이티브 메소드는 OS의 시스템 정보, 리소스를 사용하거나 접근하기 위한 코드로 C, C++로 작성되어 있습니다.     
         
 - ### `Method Area` 
-    - Method Area는 중요하게 정리하고 넘어갈 부분 중에 하나입니다. 클래스 로더를 통해서 클래스의 `static 블록`, `static 변수`들이 초기화가 된다고 하였습니다. 
-    즉, `초기화 된 대상을 저장하기 위한 공간입니다.`   
+    - Method Area는 중요하게 정리하고 넘어갈 부분 중에 하나입니다. 클래스 로더를 통해서 클래스의 `클래스 변수`, `static 블록`, `static 변수`, `상수` 등이 초기화 되고 저장됩니다. 
+       
 
 <br>
 
 그리고 중요하게 봐야할 부분은 `Heap` 영역과 `Constant Pool` 입니다. 
 
+일단 Java 8에 JVM에는 나름? 큰 변화가 있었습니다. (위에 보이는 `Runtime Data Area`는 Java 8 이후의 구조도 라고 생각하면 됩니다.) 
 
+![HotSpot](https://t1.daumcdn.net/cfile/tistory/993ADD3E5C7681222D)
 
+Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고 Java 8에서는 `Permanent -> Metaspace`로 바뀌었습니다. 
+
+<br>
+
+### `Java 7에서 Java 8로 JVM의 변화`
+
+먼저 java 7의 permanent 영역의 특징에 대해서 정리해보겠습니다. permanent 영역에는 다음과 같은 정보들이 저장되었습니다.
+
+- `Class의 Meta 정보(바이트코드 포함)`
+- `Method의 Meta 정보`
+- `static Object, static 상수`
+- `상수화된 String Object`
+- `Class와 관련된 배열 객체 Meta 정보`
+- `JVM 내부적인 객체들과 최적화 컴파일러(JIT)의 최적화 정보`
+
+이러한 많은 정보들을 Permanent에 저장하다 보니,  `String 상수 풀 정보`, `static Object`, `Class Meta 정보`들이 쌓여 `Out Of Memory`가 발생하는 문제가 생겼습니다. 
+
+그래서 Java 8에서는 `Permanent 영역을 삭제하고 Metaspace 영역을 추가하고 Native 영역으로 이동시켰습니다.`
+
+![coding](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Febv9pZ%2Fbtqw6oJ0fvp%2FFq1JlAb8YlF2C5qg0rrirk%2Fimg.png)
+
+위와 같은 그림의 형태로 바뀌게 되었습니다. 그러면 Permanent에 저장되었던 정보들은 어디에 저장이 될까요?
+
+- `Class의 Meta 정보(바이트코드 포함) -> Native 영역으로 이동`
+- `Method의 Meta 정보 -> Native 영역으로 이동`
+- `static Object, static 상수 -> Heap 영역으로 이동`
+- `상수화된 String Object -> Method Area로 이동`
+- `Class와 관련된 배열 객체 Meta 정보`
+- `JVM 내부적인 객체들과 최적화 컴파일러(JIT)의 최적화 정보`
+
+> Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보, Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고도 한다. 이 영역은 Java 8 부터는 Native 영역으로 이동하여 Metaspace 영역으로 변경되었다. <br>
+> (다만, 기존 Perm 영역에 존재하던 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였다)
+
+정리하면 아래와 같습니다. 
+
+![스크린샷 2021-02-08 오후 12 44 13](https://user-images.githubusercontent.com/45676906/107173545-5b11a680-6a0b-11eb-8740-3b57c9b4672e.png)
+
+<br>
+
+### `왜 Perm이 제거됐고 Metaspace 영역이 추가된 것일까?`
+
+> 최근 Java 8에서 JVM 메모리 구조적인 개선 사항으로 Perm 영역이 Metaspace 영역으로 전환되고 기존 Perm 영역은 사라지게 되었다. Metaspace 영역은 Heap이 아닌 Native 메모리 영역으로 취급하게 된다. (Heap 영역은 JVM에 의해 관리된 영역이며, Native 메모리는 OS 레벨에서 관리하는 영역으로 구분된다) Metaspace가 Native 메모리를 이용함으로서 개발자는 영역 확보의 상한을 크게 의식할 필요가 없어지게 되었다.
 
 <br>
 
@@ -113,3 +157,7 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 - [https://jins-dev.tistory.com/entry/Java-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A1%9C%EB%8D%94ClassLoader%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4](https://jins-dev.tistory.com/entry/Java-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A1%9C%EB%8D%94ClassLoader%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4)
 - [https://asfirstalways.tistory.com/158](https://asfirstalways.tistory.com/158)
 - [https://iann.tistory.com/17](https://iann.tistory.com/17)
+- [https://swiftymind.tistory.com/112](https://swiftymind.tistory.com/112)
+- [https://yckwon2nd.blogspot.com/2015/03/java8-permanent.html](https://yckwon2nd.blogspot.com/2015/03/java8-permanent.html)
+- [https://coding-start.tistory.com/205](https://coding-start.tistory.com/205)
+- [https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
