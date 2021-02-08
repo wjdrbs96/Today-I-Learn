@@ -88,8 +88,10 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 - ### `PC Register`
     - Thread 마다 하나씩 갖고 있으며 현재 JVM이 수행할 명령어의 주소를 저장하는 공간입니다.
 
-- ### `JVM 스택 영역`
+- ### `JVM Stack 영역`
     - 말 그대로 메소드 호출이나 변수의 복귀주소와 같은 것들이 쌓이는 공간입니다. 
+    - Method 정보는 해당 Method의 매개변수, 지역변수, 임시변수 그리고 어드레스(메소드 호출 한 주소)등을 저장하고 Method 종료시 메모리 공간이 사라집니다.
+    - `멀티 Thread 프로그램의 경우 각 Thread가 자신의 Stack을 가지고는 있지만 Heap 영역은 공유하기 때문에, 프로그래밍시에 Thread-safe 하지 않는 이슈에 주의하며 프로그래밍을 해야 한다. 결론적으로 Heap 영역 자체가 Thread-safe 하지 않는 상태입니다. Thread-safe 하게 객체를 생성하기 위해서는 Immutable한 객체를 설계하는 것이 좋습니다.`
     
 - ### `Native Method stack`
     - 실제 Object 클래스의 hashCode()와 같이 특정 클래스들의 어떤 메소드를 보면 `native`가 붙어 있는 것을 볼 수 있습니다. 이러한 메소드들이 저장되어 있는 공간입니다.
@@ -97,7 +99,8 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
         
 - ### `Method Area` 
     - Method Area는 중요하게 정리하고 넘어갈 부분 중에 하나입니다. 클래스 로더를 통해서 클래스의 `클래스 변수`, `static 블록`, `static 변수`, `상수` 등이 초기화 되고 저장됩니다. 
-       
+    -     
+   
 
 <br>
 
@@ -144,6 +147,9 @@ Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고
 
 ![스크린샷 2021-02-08 오후 12 44 13](https://user-images.githubusercontent.com/45676906/107173545-5b11a680-6a0b-11eb-8740-3b57c9b4672e.png)
 
+Native 영역의 가장 큰 특징 중의 하나는 Native 영역은 JVM에 의해서 크기가 강제되지 않고, 프로세스가 이용할 수 있는 메모리 자원을 최대로 활용 할 수 있습니다
+만일 메모리 leak이 Classloader 을 동작하는 코드에 발생하는 것으로 의심된다면, 이는 최대 메모리를 설정하지 않았기 때문입니다. 
+
 <br>
 
 ### `왜 Perm이 제거됐고 Metaspace 영역이 추가된 것일까?`
@@ -151,6 +157,18 @@ Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고
 > 최근 Java 8에서 JVM 메모리 구조적인 개선 사항으로 Perm 영역이 Metaspace 영역으로 전환되고 기존 Perm 영역은 사라지게 되었다. Metaspace 영역은 Heap이 아닌 Native 메모리 영역으로 취급하게 된다. (Heap 영역은 JVM에 의해 관리된 영역이며, Native 메모리는 OS 레벨에서 관리하는 영역으로 구분된다) Metaspace가 Native 메모리를 이용함으로서 개발자는 영역 확보의 상한을 크게 의식할 필요가 없어지게 되었다.
 
 <br>
+
+## `Heap 이란?`
+
+Heap은 `new` 연산을 통해서 객체를 만들면 인스턴스가 Heap 영역의 메모리에 할당이 됩니다. 프로그램이 시작될 때 미리 Heap 영역을 할당해 놓으며 `인스턴스와 인스턴스 변수가 저장됩니다.` 레퍼런스 변수의 경우 Heap에 인스턴스가 저장되는 것이 아니라 포인터가 저장됩니다.   
+
+> Heap 영역은 Garbage Collection의 대상이 되는 영역
+
+Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있습니다. Heap 내부에는 `Eden`, `Survivor`, `Old generation`이 있습니다. 
+
+![coding](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Febv9pZ%2Fbtqw6oJ0fvp%2FFq1JlAb8YlF2C5qg0rrirk%2Fimg.png)
+
+
 
 # `Reference`
 
@@ -161,3 +179,4 @@ Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고
 - [https://yckwon2nd.blogspot.com/2015/03/java8-permanent.html](https://yckwon2nd.blogspot.com/2015/03/java8-permanent.html)
 - [https://coding-start.tistory.com/205](https://coding-start.tistory.com/205)
 - [https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
+- [https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/](https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/)

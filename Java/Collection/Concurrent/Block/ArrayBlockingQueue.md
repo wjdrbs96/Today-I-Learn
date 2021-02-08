@@ -46,13 +46,16 @@ ArrayBlockingQueue의 생성자는 위와 같습니다. 객체를 만들 때 무
 
 ## `ArrayBlockingQueue가 Array를 사용하는 이유는?`
 
-일반적으로 Queue는 ArrayList가 아니라 LinkedList를 사용하여 구현을 합니다. 큐는 앞에서 삭제가 일어나는데, ArrayList의 경우는 빈 공간을 계속 메꾸기 위한 오버헤드가 발생하기 때문에 사용하지 않는 것입니다. 
+일반적으로 Queue는 ArrayList가 아니라 LinkedList를 사용하여 구현을 합니다. 그 이유는 큐는 앞에서 삭제가 일어나는데, ArrayList의 경우는 빈 공간을 계속 메꾸기 위한 오버헤드가 발생하기 때문에 사용하지 않는 것입니다. 
 
 그런데 ArrayBlockingQueue는 Array를 사용합니다. 이유가 무엇일까요? 
 
 - `일단 ArrayBlockingQueue는 용량이 한번 정해지면 고정이라는 특징이 있습니다.`
 
+위에서 말했던 것처럼 `ArrayBlockingQueue는 객체를 생성할 때 초기용량을 지정해주어야 합니다.`  
+
 ![스크린샷 2021-02-07 오후 1 16 53](https://user-images.githubusercontent.com/45676906/107136841-fb9f9200-6949-11eb-9433-b42c2a8ba5ce.png)
 
 그리고 ArrayBlockingQueue의 dequeue 메소드를 보면 위와 같이 원소들의 자리 이동 과정이 일어나지 않습니다. 즉, 삭제한 원소는 null 처리를 하고 `takeIndex`로 배열을 관리하게 됩니다. 
-그래서 배열을 사용하여도 큰 문제가 발생하지 않는 것입니다. 
+그래서 배열을 사용하여도 ArrayList 처럼 큰 오버헤드가 발생하지 않습니다.
+
