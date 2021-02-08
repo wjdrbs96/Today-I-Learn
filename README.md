@@ -5,13 +5,18 @@
 - ### Data Type
     - [float과 double의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Data-Type/float%20vs%20double%20%EC%B0%A8%EC%9D%B4%EB%8A%94%3F.md)
 
+- ### JVM
+    - [JDK vs JRE](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/JDK%20vs%20JRE%20%EB%9E%80%3F.md)
+    - [JVM(Java Virtual Machine)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/JVM/JVM.md)
+
 - ### Java Basic
     - [Java Program 실행 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89%EA%B3%BC%EC%A0%95.md)
-    - [JDK vs JRE](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/JDK%20vs%20JRE%20%EB%9E%80%3F.md)
     - [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
     - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [Java Call By Reference vs Call By Value](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Call%20by%20Reference%20vs%20Call%20By%20Value.md)
     - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
+
+- ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
     - [Generic Type erasure란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/21%EC%9E%A5/Type%20erasure%EB%9E%80%3F.md)
     
@@ -45,6 +50,7 @@
             - [ArrayDeque](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Queue/ArrayDeque%EB%9E%80%3F.md)
     - [java.util.concurrent](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java/Collection/Concurrent)
         - [BlockingQueue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Concurrent/Block/BlockingQueue.md)
+            - [ArrayBlockingQueue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Concurrent/Block/ArrayBlockingQueue.md)
         - [ConcurrentHashMap](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Concurrent/ConcurrentHashMap%EC%9D%B4%EB%9E%80%3F.md)   
     - [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Stack%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%9E%80%3F.md)
     - [Iterable과 Iterator](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Iterator%EC%99%80%20Iterable.md)
