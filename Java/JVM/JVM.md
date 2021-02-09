@@ -108,7 +108,7 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 
 일단 Java 8에 JVM에는 나름? 큰 변화가 있었습니다. (위에 보이는 `Runtime Data Area`는 Java 8 이후의 구조도 라고 생각하면 됩니다.) 
 
-![HotSpot](https://t1.daumcdn.net/cfile/tistory/993ADD3E5C7681222D)
+![스크린샷 2021-02-09 오전 11 45 33](https://user-images.githubusercontent.com/45676906/107308638-52cd7000-6acc-11eb-9c19-e4f33a916e8f.png)
 
 Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고 Java 8에서는 `Permanent -> Metaspace`로 바뀌었습니다. 
 
@@ -158,6 +158,33 @@ Native 영역의 가장 큰 특징 중의 하나는 Native 영역은 JVM에 의�
 
 <br>
 
+### `SDK로 사이즈 알아보기`
+
+Java 7  버전으로 `Perm` 사이즈를 알아보겠습니다. 
+
+```
+sdk use java 7.0.282-zulu (Java Version 7로 변경)
+sdk current (Java 현재 버전 확인)
+java -XX:+PrintFlagsFinal -version -server | grep PermSize 
+```
+
+![스크린샷 2021-02-09 오전 11 51 46](https://user-images.githubusercontent.com/45676906/107309188-51507780-6acd-11eb-9cae-a87e2d130af3.png)
+
+<br>
+
+이번에는 Java 11 버전으로 `Metapsace` 사이즈를 알아보겠습니다. 
+
+```
+sdk use java 11.0.10.hs-adpt (Java Version 11로 변경)
+java -XX:+PrintFlagsFinal -version -server | grep MetaspaceSize
+```
+
+![스크린샷 2021-02-09 오전 11 57 44](https://user-images.githubusercontent.com/45676906/107309599-13a01e80-6ace-11eb-8caf-72c20d02736e.png)
+
+
+
+<br>
+
 ## `Heap 이란?`
 
 Heap은 `new` 연산을 통해서 객체를 만들면 인스턴스가 Heap 영역의 메모리에 할당이 됩니다. 프로그램이 시작될 때 미리 Heap 영역을 할당해 놓으며 `인스턴스와 인스턴스 변수가 저장됩니다.` 레퍼런스 변수의 경우 Heap에 인스턴스가 저장되는 것이 아니라 포인터가 저장됩니다.   
@@ -168,7 +195,9 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 
 ![coding](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Febv9pZ%2Fbtqw6oJ0fvp%2FFq1JlAb8YlF2C5qg0rrirk%2Fimg.png)
 
+Java 8의 `MaxMetaspaceSize`는 `18446744073709547520`인 것을 볼 수 있습니다. 이는 `약 16ExaBye, 64bit 프로세서 최고 메모리 상한치`라고 합니다. 
 
+즉, Metaspace 영역은 `Native 영역`이기 때문에 개발자가 크게 신경을 쓰지 않아도 되는 영역으로 바뀐 것 같습니다. 
 
 # `Reference`
 
@@ -180,3 +209,5 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 - [https://coding-start.tistory.com/205](https://coding-start.tistory.com/205)
 - [https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
 - [https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/](https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/)
+- [https://blog.voidmainvoid.net/184](https://blog.voidmainvoid.net/184)
+- [https://javaslave.tistory.com/23](https://javaslave.tistory.com/23)
