@@ -26,7 +26,7 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 그러면 `Java Source code`를 실행하면 어떤 과정이 일어날까요? 
 
 - `자바 소스 파일을 자바 컴파일러(javac)가 해석하여 바이트코드(.class)로 변환시킵니다.`
-- `바이트코드로 변환된 파일을 Class Loader가 JVM 내로 적재 시킵니다.`
+- `바이트코드로 변환된 파일을 Class Loader가 JVM 내로 적재 시킵니다.(이 과정에서 Runtime Data Area에 올리는 거 같습니다)`
 - `로딩된 class 파일들을 Execution engine을 통해 해석합니다.`
 - `해석된 바이트코드는 Runtime Data Area로 옮겨져 실질적으로 수행이 이루어지게 됩니다.`
 
@@ -64,7 +64,7 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
     - 인터프리터는 런타임시에 한줄 한줄 읽어가며 변환하는 것입니다. 하지만 이것은 한줄씩 수행하기 때문에 느리다는 단점을 가지고 있습니다.(파이썬이 C언어보다 느린 이유와 같을 거? 같습니다.)
     
 - ### `JIT(Just-In-Time)`
-    - JIT Compiler는 인터프리터 언어의 단점(느림)을 보완하기 위해 나왔습니다. 간단히 말하면 바이트코드를 컴파일 하여 `네이티브 코드(기계어)`로 변경하고 이후에는 더 이상 인터프리팅 하지 않고 네이티브 코드로 직접 실행하는 방식입니다. 
+    - JIT Compiler는 인터프리터 언어의 단점(느림)을 보완하기 위해 나왔습니다. 간단히 말하면 바이트코드를 컴파일 하여 `네이티브 코드(기계어)`로 변경하고 이후에는 더 이상 인터프리팅 하지 않고 네이티브 코드로 직접 실행하는 방식입니다. <br> 
     > 네이티브 코드는 캐시에 보관하기 때문에 한 번 컴파일된 코드는 빠르게 수행하게 됩니다. 하지만 JIT 컴파일러가 컴파일하는 과정은 바이트코드를 인터프리팅하는 것보다 훨씬 오래걸리기 때문에 한 번만 실행되는 코드라면 컴파일 하지 않고 인터프리팅 하는 것도 중요합니다. <br> <br>
       출처: [https://asfirstalways.tistory.com/158](https://asfirstalways.tistory.com/158)
                                                                                                                                                                            
@@ -83,8 +83,6 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 
 일단 쓰레드는 `Main 쓰레드`, `사용자 쓰레드`와 같은 것들이 위와 같이 만들어진다고 생각하면 됩니다. 쓰레드 내에 존재하는 것을 보면 일반 `프로세스 - 쓰레드 관계에서 쓰레드 내부에 존재하는 것`들과 비슷합니다. 
 
-<br>
-
 - ### `PC Register`
     - Thread 마다 하나씩 갖고 있으며 현재 JVM이 수행할 명령어의 주소를 저장하는 공간입니다.
 
@@ -99,18 +97,19 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
         
 - ### `Method Area` 
     - Method Area는 중요하게 정리하고 넘어갈 부분 중에 하나입니다. 클래스 로더를 통해서 클래스의 `클래스 변수`, `static 블록`, `static 변수`, `상수` 등이 초기화 되고 저장됩니다. 
-    -     
+        
    
 
 <br>
 
 그리고 중요하게 봐야할 부분은 `Heap` 영역과 `Constant Pool` 입니다. 
 
-일단 Java 8에 JVM에는 나름? 큰 변화가 있었습니다. (위에 보이는 `Runtime Data Area`는 Java 8 이후의 구조도 라고 생각하면 됩니다.) 
+왜냐하면 Java 8 JVM에는 나름? 큰 변화가 있었습니다. (위에 보이는 `Runtime Data Area`는 Java 8 이후의 구조도 라고 생각하면 됩니다.) 
 
 ![스크린샷 2021-02-09 오전 11 45 33](https://user-images.githubusercontent.com/45676906/107308638-52cd7000-6acc-11eb-9c19-e4f33a916e8f.png)
 
-Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고 Java 8에서는 `Permanent -> Metaspace`로 바뀌었습니다. 
+Java 7까지의 구조를 보면 `Permanent` 영역이 존재합니다. 그리고 Java 8에서는 `Permanent -> Metaspace`로 바뀌었습니다.
+즉, `Heap` 영역에 속했던 것이 `Native 영역`으로 이동된 것입니다. 
 
 <br>
 
@@ -143,12 +142,16 @@ Java 7까지의 구조를 보면 `Permanet` 영역이 존재합니다. 그리고
 > Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보, Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고도 한다. 이 영역은 Java 8 부터는 Native 영역으로 이동하여 Metaspace 영역으로 변경되었다. <br>
 > (다만, 기존 Perm 영역에 존재하던 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였다)
 
-정리하면 아래와 같습니다. 
-
 ![스크린샷 2021-02-08 오후 12 44 13](https://user-images.githubusercontent.com/45676906/107173545-5b11a680-6a0b-11eb-8740-3b57c9b4672e.png)
 
-Native 영역의 가장 큰 특징 중의 하나는 Native 영역은 JVM에 의해서 크기가 강제되지 않고, 프로세스가 이용할 수 있는 메모리 자원을 최대로 활용 할 수 있습니다
-만일 메모리 leak이 Classloader 을 동작하는 코드에 발생하는 것으로 의심된다면, 이는 최대 메모리를 설정하지 않았기 때문입니다. 
+Native 영역의 가장 큰 특징 중의 하나는 Native 영역은 JVM에 의해서 크기가 강제되지 않고, 프로세스가 이용할 수 있는 메모리 자원을 최대로 활용 할 수 있습니다 
+
+정리하면 아래와 같습니다. 
+
+- `Perm은 JVM에 의해 크기가 강제되던 영역입니다.`
+- `Metaspace는 Native 영역으로 OS가 자동으로 크기를 조절합니다.`
+- `그 결과 기존과 비교해 큰 메모리 영역을 사용할 수 있게 되었습니다.`
+    - `Java 8부터는 Perm 영역 크기로 인한 java.lang.OutOfMemoryError를 보기 힘들어졌습니다.`
 
 <br>
 
