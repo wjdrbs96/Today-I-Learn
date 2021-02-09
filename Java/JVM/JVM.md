@@ -109,9 +109,8 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
     - `멀티 Thread 프로그램의 경우 각 Thread가 자신의 Stack을 가지고는 있지만 Heap 영역은 공유하기 때문에, 프로그래밍시에 Thread-safe 하지 않는 이슈에 주의하며 프로그래밍을 해야 한다. 결론적으로 Heap 영역 자체가 Thread-safe 하지 않는 상태입니다. Thread-safe 하게 객체를 생성하기 위해서는 Immutable한 객체를 설계하는 것이 좋습니다.`
     
 - ### `Native Method stack`
-    - 실제 Object 클래스의 hashCode()와 같이 특정 클래스들의 어떤 메소드를 보면 `native`가 붙어 있는 것을 볼 수 있습니다. 이러한 메소드들이 저장되어 있는 공간입니다.
-    네이티브 메소드는 OS의 시스템 정보, 리소스를 사용하거나 접근하기 위한 코드로 C, C++로 작성되어 있습니다.     
-        
+    - 자바 외의 언어로 작성된 네이티브 코드를 위한 스택입니다. 즉, JNI(Java Native Interface)를 통해 호출하는 C/C++ 등의 코드를 수행하기 위한 스택으로, 언어에 맞게 C 스택이나 C++ 스택이 생성됩니다.
+    
 - ### `Method Area` 
     - `메서드 영역은 모든 스레드가 공유하는 영역으로 JVM이 시작될 때 생성`됩니다. `JVM이 읽어 들인 각각의 클래스와 인터페이스에 대한 런타임 상수 풀, 필드와 메서드 정보, Static 변수, 메서드의 바이트코드 등을 보관`합니다. 메서드 영역은 JVM 벤더마다 다양한 형태로 구현할 수 있으며,` 오라클 핫스팟 JVM(HotSpot JVM)에서는 흔히 Permanent Area, 혹은 Permanent Generation(PermGen)이라고 불린다.` 메서드 영역에 대한 가비지 컬렉션은 JVM 벤더의 선택 사항이다.   
     - 그러면 이거를 Java 7에서는 Perment Area라 부르고, Java 8에서 Method Area로 바뀐건가?... 궁금
