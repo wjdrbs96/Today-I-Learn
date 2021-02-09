@@ -181,7 +181,9 @@ java -XX:+PrintFlagsFinal -version -server | grep MetaspaceSize
 
 ![스크린샷 2021-02-09 오전 11 57 44](https://user-images.githubusercontent.com/45676906/107309599-13a01e80-6ace-11eb-8caf-72c20d02736e.png)
 
+Java 8의 `MaxMetaspaceSize`는 `18446744073709547520`인 것을 볼 수 있습니다. 이는 `약 16ExaBye, 64bit 프로세서 최고 메모리 상한치`라고 합니다. 
 
+즉, Metaspace 영역은 `Native 영역`이기 때문에 개발자가 크게 신경을 쓰지 않아도 되는 영역으로 바뀐 것 같습니다.
 
 <br>
 
@@ -195,9 +197,8 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 
 ![coding](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Febv9pZ%2Fbtqw6oJ0fvp%2FFq1JlAb8YlF2C5qg0rrirk%2Fimg.png)
 
-Java 8의 `MaxMetaspaceSize`는 `18446744073709547520`인 것을 볼 수 있습니다. 이는 `약 16ExaBye, 64bit 프로세서 최고 메모리 상한치`라고 합니다. 
 
-즉, Metaspace 영역은 `Native 영역`이기 때문에 개발자가 크게 신경을 쓰지 않아도 되는 영역으로 바뀐 것 같습니다. 
+<br> <br>
 
 # `Reference`
 
