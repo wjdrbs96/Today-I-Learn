@@ -244,6 +244,9 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 
 ![coding](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Febv9pZ%2Fbtqw6oJ0fvp%2FFq1JlAb8YlF2C5qg0rrirk%2Fimg.png)
 
+- `Young 영역(Yong Generation 영역)`: 새롭게 생성한 객체의 대부분이 여기에 위치합니다. 대부분의 객체가 금방 접근 불가능 상태가 되기 때문에 매우 많은 객체가 Young 영역에 생성되었다가 사라집니다. 이 영역에서 객체가 사라질때 `Minor GC`가 발생한다고 말합니다.
+- `Old 영역(Old Generation 영역)`: 접근 불가능 상태로 되지 않아 Young 영역에서 살아남은 객체가 여기로 복사됩니다. 대부분 Young 영역보다 크게 할당하며, 크기가 큰 만큼 Young 영역보다 GC는 적게 발생합니다. 이 영역에서 객체가 사라질 때 `Major GC(혹은 Full GC)`가 발생한다고 말합니다.
+
 
 <br> <br>
 
