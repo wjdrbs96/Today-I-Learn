@@ -30,26 +30,62 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 - `로딩된 class 파일들을 Execution engine을 통해 해석합니다.`
 - `해석된 바이트코드는 Runtime Data Area로 옮겨져 실질적으로 수행이 이루어지게 됩니다.`
 
-간단하게 말하면 이러한 과정을 통해서 자바 프로그램이 실행됩니다. 하나씩 세부적으로 어떤 의미를 갖고 있는지 좀 더 자세히 알아보겠습니다. 
+간단하게 말하면 `클래스 로더(Class Loader)가 컴파일된 자바 바이트코드를 런타임 데이터 영역(Runtime Data Areas)에 로드`하고, `실행 엔진(Execution Engine)이 자바 바이트코드를 실행`한다. 
 
 <br>
 
 ## `Class Loader(클래스 로더)`
 
-클래스로더는 간단하게 말하면 JVM 내로 클래스(.class) 파일을 로딩 시키고, 링크 과정을 통해서 관련된 클래스들을 연결시키고 초기화하는 작업을 하는 곳입니다. 
+클래스로더는 간단하게 말하면 컴파일 타임이 아니라 런타임에 클래스를 처음으로 참조할 때 해당 클래스를 JVM 내로 클래스(.class) 파일을 `로딩` 시키고, `링크` 과정을 통해서 관련된 클래스들을 연결시키고 `초기화`하는 작업을 하는 곳입니다. 
 특징을 정리해보면 아래와 같습니다. 
 
 - `컴파일 타임에 JVM 내로 로딩을 하는 것이 아니라 클래스가 처음 사용될 때 로딩을 합니다. 즉, 동적 로딩을 하게 됩니다.`
-- `사용하지 않는 클래스는 메모리에서 삭제하고, 처음으로 사용된 클래스만 로딩, 링크, 초기화하는 작업이 이루어지게 됩니다.`
 - `클래스로더는 JVM 내의 Runtime Data Area에 바이트 코드를 배치시킵니다.`
+ 
+이정도는 `클래스 로더`의 기본적인 특징이라서 `조금만~` 더 자세히 특징에 대해서 알아보겠습니다.
 
-- ### `Loading`
-    - 클래스 파일에서 클래스 이름, 상속 관계, 클래스의 타입(class, interface, enum), 메소드 & 생성자 & 멤버변수 정보, 상수 등에 대한 정보를 Binary 데이터로 변경합니다.
-- ### `Linking`
-    - Verification 과 Preparation, Resolution 단계를 거치면서 바이트코드를 검증하고 필요한 만큼의 메모리를 할당합니다.
-- ### `initialization`
-    - static block의 초기화 및 static 데이터들을 할당합니다.
-                
+- ### `계층 구조`
+    - 클래스 로더끼리 부모-자식 관계를 이루어 계층 구조로 생성됩니다. 아래 그림에서 볼 수 있듯이 최상위 클래스 로더는 `부트스트랩 클래스 로더`입니다.
+    
+- ### `위임 모델`
+    - 계층 구조를 바탕으로 클래스 로더끼리 로드를 위임하는 구조로 동작합니다. 클래스를 로드할 때 먼저 상위 클래스 로더를 확인하여 상위 클래스 로더에 있다면 해당 클래스를 사용하고, 없다면 로드를 요청받은 클래스 로더가 클래스를 로드합니다.
+  
+- ### `가시성(visibility) 제한`
+    - 하위 클래스 로더는 상위 클래스 로더의 클래스를 찾을 수 있지만, 상위 클래스 로더는 하위 클래스 로더의 클래스를 찾을 수 없습니다.
+    
+- ### `언로드 불가`
+    - 클래스 로더는 클래스를 로드할 수는 있지만 언로드할 수는 없습니다. 언로드 대신, 현재 클래스 로더를 삭제하고 아예 새로운 클래스 로더를 생성하는 방법을 사용할 수 있습니다.
+
+![loader](https://d2.naver.com/content/images/2015/06/helloworld-1230-2.png)
+
+각 계층마다 존재하는 `클래스 로더`는 어떤 역할을 하는지 알아보겠습니다. 
+
+- ### `부트스트랩 클래스 로더(Bootstrap Class Loader)`
+    -  JVM을 기동할 때 생성되며, Object 클래스들을 비롯하여 자바 API들을 로드합니다. 다른 클래스 로더와 달리 자바가 아니라 네이티브 코드로 구현되어 있습니다.
+
+- ### `익스텐션 클래스 로더(Extension Class Loader)`
+    - 기본 자바 API를 제외한 확장 클래스들을 로드한다. 다양한 보안 확장 기능 등을 여기에서 로드하게 됩니다.
+    
+- ### `시스템 클래스 로더(System Class Loader)`
+    - 부트스트랩 클래스 로더와 익스텐션 클래스 로더가 JVM 자체의 구성 요소들을 로드하는 것이라 한다면, 시스템 클래스 로더는 애플리케이션의 클래스들을 로드한다고 할 수 있습니다. 사용자가 지정한 $CLASSPATH 내의 클래스들을 로드합니다. 
+
+- ### `사용자 정의 클래스 로더(User-Defined Class Loader)`
+    - 애플리케이션 사용자가 직접 코드 상에서 생성해서 사용하는 클래스 로더입니다. 
+    
+<br>
+
+그리고 클래스 로더가 아직 로드되지 않은 클래스를 찾으면, 다음 그림과 같은 과정을 거쳐 클래스를 `로드`하고 `링크`하고 `초기화`합니다. 
+
+![class](https://d2.naver.com/content/images/2015/06/helloworld-1230-3.png)
+
+- `로드`: 클래스를 파일에서 가져와서 JVM의 메모리에 로드합니다.
+- `검증(Verifying)`: 읽어 들인 클래스가 자바 언어 명세(Java Language Specification) 및 JVM 명세에 명시된 대로 잘 구성되어 있는지 검사합니다. 클래스 로드의 전 과정 중에서 가장 까다로운 검사를 수행하는 과정으로서 가장 복잡하고 시간이 많이 걸립니다. JVM TCK의 테스트 케이스 중에서 가장 많은 부분이 잘못된 클래스를 로드하여 정상적으로 검증 오류를 발생시키는지 테스트하는 부분입니다.
+- `준비(Preparing)`: 클래스가 필요로 하는 메모리를 할당하고, 클래스에서 정의된 필드, 메서드, 인터페이스들을 나타내는 데이터 구조를 준비합니다.
+- `분석(Resolving)`: 클래스의 상수 풀 내 모든 심볼릭 레퍼런스(참조하는 대상의 이름을 지칭)를 다이렉트 레퍼런스(물리적 주소)로 변경합니다.
+- `초기화`: 클래스 변수들을 적절한 값으로 초기화 합니다. 즉, `static initializer들을 수행하고, static 필드들을 설정된 값으로 초기화`합니다.
+
+지금은 하나하나 특징을 자세히 적지는 않았기에, 더 자세한 것은 [여기](https://d2.naver.com/helloworld/1230) 에서 확인하면 좋습니다.
+         
 <br>
 
 ## `Execution Engine(실행 엔진)`       
@@ -75,7 +111,9 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
 
 ## `Runtime Data Area`
 
-이번 글에서 제일 중점적으로 다룰 부분이 바로 `Runtime Data Area` 입니다. 정말 중요한 `Heap` 영역이 속해 있고, 여러가지 많은 것들을 알아보면서 정리해보겠습니다.
+이번 글에서 제일 중점적으로 다룰 부분이 바로 `Runtime Data Area` 입니다. JVM이 Java ByteCode를 실행하기 위해 사용하는 메모리 공간입니다. 즉 JVM이라는 프로그램이 운영체제 위에서 실행되면서 할당받는 메모리 영역입니다.
+
+아래 그림을 보면 여러가지 많은 것들이 있는데 하나씩 알아보면서 정리해보겠습니다.
 
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fci4Dqe%2FbtqCOyMIluC%2FkcfCKeWROOa7wGGKMdBy5K%2Fimg.png)
 
@@ -138,6 +176,8 @@ Java 7까지의 구조를 보면 `Permanent` 영역이 존재합니다. 그리�
 - `상수화된 String Object -> Method Area로 이동`
 - `Class와 관련된 배열 객체 Meta 정보`
 - `JVM 내부적인 객체들과 최적화 컴파일러(JIT)의 최적화 정보`
+
+<br>
 
 > Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보, Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고도 한다. 이 영역은 Java 8 부터는 Native 영역으로 이동하여 Metaspace 영역으로 변경되었다. <br>
 > (다만, 기존 Perm 영역에 존재하던 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였다)
@@ -215,3 +255,4 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 - [https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/](https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/)
 - [https://blog.voidmainvoid.net/184](https://blog.voidmainvoid.net/184)
 - [https://javaslave.tistory.com/23](https://javaslave.tistory.com/23)
+- [https://d2.naver.com/helloworld/1230](https://d2.naver.com/helloworld/1230)
