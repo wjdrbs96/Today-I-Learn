@@ -113,7 +113,7 @@ JVM의 구조는 위와 같습니다. 크게 보면 `Java Compiler`, `Byte Code`
     네이티브 메소드는 OS의 시스템 정보, 리소스를 사용하거나 접근하기 위한 코드로 C, C++로 작성되어 있습니다.     
         
 - ### `Method Area` 
-    - 메서드 영역은 모든 스레드가 공유하는 영역으로 JVM이 시작될 때 생성됩니다. JVM이 읽어 들인 각각의 클래스와 인터페이스에 대한 런타임 상수 풀, 필드와 메서드 정보, Static 변수, 메서드의 바이트코드 등을 보관합니다. 메서드 영역은 JVM 벤더마다 다양한 형태로 구현할 수 있으며,` 오라클 핫스팟 JVM(HotSpot JVM)에서는 흔히 Permanent Area, 혹은 Permanent Generation(PermGen)이라고 불린다.` 메서드 영역에 대한 가비지 컬렉션은 JVM 벤더의 선택 사항이다.   
+    - `메서드 영역은 모든 스레드가 공유하는 영역으로 JVM이 시작될 때 생성`됩니다. `JVM이 읽어 들인 각각의 클래스와 인터페이스에 대한 런타임 상수 풀, 필드와 메서드 정보, Static 변수, 메서드의 바이트코드 등을 보관`합니다. 메서드 영역은 JVM 벤더마다 다양한 형태로 구현할 수 있으며,` 오라클 핫스팟 JVM(HotSpot JVM)에서는 흔히 Permanent Area, 혹은 Permanent Generation(PermGen)이라고 불린다.` 메서드 영역에 대한 가비지 컬렉션은 JVM 벤더의 선택 사항이다.   
     - 그러면 이거를 Java 7에서는 Perment Area라 부르고, Java 8에서 Method Area로 바뀐건가?... 궁금
    
 - ### `Runtime Constant Pool`
@@ -263,3 +263,4 @@ Heap은 위의 그림에서 보았듯이 `Runtime Method Area` 안에 속해있�
 - [https://blog.voidmainvoid.net/184](https://blog.voidmainvoid.net/184)
 - [https://javaslave.tistory.com/23](https://javaslave.tistory.com/23)
 - [https://d2.naver.com/helloworld/1230](https://d2.naver.com/helloworld/1230)
+- [https://d2.naver.com/helloworld/1329](https://d2.naver.com/helloworld/1329)
