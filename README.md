@@ -93,6 +93,7 @@
     - [싱글쓰레드 vs 멀티쓰레드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/%EC%8B%B1%EA%B8%80%EC%93%B0%EB%A0%88%EB%93%9C%EC%99%80%20%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C.md)
     - [volatile](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/25%EC%9E%A5/volatile%EB%9E%80%3F.md)
     - [ThreadLocal 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/ThreadLocal%EC%9D%B4%EB%9E%80%3F.md)
+    - [Synchronized lock의 범위는?]()
 
 - ### lambda & Stream
     - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
