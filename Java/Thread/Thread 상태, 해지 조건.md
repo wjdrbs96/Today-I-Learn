@@ -1,6 +1,6 @@
 # `Thread 생명주기와 해당 상태를 만들고 해지할 수 있는 조건`
 
-멀티쓰레드 환경에서 효율적으로 프로그래밍 하기 위해서는 `동기화(synchronization)`를 적절히 사용하고 정교한 `스케줄링(scheduling)`으로 프로세스에게 주어진 자원과 시간을 여러 쓰레드가 낭비없이 잘 사용하는 것이 중요합니다. 즉, 멀티쓰레드 환경에서 프로그래밍 하기 위해서는 `쓰레드의 생명주기`와 `Java에서 상태를 변화시키는 메소드`에 대해서 잘 알고 있어야 합니다. 
+멀티쓰레드 환경에서 효율적으로 프로그래밍 하기 위해서는 `동기화(synchronization)`를 적절히 사용하고 정교한 `스케줄링(scheduling)`으로 프로세스에게 주어진 자원과 시간을 여러 쓰레드가 낭비없이 잘 사용하는 것이 중요합니다. 즉, Java를 이용해서 멀티쓰레드 환경에서 프로그래밍 하기 위해서는 `쓰레드의 생명주기`와 `Java에서 상태를 변화시키는 메소드`에 대해서 잘 알고 있어야 합니다. 
 
 그래서 이번 글에서 Thread의 생명주기에 대해서 알아보고, `Java 에서는 쓰레드의 상태 변화를 어떤 메소드를 이용해서 하는지`를 알아보겠습니다. 
 
@@ -22,7 +22,9 @@ Java에는 `Thread`를 구현하는 방법이 2가지가 있는데, 그 중에 �
 
 그리고 `start()` 메소드를 호출하면 `생성(NEW)` 상태의 쓰레드가 `준비(READY)` 상태입니다. 그러다가 CPU 스케쥴러를 통해 선택이 되면 `실행 상태(RUNNING)`로 바뀌게 됩니다. 
 
-`일시정지(waiting, blocked)`도 있는데 간단하게 말하면 쓰레드가 잠시 쉬는 공간이라고 생각할 수 있습니다.  자바에서는 어떠한 메소드를 이용해서 Thread의 상태 변화를 시키는지 이제 알아보겠습니다.
+`일시정지(WAITING)`는 `sleep()`, `join()`, `wait()` 메소드를 만나게 되면 해당 상태로 변화하게 됩니다.    
+
+이렇게 간단하게 전체적인 흐름에 대해서 살펴보았는데, 이제 본격적으로 Java에서는 어떠한 메소드를 이용해서 Thread의 상태 변화를 시키는지 알아보겠습니다.
 
 <br>
 
@@ -39,7 +41,7 @@ public class Thread implements Runnable {
 }
 ```
 
-이번 글에서 소개할 Thread 클래스의 대표적인 메소드는 위와 같습니다. (`@deprecated` 된 것은 제외하였습니다.) 이 외에도 Object 클래스의 메소드 일부를 좀 더 소개할 것입니다. 
+이번 글에서 소개할 Thread 클래스의 대표적인 메소드는 위와 같습니다. (`@deprecated` 된 것은 제외하였습니다.) 이 외에도 Object 클래스의 메소드 일부를 아래에서 소개할 것입니다. 
 
 일단 먼저 Thread 클래스의 메소드에 대해서 가볍게 개념을 정리하면서 예제가 필요한 경우에만 예제를 같이 보겠습니다.
 
@@ -47,14 +49,58 @@ public class Thread implements Runnable {
 
 ### `sleep() 메소드`
 
-맨 위의 그림에서 볼 수 있듯이, sleep() 메소드는 말 그대로 `실행 중인 쓰레드를 일시정지 상태로 잠시 재우는 것`입니다. 매개변수에 얼마동안 재울지 천분의 일초단위로 지정할 수 있습니다. 
+맨 위의 그림에서 볼 수 있듯이, sleep() 메소드는 말 그대로 `실행 중인 쓰레드를 일시정지 상태로 잠시 재우는 것`입니다. 즉, `RUNNABLE -> WAITING 상태로 변화시키는 것`입니다. 
+(매개변수에는 얼마동안 재울지 천분의 일초단위로 지정할 수 있습니다.) 
+
+sleep() 메소드는 예제를 굳이 안봐도 되지만, 혹시나 해서 하나 예제를 만들어보았습니다. 
+
+```java
+public class TestMain {
+    public static void main(String[] args) throws InterruptedException {
+        FooThread fooThread = new FooThread();
+        WoodyThread woodyThread = new WoodyThread();
+        fooThread.start();
+        woodyThread.start();
+        Thread.sleep(1000);   // 어떤 쓰레드가 sleep 할까요?
+        System.out.println("Main Thread Finish!");
+    }
+}
+
+class FooThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; ++i) {
+            System.out.println("FOO 멘토님 최고");
+        }
+    }
+}
+
+class WoodyThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; ++i) {
+            System.out.println("WOODY 멘토님 최고");
+        }
+    }
+}
+```
+
+`너무나도 당연하게 결과가 예측이 되고 이해가 된다면 다음으로 넘어가셔도 좋습니다.` 위의 코드는 단순한 코드입니다. 단순한 코드인데 왜? 굳이 예제를 넣어 설명을 하는가 하면 `main 메소드의 Thread.sleep(1000) 때문`입니다. 
+
+`main 메소드의 sleep() 메소드는 어떤 쓰레드를 재울까요?` FooThread 일까요? WoodyThread 일까요? Main 쓰레드일까요? 이 질문에 대한 답도 쉽게 답할 수 있다면 다음으로.. 가셔도 좋습니다! 
+
+정답은 `Main 쓰레드`입니다. 왜 그럴까요? 이유는 `sleep()은 항상 현재 실행 중인 쓰레드에 대해 작동하기 때문 입니다.` 즉, sleep() 메소드가 실행될 때는 Main 쓰레드가 작동하고 있기 때문에 Main 쓰레드가 sleep()이 되는 것입니다.   
+(만약 sleep() 메소드가 어떤 쓰레드 run() 메소드 안에 존재했다면 당연히 해당 쓰레드가 sleep() 상태가 될 것입니다.)
+
+어쩌면.. 너무도 당연한 이유이지만 헷갈릴 수 있는 부분이라 생각해서 예제로 정리했습니다.    
 
 <br>
 
 ### `join() 메소드`
 
-join 메소드는 join()을 호출한 쓰레드가 종료될 때까지 기다리게 합니다. 위의 그림에서 보면 호출한 쓰레드를 `Running` -> `Waiting` 상태로 보내는 것입니다.  
+join 메소드는 `join()을 호출한 쓰레드가 종료될 때까지 기다리게 합니다.` 위의 그림에서 보면 호출한 쓰레드를 `Running` -> `Waiting` 상태로 보내는 것입니다.
 (매개변수로 어느정도 기다릴지 시간을 지정할 수도 있고, 지정하지 않는다면 해당 쓰레드가 끝날 때까지 기다립니다.)
+
 
 ```java
 public class Test {
@@ -91,7 +137,7 @@ Main thread Finish
 Hi Thread
 ```
 
-이것은 너무도 당연하게 예측을 할 수 있습니다. `JavaThread`가 3초간 sleep() 상태로 가기 때문에 그 시간동안 `Main Thread`가 먼저 종료가 된 것입니다. 
+너무도 당연하게 예측을 할 수 있습니다. `JavaThread`가 3초간 sleep() 상태로 가기 때문에 그 시간동안 `Main Thread`가 먼저 종료가 된 것입니다. 
 
 `그러면 위 코드에서 주석을 풀고 join() 메소드를 실행하면 어떤 결과가 나올까요?`
 
@@ -121,7 +167,7 @@ yield()는 쓰레드 자신에게 주언 실행시간을 다음 차례의 쓰레
 
 ## `Object 클래스의 메소드`
 
-Object 클래스에 보면 `notify()`, `notifyAll()`, `wait()` 메소드가 존재합니다. 해당 메소드가 어떤 역할을 하는지를 알아볼 것입니다.(Synchronized와 Lock의 개념을 어느정도 안다고 가정하고 진행하겠습니다.) 그 전에 `이러한 메소드들이 Object 클래스에 존재하는 이유가 무엇일까요?`
+Object 클래스에 보면 `notify()`, `notifyAll()`, `wait()` 메소드가 존재합니다.`이러한 메소드들이 Object 클래스에 존재하는 이유가 무엇일까요?`
 
 Thread 관련 메소드라서 Thread 클래스에 존재해도 될 거 같은데 말이죠... 그 이유도 같이 한번 알아보겠습니다.
 
