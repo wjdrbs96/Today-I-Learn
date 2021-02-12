@@ -295,7 +295,7 @@ public class MusicExam {
 여기서 만약 `musicPlayer1` 쓰레드가 Lock을 오래 가지고 있어 `musicPlayer2` 쓰레드가 기다리는 시간이 길어진다면 어떻게 해야할까요? 
 
 이 때 `wait()` 메소드를 이용하면 됩니다. playMusicA 메소드에서 wait() 메소드를 사용하면 어떻게 될까요? `musicPlayer1` 쓰레드는 Lock을 반납하고 MusicBox 객체의 `waiting pool`로 이동합니다.
-그리고 만약에 `musicPlayer2`도 wait() 메소드를 사용하면 이것 역시 MusicBox 객체의 `waiting pool`로 이동합니다. 이와 같이 여러 쓰레드가 하나의 객체를 공유하는 상황이라면 쓰레드들을 wait() 메소드를 통해 해당 객체의 waiting pool로 보내게 됩니다. 
+그리고 만약에 `musicPlayer2`도 wait() 메소드를 사용하면 이것 역시 MusicBox 객체의 `waiting pool`로 이동합니다. 이와 같이 여러 쓰레드가 하나의 객체를 공유하는 상황이라면 쓰레드들을 wait() 메소드를 통해 해당 객체의 waiting pool 안에서 대기하게 됩니다.   
 
 그러면! 이번에는 `waiting pool`에 있는 쓰레드를 깨울려면 어떻게 해야할까요? 위에서 말했던 것처럼 `notify()`, `notifyAll()`을 이용하는 것입니다. 메소드의 내용을 다시 한번 정리하자면 아래와 같습니다.
 
