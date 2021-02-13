@@ -180,6 +180,7 @@ ReetrantLock 역시 `lock()`, `unlock()`을 이용하여 동기화를 합니다.
    
 - ### `ReentrantLock`
     - `synchronized와 달리 수동으로 lock을 잠그고 해제해야 합니다.`
+    - `명시적인 lock 방식`
     - `암묵적인 락만으로는 해결할 수 없는 복잡한 상황에서 사용할 수 있습니다.`
     - `lockInterruptably() 함수를 통해 WAITING 상태의 스레드를 interrupt할 수 있습니다.`
       ```java
