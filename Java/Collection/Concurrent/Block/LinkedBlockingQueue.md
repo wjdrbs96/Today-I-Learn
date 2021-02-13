@@ -14,7 +14,7 @@
 
 즉, 노드 객체를 만들어서 `삽입` or `삭제`를 해야하기 때문에 `ArrayBlockingQueue` 보다는 비용이 비싸다는 특징이 있습니다. 
 
-용량이 빠르게 커지거나, 빠르게 축소되는 경우에는 `LinkedBlocingQueue` 보다는 `ArrayBlockingQueue`가 더 낫습니다. 
+용량이 빠르게 커지거나, 빠르게 축소되는 경우에는 `LinkedBlocingQueue` 보다는 `ArrayBlockingQueue`가 더 낫습니다. (ArrayBlockingQueue는 미리 용량을 할당해놓기 때문에 빠르게 삽입, 삭제를 할 수 있습니다.)
 
 마지막으로 `LinkedBlockingQueue`의 성능은 예측하기가 힘들기 때문에, 매번 성능 체크를 해야합니다!
 

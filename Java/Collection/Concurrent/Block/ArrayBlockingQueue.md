@@ -59,3 +59,15 @@ ArrayBlockingQueue의 생성자는 위와 같습니다. 객체를 만들 때 무
 그리고 ArrayBlockingQueue의 dequeue 메소드를 보면 위와 같이 원소들의 자리 이동 과정이 일어나지 않습니다. 즉, 삭제한 원소는 null 처리를 하고 `takeIndex`로 배열을 관리하게 됩니다. 
 그래서 배열을 사용하여도 ArrayList 처럼 큰 오버헤드가 발생하지 않습니다.
 
+<br>
+
+## `ArrayBlockingQueue vs LinkedBlockingQueue 정리`
+
+- ### `ArrayBlockingQueue` 
+    - 공간을 미리 할당해놓기 때문에 삽입, 삭제를 비교적 적은 비용으로 할 수 있습니다.
+    - 공간을 미리 할당해놓기 때문에 사용하지 않는다면 메모리 낭비가 될 것입니다.
+    - ArrayList처럼 용량을 늘리는 작업을 하지 않습니다. (즉, 원소들의 자리 이동이 일어나지 않습니다.) 
+    
+- ### `LinkedBlockingQueue`
+    - 삽입을 할 때마다 노드 객체를 새로 만들어야 하는 비용이 듭니다.(배열보다는 더 많은 비용이 듭니다.) 
+    - 삭제를 하는데도 배열보다는 비용이 더 많이 든다는 단점이 있습니다.(ArrayBlockingQueue는 원소들의 자리 이동이 없기 때문에)
