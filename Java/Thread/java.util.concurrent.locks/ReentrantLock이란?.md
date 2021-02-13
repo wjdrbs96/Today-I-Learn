@@ -171,10 +171,10 @@ ReetrantLock 역시 `lock()`, `unlock()`을 이용하여 동기화를 합니다.
     - `그러나 같은 메소드 내에서만 lock을 걸 수 있다는 제약이 존재합니다.`
     - `암묵적인 lock 방식`
     - `WAITING 상태인 스레드는 interrupt가 불가능합니다.`
-    - ```java
-          synchronized(lock) {
-              // 임계영역
-          }
+      ```java
+      synchronized(lock) {
+          // 임계영역
+      }
       ```      
 
    
@@ -182,10 +182,10 @@ ReetrantLock 역시 `lock()`, `unlock()`을 이용하여 동기화를 합니다.
     - `synchronized와 달리 수동으로 lock을 잠그고 해제해야 합니다.`
     - `암묵적인 락만으로는 해결할 수 없는 복잡한 상황에서 사용할 수 있습니다.`
     - `lockInterruptably() 함수를 통해 WAITING 상태의 스레드를 interrupt할 수 있습니다.`
-    - ```java
-          lock.lock();
-          // 임계영역
-          lock.unlock();
+      ```java
+      lock.lock();
+      // 임계영역
+      lock.unlock();
       ```
       
 <br>
