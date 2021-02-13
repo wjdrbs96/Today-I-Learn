@@ -95,7 +95,9 @@
     - [ThreadLocal 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/ThreadLocal%EC%9D%B4%EB%9E%80%3F.md)
     - [Synchronized lock의 범위는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/Synchronized%EC%9D%98%20Lock%20%EB%B2%94%EC%9C%84.md)
     - [Java Thread Lock의 개념](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/Thread%20Lock%20%EA%B0%9C%EB%85%90.md)
-    - [Java Thread State]()
+    - [Java Thread State](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/Thread%20%EC%83%81%ED%83%9C%2C%20%ED%95%B4%EC%A7%80%20%EC%A1%B0%EA%B1%B4.md)
+    - [java.util.current.locks](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java/Thread/java.util.concurrent.locks)
+        - [ReetrantLock](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/java.util.concurrent.locks/ReentrantLock%EC%9D%B4%EB%9E%80%3F.md)
 
 - ### lambda & Stream
     - [Lambda](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Lambda%EB%9E%80%3F.md)
