@@ -175,7 +175,8 @@ Java 7까지의 구조를 보면 `Permanent` 영역이 존재합니다. 그리�
 
 - `Class의 Meta 정보(바이트코드 포함) -> Native 영역으로 이동`
 - `Method의 Meta 정보 -> Native 영역으로 이동`
-- `static Object, static 상수 -> Heap 영역으로 이동`
+- `static Object -> Heap 영역으로 이동`
+- `static 변수 -> Method Area으로 이동`
 - `상수화된 String Object -> Method Area로 이동`
 - `Class와 관련된 배열 객체 Meta 정보`
 - `JVM 내부적인 객체들과 최적화 컴파일러(JIT)의 최적화 정보`
