@@ -1,6 +1,6 @@
 # `Stack 클래스란?`
 
-`Stack은 LIFO 구조`로 자주 쓰이는 대표적인 자료구조입니다. 
+`Stack은 LIFO 구조`로 자주 쓰이는 대표적인 자료구조 입니다. 
 
 ![image](https://user-images.githubusercontent.com/45676906/105798273-22b6a500-5fd5-11eb-80a7-4d374800bc09.png)
 
