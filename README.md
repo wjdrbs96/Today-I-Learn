@@ -193,6 +193,9 @@
 
 ## Network
 
+- [TCP/IP란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/TCP%20IP%EB%9E%80.md)
+
+
 - ### HTTP
     - [HTTP vs HTTPS]()
 
@@ -209,6 +212,7 @@
 - ### MySQL
     - [SQL 테이블 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/createTable.md)
     - [SQL JOIN이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/JOIN%EC%9D%B4%EB%9E%80%3F.md)
+    - [MySQL Basic Query](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/MySQL%20%EA%B8%B0%EB%B3%B8%EC%BF%BC%EB%A6%AC.md)
     - [GROUP BY & HAVING](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/GroupBy%20%26%20Having.md)
     - [MySQL Workbench ERD 생성하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/ERD%20%EB%A7%8C%EB%93%9C%EB%8A%94%EB%B2%95.md)
 
