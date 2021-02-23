@@ -17,6 +17,7 @@
     - [Java Call By Reference vs Call By Value](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Call%20by%20Reference%20vs%20Call%20By%20Value.md)
     - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
     - [정적 멤버를 클래스명.정적멤버로 접근해야 하는 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%A0%95%EC%A0%81%20%EB%A9%A4%EB%B2%84%EB%8A%94%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%AA%85.%EC%A0%95%EC%A0%81%EB%A9%A4%EB%B2%84%EB%A1%9C%20%EC%A0%91%EA%B7%BC%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+    - [객체지향 설계 5원칙 - SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99-SOLID.md)
 
 - ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
