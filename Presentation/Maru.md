@@ -1,8 +1,19 @@
 # MARU-iOS
 
 [앱스토어](https://url.kr/ap9CX7) 
+
 <br>
-<br>
+
+
+# 😊 About MARU
+
+> [API Specification](https://github.com/bookmaru/MARU-SERVER/wiki)
+> 
+>  Project Period : 2020.08~2020.09
+
+> Member : [정효원](https://github.com/Jeong-Hyowon),  [최정균](https://github.com/wjdrbs96),  [손예지](https://github.com/yezgoget)
+  
+  
 <br>
 
 ## 기능설명
@@ -60,6 +71,7 @@
 - [PM2]() - Express 앱용 프로세스 관리자
 - [JWT]() - 토큰기반 인증
 - [MySQL]() - DataBase
+- [KAKAO BOOK API]() - 카카오 책 API
 - [FCM]() - Firebase 클라우드 메시징(채팅 알림)
 - [Socket.IO]() - 채팅을 위한 자바스크립트 라이브러리
 - [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
