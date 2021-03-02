@@ -63,6 +63,7 @@ db.praiseTarget.belongsTo(db.user, { onDelete: 'cascade' });
 - [MySQL]() - DataBase
 - [Nginx]() - 웹 서버
 - [Sequelize]() - DataBase ORM
+- [JWT]() - 토큰기반 인증
 - [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
 - [AWS RDS]() - 클라우드 환경 데이터베이스 관리 시스템
 

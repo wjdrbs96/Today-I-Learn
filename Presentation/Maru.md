@@ -58,6 +58,7 @@
 - [Express.js]() - Nodejs 웹 애플리케이션 프레임워크
 - [NPM]()  - 자바스크립트 패키지 관리자
 - [PM2]() - Express 앱용 프로세스 관리자
+- [JWT]() - 토큰기반 인증
 - [MySQL]() - DataBase
 - [FCM]() - Firebase 클라우드 메시징(채팅 알림)
 - [Socket.IO]() - 채팅을 위한 자바스크립트 라이브러리

@@ -38,6 +38,7 @@
 - [Tomcat]() - 웹 애플리케이션 서버
 - [MySQL]() - DataBase
 - [MyBatis]() - SQL Mapper
+- [JWT]() - 토큰기반 인증
 - [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
 - [AWS RDS]() - 클라우드 환경 데이터베이스 관리 시스템
 - [AWS S3]() - 클라우드 환경 객체 스토리지

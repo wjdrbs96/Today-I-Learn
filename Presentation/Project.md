@@ -7,3 +7,7 @@
 - ### [칭찬할 고래](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Presentation)
 
 - ### [케이크 렌더링 주문 서비스](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Presentation/cake.md)
+
+- ### [My Github](https://github.com/wjdrbs96)
+
+- ### [My Blog](https://devlog-wjdrbs96.tistory.com/)
