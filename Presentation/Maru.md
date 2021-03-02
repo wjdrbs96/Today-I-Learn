@@ -1,24 +1,7 @@
-# MARU-iOS
 
-[앱스토어](https://url.kr/ap9CX7) 
+# 기능설명
 
-<br>
-
-
-# 😊 About MARU
-
-> [API Specification](https://github.com/bookmaru/MARU-SERVER/wiki)
-> 
->  Project Period : 2020.08~2020.09
-
-> Member : [정효원](https://github.com/Jeong-Hyowon),  [최정균](https://github.com/wjdrbs96),  [손예지](https://github.com/yezgoget)
-  
-  
-<br>
-
-## 기능설명
-
-### 온라인 독서 토론 플랫폼 마루
+## 온라인 독서 토론 플랫폼 마루
 
 [책을 읽고 사람과 잇다]
 책을 통해 다양한 사람들이 모여 밀도 있는 대화의 시간을 만듭니다. 
@@ -30,6 +13,17 @@
 
 [소통하는 독서의 즐거움]
 독서 후의 여운을 사람들과 함께 나누면서 진정한 자아를 찾는 공간 여기는 마루입니다. 
+
+<br>
+
+# 😊 About MARU
+
+> [API Specification](https://github.com/bookmaru/MARU-SERVER/wiki)
+> 
+>  Project Period : 2020.08~2020.09
+
+> Member : [정효원](https://github.com/Jeong-Hyowon),  [최정균](https://github.com/wjdrbs96),  [손예지](https://github.com/yezgoget)
+  
 
 <br>
 <br>
@@ -60,6 +54,12 @@
 ## Maru 홈페이지
 
 - [https://www.marubook.co.kr/](https://www.marubook.co.kr/)
+
+<br>
+
+# MARU-iOS
+
+[앱스토어](https://url.kr/ap9CX7) 
 
 <br>
 
