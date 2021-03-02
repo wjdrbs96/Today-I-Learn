@@ -40,6 +40,18 @@
 
 <br>
 
+## 서버 아키텍쳐 
+
+![maru](https://user-images.githubusercontent.com/45676906/109586266-3e6b1900-7b48-11eb-95bc-470b9ff81a6a.png)
+
+<br>
+
+## Maru 홈페이지
+
+- [https://www.marubook.co.kr/](https://www.marubook.co.kr/)
+
+<br>
+
 ## 사용한 도구
 
 - [Node.js]() - Chrome V8 자바스크립트 엔진으로 빌드된 자바스크립트 런타임

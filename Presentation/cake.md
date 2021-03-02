@@ -17,6 +17,11 @@
 
 - [View](https://app.zeplin.io/project/5fa9572fcf18465e28683ad2)
 
+<br>
+
+## 서버 아키텍쳐 
+
+![112121212121212](https://user-images.githubusercontent.com/45676906/109586329-5e024180-7b48-11eb-92fd-7b9f35584669.jpg)
 
 <br>
 
