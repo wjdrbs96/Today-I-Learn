@@ -1,8 +1,22 @@
 # `케이크 주문 앱`
 
-- `진행 중인 프로젝트 ! ! `
+- `진행 중인 프로젝트 ! !`
 
-- [View]()
+<br>
+
+## `IA`
+
+![1__14x](https://user-images.githubusercontent.com/45676906/109584894-cbf93980-7b45-11eb-8329-a31e2b72314e.png)
+
+<br>
+
+## `WorkFlow`
+
+![flow__14x](https://user-images.githubusercontent.com/45676906/109584933-dddadc80-7b45-11eb-9889-b0c6bc911731.png)
+
+
+- [View](https://app.zeplin.io/project/5fa9572fcf18465e28683ad2)
+
 
 <br>
 
