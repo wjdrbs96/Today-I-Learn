@@ -19,9 +19,6 @@
 
 :smiley_cat: <b>Project Period : 2020.06.27 ~ 2020.07.18</b>
 
-:smiley_cat: <b>[API Specification](https://github.com/We-are-Ounce/OUNCE_Server/wiki)</b>
-
-
 :smiley_cat: <b>[API Specification](https://github.com/wjdrbs96/SpringBoot_OUNCE_Server/wiki)</b> - API 명세서
 
 <br>
@@ -38,6 +35,8 @@
 
 :smiley_cat: jsonwebtoken
 
+:smiley_cat: rand-token
+
 :smiley_cat: moment
 
 :smiley_cat: moment-timezone
@@ -50,13 +49,9 @@
 
 :smiley_cat: promise-mysql
 
-:smiley_cat: rand-token
-
 :smiley_cat: hangul-chosung-search-js
 
 :smiley_cat: hangul-js
-
-:smiley_cat: inko
 
 :smiley_cat: aws-sdk
 
@@ -69,7 +64,6 @@
     "hangul-chosung-search-js": "^1.1.3",
     "hangul-js": "^0.2.6",
     "http-errors": "~1.6.3",
-    "inko": "^1.1.1",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.27.0",
@@ -163,6 +157,20 @@
 8. Browse  
 
    <img src="https://user-images.githubusercontent.com/55732968/87797968-5fffe480-c886-11ea-96fc-e3191a74ec54.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797981-642c0200-c886-11ea-8bae-c0cc5629d8b5.png" width="150">  <img src="https://user-images.githubusercontent.com/55732968/87797983-64c49880-c886-11ea-8a95-03399b781741.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797985-65f5c580-c886-11ea-8135-ade7e056df19.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797990-668e5c00-c886-11ea-8552-fb0faffd86c8.png" width="150"> <img src="https://user-images.githubusercontent.com/55732968/87797992-6726f280-c886-11ea-9b47-ef51a0eac1d0.png" width="150">
+
+
+<br>
+
+### 사용한 도구
+
+- [Node.js]() - Chrome V8 자바스크립트 엔진으로 빌드된 자바스크립트 런타임
+- [Express.js]() - Nodejs 웹 애플리케이션 프레임워크
+- [NPM]()  - 자바스크립트 패키지 관리자
+- [PM2]() - Express 앱용 프로세스 관리자
+- [MySQL]() - DataBase)
+- [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
+- [AWS RDS]() - 클라우드 환경 데이터베이스 관리 시스템
+- [AWS S3]() - 클라우드 환경 데이터 저장소   
 
    
 <br>
