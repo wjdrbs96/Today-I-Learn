@@ -66,6 +66,8 @@ db.praiseTarget.belongsTo(db.user, { onDelete: 'cascade' });
 - [JWT]() - 토큰기반 인증
 - [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
 - [AWS RDS]() - 클라우드 환경 데이터베이스 관리 시스템
+- [Git]() - 버전관리 시스템
+- [Tool]() - Github, Slack, Notion
 
 <br>
 
