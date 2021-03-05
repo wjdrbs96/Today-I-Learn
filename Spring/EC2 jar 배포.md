@@ -1,8 +1,20 @@
 # `EC2에서 jar 배포하기`
 
+- `maven`
+
 ```
-1. nohup java -jar 파일이름.jar &
+mvn package
+1. nohup java -jar 파일이름.jar &  
 ex) nohup java -jar demo-0.0.1-SNAPSHOT.jar &
+```
+
+- `gradle`
+
+```
+$ sudo chmod 777 ./gradlew
+$ sudo ./gradlew build
+nohup java -jar 파일이름.jar &
+ex) ex) nohup java -jar demo-0.0.1-SNAPSHOT.jar &
 ```
 
 <br>
@@ -31,3 +43,4 @@ NodeJS pm2 처럼 API 호출 로그가 남는 것이 아니라 코드 상에서 
 ```
 tail -f nohup.out (실시간 로그 확인 가능)
 ```
+
