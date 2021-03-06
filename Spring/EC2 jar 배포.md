@@ -3,7 +3,8 @@
 - `maven`
 
 ```
-mvn package
+mvn package 
+// 그러면 target 디렉토리가 생김 -> 거기서 jar 파일 찾기
 1. nohup java -jar 파일이름.jar &  
 ex) nohup java -jar demo-0.0.1-SNAPSHOT.jar &
 ```

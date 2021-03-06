@@ -18,6 +18,7 @@ EC2의 접속한 후에 위의 명령어들을 순서대로 입력하면 설치�
 ```
 sudo apt install openjdk-8-jre
 sudo apt install openjdk-8-jdk
+sudo apt-get install openjdk-11-jdk
 ```
 
 위의 명령어를 통해서 자바를 설치하면 에러가 사라질 것입니다. 
