@@ -1,3 +1,9 @@
+# `CI/CD 아키텍쳐`
+
+![aws](https://user-images.githubusercontent.com/45676906/111927732-12aed380-8af5-11eb-8b62-15bc9bcd01e5.png)
+
+<br>
+
 # `Codepipeline 사용하는 법`
 
 ![스크린샷 2021-03-19 오후 5 34 39](https://user-images.githubusercontent.com/45676906/111752752-7066d400-88d9-11eb-88fc-84f97b1abd29.png)

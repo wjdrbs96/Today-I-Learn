@@ -69,54 +69,10 @@ fatal: unable to access 'https://git-codecommit.ap-northeast-2.amazonaws.com/v1/
 
 CodeCommit을 하다 보면 위와 같은 에러를 만났습니다. 이것 때문에 거의 하루를 삽질 한 거 같은데,, 결국 해결하긴 했습니다. 
 
-- [https://docs.aws.amazon.com/ko_kr/codecommit/latest/userguide/getting-started.html](https://docs.aws.amazon.com/ko_kr/codecommit/latest/userguide/getting-started.html)
+- `MacOS 검색 -> 키체인 -> amazon-CodeCommit 관련 다 지우기`
 
-위에 Amazon Docs에서 따라한 결과 해결할 수 있었습니다. 
-
-![스크린샷 2021-03-22 오전 9 35 03](https://user-images.githubusercontent.com/45676906/111926908-11c87280-8af2-11eb-90b1-b8e6ff2a847c.png)
-
-문제를 해결하기 위해서는 위와 같이 `IAM 정책 생성`을 해주어야 합니다. 
-
-![스크린샷 2021-03-22 오전 9 38 15](https://user-images.githubusercontent.com/45676906/111926999-6f5cbf00-8af2-11eb-8d17-872cc829d837.png)
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "codecommit:GitPull",
-        "codecommit:GitPush"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-위와 같이 json을 입력해주면 됩니다. json은 codecommit에 push, commit을 할 수 있게 해주는 역할입니다. 
-
-![스크린샷 2021-03-22 오전 9 40 26](https://user-images.githubusercontent.com/45676906/111927109-e42ff900-8af2-11eb-9953-211e78b42867.png)
-
-그리고 위에서 만든 정책을 `사용자`에게 `권한 추가`를 해주어야 합니다. 
-
-![스크린샷 2021-03-22 오전 9 43 42](https://user-images.githubusercontent.com/45676906/111927185-2bb68500-8af3-11eb-8a8d-076c18f7764a.png)
-
-그래서 위와 같이 추가해주면 됩니다. 그리고 macOS 사용자 기준으로 터미널에서 아래와 같이 명령어를 쳐야합니다. 
-
-```
-git config --global credential.helper '!aws codecommit credential-helper $@'
-git config --global credential.Usehttppath true
-
-vi ~/.gitconfig  (잘 등록되었는지 확인)
-
-[credential]
-   helper = !aws codecommit credential-helper $@
-   UseHttpPath = true
-```
-
-그러면 위와 같이 잘 등록되어 있는 것을 볼 수 있습니다. 그리고 codeCommit과 연결되어 있는 Repository를 가서 다시 push를 해보면 정상적으로 잘 작동하는 것을 볼 수 있습니다.  
+그러면 정상적으로 push 가 됩니다. 
+  
 
 <br>
 
