@@ -116,6 +116,8 @@
     - [BigDecimal이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/1%EC%A3%BC%EC%B0%A8%20%EA%B3%BC%EC%A0%9C/BigDecimal%EC%9D%B4%EB%9E%80%3F.md)
     - [자바 7부터 달라진 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/30%EC%9E%A5/Java%207%EC%97%90%EC%84%9C%20%EB%8B%AC%EB%9D%BC%EC%A7%84%20%EA%B2%83%EB%93%A4%EC%9D%80%3F.md)
     - [자바 8에 추가된 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/32%EC%9E%A5)
+    - [System.out.println()을 사용하지 말아야 하는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/System.out.println%20%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80%20%EC%95%8A%EC%95%84%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+    - [printStackTrace를 사용하면 안되는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/printStackTrace%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4%20%EC%95%88%EB%90%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
 
 ## JavaScript   
 
