@@ -48,3 +48,10 @@ logger.fatal("Fatal log message");
 ```
 
 이외에도 여러 내용이 있지만 간단하게 `System.out.println()`을 사용하지 말아야 하는 이유에 대해 알아보았습니다. 
+
+<br>
+
+# `Reference`
+
+- [https://www.baeldung.com/java-system-out-println-vs-loggers](https://www.baeldung.com/java-system-out-println-vs-loggers)
+- [https://stackoverflow.com/questions/31869391/what-is-the-difference-between-java-logger-and-system-out-println](https://stackoverflow.com/questions/31869391/what-is-the-difference-between-java-logger-and-system-out-println)
