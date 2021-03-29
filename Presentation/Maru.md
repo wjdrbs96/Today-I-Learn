@@ -59,7 +59,7 @@
 
 # MARU-iOS
 
-[앱스토어](https://url.kr/ap9CX7) 
+[앱스토어](https://url.kr/ap9CX7)
 
 <br>
 
