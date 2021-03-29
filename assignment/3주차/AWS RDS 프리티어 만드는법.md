@@ -1,4 +1,4 @@
-# `AWS EC2 프리티어 만드는 법`
+# `AWS RDS 프리티어 만드는 법`
 
 ![스크린샷 2021-03-15 오후 2 24 30](https://user-images.githubusercontent.com/45676906/111107507-468c7500-859a-11eb-81b3-3a6d5d94cfd0.png)
 
