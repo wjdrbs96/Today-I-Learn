@@ -7,11 +7,29 @@
 
 <br>
 
+## `이미지의 읽기 영역 vs 쓰기 영역`
+
+<img width="1072" alt="스크린샷 2021-03-29 오전 11 44 36" src="https://user-images.githubusercontent.com/45676906/112780597-2671b100-9084-11eb-8257-a73ac9a8212f.png">
+
+여기서 빨간 테두리는 `읽기 영역`, 초록색 테두리는 `쓰기 영역`을 할 수 있습니다.
+
+- `읽기 영역`: ubuntu, centOS 등등
+- `쓰기 영역`: Git 설치, 어떤 모듈 설치 등등
+
+
+```
+docker run -it --name git ubuntu:latest bash
+```
+
+
+<br>
+
 ### `Dockerfile 이란?`
 
 Dockerfile 이란 Docker Image를 만들기 위한 설정 파일입니다. 컨테이너가 어떻게 행동해야 하는지에 대한 설정들을 정의하는 파일입니다.
 
 이번 글에서는 `Dockerfile`을 만들어서 이미지를 직접 만들어보겠습니다. 
+
 
 <br>
 
@@ -83,4 +101,6 @@ docker buil -t 이미지이름 .
 ![스크린샷 2021-03-29 오전 11 17 59](https://user-images.githubusercontent.com/45676906/112778910-89f9df80-9080-11eb-87f9-85bffd0bb3a5.png)
 
 위와 같이 이름을 주어서 잘 실행할 수 있는 것을 볼 수 있습니다.
+
+<br>
 
