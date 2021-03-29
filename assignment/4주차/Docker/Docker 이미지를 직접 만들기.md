@@ -13,8 +13,8 @@
 
 여기서 빨간 테두리는 `읽기 영역`, 초록색 테두리는 `쓰기 영역`을 할 수 있습니다.
 
-- `읽기 영역`: ubuntu, centOS 등등
-- `쓰기 영역`: Git 설치, 어떤 모듈 설치 등등
+- `읽기 영역`: ubuntu, centOS 등등 (수정할 수 없음)
+- `쓰기 영역`: Git 설치, 모듈 설치 등등 (이미지에 추가할 수 있음)
 
 
 ```
@@ -48,7 +48,7 @@ apt-get install -y git
 
 Dockerfile 이란 Docker Image를 만들기 위한 설정 파일입니다. 컨테이너가 어떻게 행동해야 하는지에 대한 설정들을 정의하는 파일입니다.
 
-이번 글에서는 `Dockerfile`을 만들어서 이미지를 직접 만들어보겠습니다. 
+`Dockerfile`을 이용해서 이미지를 직접 만들어보겠습니다. 
 
 
 <br>
@@ -82,6 +82,8 @@ FROM alpine
 CMD ["echo", "hello"]
 ```
 
+`Dockerfile`을 만들어서 위와 같이 작성을 하겠습니다.   
+
 ```
 docker build . (Dockerfile 실행하기) => Dockerfile이 있는 디렉토리에서 실행을 해야 함
 ```
@@ -96,7 +98,8 @@ docker build . (Dockerfile 실행하기) => Dockerfile이 있는 디렉토리에
 
 1. `베이스 이미지 alpine 이미지를 먼저 다운 받기`
 2. `alpine 파일 스냅샷은 임시 컨테이너 하드디스크에 넣기`
-3. `임시 컨테이너를 기반으로 새로운 이미지가 만들어지는 것`
+3. `실행할 명령어를 컨테이너 안에 넣기`
+4. `임시 컨테이너를 기반으로 새로운 이미지가 만들기(그리고 임시 컨테이너는 삭제)`
 
 <img width="1101" alt="스크린샷 2021-03-29 오전 11 12 40" src="https://user-images.githubusercontent.com/45676906/112778517-aea18780-907f-11eb-8eef-c5e0def35aa7.png">
 
@@ -108,14 +111,14 @@ docker build . (Dockerfile 실행하기) => Dockerfile이 있는 디렉토리에
 docker run -it ImageID
 ```
 
-근데 ImageID를 기억하기란 쉽지가 않습니다. 그래서 이번에는 Image에 직접 이름을 지어보겠습니다. 
+근데 위에서 보면 알 수 있지만 ImageID를 기억하기란 쉽지가 않습니다. 그래서 이번에는 Image에 직접 이름을 지어보겠습니다. 
 
 <br>
 
 ## `Docker Image에 이름 주기`
 
 ```
-docker build -t 도커아이디/이미지이름 디렉토리경로(dockerfile 존재하는) . (이름은 아무거나 주어도 되지만 규칙은 이러함)
+docker build -t 도커아이디/이미지이름 디렉토리경로(dockerfile 존재하는) . (이름은 아무거나 주어도 되지만 보통 이미지를 만드는 규칙은 이렇습니다.)
 docker build -t wjdrbs96/hello:latest .
 
 docker run -it wjdrbs96/hello:latest (잘 실행되는 것을 알 수 있음)
@@ -123,14 +126,4 @@ docker run -it wjdrbs96/hello:latest (잘 실행되는 것을 알 수 있음)
 
 ![스크린샷 2021-03-29 오전 11 17 59](https://user-images.githubusercontent.com/45676906/112778910-89f9df80-9080-11eb-87f9-85bffd0bb3a5.png)
 
-위와 같이 이름을 주어서 잘 실행할 수 있는 것을 볼 수 있습니다.
-
-## `Docker Image 생성하기`
-
-- ### `Dockerfile 이란?`
-
-```
-Docker Image를 만들기 위한 설정 파일입니다. 컨테이너가 어떻게 행동해야 하는지에 대한 설정들을 정의하는 파일입니다.
-```
-
-<img width="895" alt="스크린샷 2021-03-23 오후 2 26 48" src="https://user-images.githubusercontent.com/45676906/112097697-cee6c780-8be3-11eb-9297-8d76b9a43ff7.png">
+위와 같이 `docker run -it 이미지이름`으로도 잘 실행되는 것을 볼 수 있습니다. 
