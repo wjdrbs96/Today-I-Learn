@@ -1,4 +1,7 @@
-# `EC2에 Jenkins 설치하기`
+# `EC2에 ubuntu 20.04에 Jenkins 설치하기`
+
+- [https://lindarex.github.io/jenkins/ubuntu-jenkins-installation/](https://lindarex.github.io/jenkins/ubuntu-jenkins-installation/) 
+- 위에랑 같이 참고해서 해보기
 
 ```
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
@@ -7,18 +10,17 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-EC2의 접속한 후에 위의 명령어들을 순서대로 입력하면 설치가 됩니다.
-
-그런데 만약에 EC2에 Java 8이 설치되어 있지 않다면 `Error`가 발생할 것입니다. 
+EC2의 접속한 후에 위의 명령어들을 순서대로 입력하면 설치가 됩니다. 그런데 만약에 EC2에 Java 8이 설치되어 있지 않다면 `Error`가 발생할 것입니다. 
 
 <br>
 
 ### `Java 설치`
 
 ```
+# 원하는 버전을 설치
 sudo apt install openjdk-8-jre
 sudo apt install openjdk-8-jdk
-sudo apt-get install openjdk-11-jdk
+sudo apt-get install openjdk-11-jdk  (Java 11 설치)
 ```
 
 위의 명령어를 통해서 자바를 설치하면 에러가 사라질 것입니다. 

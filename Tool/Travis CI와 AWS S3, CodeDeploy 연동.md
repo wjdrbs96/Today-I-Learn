@@ -53,7 +53,7 @@ install 파일에 실행 권한이 없으니 실행 권한을 추가한다.
 chmod +x ./install
 
 install 파일로 설치를 진행한다.
-sudo ./install auto
+sudo ./install auto  // sudo ./install auto > /tmp/logfile
 
 위의 명령어가 /usr/bin/env: ruby: No such file or directory 이게 뜨면서 안된다면
 sudo apt-get install ruby  설치를 진행하고 해보자.

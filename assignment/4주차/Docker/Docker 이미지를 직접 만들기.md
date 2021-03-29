@@ -21,7 +21,26 @@
 docker run -it --name git ubuntu:latest bash
 ```
 
+![스크린샷 2021-03-29 오후 1 51 00](https://user-images.githubusercontent.com/45676906/112788438-dac80300-9095-11eb-9663-9b6073511a8e.png)
 
+위와 같이 `ubuntu:bash` 이미지에는 `Git`이 설치되어 있지 않습니다. 
+
+```
+apt-get update
+apt-get install -y git
+```
+
+![스크린샷 2021-03-29 오후 1 54 32](https://user-images.githubusercontent.com/45676906/112788649-4e6a1000-9096-11eb-9a67-3fb9b0f623fc.png)
+
+`git`이라는 컨테이너를 `ubuntu:git` 태그로 commit을 해보겠습니다.
+
+![스크린샷 2021-03-29 오후 1 57 25](https://user-images.githubusercontent.com/45676906/112788841-bf112c80-9096-11eb-8634-2b27d7e01062.png)
+
+위와 같이 `images`가 생긴 것을 볼 수 있습니다. 
+
+![스크린샷 2021-03-29 오후 1 59 47](https://user-images.githubusercontent.com/45676906/112789043-20d19680-9097-11eb-99ac-56ca38dbee11.png)
+
+위와 같이 새로 만든 이미지로 다시 접속을 했을 때는 `git`이 설치되어 있는 것을 볼 수 있습니다. 
 
 <br>
 
@@ -96,7 +115,7 @@ docker run -it ImageID
 ## `Docker Image에 이름 주기`
 
 ```
-docker buil -t 이미지이름 .
+docker build -t 이미지이름 .
 ```
 
 ![스크린샷 2021-03-29 오전 11 17 59](https://user-images.githubusercontent.com/45676906/112778910-89f9df80-9080-11eb-87f9-85bffd0bb3a5.png)
