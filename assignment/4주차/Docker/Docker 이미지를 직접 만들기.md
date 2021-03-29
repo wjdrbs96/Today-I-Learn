@@ -83,7 +83,7 @@ CMD ["echo", "hello"]
 ```
 
 ```
-docker build . (Dockerfile 실행하기)
+docker build . (Dockerfile 실행하기) => Dockerfile이 있는 디렉토리에서 실행을 해야 함
 ```
 
 ![스크린샷 2021-03-29 오전 11 00 14](https://user-images.githubusercontent.com/45676906/112777752-f1faf680-907d-11eb-87e6-fb1fc5495a51.png)
@@ -115,12 +115,22 @@ docker run -it ImageID
 ## `Docker Image에 이름 주기`
 
 ```
-docker build -t 이미지이름 .
+docker build -t 도커아이디/이미지이름 디렉토리경로(dockerfile 존재하는) . (이름은 아무거나 주어도 되지만 규칙은 이러함)
+docker build -t wjdrbs96/hello:latest .
+
+docker run -it wjdrbs96/hello:latest (잘 실행되는 것을 알 수 있음)
 ```
 
 ![스크린샷 2021-03-29 오전 11 17 59](https://user-images.githubusercontent.com/45676906/112778910-89f9df80-9080-11eb-87f9-85bffd0bb3a5.png)
 
 위와 같이 이름을 주어서 잘 실행할 수 있는 것을 볼 수 있습니다.
 
-<br>
+## `Docker Image 생성하기`
 
+- ### `Dockerfile 이란?`
+
+```
+Docker Image를 만들기 위한 설정 파일입니다. 컨테이너가 어떻게 행동해야 하는지에 대한 설정들을 정의하는 파일입니다.
+```
+
+<img width="895" alt="스크린샷 2021-03-23 오후 2 26 48" src="https://user-images.githubusercontent.com/45676906/112097697-cee6c780-8be3-11eb-9297-8d76b9a43ff7.png">

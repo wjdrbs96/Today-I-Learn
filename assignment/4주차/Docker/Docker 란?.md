@@ -80,29 +80,3 @@ docker run hello-world
 <img width="1250" alt="스크린샷 2021-03-29 오전 9 46 30" src="https://user-images.githubusercontent.com/45676906/112774136-a5aab900-9073-11eb-8013-4161cfb2b9b9.png">
 
 전체적인 흐름을 정리하면 위와 같이 진행됩니다. `Docker hub`에는 정말 많은 이미지들이 있는데 여기서 나의 로컬 컴퓨터에 다운 받지 않은 이미지라면 새로 다운받게 되고, 다운 받은 적이 있다면 `Image Cache`에 저장이 되어 있어 새로 다운 받지 않습니다.
-
-
-
-<br>
-
-## `Docker Image 생성하기`
-
-- ### `Dockerfile 이란?`
-
-```
-Docker Image를 만들기 위한 설정 파일입니다. 컨테이너가 어떻게 행동해야 하는지에 대한 설정들을 정의하는 파일입니다.
-```
-
-<img width="895" alt="스크린샷 2021-03-23 오후 2 26 48" src="https://user-images.githubusercontent.com/45676906/112097697-cee6c780-8be3-11eb-9297-8d76b9a43ff7.png">
-
-<br>
-
-## `Docker Image에 이름 주기`
-
-```
-docker build -t 도커아이디/이미지이름 디렉토리경로(dockerfile 존재하는)
-docker build -t wjdrbs96/hello:latest .
-
-docker run -it wjdrbs96/hello:latest (잘 실행되는 것을 알 수 있음)
-```
-
