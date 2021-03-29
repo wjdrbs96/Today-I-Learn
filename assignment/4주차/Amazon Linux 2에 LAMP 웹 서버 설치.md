@@ -6,6 +6,7 @@ EC2 linux2 버전에서 웹 서버를 설치하는 명령어를 정리해보겠�
 sudo yum update -y
 sudo amazon-linux-extras install -y php7.2
 sudo yum install -y httpd  (Apache 웹 서버 시작(d는 daemon 임))
+sudo systemctl start httpd
 sudo systemctl enable httpd (Apache 웹 서버가 매번 시스템이 부팅할 때마다 시작되도록 함)
 sudo systemctl is-enabled httpd (httpd 가 실행되고 있는지 확인하는 명령어)
 ```
