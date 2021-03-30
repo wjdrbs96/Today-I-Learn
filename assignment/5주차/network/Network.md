@@ -52,7 +52,7 @@ IP 버전에는 `IPv4`와 `IPv6`가 있습니다.
 위에서 말했던 것처럼 IP 주소가 고갈되고 있기에 모든 컴퓨터에 `공인 IP`를 부여하기에는 쉽지 않습니다. 
 즉, `인터넷에 직접 연결되는 컴퓨터나 라우터에는 공인 IP 주소를 할당`하고 `회사나 가정의 랜에 있는 컴퓨터는 사설 IP 주소를 할당`하는 정책을 사용하고 있습니다.
 
-![q12121212](https://user-images.githubusercontent.com/45676906/112945247-00750b00-916f-11eb-8eab-bca078ec2094.jpeg)
+![q12121212](https://yohanpro.com/media/images/network/IPDiagram.png)
 
 현재 집에서 공유기를 사용하는 모습이 위와 같다고 생각하면 될 거 같습니다. 
 
