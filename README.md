@@ -210,8 +210,8 @@
     - [Router 구조](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98%20%EA%B5%AC%EC%A1%B0.md)
     - [Network Layer 용어 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/Network%20%EA%B3%84%EC%B8%B5%20%EC%9A%A9%EC%96%B4%EC%A0%95%EB%A6%AC.md)
 
-- ### HTTP
-    - [HTTP vs HTTPS]()
+- [Transport Layer]()
+    - [전송 계층의 역할]()
 
 ## DataBase
 
