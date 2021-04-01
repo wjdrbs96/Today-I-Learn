@@ -164,3 +164,4 @@ UDP 헤더가 붙은 데이터를 `UDP 데이터그램` 이라고 합니다. UDP
 ![udp](https://mblogthumb-phinf.pstatic.net/MjAyMDA1MjVfMTY4/MDAxNTkwNDA5MzY4MzE3.jvYb3KC28Bt-nyy4yLHRgI4ArTgv6a8UDUMCRfj-mesg.sK-dsVE-jLgze_99Ckq5be4bFi2pNlJCciPZIdlStLIg.PNG.good_ray/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png?type=w800)
 
 이렇게 이번 글에서는 전송 계층에서 엄청 중요한 `TCP`와 `UDP`에 대해서 살펴보았습니다. 많이 중요한 부분이니 제대로 익혀두는 것을 추천드립니다.  
+
