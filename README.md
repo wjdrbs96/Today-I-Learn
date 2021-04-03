@@ -202,6 +202,7 @@
 ## Network
 
 - [TCP/IP란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/TCP%20IP%EB%9E%80.md)
+- [HTTPS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTPS%EB%9E%80%3F.md)
 
 - [Network Layer](https://github.com/wjdrbs96/Today-I-Learn/tree/master/assignment/5%EC%A3%BC%EC%B0%A8/network)
     - [Network Layer 특징](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/Network%20Layer.md)
@@ -209,8 +210,6 @@
     - [Subnet 구조](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/%EC%84%9C%EB%B8%8C%EB%84%B7%EC%9D%98%20%EA%B5%AC%EC%A1%B0.md)
     - [Router 구조](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%9D%98%20%EA%B5%AC%EC%A1%B0.md)
     - [Network Layer 용어 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/network/Network%20%EA%B3%84%EC%B8%B5%20%EC%9A%A9%EC%96%B4%EC%A0%95%EB%A6%AC.md)
-
-- [HTTPS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTPS%EB%9E%80%3F.md)
 
 - [Transport Layer](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network/TransPort)
     - [전송 계층의 역할](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/TransPort/1.%20%EC%A0%84%EC%86%A1%EA%B3%84%EC%B8%B5%EC%9D%98%20%EC%97%AD%ED%95%A0.md)
@@ -290,6 +289,7 @@
 - [ELB(Elastic Load Balancing)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/ELB%EB%9E%80%3F.md)
 - [CodeDeploy, CodePipeline으로 자동화 배포해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/4%EC%A3%BC%EC%B0%A8/%EA%B0%84%EB%8B%A8%ED%95%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%20%EA%B5%AC%EC%B6%95%EC%9D%84%20%ED%95%B4%EB%B3%B4%EC%9E%90.md)
 - [VPC(Virtual Private Cloud)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/aws/VPC%EB%9E%80%3F.md)
+- [Docker를 이용해서 CI/CD 파이프라인 구축하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Docker%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
 
 ## Unix
 
