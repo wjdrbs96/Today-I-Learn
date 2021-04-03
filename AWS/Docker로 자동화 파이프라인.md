@@ -168,6 +168,25 @@ hooks:
 
 <br>
 
+## `Dockerfile 작성`
+
+```dockerfile
+FROM openjdk:11-jre-slim
+
+WORKDIR /home/ec2-user/
+
+COPY demo-0.0.1-SNAPSHOT.jar .
+
+CMD java -jar demo-0.0.1-SNAPSHOT.jar
+```
+
+- `FROM: openjdk-11 이미지 다운`
+- `WORKDIR: 작업할 디렉토리 지정`
+- `COPY <복사할 파일> <이미지에서 파일이 위치할 경로>`
+- `CMD 컨테이너가 시작되면 실행할 명령어`
+
+<br>
+
 ## `deploy.sh 작성`
 
 ```shell script
