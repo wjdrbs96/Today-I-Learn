@@ -290,6 +290,7 @@
 - [CodeDeploy, CodePipeline으로 자동화 배포해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/4%EC%A3%BC%EC%B0%A8/%EA%B0%84%EB%8B%A8%ED%95%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%20%EA%B5%AC%EC%B6%95%EC%9D%84%20%ED%95%B4%EB%B3%B4%EC%9E%90.md)
 - [VPC(Virtual Private Cloud)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/aws/VPC%EB%9E%80%3F.md)
 - [Docker를 이용해서 CI/CD 파이프라인 구축하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Docker%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
+- [Route 53으로 DNS 연결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/assignment/5%EC%A3%BC%EC%B0%A8/aws/Route%2053%EC%9C%BC%EB%A1%9C%20%EB%8F%84%EB%A9%94%EC%9D%B8%20%EA%B5%AC%EC%9E%85.md)
 
 ## Unix
 
