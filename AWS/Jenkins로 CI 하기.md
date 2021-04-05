@@ -1,3 +1,15 @@
+## `EC2 인스턴스 생성하기`
+
+jenkins를 사용할 때 프리티어로 사용하면 EC2가 맛이가는 문제가 발생해서 성능 좋은 EC2로 생성해보겠습니다. 
+
+![1](https://user-images.githubusercontent.com/45676906/113543993-702d3f00-9622-11eb-82bc-5c7096c6a89a.png)
+
+![2](https://user-images.githubusercontent.com/45676906/113544080-95ba4880-9622-11eb-92d8-da084cd219c5.png)
+
+![3](https://user-images.githubusercontent.com/45676906/113544083-96eb7580-9622-11eb-8ec5-d46c4757fc37.png)
+
+<br>
+
 ## `EC2 Linux2에 Docker 설치하기`
 
 ```
@@ -11,7 +23,7 @@ sudo service docker start
 ## `docker로 jenkins 설치하기`
 
 ```
-docker run -d --name jenkins -p 32789:8080 jenkins/jenkins:jdk11
+sudo docker run -d --name jenkins -p 32789:8080 jenkins/jenkins:jdk11
 ```
 
 ![스크린샷 2021-04-05 오전 12 09 37](https://user-images.githubusercontent.com/45676906/113513182-44b73f80-95a3-11eb-9d67-3e71bb445725.png)
@@ -23,7 +35,7 @@ docker run -d --name jenkins -p 32789:8080 jenkins/jenkins:jdk11
 ![스크린샷 2021-04-05 오전 12 13 44](https://user-images.githubusercontent.com/45676906/113513288-f8b8ca80-95a3-11eb-8757-356f9504657b.png)
 
 ```
-docker exec -it jenkins bash  // jenkins bash 쉘 접속
+sudo docker exec -it jenkins bash  // jenkins bash 쉘 접속
 cat /var/jenkins_home/secrets/initialAdminpassword
 ```
 
@@ -47,17 +59,13 @@ AWS CodeDeploy 플러그인을 설치하겠습니다.
 
 ![스크린샷 2021-04-05 오전 12 32 48](https://user-images.githubusercontent.com/45676906/113513857-944b3a80-95a6-11eb-9cd3-7507d9c53103.png)
 
-![스크린샷 2021-04-05 오전 12 34 46](https://user-images.githubusercontent.com/45676906/113513920-d1173180-95a6-11eb-82bc-460b00e9fdaa.png)
-
-![스크린샷 2021-04-05 오전 12 37 12](https://user-images.githubusercontent.com/45676906/113513998-27847000-95a7-11eb-9753-94be16d992a3.png)
+![스크린샷 2021-04-05 오후 5 35 27](https://user-images.githubusercontent.com/45676906/113555406-d7a0ba00-9635-11eb-83b3-3db07ad1488a.png)
 
 ![스크린샷 2021-04-05 오전 12 38 41](https://user-images.githubusercontent.com/45676906/113514024-50a50080-95a7-11eb-82e7-e5d5a2099082.png)
 
-![스크린샷 2021-04-05 오전 12 40 31](https://user-images.githubusercontent.com/45676906/113514080-96fa5f80-95a7-11eb-9137-e98f34240afe.png)
-
 ![스크린샷 2021-04-05 오전 12 41 36](https://user-images.githubusercontent.com/45676906/113514102-b85b4b80-95a7-11eb-914d-cd1dfabc267a.png)
 
-![스크린샷 2021-04-05 오전 12 47 24](https://user-images.githubusercontent.com/45676906/113514251-83032d80-95a8-11eb-976e-a671fb821956.png)
+![스크린샷 2021-04-05 오후 5 33 38](https://user-images.githubusercontent.com/45676906/113555527-0880ef00-9636-11eb-9e22-6648fbd36bb0.png)
 
 ![스크린샷 2021-04-05 오전 12 48 20](https://user-images.githubusercontent.com/45676906/113514291-b776e980-95a8-11eb-935e-c14d74efbe96.png)
 
@@ -70,4 +78,27 @@ AWS CodeDeploy 플러그인을 설치하겠습니다.
 ![스크린샷 2021-04-05 오전 12 51 02](https://user-images.githubusercontent.com/45676906/113514398-3835e580-95a9-11eb-9851-61f6a8d0aba5.png)
 
 ![스크린샷 2021-04-05 오전 12 53 12](https://user-images.githubusercontent.com/45676906/113514405-4dab0f80-95a9-11eb-9554-68f72141330b.png)
+
+<br>
+
+## `EC2 Linux2 CodeAgent 설치하기`
+
+```
+sudo yum install -y aws-cli
+cd /home/ec2-user/ 
+sudo aws configure 
+wget https://aws-codedeploy-ap-northeast-2.s3.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent status
+```
+
+![test](https://t1.daumcdn.net/cfile/tistory/992FB64D5AC566E018)
+
+<br>
+
+## `Jenkins CI 성공`
+
+![스크린샷 2021-04-05 오후 5 31 36](https://user-images.githubusercontent.com/45676906/113555779-6b728600-9636-11eb-8840-70370695f2ff.png)
+
 
