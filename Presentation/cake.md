@@ -44,3 +44,11 @@
 - [AWS S3]() - 클라우드 환경 객체 스토리지
 - [Git]() - 버전관리 시스템
 - [Tool]() - Github, Slack, Notion
+
+<br>
+
+## `Contributor`
+
+- ### [배다슬](https://github.com/bghgu)
+- ### [이상윤](https://github.com/syndersonLEE)
+- ### [최정균](https://github.com/wjdrbs96)
