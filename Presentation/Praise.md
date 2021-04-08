@@ -1,4 +1,4 @@
-# 💙 서비스 한줄 소개 💙
+# 💙 `서비스 한줄 소개` 💙
 
 - ### 그거 알아? 칭찬은 하면 할수록 기분이 좋아진다는거? 우리 모두 칭찬 중독이 되어보는거 어때?
 - ### [Notion 소개](https://www.notion.so/8cafb7768caa4b8c9cbf8e2e8d8b3361)
@@ -15,13 +15,13 @@
 
 ## `View`
 
-![1](https://user-images.githubusercontent.com/45676906/114030963-d8e01a00-98b5-11eb-95ee-65cedaec9265.png)
+<img src="https://user-images.githubusercontent.com/45676906/114030963-d8e01a00-98b5-11eb-95ee-65cedaec9265.png" width="200" height="200">
 
-![2](https://user-images.githubusercontent.com/45676906/114031057-f3b28e80-98b5-11eb-9abf-094b4a97300d.png)
+<img src="https://user-images.githubusercontent.com/45676906/114031057-f3b28e80-98b5-11eb-9abf-094b4a97300d.png" width="200" height="200">
 
-![3](https://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.png)
+<img src="https://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.pnghttps://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.png" width="200" height="200">
 
-![4](https://user-images.githubusercontent.com/45676906/114031123-07f68b80-98b6-11eb-96b1-dc7ee81c5a51.png)
+<img src="https://user-images.githubusercontent.com/45676906/114031123-07f68b80-98b6-11eb-96b1-dc7ee81c5a51.png" width="200" height="200">
 
 
 
@@ -50,10 +50,20 @@
 - [Nginx]() - 웹 서버
 - [Sequelize]() - DataBase ORM
 - [JWT]() - 토큰기반 인증
+- [FCM]() - Firebase Cloud Messaging
 - [AWS EC2]() - 클라우드 환경 컴퓨팅 시스템
 - [AWS RDS]() - 클라우드 환경 데이터베이스 관리 시스템
 - [Git]() - 버전관리 시스템
 - [Tool]() - Github, Slack, Notion
+
+<br>
+
+<br>
+
+## `Project`
+
+- [Server](https://github.com/Praise-Whale/Praise-Server)
+- [Android](https://github.com/Praise-Whale/Praise-Whale-AOS)
 
 <br>
 
