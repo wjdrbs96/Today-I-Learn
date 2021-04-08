@@ -15,14 +15,12 @@
 
 ## `View`
 
-<img src="https://user-images.githubusercontent.com/45676906/114030963-d8e01a00-98b5-11eb-95ee-65cedaec9265.png" width="200" height="200">
-
-<img src="https://user-images.githubusercontent.com/45676906/114031057-f3b28e80-98b5-11eb-9abf-094b4a97300d.png" width="200" height="200">
-
-<img src="https://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.pnghttps://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.png" width="200" height="200">
-
-<img src="https://user-images.githubusercontent.com/45676906/114031123-07f68b80-98b6-11eb-96b1-dc7ee81c5a51.png" width="200" height="200">
-
+<div>
+ <img src="https://user-images.githubusercontent.com/45676906/114030963-d8e01a00-98b5-11eb-95ee-65cedaec9265.png" width="200" height="200">
+ <img src="https://user-images.githubusercontent.com/45676906/114031057-f3b28e80-98b5-11eb-9abf-094b4a97300d.png" width="200" height="200">
+ <img src="https://user-images.githubusercontent.com/45676906/114031120-075df500-98b6-11eb-8e60-1db558b056b4.png" width="200" height="200">
+ <img src="https://user-images.githubusercontent.com/45676906/114031123-07f68b80-98b6-11eb-96b1-dc7ee81c5a51.png" width="200" height="200">
+</div>
 
 
 
