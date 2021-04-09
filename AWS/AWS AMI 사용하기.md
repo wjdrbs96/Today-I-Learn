@@ -68,13 +68,15 @@ sudo systemctl is-enabled httpd (httpd 가 실행되고 있는지 확인하는 �
 
 <br>
 
+그리고 아래의 경로에 `index.php`를 하나 만든 후에 간단하게 작성을 해보겠습니다. 
+
 ```
 sudo vi /var/www/html/index.php
 ```
 
 ![스크린샷 2021-04-09 오후 3 36 07](https://user-images.githubusercontent.com/45676906/114138929-4e48fa80-9949-11eb-9106-5be74ac61cc1.png)
 
-그리고 위와 같이 간단하게 볼 수 있게 적겠습니다. 그러면 http://{EC2-IP} 로 접속하면 해당 파일의 내용이 뜨게 됩니다. (80번 포트) 
+위와 같이 간단하게 볼 수 있게 적겠습니다. 그러면 http://{EC2-IP} 로 접속하면 해당 파일의 내용이 뜨게 됩니다. (80번 포트) 
 
 <br>
 
