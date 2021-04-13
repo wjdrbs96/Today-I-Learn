@@ -295,7 +295,7 @@
 - [AWS Blue/Green 배포 방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%20%EA%B3%BC%EC%A0%95.md)
 - [AWS AMI를 이용하여 EC2 이미지 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%20AMI%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
 - [AWS Auto Scaling 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%20Auto-Scaling%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-1.md)
-- [AWS Blue/Green 방식으로 무중단 배포하기]()
+- [AWS Blue/Green 방식으로 무중단 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/AWS%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%20%EA%B3%BC%EC%A0%95.md)
 
 ## Unix
 
