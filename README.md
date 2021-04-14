@@ -316,6 +316,7 @@
     - [Travis CI, CodeDeploy, Docker로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Docker%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
     - [Blue/Green 배포 방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/%EB%B8%94%EB%A3%A8%2C%20%EA%B7%B8%EB%A6%B0%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%20%EA%B3%BC%EC%A0%95.md)
     - [Blue/Green 배포 실습해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Blue%2C%20Green%20%EB%B0%B0%ED%8F%AC%20%EC%8B%A4%EC%8A%B5%ED%95%98%EA%B8%B0.md)
+    - [현재위치 배포방식이란?]()
     
 - ### Route 53
     - [Route 53으로 DNS 등록하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Route%2053/Route%2053%EC%9C%BC%EB%A1%9C%20%EB%8F%84%EB%A9%94%EC%9D%B8%20%EA%B5%AC%EC%9E%85%ED%95%98%EA%B8%B0.md)
