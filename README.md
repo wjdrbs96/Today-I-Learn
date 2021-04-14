@@ -283,26 +283,30 @@
 ## AWS
 
 - ### EC2
-    - [EC2 프리티어 설정하는 법]()
-    - [EC2 접속하기]()
-    - [EC2 Java 설치]()
+    - [EC2 프리티어로 만드는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
+    - [EC2 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2.md)
+    - [EC2 AMI 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/AWS%20AMI%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
     
    
 - ### DataBase
-    - [MySQL Workbench로 RDS 접속하기]()
-    - [ElastiCache 정리]()
+    - [MySQL Workbench로 RDS 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/Workbench%EC%97%90%EC%84%9C%20RDS%20%EC%A0%91%EC%86%8D%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+    - [AWS RDS 프리티어로 만드는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/RDS%20%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95.md)
+    - [ElastiCache 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/ElasticCache%20%EC%A0%95%EB%A6%AC.md)
 
 
 - ### Network
-    - [VPC(Virtual Private Cloud)란?]()
+    - [VPC(Virtual Private Cloud)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Network/VPC%EB%9E%80%3F.md)
+    - [VPC(Virtual Private Cloud) 실습하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Network/VPC%20%EC%8B%A4%EC%8A%B5%ED%95%98%EA%B8%B0.md)
 
 
 - ### Load-Balancer
-    - [ELB(Elastic Load Balancing)이란?]()
-    - [ELB(Elastic Load Balancing) 실습해보기]()
+    - [ELB(Elastic Load Balancing)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Load-Balancer/ELB%EB%9E%80%3F.md)
+    - [ELB(Elastic Load Balancing) 실습해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Load-Balancer/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1%20%EC%8B%A4%EC%8A%B5%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
 
 - ### CodeDeploy
-    - [CodeDeploy, CodePipeline으로 자동화 배포해보기]()
+    - [Jenkins, CodeDeploy로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Jenkins%EB%A1%9C%20CI%20%ED%95%98%EA%B8%B0.md)
+    - 
+    
     
     
 - [Docker를 이용해서 CI/CD 파이프라인 구축하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Docker%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
