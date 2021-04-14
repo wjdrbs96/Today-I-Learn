@@ -1,4 +1,6 @@
-# `AWS 배포 자동화 하기`
+# `AWS Auto-Scaling, CodeDeploy로 배포 자동화 하기`
+
+CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념에 대해서 알아야 합니다. 아래의 글을 읽기 전에 [여기]() 에서 간단하게 IAM 개념에 대해 학습하고 오시는 걸 추천합니다. 
 
 ## `역할 생성`
 
@@ -102,9 +104,9 @@
 
 배포 설정의 종류는 3가지가 존재합니다. 각각의 특징은 아래와 같습니다. 
 
-- `CodeDeployDefault.OneAtTime`: 한 번에 하나
-- `CodeDeployDefault.HalfAtTime`: 절반씩
-- `CodeDeployDefault.AllAtOnce`: 한꺼번에
+- `CodeDeployDefault.OneAtTime`: 한 번에 하나씩 배포 
+- `CodeDeployDefault.HalfAtTime`: 절반씩 배포
+- `CodeDeployDefault.AllAtOnce`: 한꺼번에 배포
 
 <br>
 
