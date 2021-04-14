@@ -1,6 +1,8 @@
 # `AWS Auto-Scaling, CodeDeploy로 배포 자동화 하기`
 
-CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념에 대해서 알아야 합니다. 아래의 글을 읽기 전에 [여기]() 에서 간단하게 IAM 개념에 대해 학습하고 오시는 걸 추천합니다. 
+CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념에 대해서 알아야 합니다. 아래의 글을 읽기 전에 [여기](https://devlog-wjdrbs96.tistory.com/302) 에서 간단하게 IAM 개념에 대해 학습하고 오시는 걸 추천합니다. 
+
+<br>
 
 ## `역할 생성`
 
@@ -13,6 +15,8 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 위와 같이 기본으로 `[AWSCodeDeployRole]`이 존재하는 것을 볼 수 있습니다. 
 
 ![스크린샷 2021-04-13 오후 3 26 52](https://user-images.githubusercontent.com/45676906/114506418-b7dc4800-9c6c-11eb-85da-04f12d5b104c.png)
+
+즉, 해당 역할은 CodeDeploy에 접근할 수 있도록 하기 위해서 만드는 것입니다. 
 
 <br>
 
@@ -38,6 +42,7 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 
 ![스크린샷 2021-04-13 오후 3 29 53](https://user-images.githubusercontent.com/45676906/114506798-40f37f00-9c6d-11eb-8a3e-d6a7d737a9b2.png)
 
+S3에 접근할 수 있도록 정책을 하나 만들겠습니다. 기존에 존재하는 역할을 사용해도 되지만 본인이 원하는 정책으로 커스텀해서 역할을 만들고 싶을 때 위와 같이 할 수 있습니다.
 
 <br>
 
@@ -47,11 +52,13 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 
 ![스크린샷 2021-04-13 오후 3 32 44](https://user-images.githubusercontent.com/45676906/114507057-8fa11900-9c6d-11eb-8c3f-dda85200a7ef.png)
 
-방금 만든 정책을 추가하겠습니다. 
+사용자나 그룹들에 권한을 직접 적용할 수는 없고 권한들로 만든 정책을 적용해야 하기 때문에 방금 만든 정책을 추가하겠습니다. 
 
 ![스크린샷 2021-04-13 오후 3 33 52](https://user-images.githubusercontent.com/45676906/114507158-b2333200-9c6d-11eb-9a17-1aec68299a6b.png)
 
 ![스크린샷 2021-04-13 오후 3 35 42](https://user-images.githubusercontent.com/45676906/114507425-1229d880-9c6e-11eb-9dd7-e255dbb44ff0.png)
+
+즉 해당 역할은 `Auto-Scaling`과 CodeDeploy로 배포하는 과정에서 통해 각 EC2가 S3 버켓에 파일들을 읽어올 수 있도록 부여하는 역할입니다. 
 
 <br>
 
@@ -66,6 +73,8 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 ![스크린샷 2021-04-13 오후 3 39 31](https://user-images.githubusercontent.com/45676906/114507757-8bc1c680-9c6e-11eb-866f-ae681881117e.png)
 
 위와 같이 `시작 템플릿`에서 인스턴스 프로파일을 설정해주어야 템플릿으로 생성된 인스턴스들은 `[Auto-Scaling-Gyunny-Role]` 역할을 갖고 시작될 것입니다. (그래야 배포에 성공할 수 있기 때문에 꼭 잘 설정을 해주어야 합니다.)
+
+즉 해당 역할은 EC2에 설치되어 있는 CodeAgent가 S3 버켓을 잘 읽어올 수 있도록 하기 위해서 설정하는 것입니다.
 
 <br>
 
@@ -98,6 +107,9 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 
 ![스크린샷 2021-04-13 오후 5 25 55](https://user-images.githubusercontent.com/45676906/114521701-a7809900-9c7d-11eb-8b9f-5b972aac101a.png)
 
+이번에 지정하는 역할은 어떤 것일까요? 저 해당 역할의 내용들을 보면 `Auto-Scaling`, `Load-Balancer` 등등에 관련된 설정이 되어 있는 정책이 있는 것을 볼 수 있습니다. 
+즉, CodeDeploy에게 해당 역할을 부여해야 CodeDeploy를 통해 Load-Balancer에 연결된 Auto-Scaling 그룹에 배포를 할 수 있는 것입니다.
+
 ![스크린샷 2021-04-13 오후 5 29 00](https://user-images.githubusercontent.com/45676906/114521921-d26aed00-9c7d-11eb-9d64-42b106a63ba5.png)
 
 ![스크린샷 2021-04-13 오후 5 30 24](https://user-images.githubusercontent.com/45676906/114522096-fc241400-9c7d-11eb-8a5d-1e5187436732.png)
@@ -112,7 +124,7 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 
 여기서는 그냥 `CodeDeployDefault.AllAtOnce`로 진행하겠습니다. (나중에 좀 더 커스텀하게 해서 사용해보겠습니다.)
 
-<br>
+<br> <br>
 
 ## `Spring Boot로 자동화 배포 테스트`
 
@@ -123,7 +135,7 @@ CodeDeploy를 사용하기 위해서는 `역할`, `정책`, `사용자` 개념�
 - CI 도구는 Travis CI를 사용하였습니다. 
 - CD는 CodeDeploy 를 사용하여 Auto-Scaling Group에 배포를 진행하고 있습니다. 
 
-참고로 이번 글에서는 Travis CI 설정에 대해서는 다루지 않습니다. 
+참고로 이번 글에서는 Travis CI에서 IAM 사옹자 엑세스 키 설정에 대해서는 다루지 않습니다.
 
 <br>
 
@@ -273,16 +285,16 @@ sudo docker run -d -p 8081:8080 gyunny  # Docker Container 생성
 
 ![스크린샷 2021-04-13 오후 5 48 02](https://user-images.githubusercontent.com/45676906/114524712-6938a900-9c80-11eb-9a6b-2d291000744c.png)
 
-그리고 CodeDeploy에 보면 위와 같이 배포가 성공적으로 잘 된 것을 볼 수 있습니다. 이제 Auto Scaling으로 만들어졌던 EC2로 가보겠습니다.
+그리고 CodeDeploy에 보면 위와 같이 배포가 성공적으로 잘 된 것을 볼 수 있습니다. 이제 Auto Scaling으로 만들어졌던 EC2에 각각 접속해서 확인해보겠습니다.
 
 <img width="1176" alt="스크린샷 2021-04-13 오후 5 49 20" src="https://user-images.githubusercontent.com/45676906/114525012-b157cb80-9c80-11eb-82f3-2ceb88d4bdce.png">
 
 <img width="1163" alt="스크린샷 2021-04-13 오후 5 48 59" src="https://user-images.githubusercontent.com/45676906/114525085-c3d20500-9c80-11eb-93d2-8635930fe7ee.png">
 
-그러면 위와 같이 EC2 각각에 다 Docker Container가 실행되고 있는 것도 확인할 수 있습니다. 
+그러면 위와 같이 EC2 각각에 Docker Container가 실행되고 있는 것도 확인할 수 있습니다. 
 
 ![스크린샷 2021-04-13 오후 5 53 37](https://user-images.githubusercontent.com/45676906/114525635-38a53f00-9c81-11eb-80bd-4a322a25974b.png)
 
 ![스크린샷 2021-04-13 오후 5 53 42](https://user-images.githubusercontent.com/45676906/114525668-3fcc4d00-9c81-11eb-92dc-c615ce4bd33f.png)
 
-그리고 실제 EC2 주소로 접소갷보아도 위와 같이 잘 뜨는 것을 볼 수 있습니다. 
+그리고 실제 EC2 주소로 접속했을 때 위와 같이 잘 뜨는 것을 볼 수 있습니다. 
