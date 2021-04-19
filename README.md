@@ -318,7 +318,7 @@
     - [Blue/Green 배포 방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/%EB%B8%94%EB%A3%A8%2C%20%EA%B7%B8%EB%A6%B0%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%20%EA%B3%BC%EC%A0%95.md)
     - [Blue/Green 배포 실습해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Blue%2C%20Green%20%EB%B0%B0%ED%8F%AC%20%EC%8B%A4%EC%8A%B5%ED%95%98%EA%B8%B0.md)
     - [현재위치 배포방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98%20%EB%B0%B0%ED%8F%AC%20%EB%B0%A9%EC%8B%9D%EC%9D%B4%EB%9E%80%3F.md)
-    ``
+    
 - ### Route 53
     - [Route 53으로 DNS 등록하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Route%2053/Route%2053%EC%9C%BC%EB%A1%9C%20%EB%8F%84%EB%A9%94%EC%9D%B8%20%EA%B5%AC%EC%9E%85%ED%95%98%EA%B8%B0.md)
     - [AWS 인증서로 HTTPS 적용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Route%2053/AWS%20%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%A1%9C%20HTTPS%20%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0.md)    
