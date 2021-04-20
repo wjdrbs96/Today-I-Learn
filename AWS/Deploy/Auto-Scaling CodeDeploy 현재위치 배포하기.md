@@ -279,7 +279,13 @@ Auto-Scaling Group 2개를 만들겠습니다.
 
 위와 같이 간단하게 수정을 한 후에 Github Push를 해보겠습니다. 그러면 Blue/Green 배포 방식과는 다르게 인스턴스를 줄이거나 생성하는 과정이 없기 때문에 상당히 빠른 시간에 배포가 진행되는 것을 볼 수 있습니다.
 
+![스크린샷 2021-04-20 오전 11 49 20](https://user-images.githubusercontent.com/45676906/115330133-71d43680-a1ce-11eb-8957-0dd4ffedf080.png)
+
 ![스크린샷 2021-04-20 오전 11 41 16](https://user-images.githubusercontent.com/45676906/115329541-692f3080-a1cd-11eb-85b3-aec2634232e5.png)
+
+Travis CI, CodeDeploy 모두 성공한 것을 볼 수 있습니다. 이제 로드밸런서 DNS 주소로 접속해보겠습니다. 
+
+<br>
 
 ![스크린샷 2021-04-20 오전 11 44 02](https://user-images.githubusercontent.com/45676906/115329785-cb883100-a1cd-11eb-81f1-04af9e4768f4.png)
 
