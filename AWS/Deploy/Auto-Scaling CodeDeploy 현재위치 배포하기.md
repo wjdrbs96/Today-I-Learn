@@ -275,7 +275,7 @@ Auto-Scaling Group 2개를 만들겠습니다.
 
 자동화 배포는 위에서 말했던 것처럼 `Spring Boot`, `Travis CI`, `S3`, `CodeDeploy`, `Load-Balancer`, `Auto-Scaling-Group`을 사용할 것입니다. 또한 자동화 배포를 하려면 `appspec.yml`, `deploy.sh`, `travis.yml` 파일들을 작성해야 하는데 그러한 내용은 [Blue/Greeen 자동화 배포]() 에서 다뤘기 때문에 해당 링크에서 참고하시면 됩니다. (똑같이 진행하겠습니다.) 
 
-![스크린샷 2021-04-20 오전 12 15 00](https://user-images.githubusercontent.com/45676906/115260147-73214700-a16d-11eb-9097-dd167eae731e.png)
+![스크린샷 2021-04-20 오전 11 47 39](https://user-images.githubusercontent.com/45676906/115330016-35a0d600-a1ce-11eb-9aa2-44b0a1628e15.png)
 
 위와 같이 간단하게 수정을 한 후에 Github Push를 해보겠습니다. 그러면 Blue/Green 배포 방식과는 다르게 인스턴스를 줄이거나 생성하는 과정이 없기 때문에 상당히 빠른 시간에 배포가 진행되는 것을 볼 수 있습니다.
 
