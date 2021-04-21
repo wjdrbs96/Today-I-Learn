@@ -263,8 +263,7 @@
 - [MSA란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/MSA.md)
 - [API 명세서 wiki로 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/API%20%EB%AA%85%EC%84%B8%EC%84%9C%20wiki%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
 - [비즈니스 로직(Business Logic)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%A1%9C%EC%A7%81%EC%9D%B4%EB%9E%80%3F.md)
-- [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Ngnix%EB%9E%80%3F.md)
-- [Nginx로 Proxy Server 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Web/Nginx%20%ED%94%84%EB%A1%9D%EC%8B%9C%20%EC%84%9C%EB%B2%84.md)
+
 
 ## Tool
 
@@ -340,6 +339,13 @@
     - [CodeBuild로 CI 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/1.%20CodeBuild%20%ED%99%9C%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
     - [CodeDeploy로 CD 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/2.%20CodeDeploy%EB%A5%BC%20%ED%95%A0%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
     - [CodePipeline 연결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/3.%20Codepipeline%20%EC%9D%B4%EB%9E%80.md)
+
+## Nginx
+
+- [Nginx란?]()
+- []
+- [Nginx로 Proxy Server 만들기]()
+
 
 ## Unix
 
