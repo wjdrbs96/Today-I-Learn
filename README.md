@@ -342,9 +342,9 @@
 
 ## Nginx
 
-- [Nginx란?]()
-- []
-- [Nginx로 Proxy Server 만들기]()
+- [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Ngnix%EB%9E%80%3F.md)
+- [Nginx 명령어 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Nginx%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%A0%95%EB%A6%AC.md)
+- [Nginx로 Proxy Server 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Nginx%20%ED%94%84%EB%A1%9D%EC%8B%9C%20%EC%84%9C%EB%B2%84.md)
 
 
 ## Unix
