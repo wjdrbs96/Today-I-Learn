@@ -290,6 +290,7 @@
     - [EC2 프리티어로 만드는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
     - [EC2 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2.md)
     - [EC2 AMI 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/AWS%20AMI%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+    - [EC2 Linux2 Java 11 설치하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20Linux2%20Java%2011%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
     
 - ### Load-Balancer
     - [ELB(Elastic Load Balancing) 개념 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Load-Balancer/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1%20%EC%A0%95%EB%A6%AC.md)
@@ -344,6 +345,12 @@
 
 - [기본 유닉스 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/%EA%B8%B0%EB%B3%B8%EC%9C%A0%EB%8B%89%EC%8A%A4%EB%AA%85%EB%A0%B9%EC%96%B41.md) 
 - [vi editor 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/2%EC%A3%BC%EC%B0%A8/vi%EC%97%90%EB%94%94%ED%84%B0%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+
+
+## Shell Script
+
+- [Shell Script 문법 기초]()
+
 
 ## Git
 
