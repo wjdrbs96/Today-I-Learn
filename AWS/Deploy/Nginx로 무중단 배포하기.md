@@ -67,7 +67,7 @@ Spring Boot에서 포트 번호 설정은 `application.properties` 파일에서 
 먼저 jar 파일을 만들겠습니다. (현재 저는 `gradle` 기반으로 Spring Boot 프로젝트를 만들었습니다.)
 
 ```
-./gradlew clena build
+./gradlew clean build
 ```
 
 ![스크린샷 2021-04-22 오전 9 49 34](https://user-images.githubusercontent.com/45676906/115639656-1c279780-a350-11eb-8a67-9603a152727c.png)
