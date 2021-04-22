@@ -370,7 +370,7 @@ if [ -z ${IDLE_PID} ]
 then
   echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
-  echo "> kill -15 $IDLE_PID"
+  echo "> kill -15 $IDLE_PID"   # Nginx에 연결되어 있지는 않지만 현재 실행 중인 jar 를 Kill 합니다.
   kill -15 ${IDLE_PID}
   sleep 5
 fi
@@ -387,7 +387,7 @@ fi
 
 ABSPATH=$(readlink -f $0)     
 ABSDIR=$(dirname $ABSPATH)
-source ${ABSDIR}/profile.sh
+source ${ABSDIR}/profile.sh   # import profile.sh 
 
 REPOSITORY=/home/ec2-user/app/step3
 
@@ -397,7 +397,7 @@ echo "> cp $REPOSITORY/zip/*.jar $REPOSITORY/"
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 새 어플리케이션 배포"
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)    # jar 이름 꺼내오기
 
 echo "> JAR Name: $JAR_NAME"
 
@@ -419,6 +419,7 @@ nohup java -jar \
 - `$(dirname $ABSPATH)`: 디렉터리 경로를 출력하기 위한 명령어입니다. 
 - `source ${ABSDIR}/profile.sh`: Java에서 import와 비슷한 기능입니다. profile.sh를 start.sh에서 사용하겠다는 뜻입니다.
 - `IDLE_PROFILE=$(find_idle_profile)`: profile.sh에 존재하는 find_idle_profile 함수에서 real1 or real2를 echo로 출력했던 값을 이렇게 꺼내올 수 있습니다. (return 받은 것과 비슷합니다.)
+- `-Dspring.profiles.active`: $IDLE_PROFILE을 통해서 받은 real1 or real2로 jar 파일을 실행합니다.
 
 <br>
 
@@ -499,7 +500,9 @@ function switch_proxy() {
 
 ![스크린샷 2021-04-22 오전 11 07 52](https://user-images.githubusercontent.com/45676906/115645243-fc49a100-a35a-11eb-892a-f03e8ed5ff84.png)
 
-그리고 Github에 push를 하면 Github이 Travis CI로 Hook를 날려서 CI가 시작됩니다. 
+그리고 Github에 push를 하면 Github이 Travis CI로 Hook를 날려서 CI가 시작됩니다. (과정은 맨 위에서 말한 아키텍쳐와 같습니다.)
+
+<br> 
 
 ![스크린샷 2021-04-22 오전 11 07 26](https://user-images.githubusercontent.com/45676906/115645218-f0f67580-a35a-11eb-8430-0a58ea47c739.png)
 
@@ -507,11 +510,15 @@ function switch_proxy() {
 
 그리고 위와 같이 appspec.yml에서 지정한 목적지에 파일이 잘 전달된 것도 확인할 수 있습니다.
 
+<br>
+
 ```
 sudo vim /etc/nginx/conf.d/service-url.inc
 ```
 
-그리고 다시 해당 파일을 열어보겠습니다.
+그리고 다시 해당 파일을 열어서 Nginx Reload가 잘 되어는지 확인해보겠습니다.
+
+<br>
 
 ![스크린샷 2021-04-22 오전 11 10 47](https://user-images.githubusercontent.com/45676906/115645464-64988280-a35b-11eb-8575-e40122a6311d.png)
 
@@ -522,6 +529,8 @@ sudo vim /etc/nginx/conf.d/service-url.inc
 ![스크린샷 2021-04-22 오전 11 12 18](https://user-images.githubusercontent.com/45676906/115645630-a5909700-a35b-11eb-96bd-cd44787794d5.png)
 
 그러면 위와 같이 현재 8081, 8082 두개의 jar가 실행되는 것을 볼 수 있습니다.(현재 Nginx에 연결된 것은 위에서 볼 수 있듯이 8082로 바뀌었습니다.)
+
+<br>
 
 ![스크린샷 2021-04-22 오전 11 13 31](https://user-images.githubusercontent.com/45676906/115645716-d244ae80-a35b-11eb-9f4e-a07ac2fa0469.png)
 
