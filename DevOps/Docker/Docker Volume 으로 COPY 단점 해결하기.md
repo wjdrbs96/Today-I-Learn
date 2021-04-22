@@ -113,7 +113,8 @@ docker run -d -p 8000:8080 -v $(pwd)/build/lib:/root gyunny
 
 <br>
 
-<img width="166" alt="스크린샷 2021-04-22 오후 5 01 57" src="https://user-images.githubusercontent.com/45676906/115678828-e6ed6a80-a38c-11eb-832d-92b93a1ef1bd.png">
+![스크린샷 2021-04-22 오후 5 11 07](https://user-images.githubusercontent.com/45676906/115679688-ce318480-a38d-11eb-933a-1da07cbe5954.png)
+
 
 <br>
 
