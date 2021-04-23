@@ -191,7 +191,9 @@ services:                 # 이곳에 실행하려는 컨테이너들을 정의
 ![스크린샷 2021-04-23 오후 3 38 11](https://user-images.githubusercontent.com/45676906/115830784-bfa9a280-a44b-11eb-9556-e259a8250295.png)
 
 ```
-docker-compose up
+docker-compose up         (이미지가 없을 때 이미지를 빌드하고 컨테이너 시작)
+docker-compose up --build (이미지가 있든 없든 다시 빌드하고 실행)
+docker-compose down       (컴포즈 중지하기)
 ```
 
 위의 명령어를 통해서 실행하면 위와 같이 에러 없이 서버가 실행되는 것을 볼 수 있습니다. 
@@ -271,7 +273,8 @@ services:
 `docker-compose.yml` 파일과 같은 위치에서 아래의 명령어를 실행해보겠습니다.
 
 ```
-docker-compose up
+docker-compose up         (이미지가 없을 때 이미지를 빌드하고 컨테이너 시작)
+docker-compose up --build (이미지가 있든 없든 다시 빌드하고 실행)
 ```
 
 <img width="1131" alt="스크린샷 2020-12-10 오전 2 36 13" src="https://user-images.githubusercontent.com/45676906/101665569-78b8a300-3a90-11eb-9dac-e40cef7c50aa.png">
