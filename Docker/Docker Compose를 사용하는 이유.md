@@ -179,7 +179,7 @@ services:                 # 이곳에 실행하려는 컨테이너들을 정의
   redis-server:           # 컨테이너 이름을 지정 (원하는 이름)
     image: "redis"        # 사용할 이미지 이름
   gyunny:                 # 컨테이너 이름을 지정 (원하는 이름)
-    build: .              # 현 디렉토리에 있는 Dockerfile을 사용하여 빌드
+    build: ""              # 현 디렉토리에 있는 Dockerfile을 사용하여 빌드
     ports:
       - "5000:8080"       # 로컬포트:컨테이너포트 (서로 매핑)
 ```

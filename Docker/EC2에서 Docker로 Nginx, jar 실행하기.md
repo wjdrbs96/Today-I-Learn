@@ -171,7 +171,7 @@ services:
     volumes:
       - /etc/nginx/:/etc/nginx/    # Nginx 컨테이너 내부 /etc/nginx 디렉토리가 위에서 설치한 EC2 내부에 /etc/nginx 디렉토리를 참조함
   spring:         # Spring Boot 컨테이너 이름 (원하는 이름)
-    build: .
+    build: ""
     ports:
       - 8081:8080
     volumes:
@@ -202,6 +202,8 @@ docker-compose up -d (docker-compose.yml을 detach 모드로 실행)
 ![스크린샷 2021-04-23 오후 9 45 06](https://user-images.githubusercontent.com/45676906/115872899-4aef5c00-a47d-11eb-8cef-2c0b1bc4833f.png)
 
 그러면 위와 같이 Docker Container가 잘 실행되는 것을 볼 수 있습니다. 
+
+<br>
 
 ![스크린샷 2021-04-22 오전 10 01 11](https://user-images.githubusercontent.com/45676906/115640409-d370de00-a351-11eb-9d7e-1df462b781d4.png)
 
