@@ -9,7 +9,7 @@
 
 <br>
 
-![1](https://user-images.githubusercontent.com/45676906/114645381-540d5a00-9d14-11eb-8ec5-c41d415c9781.png)
+![test](https://user-images.githubusercontent.com/45676906/116018071-30370600-a67c-11eb-8702-c71d6c76f461.png)
 
 이번 글에서 진행할 아키텍쳐는 위와 같습니다. 즉, `Blue/Green 그룹으로 나눠서 무중단으로 자동 배포가 진행되게 할 것` 입니다. 저번 글에서 실습을 했다면 현재 `Auto Scaling 그룹`, `로드 밸런서 1개`, `대상그룹 1개`가 존재할 것입니다. 
 
@@ -277,7 +277,7 @@ CodeDeploy 애플리케이션을 만든 후에 CodeDeploy 애플리케이션 그
 
 ## `Spring Boot, Travis CI 사용하기`
 
-![1](https://user-images.githubusercontent.com/45676906/115197950-8102a800-a12c-11eb-8c3e-3b35cc907393.png)
+![test1](https://user-images.githubusercontent.com/45676906/116018071-30370600-a67c-11eb-8702-c71d6c76f461.png)
 
 다시 좀 더 정리하면 현재의 아키텍쳐는 위와 비슷합니다. `즉, Travis CI를 통해서 zip 파일을 S3를 전달하는 과정`이 필요합니다. 그래서 Travis CI를 통해서 zip 파일을 S3로 올리는 것을 먼저 해보겠습니다. 
 
