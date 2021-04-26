@@ -60,7 +60,13 @@ ex) redis-cli -h test-redis.7ab7ab.ab.0001.apn2.cache.amazonaws.com -p 6379
 
 ## `Spring Boot에서 Redis 간단한 실습`
 
-`Spring Boot Gradle` 기반의 프로젝트를 하나 만들겠습니다. 
+간단하게 아키텍쳐로 표현하면 아래와 같습니다.
+
+![스크린샷 2021-04-26 오후 5 48 27](https://user-images.githubusercontent.com/45676906/116055389-9bea9480-a6b7-11eb-84a8-eab4207fac01.png)
+
+<br> 
+
+위의 아키텍쳐와 같이 실습을 진행해보겠습니다. 먼저 `Spring Boot Gradle` 기반의 프로젝트를 하나 만들겠습니다. 
 
 <br>
 
