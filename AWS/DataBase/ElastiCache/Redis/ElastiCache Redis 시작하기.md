@@ -62,7 +62,7 @@ ex) redis-cli -h test-redis.7ab7ab.ab.0001.apn2.cache.amazonaws.com -p 6379
 
 간단하게 아키텍쳐로 표현하면 아래와 같습니다.
 
-![스크린샷 2021-04-26 오후 5 48 27](https://user-images.githubusercontent.com/45676906/116055389-9bea9480-a6b7-11eb-84a8-eab4207fac01.png)
+![스크린샷 2021-04-26 오후 5 52 30](https://user-images.githubusercontent.com/45676906/116055921-2cc17000-a6b8-11eb-923f-ad2db393535c.png)
 
 <br> 
 
