@@ -63,7 +63,6 @@ CMD java -jar -Dspring.profiles.active=${active} demo-0.0.1-SNAPSHOT.jar
 
 ```
 sudo docker exec -it nginx nginx -s reload
-
 ```
 
 <br>
@@ -90,17 +89,29 @@ services:
     volumes:
       - /etc/nginx/:/etc/nginx/
       - /etc/nginx/conf.d/:/etc/nginx/conf.d
-  spring:
+  spring1:
     build: .
+    image: spring
+    container_name: real1
     ports:
       - 8081:8081
     volumes:
       - ./:/root/
     environment:
       active: real1
+  spring2:
+    build: .
+    image: spring
+    container_name: real2
+    ports:
+      - 8082:8082
+    volumes:
+      - ./:/root/
+    environment:
+      active: real2
 ```
 
-- 보일로 플레이트 코드처럼 남겨놓음
+- Docker-Compose에서는 위와 같이 이미지 이름을 지정하고 컨테이너 이름을 지정하는구나 보면 좋을 듯 (여러가지 등등)
 
 <br>
 
@@ -129,6 +140,16 @@ docker container ls -f "name=real1" -q  (해당 컨테이너 이름의 Container
 
 <br>
 
+## `Docker Nginx Container`
+
+```
+sudo docker exec -it nginx nginx -s reload (이렇게 해도 되긴 하는데... 셸 스크립트에서 하니까 며칠을 삽질한..)
+sudo docker exec -d nginx nginx -s reload (셸 스크립트에서 쓴다면 detach 모드로 쓰는 것을.. 이리 하니까 바로 되었음)
+```
+
+<br>
+
 # `Reference`
 
+- [https://docs.docker.com/engine/reference/commandline/ps/#filtering](https://docs.docker.com/engine/reference/commandline/ps/#filtering)
 - [https://linuxize.com/post/how-to-list-docker-containers/](https://linuxize.com/post/how-to-list-docker-containers/)
