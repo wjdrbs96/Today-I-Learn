@@ -5,6 +5,9 @@ docker exec -t -i container_name /bin/bash (Docker Container 접속)
 ex) Ddocker exec -t -i nginx /bin/bash (Docker Container 접속)
 ```
 
+![스크린샷 2021-04-28 오후 2 07 36](https://user-images.githubusercontent.com/45676906/116349555-3cad9100-a82b-11eb-873a-507e9c625543.png)
+
+
 - `Docker Cotainer에 접속하고 싶을 때`
 
 <br>
@@ -16,7 +19,7 @@ version: "3"
 services:
   web:
     image: nginx
-    container_name: nginx
+    container_name: nginx   
     ports:
       - 81:80
     volumes:
@@ -27,7 +30,7 @@ services:
 
 <br>
 
-## `Docker Container 환경변수 등록하는 법`
+## `Docker 명령어로 Container 이름 지어주기`
 
 ```
 docker run -it --name "spring" -d -p $IDLE_PORT:$IDLE_PORT leebal
@@ -59,11 +62,6 @@ CMD java -jar -Dspring.profiles.active=${active} demo-0.0.1-SNAPSHOT.jar
 
 <br>
 
-## `Nginx Docker Container reload 하는 법`
-
-```
-sudo docker exec -it nginx nginx -s reload
-```
 
 <br>
 
@@ -73,6 +71,9 @@ sudo docker exec -it nginx nginx -s reload
 docker ps | awk 'NR > 1 {print $1}'       (실행 중인 Docker Container ID 모두)
 docker ps | awk 'NR > 1 {print $1; exit}' (맨 위의 Docker Container ID 하나만)
 ```
+
+![스크린샷 2021-04-28 오후 2 11 32](https://user-images.githubusercontent.com/45676906/116349810-d07f5d00-a82b-11eb-82ef-86899f815401.png)
+
 
 <br>
 
@@ -111,7 +112,7 @@ services:
       active: real2
 ```
 
-- Docker-Compose에서는 위와 같이 이미지 이름을 지정하고 컨테이너 이름을 지정하는구나 보면 좋을 듯 (여러가지 등등)
+- Docker-Compose에서는 위와 같이 이미지 이름을 지정하고 컨테이너 이름을 지정하는구나 예시로 작성해놓았음
 
 <br>
 

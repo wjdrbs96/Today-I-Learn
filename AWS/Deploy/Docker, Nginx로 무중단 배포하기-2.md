@@ -1,6 +1,6 @@
 # `Nginx, Docker를 사용하여 무중단 배포하기 - 2`
 
-[Nginx, Docker를 사용하여 무중단 배포하기 - 1]() 에서 간단한 초기 설정들에 대해서 알아보았습니다. 이번에는 실제로 Docker, Nginx를 설정하고 shell script 파일을 작성하면서 배포를 진행해보겠습니다. 
+[Nginx, Docker를 사용하여 무중단 배포하기 - 1](https://devlog-wjdrbs96.tistory.com/316) 에서 간단한 초기 설정들에 대해서 알아보았습니다. 이번에는 실제로 Docker, Nginx를 설정하고 shell script 파일을 작성하면서 배포를 진행해보겠습니다. 
 
 꼭!! [Nginx 무중단 배포](https://devlog-wjdrbs96.tistory.com/309) 의 글과 많이 관련이 되어 있으니 같이 참고하시는 것을 추천드립니다.
 
