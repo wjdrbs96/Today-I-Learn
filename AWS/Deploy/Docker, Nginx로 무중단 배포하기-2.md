@@ -765,9 +765,121 @@ sudo docker exec -it nginx nginx -s reload
 sudo docker exec -d nginx nginx -s reload
 ```
 
-그런데 이번에는 `-it` 옵션이 아닌 `-d` 옵션을 사용해보았습니다. 그러니 바로!! Nginx가 reload가 되었습니다.. ! (유레카.. 같은 순간이었습니다.) 
-    
- 
+그런데 이번에는 `-it` 옵션이 아닌 `-d` 옵션을 사용해보았습니다. 그러니 바로!! Nginx가 reload가 되었습니다.. ! (유레카.. 같은 순간이었습니다.) 이렇게 많은 삽질 끝에 스크립트 파일을 작성할 수 있었고.. 마지막으로 `appspec.yml`만 보고 자동배포를 진행해보겠습니다.
+
+![reload](https://user-images.githubusercontent.com/45676906/115637611-87bb3600-a34b-11eb-9192-134417ce5736.png)
+
+즉 switch.sh로 위와 같이 Nginx가 바라 보는 방향이 `reload` 되게 됩니다. 
+
 <br>
 
-추가로 자세한 코드는 [Github](https://github.com/wjdrbs96/SpringBoot-Docker-Nginx) 에서 확인할 수 있습니다. 
+<br>
+
+## `appspec.yml`
+
+```yaml
+version: 0.0
+os: linux
+files:
+  - source:  /
+    destination: /home/ec2-user/app/step4/zip/
+    overwrite: yes
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  AfterInstall:
+    - location: stop.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: start.sh
+      timeout: 60
+      runas: root
+
+  ValidateService:
+    - location: health.sh
+      timeout: 60
+      runas: root
+```
+
+이것 또한 [저번 글](https://devlog-wjdrbs96.tistory.com/309) 과 똑같습니다. 다만 destination을 잘 설정해주어야 합니다.
+
+![스크린샷 2021-04-28 오전 10 14 07](https://user-images.githubusercontent.com/45676906/116331328-81750000-a80a-11eb-8392-0d569108b7d9.png)
+
+저는 위와 같이 `/home/ec2-user/app/step4/zip`으로 파일들을 옮기기 위해서 경로를 지정하였습니다.
+
+<br> <br>
+
+## `무중단 배포 진행해보기`
+
+```java
+@RequiredArgsConstructor
+@RestController
+public class HelloController {
+
+    private final Environment env;
+
+    @GetMapping("/")
+    public String gyunny() {
+        List<String> profile = Arrays.asList(env.getActiveProfiles());
+        List<String> realProfiles = Arrays.asList("real1", "real2");
+        String defaultProfile = profile.isEmpty() ? "default" : profile.get(0);
+
+        return profile.stream()
+                .filter(realProfiles::contains)
+                .findAny()
+                .orElse(defaultProfile);
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "무중단 배포 !!";
+    }
+}
+```
+    
+새로 만든 API도 잘 반영이 되는지 까지 확인을 하기 위해서 Contoller를 수정한 후에 Gituhb에 push를 하겠습니다.
+
+<br>
+
+<img width="994" alt="스크린샷 2021-04-28 오전 10 18 23" src="https://user-images.githubusercontent.com/45676906/116331593-137d0880-a80b-11eb-8550-dc79950f6580.png">
+
+그러면 위와 같이 Gituhb이 Travis CI로 Hook을 날리기 때문에 자동으로 동작을 하게 됩니다.
+
+<br>
+
+<img width="998" alt="스크린샷 2021-04-28 오전 10 20 00" src="https://user-images.githubusercontent.com/45676906/116331795-71a9eb80-a80b-11eb-8c74-ff3605066b2b.png">
+    
+그리고 배포가 진행이 되면 `stop.sh`가 실행될 때 위와 같이 `real2` 컨테이너(Nginx가 바라보고 있지 않은)가 중지 및 삭제가 된 것을 볼 수 있습니다.
+
+<br>
+
+![스크린샷 2021-04-28 오전 10 20 19](https://user-images.githubusercontent.com/45676906/116331908-b170d300-a80b-11eb-8889-0da01f4ebf77.png)
+
+그리고 다시 `start.sh`가 실행될 때 위와 같이 `real2` 컨테이너가 새로운 버전의 jar를 담고 실행되는 것을 볼 수 있습니다.
+
+```
+sudo vim /etc/nginx/conf.d/service-url.inc
+```
+
+<img width="343" alt="스크린샷 2021-04-28 오전 10 24 17" src="https://user-images.githubusercontent.com/45676906/116332006-e41acb80-a80b-11eb-836d-fdb216c03ef1.png">
+
+그리고 위와 같이 Nginx가 바로보는 포트도 `8081 -> 8082`로 바뀐 것을 볼 수 있습니다.
+
+<br>
+
+<img width="330" alt="스크린샷 2021-04-28 오전 10 25 17" src="https://user-images.githubusercontent.com/45676906/116332128-1debd200-a80c-11eb-911e-2f624caaa3f0.png">
+
+<br>
+
+<img width="352" alt="스크린샷 2021-04-28 오전 10 25 25" src="https://user-images.githubusercontent.com/45676906/116332152-29d79400-a80c-11eb-9933-8786925d176c.png">
+  
+위와 같이 Nginx reload, Controller에서 만든 API 모두가 잘 반영이 되었고, 중단 없이 배포까지 되었습니다! 정말 어쩌면 단순한..? 부분에서 삽질을 많이해서 머리 아프기도 했지만 좋은 경험이었던 거 같습니다.
+
+자세한 코드는 [Github](https://github.com/wjdrbs96/SpringBoot-Docker-Nginx) 에서 확인할 수 있습니다. 
