@@ -1,8 +1,8 @@
 # `Travis CI에서 File 암호화 복호화 하는 법`
 
-<img width="947" alt="스크린샷 2021-04-28 오후 2 21 50" src="https://user-images.githubusercontent.com/45676906/116350617-315b6500-a82d-11eb-9755-8272bdde8772.png">
-
 Github에 push를 하면 Github이 Travis CI로 Hook을 날려서 CI가 진행이 됩니다. 진행을 할 때 로그를 보면 위와 같이 `Git Project`를 clone 받아서 진행하는 것을 볼 수 있습니다. 
+
+<img width="947" alt="스크린샷 2021-04-28 오후 2 21 50" src="https://user-images.githubusercontent.com/45676906/116350617-315b6500-a82d-11eb-9755-8272bdde8772.png">
 
 그러면 여기서 의문점이 생겼습니다. `.gitignore` 파일에 등록된 파일들은 어떻게 다운 받지? 라는 생각을 했습니다. 그래서 이번 글에서는 그 방법에 대해서 알아보겠습니다. 
 
