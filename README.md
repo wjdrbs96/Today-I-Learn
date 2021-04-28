@@ -352,6 +352,12 @@
     - [CodeDeploy로 CD 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/2.%20CodeDeploy%EB%A5%BC%20%ED%95%A0%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
     - [CodePipeline 연결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/3.%20Codepipeline%20%EC%9D%B4%EB%9E%80.md)
 
+## Travis CI
+
+- [Travis CI Github Hook 수동 등록하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20CI%EA%B0%80%20%EC%9E%91%EB%8F%99%20%EC%95%88%ED%95%A0%20%EB%95%8C.md)
+- [Travis CI 파일 암호화, 복호화](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20File%20%EC%95%94%ED%98%B8%20%EB%B3%B5%ED%98%B8%ED%99%94.md)
+
+
 ## Nginx
 
 - [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Ngnix%EB%9E%80%3F.md)
@@ -367,7 +373,7 @@
 
 ## Shell Script
 
-- [Shell Script 문법 기초]()
+- [Shell Script 문법 기초](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Scripts/Shell%20Script%20%EC%A0%95%EB%A6%AC.md)
 
 
 ## Git
