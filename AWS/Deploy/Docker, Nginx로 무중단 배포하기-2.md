@@ -485,6 +485,8 @@ public class HelloController {
 sudo vim /etc/nginx/conf.d/service-url.inc
 ```
 
+<br>
+
 <img width="343" alt="스크린샷 2021-04-28 오전 10 24 17" src="https://user-images.githubusercontent.com/45676906/116332006-e41acb80-a80b-11eb-836d-fdb216c03ef1.png">
 
 그리고 위와 같이 Nginx가 바라보는 포트도 `8081 -> 8082`로 바뀐 것을 볼 수 있습니다.
