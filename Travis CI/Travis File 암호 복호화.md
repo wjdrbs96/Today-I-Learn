@@ -168,7 +168,7 @@ ex) travis encrypt-file gyunny.tar --add
 
 <br>
 
-![스크린샷 2021-04-28 오후 3 34 13](https://user-images.githubusercontent.com/45676906/116357262-43da9c00-a837-11eb-8f4c-d6f9e164175e.png)
+![스크린샷 2021-04-28 오후 3 35 50](https://user-images.githubusercontent.com/45676906/116357458-74223a80-a837-11eb-9fe6-c2d8f727676a.png)
 
 그리고 위와 같이 `.travis.yml`에도 자동으로 어떤 것이 추가된 것을 볼 수 있습니다.
 
@@ -178,9 +178,6 @@ ex) travis encrypt-file gyunny.tar --add
 
 또한 위와 같이 travis Repository Setting을 보면 자동으로 추가된 것을 볼 수 있습니다.  
 
-<br>
-
-![스크린샷 2021-04-28 오후 3 35 50](https://user-images.githubusercontent.com/45676906/116357458-74223a80-a837-11eb-9fe6-c2d8f727676a.png)
 
 <br>
 
