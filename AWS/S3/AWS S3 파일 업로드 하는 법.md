@@ -1,6 +1,6 @@
 # `Spring Boot S3 File Upload 하는 법`
 
-이번 글에서는 `Spring Boot`로 `AWS S3`로 `File Upload` 하는 법에 대해서 정리해보겠습니다. 먼저 AWS S3 Bucket 생성을 하겠습니다. 
+이번 글에서는 `Spring Boot`로 `AWS S3`로 `File Upload` 하는 법에 대해서 정리해보겠습니다. 먼저 AWS S3 Bucket 생성을 하겠습니다.
 
 <br>
 
@@ -16,33 +16,33 @@
 
 <img width="1427" alt="스크린샷 2021-05-03 오후 3 28 15" src="https://user-images.githubusercontent.com/45676906/116846872-474d9900-ac24-11eb-93c0-060658b1de62.png">
 
-그리고 `권한` 탭을 들어가겠습니다. 
+그리고 `권한` 탭을 들어가겠습니다.
 
 <br>
 
 <img width="819" alt="스크린샷 2021-05-03 오후 3 29 27" src="https://user-images.githubusercontent.com/45676906/116846975-87ad1700-ac24-11eb-981b-a518e4929097.png">
 
-`ARN`을 복사하고 `정책 생성기`를 누르겠습니다. 
+`ARN`을 복사하고 `정책 생성기`를 누르겠습니다.
 
 <br>
 
 ![스크린샷 2021-05-03 오후 3 33 32](https://user-images.githubusercontent.com/45676906/116847272-2f2a4980-ac25-11eb-86c3-7c903af11fff.png)
 
-- `principal`: * 를 입력해줍니다. 
-- `Actions`: `GetObject`, `PutObject`를 선택해줍니다. 
-- `ARN`: 위에 있던 ARN 복사 + `/*`를 해줍니다. 
+- `principal`: * 를 입력해줍니다.
+- `Actions`: `GetObject`, `PutObject`를 선택해줍니다.
+- `ARN`: 위에 있던 ARN 복사 + `/*`를 해줍니다.
 
 <br>
 
 ![스크린샷 2021-05-03 오후 3 36 00](https://user-images.githubusercontent.com/45676906/116847371-5bde6100-ac25-11eb-92d4-f5eb21ca1302.png)
 
-그러면 위에서 입력했던 대로 잘 입력됐는지 확인하고 `Generate Policy`를 누르겠습니다. 
+그러면 위에서 입력했던 대로 잘 입력됐는지 확인하고 `Generate Policy`를 누르겠습니다.
 
 <br>
 
 ![스크린샷 2021-05-03 오후 3 38 38](https://user-images.githubusercontent.com/45676906/116847625-e0c97a80-ac25-11eb-94db-c450cb54a8a7.png)
 
-위의 정책 내용을 복사하겠습니다. 
+위의 정책 내용을 복사하겠습니다.
 
 <br>
 
@@ -54,7 +54,7 @@
 
 ## `IAM 사용자 권한 추가`
 
-S3에 접근하기 위해서는 `IAM` 사용자에게 S3 접근 권한을 주고, 그 사용자의 `액세스 키`, `비밀 엑세스 키`를 사용해야 합니다. 
+S3에 접근하기 위해서는 `IAM` 사용자에게 S3 접근 권한을 주고, 그 사용자의 `액세스 키`, `비밀 엑세스 키`를 사용해야 합니다.
 
 <img width="916" alt="스크린샷 2021-05-03 오후 3 52 10" src="https://user-images.githubusercontent.com/45676906/116848434-95b06700-ac27-11eb-8f13-a1b51a764785.png">
 
@@ -70,7 +70,7 @@ S3에 접근하기 위해서는 `IAM` 사용자에게 S3 접근 권한을 주고
 
 <img width="936" alt="스크린샷 2021-05-03 오후 3 57 13" src="https://user-images.githubusercontent.com/45676906/116848812-5f271c00-ac28-11eb-9c99-32d51885e7b4.png">
 
-위의 `액세스 키`, `비밀 엑세스 키`는 현재 화면에서 밖에 볼 수 없습니다. 즉, `.csv` 파일을 다운받아 로컬에 꼭 가지고 있어야 합니다. 
+위의 `액세스 키`, `비밀 엑세스 키`는 현재 화면에서 밖에 볼 수 없습니다. 즉, `.csv` 파일을 다운받아 로컬에 꼭 가지고 있어야 합니다.
 
 <br>
 
@@ -80,7 +80,7 @@ S3에 접근하기 위해서는 `IAM` 사용자에게 S3 접근 권한을 주고
 compile 'org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE'
 ```
 
-Spring Boot는 `gradle` 기반으로 만들었고 위의 의존성을 추가하겠습니다. 
+Spring Boot는 `gradle` 기반으로 만들었고 위의 의존성을 추가하겠습니다.
 
 <br>
 
@@ -107,7 +107,7 @@ cloud:
 ```
 
 
-`application.yml`에 작성해도 되지만, 저는 aws 설정들만 따로 관리하기 위해서 `aws.yml` 파일을 따로 만들었습니다. 위에 형식대로 자신의 IAM 키, 버킷 이름, 리전 등등을 입력해줍니다. 
+`application.yml`에 작성해도 되지만, 저는 aws 설정들만 따로 관리하기 위해서 `aws.yml` 파일을 따로 만들었습니다. 위에 형식대로 자신의 IAM 키, 버킷 이름, 리전 등등을 입력해줍니다.
 
 <br>
 
@@ -146,7 +146,7 @@ public class AmazonS3Config {
 ```
 
 
-따로 `config` 디렉토리에서 설정 값을 넣기 위해서 `AmazonS3Config` 설정 클래스를 만들었습니다. `aws.yml` 파일에 작성한 값들을 읽어와서 `AmazonS3Client` 객체를 만들어 Bean으로 주입하는 것입니다. 
+따로 `config` 디렉토리에서 설정 값을 넣기 위해서 `AmazonS3Config` 설정 클래스를 만들었습니다. `aws.yml` 파일에 작성한 값들을 읽어와서 `AmazonS3Client` 객체를 만들어 Bean으로 주입하는 것입니다.
 
 <br>
 
@@ -171,7 +171,7 @@ public class ImageApplication {
 }
 ```
 
-Spring Boot Main 코드를 위와 같이 수정해주겠습니다. 즉, 위의 코드로 `application.yml`과 `aws.yml` 두개의 파일 모두를 설정 파일로 읽어서 사용하겠다는 뜻입니다. 
+Spring Boot Main 코드를 위와 같이 수정해주겠습니다. 즉, 위의 코드로 `application.yml`과 `aws.yml` 두개의 파일 모두를 설정 파일로 읽어서 사용하겠다는 뜻입니다.
 
 
 <br>
@@ -249,13 +249,13 @@ public class S3Uploader {
 }
 ```
 
-이제 파일 업로드는 하는 코드입니다. 
+이제 파일 업로드는 하는 코드입니다.
 
-- convert() 메소드에서 로컬 프로젝트에 사진 파일이 생성되지만, removeNewFile()을 통해서 바로 지우고 있는 로직입니다. 
-- `System.getProperty("user.dir")`: 현재 프로젝트의 절대 경로를 꺼내올 수 있습니다. 
-- 즉, 저는 프로젝트 루트 경로 아래에 제가 업로드한 사진 파일도 생성이 됩니다. 그리고 바로 removeNewFile를 통해서 로컬에 있는 파일은 삭제를 합니다. 
+- convert() 메소드에서 로컬 프로젝트에 사진 파일이 생성되지만, removeNewFile()을 통해서 바로 지우고 있는 로직입니다.
+- `System.getProperty("user.dir")`: 현재 프로젝트의 절대 경로를 꺼내올 수 있습니다.
+- 즉, 저는 프로젝트 루트 경로 아래에 제가 업로드한 사진 파일도 생성이 됩니다. 그리고 바로 removeNewFile를 통해서 로컬에 있는 파일은 삭제를 합니다.
 
-대부분의 설명은 주석으로 해놓았습니다. 생소한 코드들이 많아서 처음에 볼 때는 아리송 할 수 있지만, 계속 보다 보면 이해가 점점 갈 것이라 생각합니다. 
+대부분의 설명은 주석으로 해놓았습니다. 생소한 코드들이 많아서 처음에 볼 때는 아리송 할 수 있지만, 계속 보다 보면 이해가 점점 갈 것이라 생각합니다.
 
 <br>
 
@@ -277,7 +277,7 @@ public class HelloController {
 ```
 
 - 파일 업로드를 할 때는 `MultipartFile`을 사용합니다.
-- 두 번째 매개변수의 이름에 따라 S3 Bucket 내부에 해당 이름의 디렉토리가 생성이 됩니다. 
+- 두 번째 매개변수의 이름에 따라 S3 Bucket 내부에 해당 이름의 디렉토리가 생성이 됩니다.
 
 <br>
 
@@ -285,7 +285,7 @@ public class HelloController {
 
 ![스크린샷 2021-05-03 오후 4 22 08](https://user-images.githubusercontent.com/45676906/116850656-f9d52a00-ac2b-11eb-8e39-e3a5ba5d407c.png)
 
-PostMan에서 파일 업로드를 하려면 위와 같이 선택하고 파일 업로드를 하면 됩니다. 
+PostMan에서 파일 업로드를 하려면 위와 같이 선택하고 파일 업로드를 하면 됩니다.
 
 <br>
 
@@ -293,7 +293,9 @@ PostMan에서 파일 업로드를 하려면 위와 같이 선택하고 파일 �
 
 <img width="559" alt="스크린샷 2021-05-03 오후 4 25 29" src="https://user-images.githubusercontent.com/45676906/116850850-55071c80-ac2c-11eb-9faf-241773cf5b57.png">
 
-그러면 위와 같이 `static` 아래에 파일 업로드가 잘 된 것을 볼 수 있습니다.  
+그러면 위와 같이 `static` 아래에 파일 업로드가 잘 된 것을 볼 수 있습니다.
+
+프로젝트의 자세한 코드를 확인하고 싶다면 [여기](https://github.com/wjdrbs96/Spring_S3_Lambda) 에서 확인하실 수 있습니다.
 
 <br> <br>
 
