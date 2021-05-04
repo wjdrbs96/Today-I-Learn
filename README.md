@@ -219,8 +219,9 @@
 - [Application](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network/Application)
     - [DNS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/Application/DNS%EB%9E%80%3F.md)
   
-- [HTTP]()
-  - [HTTP 메소드]()
+- [HTTP](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network/HTTP)
+  - [HTTP 메소드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTP%20%EB%A9%94%EC%86%8C%EB%93%9C.md)
+  - [HTTP 메소드 속성]()
 
 ## DataBase
 
