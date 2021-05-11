@@ -311,7 +311,9 @@
 - ### Auto-Scaling
     - [Auto-Scaling 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/Auto-Scaling%20%EC%9D%B4%EB%9E%80%3F.md)
     - [Auto-Scaing 실습하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/AWS%20Auto-Scaling%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-1.md)
-    
+
+- ### Lambda
+  - [Lambda로 Thumbnail Image 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Lambda%EB%A1%9C%20Thumbnail%20Image%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.md)
    
 - ### DataBase
     - ### RDS
