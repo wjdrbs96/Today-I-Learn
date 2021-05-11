@@ -88,4 +88,4 @@ docker pull {number}.dkr.ecr.ap-northeast-2.amazonaws.com/gyunny:latest
 
 <img width="878" alt="스크린샷 2021-05-06 오전 11 18 33" src="https://user-images.githubusercontent.com/45676906/117232940-2754ea00-ae5d-11eb-96d3-609907d614ce.png">
 
-그러면 위와 같이 Image가 잘 다운되는 것도 확인할 수 있습니다. 
+그러면 위와 같이 Image가 잘 다운되는 것도 확인할 수 있습니다.
