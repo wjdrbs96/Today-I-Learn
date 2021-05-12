@@ -179,7 +179,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a 
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 ```
 
-그리고 아래와 같이 EC2 IP로 접속하면 Nginx default 화면이 보일텐데요. 접속을 했으니 `/var/log/nginx/access.log`에 로그가 생기고 그 로그를 CloudWatchAgent를 통해서 CloudWatch 로그 그룹으로 이동할 것입니다. 
+그리고 아래와 같이 EC2 IP로 접속하면 Nginx default 화면이 보일텐데요. 아래와 같이 접속을 하면 `/var/log/nginx/access.log`에 로그가 생기고 그 로그는 CloudWatchAgent를 통해서 CloudWatch 로그 그룹으로 이동할 것입니다. 
 
 <img width="1284" alt="스크린샷 2021-05-12 오전 11 32 50" src="https://user-images.githubusercontent.com/45676906/117909748-c96d4a00-b315-11eb-936e-5b7037d2b6f5.png">
 
