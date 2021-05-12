@@ -2,7 +2,7 @@
 
 ![스크린샷 2021-05-12 오전 11 47 46](https://user-images.githubusercontent.com/45676906/117910959-df7c0a00-b317-11eb-89ed-2a6f1655e99e.png)
 
-이번 글에서는 위의 그림과 같이 `EC2에 설치된 Nginx Access Log`를 CloudWatch`로 전송하는 법에 대해서 정리해보겠습니다.
+이번 글에서는 위의 그림과 같이 `EC2에 설치된 Nginx Access Log`를 CloudWatch로 전송하는 법에 대해서 정리해보겠습니다.
 
 <br>
 
