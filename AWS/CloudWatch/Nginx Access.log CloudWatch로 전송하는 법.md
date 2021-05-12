@@ -30,7 +30,7 @@ EC2가 생성이 되었으면 접속을 한 후에 `CloudWatch Agent 설치`를 
 
 <br>
 
-## `EC2 인스턴스에 CloudWatch Agent 설치`
+## `Apache 웹 서버 설치`
 
 그 전에 먼저 `LAMP 웹 서버`를 설치하겠습니다. 
 
@@ -46,6 +46,8 @@ sudo systemctl is-enabled httpd (httpd 가 실행되고 있는지 확인하는 �
 위의 명령어를 통해서 설치하면 `/var/www` 경로가 생겼을 것입니다. 거기로 이동해서 `CloudWatch Agent`를 설치하겠습니다. (EC2 Linux2를 만들면 /var/www가 없기 때문에 Apache 웹서버는 필요 없지만.. 설치는 하겠습니다.)
 
 <br>
+
+## `EC2 인스턴스에 CloudWatch Agent 설치`
 
 ```
 cd /var/www
