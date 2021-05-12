@@ -125,7 +125,7 @@ sudo kill -9 PID (80번 포트의 PID)
 ex) sudo kill -9 5142   
 ```
 
-그리고 위에서 웹 서버를 설치했기 때문에 위의 명령어를 통해서 80번 포트를 kill 하겠습니다.
+그리고 이번 실습에서는 Nginx를 사용할 것이기 때문에 위에서 웹 서버를 설치했던 웹서버를 위의 명령어를 통해서 80번 포트를 kill 하겠습니다.
 
 <br>
 
@@ -158,7 +158,7 @@ sudo vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
         "files": {
             "collect_list": [
                 {
-                    "file_path": "/var/log/nginx/access.log",
+                    "file_path": "/var/log/nginx/access.log",  // EC2 Nginx log가 저장되는 위치
                     "log_group_name": "Spring-log",   // CloudWatch 로그 그룹 이름
                     "log_stream_name": "{instance_id}"
                 }
