@@ -8,7 +8,7 @@
 
 그래서 이번 글에서는 `CloudWatch`와 `Spring Logback`을 사용해서 `Spring Error log`를 CloudWatch Log Group 으로 전송하는 법에 대해서 정리 해보겠습니다.
 
-이번 글의 실습을 진행하기 위해서는 `반드시` [CloudWatch Agent 설치 및 IAM 설정](https://devlog-wjdrbs96.tistory.com/326) 여기서 `CloudWatch Agent`를 설치하고 오셔야 합니다.
+이번 글의 실습을 진행하기 위해서는 `반드시` [IAM 설정](https://devlog-wjdrbs96.tistory.com/326) 을 하고 오셔야 합니다.(CloudWatch 관련, CloudWatch Agent는 설치 안하셔도 될 거 같습니다.)
 
 <br>
 
