@@ -317,6 +317,7 @@
   - [Lambda로 Thumbnail Image 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Lambda%EB%A1%9C%20Thumbnail%20Image%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.md)
   - [Lambda로 만든 Thumbnail Url, Origin Url DB 저장하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Lambda%20Thumbnail%20Image%20DB%20%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0.md)
   - [API gateway로 람다 함수 호출하는 간단한 실습](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/API%20Gateway%EC%9C%BC%EB%A1%9C%20Lambda%20%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0.md)
+  - [NodeJS로 만든 Lambda 함수로 Image Resize 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/NodeJS%2C%20Lambda%EB%A1%9C%20Image%20Resize.md)
 
 - ### DataBase
     - ### RDS

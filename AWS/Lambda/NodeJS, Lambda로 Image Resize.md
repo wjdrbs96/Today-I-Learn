@@ -66,14 +66,7 @@ Default output format: json
 ![스크린샷 2021-05-13 오후 4 18 36](https://user-images.githubusercontent.com/45676906/118092310-e33a8a00-b406-11eb-9178-d65e479c7e8d.png)
 
 `S3FullAccess`, `AWSLambdaBasicExecutionRole`을 선택하겠습니다.(`LambdaBasicExecutionRole` 은 AWS 서비스 및 리소스에 액세스 할 수 있는 권한을 부여합니다.)
-이런 권한이 있어야 `Lambda` 함수가 제대로 작동할 수 있습니다.
-
-<br>
-
-![스크린샷 2021-05-13 오후 2 22 31](https://user-images.githubusercontent.com/45676906/118081624-b2525900-b3f6-11eb-92f6-bdf153a51c75.png)
-
-
-그리고 역할 이름을 정하고 역할을 만들겠습니다. 
+이런 권한이 있어야 `Lambda` 함수가 제대로 작동할 수 있습니다. 그리고 역할 이름을 정하고 역할을 만들겠습니다.  
 
 <br>
 
