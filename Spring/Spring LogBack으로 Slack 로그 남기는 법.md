@@ -1,4 +1,4 @@
-# `Spring LogBack으로 Slack Log 남기는 법`
+# `Spring LogBack으로 Slack에 Error Log 남기는 법`
 
 이번 글에서는 `Spring LogBack`을 사용해서 Slack 채널에 로그를 보내는 법에 대해서 정리할 것입니다. 먼저 로그를 보내고자 하는 채널의 `WebhookUrl`을 받아오겠습니다.
 
@@ -165,4 +165,4 @@ public class TestController {
 
 ![스크린샷 2021-05-12 오후 1 58 38](https://user-images.githubusercontent.com/45676906/117920655-37237100-b32a-11eb-83a2-40f2d3546500.png)
 
-그러면 저는 `logback-spring.xml`에 `Error`만 출력되도록 했기 때문에 `Slack Channel`에 위와 같이 `log.error()`만 알람이 가는 것을 볼 수 있습니다.
+그러면 `logback-spring.xml`에 `Error`만 출력되도록 했기 때문에 `Slack Channel`에 위와 같이 `log.error()`만 알람이 가는 것을 볼 수 있습니다.
