@@ -21,7 +21,7 @@ Spring에서 `CloudWatch`로 Error log를 전송할 수 있도록 정말 편리�
 ### `gradle`
 
 ```
-compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.0.0'
+compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.4.0'
 ```
 
 <br>
@@ -213,3 +213,5 @@ sudo netstat -tnlp
 ![스크린샷 2021-05-13 오전 11 24 37](https://user-images.githubusercontent.com/45676906/118068711-cdfd3580-b3dd-11eb-9daa-337d1c0c6ac3.png)
 
 제가 몇번 호출했던 결과들이 `CloudWatch` 로그 그룹에 잘 출력이 되는 것을 확인할 수 있습니다.
+
+자세한 코드는 [Github](https://github.com/wjdrbs96/Spring_CloudWatch) 에서 확인하실 수 있습니다.
