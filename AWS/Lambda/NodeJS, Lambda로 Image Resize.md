@@ -10,7 +10,7 @@
 
 이번 글에서 해보고자 하는 아키텍쳐는 위와 같습니다. 즉 사용될 도구는 아래와 같은데요.
 
-- `JavaScript, NodeJS, Express`
+- `NodeJS`
 - `AWS S3, Lambda`
 
 하나씩 어떻게 설정해서 어떻게 진행하는지에 대해서 정리해보겠습니다.
@@ -171,7 +171,7 @@ ex) zip -r function.zip .
 
 ```
 aws lambda create-function --function-name imageResizing \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role 각자역할ARM 넣기
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \ --role 각자역할ARN 넣기
 ```
 
 ![스크린샷 2021-05-13 오후 2 47 55](https://user-images.githubusercontent.com/45676906/118083753-69040880-b3fa-11eb-8317-c2d3bf5c1931.png)
