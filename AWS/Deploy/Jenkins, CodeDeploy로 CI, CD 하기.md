@@ -1,6 +1,6 @@
 ## `들어가기 전에`
 
-<img width="1112" alt="11111" src="https://user-images.githubusercontent.com/45676906/113641161-05c6de00-96b8-11eb-8e93-6b3c300bc7d6.png">
+![스크린샷 2021-05-14 오후 3 00 14](https://user-images.githubusercontent.com/45676906/118228399-180d1680-b4c5-11eb-84b2-8d90c379f2b5.png)
 
 이번 글에서 `CI/CD`를 할 때는 위의 아키텍쳐로 진행하려고 합니다. (다만, Auto Scaling은 사용하지 않고 운영용 EC2 1대, Jenkins 빌드용 EC2 1대를 사용할 예정입니다.)
 그래서 사용한 도구에 대해서 정리하면 아래와 같습니다. 
