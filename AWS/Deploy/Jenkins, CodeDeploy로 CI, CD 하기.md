@@ -121,7 +121,7 @@ Github에 push가 되었을 때 Jenkins로 Hook을 날려 빌드가 실행되도
 
 ![스크린샷 2021-04-05 오전 12 51 02](https://user-images.githubusercontent.com/45676906/113514398-3835e580-95a9-11eb-9851-61f6a8d0aba5.png)
 
-- `PayLoad URL에 http://{EC2 IP}:32789/github-webhook`을 입력하겠습니다.
+- `PayLoad URL에 http://{EC2 IP}:32789/github-webhook/`을 입력하겠습니다.(마지막에 / 안쓰면 302에러 뜨니 꼭 써야 합니다!))
 - `application/json 선택`
 
 ![스크린샷 2021-04-05 오전 12 53 12](https://user-images.githubusercontent.com/45676906/113514405-4dab0f80-95a9-11eb-9554-68f72141330b.png)
