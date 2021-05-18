@@ -196,7 +196,17 @@ multipart/form-data
 
 ## `S3 정책 추가하기`
 
-S3 Bucket을 생성한 후에 `권한` 탭으로 들어가겠습니다. 
+![스크린샷 2021-05-18 오후 12 23 55](https://user-images.githubusercontent.com/45676906/118585606-367c5600-b7d4-11eb-9237-a0dc9b7ea550.png)
+
+먼저 잠시 정책을 추가할 때만 `S3을 액세스 할 수 있도록 하겠습니다.`
+
+<br>
+
+![스크린샷 2021-05-18 오후 12 29 42](https://user-images.githubusercontent.com/45676906/118585943-d20dc680-b7d4-11eb-9a81-2a2904007668.png)
+
+위와 같이 잠시 퍼블릭으로 열어놓고 S3 Bucket을 생성한 후에 `권한` 탭으로 들어가겠습니다.
+
+<br>
 
 ![스크린샷 2021-05-14 오전 10 57 38](https://user-images.githubusercontent.com/45676906/118209273-4da10800-b4a3-11eb-9627-26da24673492.png)
 
@@ -231,6 +241,16 @@ S3 Bucket을 생성한 후에 `권한` 탭으로 들어가겠습니다.
 ![스크린샷 2021-05-14 오전 11 06 26](https://user-images.githubusercontent.com/45676906/118209918-84c3e900-b4a4-11eb-823d-7b627dcef9a8.png)
 
 복사한 정책을 넣고 저장을 누르겠습니다.
+
+<br>
+
+![스크린샷 2021-05-18 오후 12 31 21](https://user-images.githubusercontent.com/45676906/118586047-01bcce80-b7d5-11eb-9cac-075bf72e59e2.png)
+
+그리고 다시 `모든 퍼블릭 엑세스 차단`으로 체크하고 저장하겠습니다.
+
+<br>
+
+
 
 <br>
 
