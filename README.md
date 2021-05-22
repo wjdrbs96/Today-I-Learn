@@ -161,7 +161,7 @@
     - ### JUnit 5
         - [Parameterized](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
     - ### MongoDB
-        - [Spring Boot MongoDB 권한 에러 해결하기]()
+        - [Spring Boot MongoDB 권한 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MongoDB/Spring%20Boot%20MongoDB%20Auth%20Error.md)
 
 ## NodeJS
 
