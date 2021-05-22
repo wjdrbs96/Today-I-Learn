@@ -158,9 +158,10 @@
 - [Spring EC2 jar 배포](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/EC2%20jar%20%EB%B0%B0%ED%8F%AC.md)
 - [Spring application.yml로 운영, 개발 환경 나누기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Spring%20%EC%9A%B4%EC%98%81%ED%99%98%EA%B2%BD%2C%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EB%82%98%EB%88%84%EA%B8%B0.md)
 - [Spring Logback으로 Slack 채널에 로그 보내는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Spring%20LogBack%EC%9C%BC%EB%A1%9C%20Slack%20%EB%A1%9C%EA%B7%B8%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EB%B2%95.md)
-    
     - ### JUnit 5
-        - [Parameterized](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md) 
+        - [Parameterized](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
+    - ### MongoDB
+        - [Spring Boot MongoDB 권한 에러 해결하기]()
 
 ## NodeJS
 
