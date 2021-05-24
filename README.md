@@ -323,6 +323,7 @@
 - ### API Gateway
   - [API Gateway로 Lambda 함수 호출하는 간단한 실습](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/API-Gateway/API%20Gateway%EC%9C%BC%EB%A1%9C%20Lambda%20%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0.md)
   - [API Gateway, Lambda 함수로 S3 파일 업로드 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/API-Gateway/API%20Gateway%2C%20Lambda%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%95%98%EA%B8%B0.md)
+  - [API Gateway에서 S3 파일 삭제하는 법]()
   - [API Gateway에서 Query String 사용하는 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/API-Gateway/API%20Gateway%20Query%20String%20%EB%93%B1%EB%A1%9D%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 - ### DataBase
