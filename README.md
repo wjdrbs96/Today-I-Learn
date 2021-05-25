@@ -250,8 +250,8 @@
 
 
 - ### Real MySQL
-    - [3장: MySQL 아키텍쳐]()
-    - [4장: 트랜잭션]()
+    - [3장: MySQL 아키텍쳐](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/3%EC%9E%A5)
+    - [4장: 트랜잭션](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/4%EC%9E%A5)
 
 - ### 기타
     - [DBMS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/DBMS%EB%9E%80%3F.md)
