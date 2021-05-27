@@ -89,8 +89,8 @@ public class ArrayTest {
 
 `체크 예외`와 `언체크 예외`의 차이점 중에 같이 보아야 할 점은 `Rollback`의 여부입니다. 
 
-- `체크 예외 : Rollback이 되지 않고 트랜잭견이 commit까지 완료된다.`
-- `언체크 예외 : Rollback이 된다.`
+- `체크 예외 : Rollback이 되지 않고 트랜잭션이 commit까지 완료됩니다.`
+- `언체크 예외 : Rollback이 됩니다.`
 
 나중에 좀 더 자세히 알아보겠습니다. 
 

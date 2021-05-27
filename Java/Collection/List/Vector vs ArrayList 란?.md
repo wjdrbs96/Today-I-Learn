@@ -68,7 +68,7 @@ public class Vector<E>
 ```
 
 Vector 클래스의 일부 메소드들을 가져온 것입니다. 메소드에 `synchronized`가 있는 것을 보아 Vector 클래스는 `Thread-safe` 하다는 것을 알 수 있습니다. 
-멀티스레드 환경이 아닐 때 Vector 클래스를 사용하게 되면 `성능이 떨어지게 됩니다.`
+즉, 멀티스레드 환경이 아닐 때 Vector 클래스를 사용하게 되면 `성능이 떨어지게 됩니다.`
 
 <br>
 
