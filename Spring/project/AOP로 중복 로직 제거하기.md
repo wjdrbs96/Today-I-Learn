@@ -149,5 +149,8 @@ public class UserInfoController {
 
 <br>
 
+## `글을 마무리 하며`
+
 현재 글에서는 AccessToken 일부만을 적었지만, 실제 프로젝트에서는 `AccessToken`,  `RefreshToken` 모두 AOP를 사용하여 중복 로직을 제거하고 있습니다. 이 글을 읽는 분들도 꼭 인가 관련이 아니더라도 자주 사용되는 로직이 있다면 `AOP`를 고려해보시면 좋을 거 같습니다.
 
+AOP가 아니더라도 위에 그림에서 나왔던 `Filter`, `Interceptor`도 상황에 맞게 적절하게 잘 이용하시면 좀 더 깔끔하게 프로젝트 구조를 잡을 수 있을 거 같습니다.
