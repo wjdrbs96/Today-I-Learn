@@ -129,7 +129,9 @@ docker run --name yapp -d -e active=prod -p 8080:8080 yapp
 ```
 
 배포를 하는 `Shell Script` 파일은 위와 같습니다. 간단하게 요약하면 현재 실행하고 있는 컨테이너가 있다면 해당 컨테이너를 중지시키고 다시 이미지를 빌드해서 새로운 컨테이너를 띄우는 것입니다. 
-(참고로 컨테이너를 실행할 때는 prod 환경으로 실행시켜주어야 합니다.)
+
+원래는 Docker Image를 AWS ECR에 올리려 했지만.. 올리지는 않고 그냥 이미지 빌드 후 바로 컨테이너 실행만 하는 것으로 해놓았습니다.  
+그리고 `Dockerfile`도 한번 보아야 할텐데요. 코드는 아래와 같습니다. 
 
 <br>
 
@@ -145,13 +147,12 @@ COPY ./build/libs/*.jar .
 CMD java -jar -Dspring.profiles.active=${active} *.jar
 ```
 
-Dockerfile은 위와 같습니다. 
-
+자바 11 버전을 쓰고 있기 때문에 jdk 11 버전을 다운 받아 `prod` 버전의 jar를 실행하도록 하는 간단한 `Dockerfile` 입니다. 
 
 <br>
 
 
-이제 실제로 Github에 push 했을 때 젠킨스가 빌드 되고, CodeDeploy가 잘 작동하는지를 테스트 해보겠습니다. 
+이제 실제로 Github에 push 했을 때 젠킨스가 빌드 되고, CodeDeploy가 잘 작동하여 `자동화 배포`가 잘 진행되는지를 해보겠습니다. 
 
 <br>
 
