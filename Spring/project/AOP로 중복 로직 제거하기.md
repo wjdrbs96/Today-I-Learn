@@ -28,7 +28,7 @@
 그리고 클라이언트는 발급 받은 AccessToken을 HTTP Header에 담아 서버 API를 요청하고 있습니다. 현재 프로젝트 거의 대부분 API에 `인가` 체크가 필요한 상태입니다. (예를들어, `마이페이지 조회`의 경우도 해당 유저만 볼 수 있어야 하기 때문에 `인가` 처리를 하고 있습니다.)
 
 그런데 만약 API가 100개이고, 그 중에서 95개의 API에 `인가 체크`가 필요하다면 95개 API에 `중복된 로직`을 작성해야 한다는 문제점이 존재하는 것을 느꼈습니다. 그래서 이러한 중복 로직을 제거하기 위해서 `Spring AOP`를 적용하려 하였습니다. 
-AOP는 무엇일까요? 
+그러면 AOP는 무엇일까요? 
 
 
 <br>
@@ -37,7 +37,7 @@ AOP는 무엇일까요?
 
 ![스크린샷 2021-06-16 오후 10 24 30](https://user-images.githubusercontent.com/45676906/122227178-a1af6a00-cef1-11eb-8c22-23cbcb43bc03.png)
 
-AOP는 Spring 삼각형 중에 하나입니다. 즉, 엄청나게 중요한 개념이라고 할 수 있겠죠..? 일단 Spring을 크게 보면 위와 같은 그림으로 표현할 수 있습니다. Controller 바로 앞단에 보면 `AOP(Aspect Oriented Programming)`가 존재하는 것을 볼 수 있습니다. AOP는 `관점 지향 프로그래밍` 이라고 불리는데요. 
+AOP는 Spring 삼각형 중에 하나입니다. 즉, 엄청나게 중요한 개념이라고 할 수 있겠죠..? 전체 구조를 보면 위와 같은 그림으로 표현할 수 있습니다. Filter, Interceptor 등등 많이 사용하고 있는데요. Controller 바로 앞단에 보면 `AOP(Aspect Oriented Programming)`가 존재하는 것을 볼 수 있습니다. AOP는 `관점 지향 프로그래밍` 이라고 불리는데요. 
 
 관점지향..? 뭔소리인가 싶습니다. 그래서 조금 더 알아보면서 이해해보겠습니다. 
 
@@ -46,7 +46,7 @@ AOP는 Spring 삼각형 중에 하나입니다. 즉, 엄청나게 중요한 개�
 ![aop](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbJOHOE%2FbtqF0QCJlCc%2F2sTwCFrVK71VUGTCK6Hkl0%2Fimg.png)
 
 위의 A, B, C 클래스에서 동일한 색깔의 선들의 의미는 클래스들에 나타나는 비슷한(중복되는) 메소드, 필드, 코드들이 나타난다는 것입니다. 이러한 경우 만약 클래스 A에 주황색 부분을 수정해야 한다면 B, C 클래스들에 주황색 부분에 해당하는 곳을 찾아가 전부 코드를 수정해야 합니다. 
-(지금은 예시가 몇 개 안되니 그렇지 엄청나게 많다면.. 유지보수가 쉽지 않을 것입니다.) 이런식으로 `반복되는 코드를 흩어진 관심사 (Crosscutting Concerns)`라 부른다.
+(지금은 예시가 몇 개 안되니 그렇지 엄청나게 많다면.. 유지보수가 쉽지 않을 것입니다.) 이런식으로 `반복되는 코드를 흩어진 관심사 (Crosscutting Concerns)`라 부릅니다.
 
 이러한 문제를 `AOP는 Aspect를 이용해서 해결`합니다. 사진 아래쪽을 보면 알 수 있는데, 흩어져 있는 부분들을 Aspect를 이용해서 모듈화 시킵니다. (모듈화란 어떤 공통된 로직이나 기능을 하나의 단위로 묶는 것을 말합니다.) 그리고 개발자가 모듈화 시킨 Aspect를 사진에서 위에 클래스에 어느 곳에 사용해야 하는지만 정의해주면 됩니다.
 
@@ -61,7 +61,7 @@ AOP는 Spring 삼각형 중에 하나입니다. 즉, 엄청나게 중요한 개�
 ```java
 @RequiredArgsConstructor 
 @Aspect     // AOP Aspect
-@Component  // 빈으로 등록
+@Component 
 public class AuthAspect {
 
     private static final String AUTHORIZATION = "accessToken";
@@ -85,7 +85,7 @@ public class AuthAspect {
 }
 ```
 
-다른 로직의 코드는 보지 않고 AOP 관련 코드만 간단하게 보겠습니다. 위의 코드가 인가 체크를 하는 코드입니다. 먼저 HTTP Header에서 AccessToken을 꺼낸 후, decode 해서 토큰에 문제가 있는지 없는지 체크합니다.
+코드 하나하나 의미를 보지는 않고 이러한 중복 로직이 있어서 AOP를 적용하였다 정도만 보면 좋을 거 같습니다. 위의 코드가 현재 프로젝트에서 적용하고 있는 인가 체크를 하는 코드입니다. 먼저 HTTP Header에서 AccessToken을 꺼낸 후, decode 해서 토큰에 문제가 있는지 없는지 체크합니다.
 (JWT가 만료되었거나, 변조되었거나, 없거나 등등 상황에서는 401 에러를 반환합니다.)
 
 이러한 인가 코드가 모든 API 마다 추가된다고 생각하면 정말.. 유지보수가 쉽지 않을 것입니다. (제가 하는 규모정도만 하더라도..) 하나만 수정되어도 모든 API를 수정해야 할 것입니다. 이러한 API 마다 중복으로 사용되는 로직은 
