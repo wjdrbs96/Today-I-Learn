@@ -74,7 +74,7 @@
 위와 같이 Target-Group에 로드 밸런서에 연결하고자 하는 EC2 인스턴스를 등록하면, 로드 밸런서가 주기적으로 EC2 인스턴스에게 `Health Check`를 합니다. (해당 인스턴스에 문제가 있는지 없는지)
 현재 제가 연결한 인스턴스는 잘 연결이 되어서 `Healthy` 한 상태인 것을 볼 수 있습니다. 이게 정말 로드 밸런서 설정의 끝입니다. 이제 CodeDeploy 설정을 해보겠습니다. (이것도 정말 간단합니다. )
 
-<br
+<br>
 
 <br>
 
@@ -105,7 +105,53 @@ CodeDeploy 배포 그룹에서 `역할` 설정이 중요한데요.
 
 <br>
 
-이렇게 모든 AWS 설정이 끝났는데요. 이제 실제로 Github에 push 했을 때 젠킨스가 빌드 되고, CodeDeploy가 잘 작동하는지를 테스트 해보겠습니다. 
+이렇게 모든 AWS 설정이 끝났는데요. 마지막으로 배포 스크립트에 대해서 알아보겠습니다. EC2에 CodeAgent를 설치해놓으면 CodeAgent를 통해서 S3에 저장되어 있는 파일이 EC2로 넘어오고, appspec.yml에 정의한 대로 `Shell Script` 파일이 실행되면서 배포가 진행되는 것인데요. 
+
+```shell
+#!/bin/bash
+CONTAINER_ID=$(docker container ls -f "name=yapp" -q)
+
+echo "> 컨테이너 ID는 무엇?? ${CONTAINER_ID}"
+
+if [ -z ${CONTAINER_ID} ]
+then
+  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다." >> /home/ec2-user/yapp/deploy.log
+else
+  echo "> docker stop ${CONTAINER_ID}"
+  sudo docker stop ${CONTAINER_ID}
+  echo "> docker rm ${CONTAINER_ID}"
+  sudo docker rm ${CONTAINER_ID}
+  sleep 5
+fi
+
+cd /home/ec2-user/yapp && docker build -t yapp .
+docker run --name yapp -d -e active=prod -p 8080:8080 yapp
+```
+
+배포를 하는 `Shell Script` 파일은 위와 같습니다. 간단하게 요약하면 현재 실행하고 있는 컨테이너가 있다면 해당 컨테이너를 중지시키고 다시 이미지를 빌드해서 새로운 컨테이너를 띄우는 것입니다. 
+(참고로 컨테이너를 실행할 때는 prod 환경으로 실행시켜주어야 합니다.)
+
+<br>
+
+### `Dockerfile`
+
+```dockerfile
+FROM openjdk:11-jre-slim
+
+WORKDIR /root
+
+COPY ./build/libs/*.jar .
+
+CMD java -jar -Dspring.profiles.active=${active} *.jar
+```
+
+Dockerfile은 위와 같습니다. 
+
+
+<br>
+
+
+이제 실제로 Github에 push 했을 때 젠킨스가 빌드 되고, CodeDeploy가 잘 작동하는지를 테스트 해보겠습니다. 
 
 <br>
 
