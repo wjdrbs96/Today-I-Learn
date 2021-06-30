@@ -30,7 +30,7 @@ public interface Filter {
 }
 ```
 
-대표적으로 `Filter`라는 인터페이스가 존재하는데요. 인터페이스 내부에는 `init()`, `doFilter()`, `destroy()` 메소드가 존재합니다. 이름에서도 바로 알 수 있듯이 `초기회`, `Filter 설정..?`, `종료` 뭐 이런 메소드들이라고 추측할 수 있습니다.
+대표적으로 `Filter`라는 인터페이스가 존재하는데요. 인터페이스 내부에는 `init()`, `doFilter()`, `destroy()` 메소드가 존재합니다. 이름에서도 바로 알 수 있듯이 `초기화`, `Filter 설정..?`, `종료` 뭐 이런 메소드들이라고 추측할 수 있습니다.
 
 - `init()`: 필터 인스턴스 초기화
 - `doFilter()`: 전/후 처리
@@ -38,7 +38,7 @@ public interface Filter {
 
 <br>
 
-간단하게 말하면 Filter는 Spring 영역에 들어오기 전에 Filter 작업을 하는 역할을 합니다. 즉, `DispatcherServlet`이 실행되기 전에 앞단에서 이름 그대로 어떤 것들을 필터링 하는 역할을 할 수 있습니다.
+간단하게 말하면 Filter는 Spring 영역에 들어오기 전에 Filter 작업을 하는 역할을 합니다. 즉, `DispatcherServlet`이 실행되기 전에 앞단에서 어떤 것들을 필터링 하는 역할을 할 수 있습니다.
 
 - 인코딩 작업
 - XSS, CORS와 같이 보안 방어
@@ -88,9 +88,9 @@ public class FilterTest implements Filter {
 
 ![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F9983FB455BB4E5D30C7E10)
 
-저번에 `Filter`에 대해서 간단하게 알아본 적이 있었는데요. 이번에는 `Interceptor`에 대해서도 간단하게 알아보려고 합니다.
+위에서 `Filter`에 대해서 간단하게 알아보았는데요. 이번에는 `Interceptor`에 대해서도 간단하게 알아보려고 합니다.
 
-인터셉터는 그림에서 볼 수 있듯이 `스프링 영역` 안에서 실행되는데요. 즉, `DispatcherServlet`이 컨트롤러를 호출하기 전, 후로 끼어들 수 있는 메소드를 제공합니다.
+인터셉터는 그림에서 볼 수 있듯이 `스프링 영역` 안에서 실행됩니다. 즉, `DispatcherServlet`이 컨트롤러를 호출하기 전, 후로 끼어들 수 있는 메소드를 제공합니다.
 
 ```java
 public interface HandlerInterceptor {
