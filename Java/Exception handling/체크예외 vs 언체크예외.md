@@ -92,7 +92,13 @@ public class ArrayTest {
 - `체크 예외 : Rollback이 되지 않고 트랜잭션이 commit까지 완료됩니다.`
 - `언체크 예외 : Rollback이 됩니다.`
 
-나중에 좀 더 자세히 알아보겠습니다. 
+<br>
+
+## `Checked Exception vs UnChecked Exception 선택하기`
+
+- 임의의 예외 클래스를 만들어 예외 처리를 하는 경우가 많을 것인데요. 이 때 try-catch로 묶어줄 필요가 있을 경우에만 Exception 클래스를 확장합니다.
+
+- 일반적으로 실행시 예외를 처리할 수 있는 경우에는 `RuntimeException` 클래스를 확장해 `Unchecked Exception`을 사용하는 것이 좋습니다. 
 
 <br>
 
