@@ -1,4 +1,4 @@
-# `Github Action, CodeDeploy로 CI/CD 하는 법`
+# `Github Action, CodeDeploy로 CI/CD 하는 법 - 1편`
 
 이번 글에서는 CI 도구로 Github Action, CD 도구로는 CodeDeploy를 사용해서 자동화 배포를 진행해보겠습니다.(EC2, S3, CodeDeploy 생성에 대해서는 다루지 않겠습니다.) 진행하고자 하는 아키텍쳐는 아래와 같습니다. 
 
@@ -192,59 +192,16 @@ jobs:
 
 즉, 위와 같이 3가지의 값을 등록하였습니다. 이렇게 등록을 해놓으면 yml 파일에서 위에서 등록한 키 값들을 읽어서 사용할 수 있게 됩니다. 
 
+이렇게 yml을 수정한 후에 Github에 push를 해보겠습니다. 
 
+![스크린샷 2021-07-12 오후 3 24 45](https://user-images.githubusercontent.com/45676906/125240660-5a1bd280-e325-11eb-9da8-88ecd2a9beb1.png)
+
+그러면 yml 파일에 정의된 단계대로 하나씩 수행이 되어 성공한 것을 볼 수 있습니다. 그리고 S3에 잘 업로드가 되었는지 확인을 해보겠습니다. 
 
 <br>
 
+![스크린샷 2021-07-12 오후 3 26 50](https://user-images.githubusercontent.com/45676906/125240864-a49d4f00-e325-11eb-9aaf-34960384650c.png)
 
-
+위처럼 S3에 zip 파일이 잘 업로드 된 것을 확인할 수 있습니다. 
 
 <br>
-
-```yaml
-name: gyunny-action
-
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-        shell: bash
-
-      - name: Build with Gradle
-        run: ./gradlew build
-        shell: bash
-        
-      - name: Make zip file
-        run: zip -r ./$GITHUB_SHA.zip .
-        shell: bash
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip
-
-      - name: Code Deploy
-        run: aws deploy create-deployment --application-name logging-system-deploy --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name develop --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
-```
