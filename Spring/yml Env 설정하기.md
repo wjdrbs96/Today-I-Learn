@@ -2,14 +2,14 @@
 
 이번 글에서는 Intellij에서 env 설정을 하고 이것을 `application.yml`에서 참조하는 법에 대해서 알아보겠습니다. 이렇게 하고자 하는 이유는 지금까지는 `jwt secret key` 라던지, `DB url`, `DB id`, `DB pw` 같은 것들을 yml 파일에 적은 후에 gitignore에 등록하고 Github에 올리지 않는 방법을 선택했습니다. 
 
-하지만 이것도 하나의 방법일 순 있겠지만, 자꾸 실수로 Github에 yml을 올리는 실수를 할 수도 있다는 것때문에.. 이번에는 Intellij에서 환경변수를 등록하고 yml에서 해당 환경변수를 참조해서 사용하도록 바꿔보겠습니다.
+하지만 이것도 하나의 방법일 순 있겠지만, 자꾸 실수로 Github에 yml을 올리는 실수를 할 수도 있다는 것 때문에.. 이번에는 Intellij에서 환경변수를 등록하고 yml에서 해당 환경변수를 참조해서 사용하도록 바꿔보겠습니다.
 
 <br> <br>
 
 # `Intellij에서 env 설정 후 yml 파일에서 참조하는 법`
 
 <img width="570" alt="스크린샷 2021-07-13 오후 12 55 18" src="https://user-images.githubusercontent.com/45676906/125387998-b5a79800-e3d9-11eb-8d99-6320cb2a7d00.png">
-
+x2
 인텔리제이 오른쪽 위를 보면 위와 같이 `Edit Configurations`가 있는데 이것을 누르겠습니다. 
 
 <br>
