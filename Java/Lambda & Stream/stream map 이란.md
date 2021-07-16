@@ -1,9 +1,18 @@
-package ExampleCode;
+# `stream map() 이란 무엇일까?`
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+stream은 Java 8에서 추가된 기능입니다. stream은 `뭔가 연속된 정보`를 처리하는 데 사용됩니다. 이번 글에서는 스트림에서 제공하는 많은 연산 중에서 `map()` 사용 법에 대해서 알아보겠습니다. 
 
+<br>
+
+## `map()`
+
+- map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 
+
+<br>
+
+글로만 보면 무슨 말인가 싶을 수도 있지만 코드를 보면 바로 이해할 수 있습니다. 
+
+```java
 public class Test {
     public static void main(String[] args) {
         Student student1 = new Student("이름1", 100, 5);
@@ -38,4 +47,6 @@ class Student {
     }
 
 }
+```
 
+이처럼 어떤 데이터를 변환하는데 사용되는 메소드가 `map()` 입니다.

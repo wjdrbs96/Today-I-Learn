@@ -4,7 +4,7 @@
 
 이거를 어떻게 구할까 하다가 MySQL에서 지원하는 함수가 있어서 간단하게 정리하려 합니다.
 
-```mysql
+```sql
 SELECT DATEDIFF(expired_at, created_at) 
 FROM discussion_group
 WHERE id = 42
