@@ -57,5 +57,8 @@ MySQL 5.1 부터는 MySQL 5.0과 같이 `SQL 문장을 기록하는 방`법과 `
 - 바이너리 로그 파일에 SQL 문장을 기록하는 방식을 `문장 기반 복제(Statement based replication)` 이라고 합니다.
 - 변경된 레코드를 바이너리 로그에 기록하는 방식을 `레코드 기반의 복제(Row based replication)` 이라고 합니다.
 
-<br>
+<br> <br>
 
+# `Reference`
+
+- Real MySQL
