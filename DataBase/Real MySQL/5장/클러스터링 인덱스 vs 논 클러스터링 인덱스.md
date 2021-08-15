@@ -1,4 +1,4 @@
-# `Cluster Index vs nonCluster Index`
+# `Cluster Index vs Non-Cluster Index`
 
 인덱스에서 클러스터링은 값이 비슷한 것들을 묶어서 저장하는 형태로 구현됩니다. 
 MySQL에서 클러스터링 인덱스는 `InnoDB`와 `TokuDB` 스토리지 엔진에서만 지원하며, 나머지 스토리지 엔진에서는 지원되지 않습니다. 
@@ -116,3 +116,9 @@ InnoDB의 프라이머리 키는 클러스터 키로 사용되며, 이 값에 �
 그래서 데이터를 읽어올 때는 `클러스터링 인덱스` 보다 느립니다. (포인터로 한 단계를 더 거쳐서 읽어야 하기 때문에) 반면에 클러스터링 인덱스처럼 INSERT, DELETE, UPDATE 시에 재정렬 작업의 오버헤드가 적기 때문에 쓰기 작업을 더 빠르게 할 수 있다는 특징을 가지고 있습니다.
 
 즉, Non-Cluster 인덱스는 책의 목차라고 생각하면 나쁘지 않은 비유인 거 같습니다.
+
+<br> <br>
+
+# `Reference`
+
+- Real MySQL
