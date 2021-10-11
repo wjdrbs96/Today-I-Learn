@@ -206,7 +206,7 @@ public class GlobalExceptionHandler {
 
 ![스크린샷 2021-10-11 오후 3 19 29](https://user-images.githubusercontent.com/45676906/136742017-b00f09e1-1f1c-42af-bcd0-f367e00fdc5b.png)
 
-이번에도 `email` 형식에 맞지 않게 보내보면 `ErrorResponse`에 정의한 형식대로 응답이 오는 것을 볼 수 있습니다. 
+이번에도 `email` 형식에 맞지 않게 보내보면 `ErrorResponse`에 정의한 형식대로 응답이 오는 것을 볼 수 있습니다. 혹시나 자세한 코드를 보고 싶다면 [여기](https://github.com/wjdrbs96/Spring_Valid) 에서 확인하실 수 있습니다.  
 
 <br> <br>
 
@@ -293,3 +293,10 @@ public class TestDto {
 ```
 
 하지만 `@NotBlank` 애노테이션은 `문자가 없는 빈 공백` 문자 요청은 에러를 발생시킵니다. 즉, 반드시 하나의 문자를 가진 애노테이션이어야 성공의 응답을 받을 수 있습니다.
+
+<br> <br>
+
+## `Reference`
+
+- [스프링 5 프로그래밍 입문](http://www.yes24.com/Product/Goods/62268795)
+- [Gyunny Blog Code 참고하기](https://github.com/wjdrbs96/Spring_Valid)
