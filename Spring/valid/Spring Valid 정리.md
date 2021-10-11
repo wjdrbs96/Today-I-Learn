@@ -24,7 +24,7 @@ public class TestController {
 }
 ```
 
-먼저 위와 같이 `Controller` 코드를 간단하게 작성해보겠습니다. 그리고 `@Valid` 어노테이션을 사용하면 DTO 검증 로직을 적용할 수 있습니다.  
+먼저 위와 같이 `Controller` 코드를 간단하게 작성해보겠습니다. 그리고 `@Valid` 어노테이션을 사용하면 DTO 애노테이션을 통해서 검증 로직을 사용한 것을 적용할 수 있습니다.
 
 <br>
 
@@ -42,7 +42,7 @@ public class TestDto {
 }
 ```
 
-DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@NotNull`, `@Email` 어노테이션이 있는데요. 각 어노테이션의 역할은 아래와 같습니다. 
+DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@NotNull`, `@Email` 애노테이션이 있는데요. 각 애노테이션의 역할은 아래와 같습니다. 
 
 - `@NotNull`: 값이 null 일 수 없다.
 - `@Email`: 이메일 형식으로 오지 않으면 에러가 발생한다.
@@ -56,7 +56,7 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 }
 ```
 
-그래서 위와 같이 `email`을 형식에 맞지 않게 요청을 보내보겠습니다. 
+그래서 위와 같이 `email`을 형식에 맞지 않게 요청을 보내보겠습니다.
 
 ```json
 {
@@ -94,17 +94,17 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 
 ![스크린샷 2021-10-11 오후 1 48 12](https://user-images.githubusercontent.com/45676906/136734732-36ae8ee8-ac9d-468c-ba95-5cc48217ed29.png)
 
-그리고 응답은 위에서 보았던 것과 마찬가지로 Spring Boot Default 400 Error로 응답이 오게 됩니다. (`널이어서는 안됩니다` 라는 로그도 찍힌 것을 볼 수 있습니다.) 
+그리고 응답은 위에서 보았던 것과 마찬가지로 Spring Boot Default 400 Error로 응답이 오게 됩니다. 로그에 보면 `널이어서는 안됩니다` 라는 로그도 찍힌 것을 볼 수 있습니다. 
 
 <br> <br>
 
-## `@Valid시 Exception Handling 하기`
+## `@Valid로 Exception Handling 하기`
 
-위에서는 Spring Boot에서 Default로 만들어준 에러 형태를 사용했는데요. 이번에는 에러 Response를 직접 커스텀해서 한번 만들어보겠습니다. 
+위에서는 Spring Boot에서 Default로 만들어준 에러 형태를 사용했는데요. 이번에는 에러 Response를 직접 커스텀해서 만들어보겠습니다. 
 
 ![스크린샷 2021-10-11 오후 1 56 44](https://user-images.githubusercontent.com/45676906/136735339-5f1a58d9-36fd-486a-8733-11ee53f4bbec.png)
 
-위에서 보았던 에러 로그를 보면 Valid 에러가 발생 했을 때 `MethodArgumentNotValidException` 예외 클래스가 호출되는 것을 볼 수 있습니다. 즉, `ControllerAdvice`, `ExceptionHandler`로 예외를 처리하기 위해서는 저 클래스를 예외로 잡아서 핸들링 해주면 됩니다. 이번 글에서 간단하게 ExceptionHanding 하는 예제 코드에 대해서 알아보겠습니다. 
+에러 로그를 보면 Valid 에러가 발생 했을 때 `MethodArgumentNotValidException` 예외 클래스가 호출되는 것을 볼 수 있습니다. 즉, `ControllerAdvice`, `ExceptionHandler`로 예외를 처리하기 위해서는 저 클래스를 예외로 잡아서 핸들링 해주면 됩니다. 이번 글에서 간단하게 ExceptionHanding 하는 예제 코드에 대해서 알아보겠습니다. 
 
 <br> <br>
 
@@ -134,7 +134,7 @@ public enum ErrorCode {
 }
 ```
 
-먼저 HTTP Status Code, Response Message 를 보내주기 위해서 위와 같이 `ErrorCode`를 Enum 으로 만들었습니다. 그리고 실제 ErrorCode를 가지고 ErrorResponse를 응답으로 주기 위해서 ErrorResponse Class를 아래와 같이 만들었습니다. 
+먼저 Error 응답으로 HTTP Status Code, Response Message 를 보내주기 위해서 위와 같이 `ErrorCode`를 Enum 으로 만들었습니다. 그리고 실제 ErrorCode를 가지고 ErrorResponse를 응답으로 주기 위해서 ErrorResponse Class를 아래와 같이 만들었습니다. 
 
 <br> <br>
 
@@ -216,7 +216,7 @@ public class GlobalExceptionHandler {
 |----------|---------------|-------------|------------|
 | @AssertTrue, @AssertFalse |  | 값이 true인지 또는 false인지 검사한다. null은 유효하다고 판단한다. | boolean, Boolean |
 | @DecimalMax, @DecimalMin | String value (최대값 또는 최소 값) | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다.  | BigDecimal, BigInteger, CharSequence, 정수타입 |
-| @Max, @Min | long value | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다.(`@max는 100 까지 가능하고 100 미만의 값이 오면 에러가 발생합니다. @min은 최소 100이 되어야 정상적으로 넘어가고 100 미만인 경우에는 에러가 발생합니다.`) null은 유효하다고 판단한다. | BigDecimal, BigInteger, 정수타입 |
+| @Max, @Min | long value | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다.(`@max(100)은 100 까지 가능하고 100 미만의 값이 오면 에러가 발생합니다. @min(100)은 최소 100이 되어야 정상적으로 넘어가고 100 미만인 경우에는 에러가 발생합니다.`) null은 유효하다고 판단한다. | BigDecimal, BigInteger, 정수타입 |
 | @Digits | int Integer(최대 정수 자릿수) <br> int traction (최대 소수점 자릿수) | 자릿수가 지정한 크기를 넘지 않는지 검사한다. null은 유효하다고 판단한다. | BigDecimal, BigInteger, CharSequence 정수타입 |
 | @Size | int min(최소 크기, 기본 값 0) <br> int max(최대 크기, 기본 값 정수 최대 값) | 길이나 크기가 지정한 값 범위에 있는지 검사한다. null은 유효하다고 판단한다. | CharSequence, Collection, Map, 배열 |
 | @Null, @NotNull | | 값이 null 인지 또는 null이 아닌지 검사한다. | |
@@ -233,3 +233,63 @@ public class GlobalExceptionHandler {
 | @Email | 이메일 주소가 유효한지 검사한다. null은 유효하다고 판단한다. | CharSequence |
 | @Future, @FutureOrPresent | 해당 시간이 미래 시간인지 검사한다. OrPresent가 붙은 것은 현재 또는 미래 시간인지 검사한다. null은 유효하다고 판단한다. | 시간 관련 타입 |
 | @Past, @PastOrPresent | 해당 시간이 과거 시간인지 검사한다. OrPresent가 붙은 것은 현재 또는 과거 시간인지 검사한다. null은 유효하다고 판단한다. | 시간 관련 타입 |
+
+<br> <br>
+
+## `@NotBlack vs @NotEmpty`
+
+어느정도 이름에서 유추할 수 있지만 두 애노테이션의 차이점에 대해서 알아보겠습니다. 
+
+```java
+@Getter
+public class TestDto {
+
+    @NotEmpty
+    private String name;
+
+}
+```
+
+```json
+{
+    "name" : "" 
+}
+```
+
+먼저 `@NotEmpty` 애노테이션은 위와 같이 길이가 0인 문자열로 요청을 보내면 에러가 발생합니다. 이것은 이름에서 알 수 있어서 쉽게 예측할 수 있는 결과인데요.
+
+<br>
+
+```json
+{
+    "name" : " " 
+}
+```
+
+이번에는 name을 문자가 존재하지 않고 `빈 공백`을 넣어서 요청을 보내면 성공적으로 응답이 오는데요. 이처럼 `빈 공백 문자`를 허용해주는 것이 `@NotEmpty` 애노테이션 입니다. 
+
+```java
+@Getter
+public class TestDto {
+
+    @NotBlank
+    private String name;
+
+}
+```
+
+```json
+{
+    "name" : "" 
+}
+```
+
+이번에는 `@NotBlank` 애노테이션으로 위와 같이 길이가 0인 문자열로 요청을 보내면 에러가 발생합니다. 이것 또한 쉽게 예측할 수 있는 결과인데요.
+
+```json
+{
+    "name" : " " 
+}
+```
+
+하지만 `@NotBlank` 애노테이션은 `문자가 없는 빈 공백` 문자 요청은 에러를 발생시킵니다. 즉, 반드시 하나의 문자를 가진 애노테이션이어야 성공의 응답을 받을 수 있습니다.
