@@ -52,7 +52,7 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 ```json
 {
     "name" : "Gyun",
-    "email": "wjdrbs"   // 이메일 형식에 맞지 않음
+    "email": "wjdrbs"   
 }
 ```
 
@@ -71,7 +71,7 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 
 ![스크린샷 2021-10-11 오후 1 44 05](https://user-images.githubusercontent.com/45676906/136734462-1ef9c007-8503-48fe-87bd-05f82869a24a.png)
 
-그리고 위와 같이 `올바른 형식의 이메일 주소여야 합니다.` 라는 로그가 찍히게 됩니다. 이번에는 `name`을 Null 값으로 보내보겠습니다. 
+그리고 위와 같이 `올바른 형식의 이메일 주소여야 합니다.` 라는 로그가 찍히게 됩니다. 이번에는 `name`을 null 값으로 보내보겠습니다. 
 
 <br>
 
@@ -92,11 +92,9 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 }
 ```
 
-그리고 응답은 위에서 보았던 것과 마찬가지로 Spring Boot Default 400 Error로 응답이 오게 됩니다. 
-
 ![스크린샷 2021-10-11 오후 1 48 12](https://user-images.githubusercontent.com/45676906/136734732-36ae8ee8-ac9d-468c-ba95-5cc48217ed29.png)
 
-이번에도 `널이어서는 안됩니다` 라는 로그가 찍힌 것을 볼 수 있습니다. 
+그리고 응답은 위에서 보았던 것과 마찬가지로 Spring Boot Default 400 Error로 응답이 오게 됩니다. (`널이어서는 안됩니다` 라는 로그도 찍힌 것을 볼 수 있습니다.) 
 
 <br> <br>
 
@@ -110,7 +108,7 @@ DTO 형태는 위와 같이 `name`, `email`을 받고 있습니다. 그리고 `@
 
 <br> <br>
 
-### `ErrorCdoe`
+## `ErrorCdoe`
 
 ```java
 public enum ErrorCode {
@@ -136,7 +134,7 @@ public enum ErrorCode {
 }
 ```
 
-먼저 HTTP Status Code, Response Message 를 보내주기 위해서 위와 같이 `ErrorCdoe`를 Enum 으로 만들었습니다. 그리고 실제 ErrorCode를 가지고 ErrorResponse를 응답으로 주기 위해서 ErrorResponse Class를 아래와 같이 만들었습니다. 
+먼저 HTTP Status Code, Response Message 를 보내주기 위해서 위와 같이 `ErrorCode`를 Enum 으로 만들었습니다. 그리고 실제 ErrorCode를 가지고 ErrorResponse를 응답으로 주기 위해서 ErrorResponse Class를 아래와 같이 만들었습니다. 
 
 <br> <br>
 
@@ -185,7 +183,7 @@ public class ErrorResponse {
 }
 ```
 
-ErrorResponse 에서 `FieldError` 클래스를 만들어준 이유는 어떤 필드에서 어떤 값으로 에러가 났는지를 응답 값으로 주기 위해서 입니다. (ErrorResponse는 자신이 원하는 형식대로 커스텀해서 사용하면 좋을 거 같습니다.)    
+ErrorResponse 에서 `FieldError` 클래스를 만들어준 이유는 어떤 필드에서 어떤 값으로 에러가 났는지를 응답 값으로 주기 위해서 입니다. 다른 원하는 형식의 Response가 있다면 커스텀 해서 사용해도 좋을 거 같습니다.   
 
 <br> <br>
 
@@ -204,11 +202,11 @@ public class GlobalExceptionHandler {
 }
 ```
 
-그리고 `@ControllerAdvice`, `@ExceptionHandler`를 통해서 예외 처리를 하고 있습니다. 즉 `@Valid`를 통해서 `RequestBody`를 검증하려 하는데, 만약 잘못되어 있다면 위의 메소드가 실행됩니다. 이렇게 예외 처리 코드를 작성하고 다시 에러 응답을 보내보면 아래와 같이 응답으로 오게 됩니다. 
+그리고 `@ControllerAdvice`, `@ExceptionHandler`를 통해서 예외 처리를 하고 있습니다. 즉 `@Valid`를 통해서 `RequestBody`로 요청이 오는 DTO 필드를 검증하려 하는데, 만약 잘못되어 있다면 `MethodArgumentNotValidException` 에러가 발생하여 위의 메소드가 실행이 됩니다.  
 
 ![스크린샷 2021-10-11 오후 3 19 29](https://user-images.githubusercontent.com/45676906/136742017-b00f09e1-1f1c-42af-bcd0-f367e00fdc5b.png)
 
-이번에도 위와 같이 `email` 형식에 맞지 않게 보냈을 때 `ErrorResponse`에 정의한 형식대로 응답이 오는 것을 볼 수 있습니다. 
+이번에도 `email` 형식에 맞지 않게 보내보면 `ErrorResponse`에 정의한 형식대로 응답이 오는 것을 볼 수 있습니다. 
 
 <br> <br>
 
@@ -218,7 +216,7 @@ public class GlobalExceptionHandler {
 |----------|---------------|-------------|------------|
 | @AssertTrue, @AssertFalse |  | 값이 true인지 또는 false인지 검사한다. null은 유효하다고 판단한다. | boolean, Boolean |
 | @DecimalMax, @DecimalMin | String value (최대값 또는 최소 값) | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다.  | BigDecimal, BigInteger, CharSequence, 정수타입 |
-| @Max, @Min | long value | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다. null은 유효하다고 판단한다. | BigDecimal, BigInteger, 정수타입 |
+| @Max, @Min | long value | 지정한 값보다 작거나 같은지 또는 크거나 같은지 검사한다.(`@max는 100 까지 가능하고 100 미만의 값이 오면 에러가 발생합니다. @min은 최소 100이 되어야 정상적으로 넘어가고 100 미만인 경우에는 에러가 발생합니다.`) null은 유효하다고 판단한다. | BigDecimal, BigInteger, 정수타입 |
 | @Digits | int Integer(최대 정수 자릿수) <br> int traction (최대 소수점 자릿수) | 자릿수가 지정한 크기를 넘지 않는지 검사한다. null은 유효하다고 판단한다. | BigDecimal, BigInteger, CharSequence 정수타입 |
 | @Size | int min(최소 크기, 기본 값 0) <br> int max(최대 크기, 기본 값 정수 최대 값) | 길이나 크기가 지정한 값 범위에 있는지 검사한다. null은 유효하다고 판단한다. | CharSequence, Collection, Map, 배열 |
 | @Null, @NotNull | | 값이 null 인지 또는 null이 아닌지 검사한다. | |
@@ -235,21 +233,3 @@ public class GlobalExceptionHandler {
 | @Email | 이메일 주소가 유효한지 검사한다. null은 유효하다고 판단한다. | CharSequence |
 | @Future, @FutureOrPresent | 해당 시간이 미래 시간인지 검사한다. OrPresent가 붙은 것은 현재 또는 미래 시간인지 검사한다. null은 유효하다고 판단한다. | 시간 관련 타입 |
 | @Past, @PastOrPresent | 해당 시간이 과거 시간인지 검사한다. OrPresent가 붙은 것은 현재 또는 과거 시간인지 검사한다. null은 유효하다고 판단한다. | 시간 관련 타입 |
-
-<br> <br>
-
-## `예제 코드`
-
-위에서 정리한 표에서 몇 개만 예제 코드로 같이 알아보겠습니다. 
-
-<br> 
-
-### `@max(100)`
-
-만약 위와 같이 작성 했다면 애노테이션이 붙은 해당 필드가 `100` 까지 가능하고 100 미만의 값이 오면 에러가 발생합니다. 
-
-<br>
-
-### `@min(100)`
-
-최소 100이 되어야 정상적으로 넘어가고 100 미만인 경우에는 에러가 발생합니다. 
