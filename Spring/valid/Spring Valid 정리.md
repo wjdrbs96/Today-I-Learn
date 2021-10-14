@@ -1,6 +1,6 @@
 # `Spring Valid 사용하여 @ReuqestBody 검증하기`
 
-이번 글에서는 Spring 에서 `@Valid`를 사용해서 @RequestBody를 통해서 들어오는 DTO 값들을 검증하는 법에 대해서 정리해보겠습니다. 그리고 프로젝트는 `Spring Boot gradle` 기반으로 만들어서 해보겠습니다. 
+클라이언트로부터 서버로 받아오는 값들을 검증하지 않고 로직을 실행하면 문제가 발생할 수도 있기에 검증이 필요한데요. 그래서 이번 글에서는 Spring 에서 `@Valid`를 사용해서 @RequestBody를 통해서 들어오는 DTO 값들을 검증하는 법에 대해서 정리해보겠습니다. 그리고 프로젝트는 `Spring Boot gradle` 기반으로 만들어서 해보겠습니다. 
 
 ```
 implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -254,7 +254,7 @@ public class TestDto {
 {
     "name" : "" 
 }
-```
+``` 
 
 먼저 `@NotEmpty` 애노테이션은 위와 같이 길이가 0인 문자열로 요청을 보내면 에러가 발생합니다. 이것은 이름에서 알 수 있어서 쉽게 예측할 수 있는 결과인데요.
 
