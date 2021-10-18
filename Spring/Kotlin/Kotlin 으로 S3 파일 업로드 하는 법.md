@@ -89,4 +89,4 @@ class S3Controller(
 
 Postman에서 위와 같이 `form-data`에 `file`을 선택하고 파일 하나를 선택하고 API 요청을 해보겠습니다. 그러면 코드에서 작성한대로 S3에 저장된 파일 URL이 응답으로 오는 것을 볼 수 있습니다.
 
-이번 글의 코드가 자세히 궁금하다면 [Github](https://github.com/wjdrbs96/Spring_Kotlin_S3) 에서 확인할 수 있습니다.  
+이번 글의 코드가 자세히 궁금하다면 [Github](https://github.com/wjdrbs96/Spring_Kotlin_S3) 에서 확인할 수 있습니다.
