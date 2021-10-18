@@ -66,6 +66,27 @@ cloud:
 
 ## `Postman으로 파일 업로드 해보기`
 
+```kotlin
+@RequestMapping("/api/v1")
+@RestController
+class S3Controller(
+    private val s3Service: S3Service
+) {
+
+    @PostMapping("/upload")
+    fun fileUpload(@RequestParam("image") multipartFile: MultipartFile): String {
+        return s3Service.upload(multipartFile)
+    }
+
+}
+```
+
+위처럼 `Controller` 코드를 작성하고 postman으로 파일 업로드를 해보겠습니다. 
+
+<br>
+
 ![스크린샷 2021-10-18 오전 9 37 55](https://user-images.githubusercontent.com/45676906/137651284-08df3fee-a969-4f11-a20c-8824557b432e.png)
 
 Postman에서 위와 같이 `form-data`에 `file`을 선택하고 파일 하나를 선택하고 API 요청을 해보겠습니다. 그러면 코드에서 작성한대로 S3에 저장된 파일 URL이 응답으로 오는 것을 볼 수 있습니다.
+
+이번 글의 코드가 자세히 궁금하다면 [Github](https://github.com/wjdrbs96/Spring_Kotlin_S3) 에서 확인할 수 있습니다.  
