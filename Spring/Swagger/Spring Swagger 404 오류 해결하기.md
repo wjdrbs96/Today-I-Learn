@@ -25,7 +25,7 @@ http://localhost:8080/swagger-ui.html
 
 <br>
 
-![스크린샷 2021-10-23 오후 1 12 28](https://user-images.githubusercontent.com/45676906/138541976-a6751e75-22a9-410f-bf06-c671d68e9ff1.png)
+![스크린샷 2021-10-23 오후 1 39 38](https://user-images.githubusercontent.com/45676906/138542670-5e540835-7112-4090-8ac2-499a9cd7d087.png)
 
 그러면 위와 같이 문제 없이 접속이 되는 것을 볼 수 있습니다. (Swagger 사용법에 대해 좀 더 자세히 궁금하다면 [여기](https://devlog-wjdrbs96.tistory.com/322?category=882974) 를 참고하시면 됩니다.)
 
