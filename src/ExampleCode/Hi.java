@@ -5,7 +5,13 @@ package ExampleCode;
  */
 public class Hi {
     public static void main(String[] args) {
-
+        Hi hi = new Gyunny();
+        Gyunny gyunny = (Gyunny) hi;
+        System.out.println("Test");
     }
+}
+
+class Gyunny extends Hi {
+
 }
 
