@@ -40,8 +40,14 @@ wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.g
 ### `ElastiCache 접속하기`
 
 ```
-redis-cli -h 본인의엔드포인트 -p 6379
-ex) redis-cli -h test-redis.7ab7ab.ab.0001.apn2.cache.amazonaws.com -p 6379 
+# make 하기 위핸 gcc 다운
+sudo yum install -y gcc
+
+# redis-cli 설치 및 make
+wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.gz && cd redis-stable && make
+
+# redis-cli를 bin에 추가해 어느 위치서든 사용 가능하게 등록
+sudo cp src/redis-cli /usr/bin/
 ```
 
 ![스크린샷 2021-04-26 오후 4 23 34](https://user-images.githubusercontent.com/45676906/116044600-14e3ef00-a6ac-11eb-9b51-072fa861faac.png)
@@ -54,7 +60,7 @@ ex) redis-cli -h test-redis.7ab7ab.ab.0001.apn2.cache.amazonaws.com -p 6379
 
 ![스크린샷 2021-04-26 오후 4 27 37](https://user-images.githubusercontent.com/45676906/116044882-69876a00-a6ac-11eb-99ee-ab2a388f5eac.png)
 
-위와 같이 `Redis-cli`를 사용하여 `ElastiCache`를 접속해서 간단한 테스트를 해보았습니다. 
+위와 같이 `Redis-cli`를 사용하여 `ElastiCache`를 접속해서 간단한 테스트를 해보았습니다. 참고로 ElastiCache는 Local에서 접속이 불가능합니다! 그래서 EC2에서 접속 테스트를 해봐야 합니다.
 
 <br>
 
