@@ -24,8 +24,8 @@ spring-boot-starter-web 에 포함된 tomcat 은 JSP 엔진을 포함하고 있�
 
 ```
 dependencies {
-    compile('javax.servlet:jstl')
-    compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+    implementation 'javax.servlet:jstl'
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
 }
 ```
 
@@ -50,7 +50,7 @@ spring.mvc.view.suffix=.jsp
 
 폴더구조는 아래와 같고 webapp 디렉토리를 만들어야 합니다. webapp 이라는 디렉토리 경로가 default로 내부적으로 설정이 되어 있어서 그렇습니다.
 
-![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F4yJ5F%2FbtqGJFV0zgi%2FsWTCaBljs8D7KCwkEG1jG0%2Fimg.png)
+![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcMKfKt%2FbtrjNbO6rHl%2F0qbIl3xqkQ7TWNYiHoOWw0%2Fimg.png)
 
 <br> 
 
@@ -127,9 +127,6 @@ pageEncoding="UTF-8"%>
 </html>
 ```
 
-jstl을 이용해서 list에 담긴 데이터를 꺼내는 예제입니다. 
+위와 같이 Controller Model에 담긴 데이터를 jstl을 이용해서 list에 담긴 데이터를 꺼낼 수 있다.
 
-
-
-
-
+이번 글에서는 Spring Boot에서 jsp를 사용하는 법에 대해서 알아보았습니다.
