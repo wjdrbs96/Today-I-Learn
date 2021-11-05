@@ -461,14 +461,14 @@
 
 - ### Real MySQL
     - [3장: MySQL 아키텍쳐](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/3%EC%9E%A5)
-    - [4장: 트랜잭션](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/4%EC%9E%A5)
+    - [4장: 트랜잭션과 잠금](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/4%EC%9E%A5)
     - [5장: 인덱스](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/5%EC%9E%A5)
-    - [6장: JOIN & 실행계획](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/6%EC%9E%A5)
-    - [7장: 쿼리 주의사항](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/12%EC%9E%A5)
-    - [12장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/12%EC%9E%A5)
-    - [14장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/14%EC%9E%A5)
-    - [15장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/15%EC%9E%A5)
-    - [16장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Real%20MySQL/16%EC%9E%A5/16%EC%9E%A5.md)
+    - [6장: 실행계획](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/6%EC%9E%A5)
+    - [7장: 쿼리 작성 및 최적화](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/12%EC%9E%A5)
+    - [12장: 쿼리 종류별 잠금](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/12%EC%9E%A5)
+    - [14장: 데이터 모델링](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/14%EC%9E%A5)
+    - [15장: 데이터 타입](https://github.com/wjdrbs96/Today-I-Learn/tree/master/DataBase/Real%20MySQL/15%EC%9E%A5)
+    - [16장: 베스트 프랙티스](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Real%20MySQL/16%EC%9E%A5/16%EC%9E%A5.md)
 
 - ### 기타
     - [DBMS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/DBMS%EB%9E%80%3F.md)
