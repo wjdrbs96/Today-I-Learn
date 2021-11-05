@@ -224,7 +224,77 @@
   - [Intellij에서 yml에 환경변수 추가하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Intellij%20%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Spring Profile Error 해결 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20profile%20Error.md)
   - [Spring yml prod, dev 환경 나누기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20%EC%9A%B4%EC%98%81%ED%99%98%EA%B2%BD%2C%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EB%82%98%EB%88%84%EA%B8%B0.md)
+
+
+## QueryDSL
+
+- [gradle QueryDSL 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/1.%20gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+
+
+## Effective Java
+
+- [2장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
+- [3장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/3%EC%9E%A5)
+- [4장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/4%EC%9E%A5)
+- [5장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/5%EC%9E%A5)
+- [6장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/6%EC%9E%A5)
+- [7장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/7%EC%9E%A5)
+- [8장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/8%EC%9E%A5)
+- [9장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/9%EC%9E%A5)
+- [10장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/10%EC%9E%A5)
+
+## 스프링5 프로그래밍 입문
+
+- [3장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/3%EC%9E%A5.md)
+- [4장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/4%EC%9E%A5.md)
+- [5장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/5%EC%9E%A5.md)
+- [6장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/6%EC%9E%A5.md)
+- [7장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/7%EC%9E%A5.md)
+- [8장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/8%EC%9E%A5.md)
+- [9장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/9%EC%9E%A5.md)
+- [10장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/10%EC%9E%A5.md)
+- [11장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/11%EC%9E%A5.md)
+- [12장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/12%EC%9E%A5.md)
+- [13장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/13%EC%9E%A5.md)
+- [14장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring_Programming_Basic/14%EC%9E%A5.md)
+
+## Kotlin
+
+- ### Do it Kotlin
+  - [2장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/2%EC%9E%A5.md)
+  - [3장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/3%EC%9E%A5.md)
+  - [4장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/4%EC%9E%A5.md)
+  - [5장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/5%EC%9E%A5.md)
+  - [6장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/6%EC%9E%A5.md)
+  - [7장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/7%EC%9E%A5.md)
+  - [8장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/8%EC%9E%A5.md)
+  - [9장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/9%EC%9E%A5.md)
+
+- ### Kotlin In Action
+  - [1장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/1%EC%9E%A5.md)
+  - [2장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/2%EC%9E%A5.md)
+  - [3장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/3%EC%9E%A5.md)
+  - [4장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/4%EC%9E%A5.md)
+  - [5장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/5%EC%9E%A5.md)
+  - [6장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/6%EC%9E%A5.md)
+  - [7장](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/7%EC%9E%A5.md)
   
+## 자바의 신
+
+- [20장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/20%EC%9E%A5)
+- [21장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/21%EC%9E%A5)
+- [22장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/22%EC%9E%A5)
+- [23장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/23%EC%9E%A5)
+- [24장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/24%EC%9E%A5)
+- [25장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/25%EC%9E%A5)
+- [26장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/26%EC%9E%A5)
+- [27장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/27%EC%9E%A5)
+- [28장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/28%EC%9E%A5)
+- [30장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/30%EC%9E%A5)
+- [31장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/31%EC%9E%A5)
+- [32장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/32%EC%9E%A5)
+- [33장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/33%EC%9E%A5)
+- [기타](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/%EA%B8%B0%ED%83%80)
 
 ## NodeJS
 
@@ -242,6 +312,9 @@
 - [Controller - Service 계층 분리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Controller-Service%20%EA%B3%84%EC%B8%B5%EB%B6%84%EB%A6%AC.md)
 - [dotenv 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/dotenv%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 
+- ## PHP
+  
+- [PHP로 AWS S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/PHP/php%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C.md)
 
 ## Data Structrue
 
@@ -381,20 +454,25 @@
 
 ## Travis CI
  
- 
+- [Spring Boot, Travis CI 연동하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Spring%20Boot%2C%20Travis%20CI%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md)
+- [Travis CI가 작동하지 않을 때 해결 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20CI%EA%B0%80%20%EC%9E%91%EB%8F%99%20%EC%95%88%ED%95%A0%20%EB%95%8C.md)
+- [Travis CI와 AWS S3, CodeDeploy 연동하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20CI%EC%99%80%20AWS%20S3%2C%20CodeDeploy%20%EC%97%B0%EB%8F%99.md)
+- [Travis CI로 application.yml 암호화, 복호화 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20File%20%EC%95%94%ED%98%B8%20%EB%B3%B5%ED%98%B8%ED%99%94.md)
 
 ## AWS
 
 - ### IAM
+    - [CodeDeploy IAM 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/IAM/CodeDeploy%20IAM%20%EC%84%A4%EC%A0%95.md) 
     - [IAM 유저 생성 및 Root 계정 MFA 활성화 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/IAM/IAM%20%EC%9C%A0%EC%A0%80%20MFA%20%ED%99%9C%EC%84%B1%ED%99%94%20%ED%95%98%EA%B8%B0.md)
     - [IAM 용어 및 개념 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/IAM/IAM%20%EA%B0%9C%EB%85%90%20%EC%A0%95%EB%A6%AC.md)
 
 - ### EC2
     - [EC2 프리티어로 만드는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
-    - [EC2 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2.md)
-    - [EC2 AMI 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/AWS%20AMI%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+    - [EC2 SSH 접속하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20SSH%20%EC%A0%91%EC%86%8D%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+    - [EC2 AMI 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/AWS%20EC2%20AMI%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
     - [EC2 Linux2 Java 11 설치하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20Linux2%20Java%2011%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
     - [EC2 Ubuntu에서 Docker 설치하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20Ubuntu%EC%97%90%EC%84%9C%20Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
+    - [EC2 Linux2 환경변수 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/EC2/EC2%20Linux2%20%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0.md)
 
 - ### ECR
   - [ECR 시작하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/ECR/ECR%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
@@ -407,9 +485,12 @@
 - ### Auto-Scaling
     - [Auto-Scaling 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/Auto-Scaling%20%EC%9D%B4%EB%9E%80%3F.md)
     - [Auto-Scaing 실습하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/AWS%20Auto-Scaling%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-1.md)
+    - [Auto-Scaling, CodeDeploy로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/Auto-Scaling%2C%20CodeDeploy%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
+    - [Auto-Scaling, CodeDeploy로 Blue/Green 자동화 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/Auto-Scaling%2C%20CodeDeploy%EB%A1%9C%20Blue%2C%20Green%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
+    - [Auto-Scaling CodeDeploy로 현재 위치 자동화 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Auto-Scaling/Auto-Scaling%20CodeDeploy%20%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
 
 - ### Lambda
-  - [Lambda로 Thumbnail Image 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Lambda%EB%A1%9C%20Thumbnail%20Image%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.md)
+  - [Python 기반 Lambda로 Thumbnail Image 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Python%2C%20Lambda%EB%A1%9C%20Thumbnail%20Image%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.md)
   - [Lambda로 만든 Thumbnail Url, Origin Url DB 저장하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/Lambda%20Thumbnail%20Image%20DB%20%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0.md)
   - [NodeJS로 만든 Lambda 함수로 Image Resize 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Lambda/NodeJS%2C%20Lambda%EB%A1%9C%20Image%20Resize.md)
   - [API Gateway로 S3 파일 조회하는 API 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/API-Gateway/API%20Gateway%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%A1%B0%ED%9A%8C%ED%95%98%EB%8A%94%20%EB%B2%95.md)  
@@ -424,6 +505,7 @@
     - ### RDS
       - [MySQL Workbench로 RDS 접속하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/RDS/Workbench%EC%97%90%EC%84%9C%20RDS%20%EC%A0%91%EC%86%8D%ED%95%98%EB%8A%94%20%EB%B2%95.md)
       - [AWS RDS 프리티어로 만드는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/RDS/RDS%20%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4%EB%A1%9C%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95.md)
+      - [AWS RDS 스키마 마이그레이션 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/RDS/RDS%20%EC%8A%A4%ED%82%A4%EB%A7%88%20%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
     - ### ElastiCache
       - [ElastiCache Redis 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/ElastiCache/Redis/ElasticCache%20Redis%20%EC%A0%95%EB%A6%AC.md)
       - [ElastiCache Redis 간단한 실습해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/DataBase/ElastiCache/Redis/ElastiCache%20Redis%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
@@ -438,13 +520,10 @@
 
 - ### CodeDeploy
     - [Jenkins, CodeDeploy로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Jenkins%EB%A1%9C%20CI%20%ED%95%98%EA%B8%B0.md)
-    - [Auto-Scaling, CodeDeploy로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Auto-Scaling%2C%20CodeDeploy%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
     - [Travis CI, CodeDeploy, Docker로 CI/CD 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Docker%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
     - [Blue/Green 배포 방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/%EB%B8%94%EB%A3%A8%2C%20%EA%B7%B8%EB%A6%B0%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%20%EA%B3%BC%EC%A0%95.md)
     - [Blue/Green 배포 실습해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Blue%2C%20Green%20%EB%B0%B0%ED%8F%AC%20%EC%8B%A4%EC%8A%B5%ED%95%98%EA%B8%B0.md)
     - [현재위치 배포방식이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98%20%EB%B0%B0%ED%8F%AC%20%EB%B0%A9%EC%8B%9D%EC%9D%B4%EB%9E%80%3F.md)
-    - [Auto-Scaling, CodeDeploy로 Blue/Green 자동화 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Auto-Scaling%2C%20CodeDeploy%EB%A1%9C%20Blue%2C%20Green%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
-    - [Auto-Scaling CodeDeploy로 현재 위치 자동화 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Auto-Scaling%20CodeDeploy%20%ED%98%84%EC%9E%AC%EC%9C%84%EC%B9%98%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
     - [Spring Boot CodeDeploy Nginx로 무중단 배포하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Nginx%EB%A1%9C%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md)
     - [Spring Boot, CodeDeploy, Nginx, Docker로 무중단 배포하기 - 1](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Docker%2C%20Nginx%EB%A1%9C%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-1.md)
     - [Spring Boot, CodeDeploy, Nginx, Docker로 무중단 배포하기 - 2](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Deploy/Docker%2C%20Nginx%EB%A1%9C%20%EB%AC%B4%EC%A4%91%EB%8B%A8%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-2.md)
@@ -466,12 +545,7 @@
     - [CodeBuild로 CI 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/1.%20CodeBuild%20%ED%99%9C%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
     - [CodeDeploy로 CD 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/2.%20CodeDeploy%EB%A5%BC%20%ED%95%A0%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0.md)
     - [CodePipeline 연결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/AWS%EB%A1%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/3.%20Codepipeline%20%EC%9D%B4%EB%9E%80.md)
-
-## Travis CI
-
-- [Travis CI Github Hook 수동 등록하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20CI%EA%B0%80%20%EC%9E%91%EB%8F%99%20%EC%95%88%ED%95%A0%20%EB%95%8C.md)
-- [Travis CI 파일 암호화, 복호화](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Travis%20CI/Travis%20File%20%EC%95%94%ED%98%B8%20%EB%B3%B5%ED%98%B8%ED%99%94.md)
-
+    
 
 ## Nginx
 
@@ -515,4 +589,5 @@
 
 ## Retrospect
    
+- [Github 1일 1커밋을 1년 7개월 동안 해오면서..](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Writing/1%EC%9D%BC%201%EC%BB%A4%EB%B0%8B%20%ED%9A%8C%EA%B3%A0.md)
 - [개발자를 꿈꾸는 대학생의 2020년 회고](https://devlog-wjdrbs96.tistory.com/240)    
