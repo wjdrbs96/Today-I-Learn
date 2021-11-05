@@ -231,6 +231,20 @@
 - [gradle QueryDSL 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/1.%20gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 
+## 자바 ORM 표준 JPA 프로그래밍
+
+- [1장]()
+- [2장]()
+- [3장]()
+- [4장]()
+- [5장]()
+- [6장]()
+- [7장]()
+- [8장]()
+- [9장]()
+- [10장]()
+
+
 ## Effective Java
 
 - [2장](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
