@@ -358,9 +358,11 @@
   - [Vegeta 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Tool/Vegeta/Vegeta%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 
 - ### Jenkins
-  - [EC2 Linux2]
+  - [EC2 Linux2에 Jenkins 설치하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Tool/jenkins/EC2%20Linux2%EC%97%90%20jenkins%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
+  - [EC2 Ubuntu에 Jenkins 설치하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Tool/jenkins/EC2%20Ubuntu%20jenkins%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
 
 - [SDK 으로 Java 버전 관리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Tool/sdk%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+- [Mac에서 Bitnami Start, Stop 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Tool/Bitnami%20Manage%20Mac.md)
 
 ## Docker
 
@@ -376,6 +378,10 @@
 - [Docker Compose를 사용해야 하는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Docker/Docker%20Compose%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
 - [EC2에서 Docker로 Nginx Reverse Proxy 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Docker/EC2%EC%97%90%EC%84%9C%20Docker%EB%A1%9C%20Nginx%2C%20jar%20%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0.md)
 - [알아두면 좋을 Docker 명령어 모음](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Docker/Docker%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%ED%95%84%EC%9A%94%ED%95%9C%20%EA%B1%B0%20%EC%A0%95%EB%A6%AC.md)
+
+## Travis CI
+ 
+ 
 
 ## AWS
 
