@@ -122,15 +122,15 @@
 ## JavaScript   
 
 - ### 원시 값과 객체의 비교
-    - [원시타입(Primitive Type)이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/2.primitiveType.md)
+    - [원시타입(Primitive Type)이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Primitive%20Type%20%EC%9D%B4%EB%9E%80.md)
  
 - ### 타입 변환
-    - [암묵적 타입변환, 명시적 타입변환](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/4.%20explicit%20coercion.md)
+    - [암묵적 타입변환, 명시적 타입변환](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%95%94%EB%AC%B5%EC%A0%81%20%ED%83%80%EC%9E%85%EB%B3%80%ED%99%98%2C%20%EB%AA%85%EC%8B%9C%EC%A0%81%20%ED%83%80%EC%9E%85%EB%B3%80%ED%99%98.md)
     
     
 - ### 스코프
     - [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
-    - [함수 범위, 블록 범위, 렉시컬(lexical) 범위](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/6.scope.md)
+    - [함수 범위, 블록 범위, 렉시컬(lexical) 범위](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%ED%95%A8%EC%88%98%20%EB%B2%94%EC%9C%84%2C%20%EB%B8%94%EB%A1%9D%20%EB%B2%94%EC%9C%84%2C%20%EB%A0%89%EC%8B%9C%EC%BB%AC%20%EB%B2%94%EC%9C%84.md)
     - [var, let, const 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/var%2C%20let%2C%20const%20%EC%B0%A8%EC%9D%B4.md)
     - [전역 변수 vs 지역 변수](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%20%EB%AC%B8%EC%A0%9C%EC%A0%90.md)
 
@@ -138,9 +138,9 @@
     - [실행 컨텍스트(Execution Context)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Execution_Context.md)
 
 - ### 기타
-    - [Value Type vs Reference Type](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/3.reference.md)
-    - [동등 연산자(==) vs 일치연산자(===)](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/5.%20%3D%3D%20vs%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90.md)
-    - [Call Stack이란?](https://github.com/SOPT-Learning-JS/33-js-concepts/blob/master/Gyunny/1.callStack.md)
+    - [Value Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Value%20Type%20vs%20Reference%20Type.md)
+    - [동등 연산자(==) vs 일치연산자(===)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90%20%EC%B0%A8%EC%9D%B4.md)
+    - [Call Stack이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Call%20Stack%EC%9D%B4%EB%9E%80.md)
 
 
 ## Design Pattern
@@ -152,16 +152,41 @@
 
 
 ## Spring
- 
-- [Spring Bean LifeCycle](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B9%88%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4.md)
-- [Spring 의존관계 주입 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/%EB%8B%A4%EC%96%91%ED%95%9C%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%20%EC%A3%BC%EC%9E%85%20%EB%B0%A9%EB%B2%95.md)
-- [Spring EC2 jar 배포](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/EC2%20jar%20%EB%B0%B0%ED%8F%AC.md)
-- [Spring application.yml로 운영, 개발 환경 나누기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Spring%20%EC%9A%B4%EC%98%81%ED%99%98%EA%B2%BD%2C%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EB%82%98%EB%88%84%EA%B8%B0.md)
-- [Spring Logback으로 Slack 채널에 로그 보내는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Spring%20LogBack%EC%9C%BC%EB%A1%9C%20Slack%20%EB%A1%9C%EA%B7%B8%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EB%B2%95.md)
-    - ### JUnit 5
-        - [Parameterized](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
-    - ### MongoDB
-        - [Spring Boot MongoDB 권한 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MongoDB/Spring%20Boot%20MongoDB%20Auth%20Error.md)
+
+- ### AOP
+  - [AOP란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AOP/AOP%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+
+- ### AWS
+  - [AWS EC2에 jar 파일 배포하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/EC2%20jar%20%EB%B0%B0%ED%8F%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+  - [AWS EC2에서 실시간 log 보는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/Spring%20AWS%20EC2%20log%20%EB%B3%B4%EA%B8%B0.md)
+
+- ### DI
+  - [Spring 의존 자동 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%20%EC%9E%90%EB%8F%99%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80.md)
+  - [Spring 의존성 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%EC%84%B1%20%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80%3F.md)
+  - [다양한 의존 관게 주입 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EB%8B%A4%EC%96%91%ED%95%9C%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%20%EC%A3%BC%EC%9E%85%20%EB%B0%A9%EB%B2%95.md)
+  - [Spring Bean LifeCycle 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B9%88%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4.md)
+
+- ### H2
+  - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
+  - [Spring H2 Memory DB 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20memory%20DB%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+
+- ### Interceptor & Filter
+  - [Interceptor와 Filter 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Interceptor%20%26%20Filter/Interceptor%EC%99%80%20Filter%20%EC%A0%95%EB%A6%AC.md)
+
+- ### JSP
+  - [Spring Boot에서 JSP 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JSP/Spring%20Boot%EC%97%90%EC%84%9C%20JSP%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+
+- ### JUnit
+  - [Parameterized 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
+
+- ### Kotlin
+  - [Kotlin으로 S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%20%EC%9C%BC%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+  - [Kotlin에서 ModelMapper 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%97%90%EC%84%9C%20ModelMapper%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+  - [Kotlin으로 @Valid 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20Valid%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+
+- Logback
+  - [Spring Logback으로 Slack 에러 로그 남기는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Logback/Spring%20LogBack%EC%9C%BC%EB%A1%9C%20Slack%20%EB%A1%9C%EA%B7%B8%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EB%B2%95.md)
+  - [Spring 에러 로그 CloudWatch로 전송하는 법]()
 
 ## NodeJS
 
