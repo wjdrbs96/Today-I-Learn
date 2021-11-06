@@ -249,7 +249,7 @@
 
 - [2장: 객체 생성과 파괴](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Effective_Java/2%EC%9E%A5)
   - [Item1 : 생성자 대신 정적 팩터리 메소드를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item1.md)
-  - [Item2 : 생성자에 매게변수가 많다면 빌더를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item2.md)
+  - [Item2 : 생성자에 매개변수가 많다면 빌더를 고려하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item2.md)
   - [Item3 : private 생성자나 열거 타입으로 싱글턴임을 보증하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item3.md)
   - [Item4 : 인스턴스화를 막으려거든 private 생성자를 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item4.md)
   - [Item5 : 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Effective_Java/2%EC%9E%A5/item5.md)
@@ -385,7 +385,7 @@
 - [Controller - Service 계층 분리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Controller-Service%20%EA%B3%84%EC%B8%B5%EB%B6%84%EB%A6%AC.md)
 - [dotenv 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/dotenv%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 
-- ## PHP
+## PHP
   
 - [PHP로 AWS S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/PHP/php%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C.md)
 
