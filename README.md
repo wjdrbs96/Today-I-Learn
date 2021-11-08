@@ -166,6 +166,9 @@
   - [다양한 의존 관게 주입 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EB%8B%A4%EC%96%91%ED%95%9C%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%20%EC%A3%BC%EC%9E%85%20%EB%B0%A9%EB%B2%95.md)
   - [Spring Bean LifeCycle 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B9%88%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4.md)
 
+- ### JPA
+  - [Spring Data JPA로 페이징 구현하는 법]()
+
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [Spring H2 Memory DB 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20memory%20DB%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
@@ -178,6 +181,9 @@
 
 - ### JUnit
   - [Parameterized 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
+
+- ### Issue
+  - [Jackson Primitive boolean Type is 사라지는 직렬화 문제 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Issue/Jackson%20primitive%20boolean%20is%20%EC%A7%81%EB%A0%AC%ED%99%94%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
 
 - ### Kotlin
   - [Kotlin으로 S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%20%EC%9C%BC%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
