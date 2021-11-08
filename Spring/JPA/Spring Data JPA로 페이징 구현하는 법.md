@@ -1,10 +1,10 @@
 # `Spring Data JPA에서 페이징 구현하는 법`
 
-이번 글에서는 `Spring Data JPA`에서 `Paging`을 구현하는 법에 대해서 알아보겠습니다. 저는 `JPA`에 대해서 이제 공부하는 단계라 페이징을 처음 구현해보는데요. 공부하기 전에도 `JPA로 페이징을 구현하는게 어렵다` 라는 말은 많이 듣기만 해봤는데 이번 기회에 한번 공부해보면서 정리를 해보겠습니다.
+이번 글에서는 `Spring Data JPA`에서 `Paging`을 구현하는 법에 대해서 알아보겠습니다. 저는 `JPA`에 대해서 이제 공부하는 단계라 페이징을 처음 구현해보는데요. 공부하기 전에도 `JPA로 페이징을 구현하는게 어렵다` 라는 말은 많이 듣기만 해봤는데 이번 기회에 한번 공부해보면서 정리를 해보겠습니다. (이번 글의 코드를 보고 싶다면 [Github](https://github.com/wjdrbs96/blog-code/tree/master/JPA_Paging) 에서 확인하실 수 있습니다.)
 
 <img width="1053" alt="스크린샷 2021-11-07 오후 3 27 58" src="https://user-images.githubusercontent.com/45676906/140634844-9ba0a684-1fb8-40c4-8c2c-e58c5b9250f7.png">
 
-페이징은 위의 보이는 것처럼 한 화면에 다 보여줄 수 없기 때문에, `페이지`를 나눠서 게시글을 보여주는 것을 말하는데요. 다들 어떤 것인지 잘 아실 거 같으니 바로 본론으로 가보겠습니다!   
+페이징은 위의 보이는 것처럼 한 화면에 다 보여줄 수 없기 때문에, `페이지`를 나눠서 게시글을 보여주는 것을 말하는데요. 페이징을 구현하는 방법, 성능을 개선하는 방법 등등 정말 다양하고 복잡하지만 초급자의 마음으로 정리해보겠습니다.
 
 <br> 
 
@@ -125,7 +125,7 @@ spring:
       ddl-auto: create
 ```
 
-먼저 `JPA`, `H2`에 필요한 설정을 `application.yml`에 추가하겠습니다.
+먼저 `JPA`, `H2`에 필요한 설정을 `application.yml`에 추가하겠습니다. H2 mem DB로 사용할 수 있도록 설정하였습니다. 혹시나 잘 사용법을 잘 모르겠다면 [H2 Memory DB 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20memory%20DB%20%EC%82%AC%EC%9A%A9%EB%B2%95.md) 을 보고 오시면 됩니다.   
 
 <br> <br>
 
@@ -155,7 +155,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 }
 ```
 
-게시글을 조회하기 위해서 위와 같이 `User`가 작성한 `Post(게시글)`을 `내림차순`으로 조회하도록 메소드를 작성하였습니다. 그리고 주목해서 볼 점은 두 번째 파라미터가 `Pageable 인터페이스` 라는 것을 볼 수 있습니다. 그리고 반환 타입이 `Page` 인터페이스라는 것을 알 수 있습니다. 
+게시글을 조회하기 위해서 위와 같이 `User`가 작성한 `Post(게시글)`을 `내림차순`으로 조회하도록 메소드를 작성하였습니다. 그리고 주목해서 볼 점은 두 번째 파라미터가 `Pageable 인터페이스` 라는 것을 볼 수 있습니다. 즉, `JpaRepository<> 를 사용할 때, findAll() 메서드에 Pageable 인터페이스로 파라미터를 넘기면 페이징을 사용할 수 있습니다.` 그리고 반환 타입이 `Page` 인터페이스라는 것을 알 수 있습니다. 
 
 <br>
 
@@ -205,6 +205,42 @@ http://localhost:8080/post?page=1&size=5
 
 ![스크린샷 2021-11-08 오후 4 37 56](https://user-images.githubusercontent.com/45676906/140702008-aa1b8153-3518-49b7-828c-a0e08834e642.png)
 
-이번에는 두 번째 페이지라서 쿼리에 `offset`이 생긴 것도 볼 수 있습니다. 이렇게 페이징 구현은 끝이 났는데요. 여기서 한 가지 아쉬운 점이 있습니다. `Count` 쿼리는 맨 처음에 한번만 실행하여 전체 Post Entity 개수를 알면되는데 지금은 매 페이지 API를 요청할 때 마다 Count 쿼리가 실행되고 있습니다. 
+이번에는 두 번째 페이지라서 쿼리에 보면 `offset`이 생긴 것도 볼 수 있습니다. 이렇게 페이징 구현은 끝이 났는데요. 단순히 구현만 하는 것은 그렇게 어렵지는 않지만, 여기서 한 가지 아쉬운 점이 있습니다. `Count` 쿼리는 맨 처음에 한번만 실행하여 전체 Post Entity 개수를 알면되는데 지금은 매 페이지 API를 요청할 때 마다 Count 쿼리가 실행되고 있습니다. 
 
-즉, 성능이 중요하다면 이런 것 또한 부담이 될 수 있을 수 있다고 생각합니다. 그래서 이번 글에서는 다루지 않지만, [조졸두님의 페이징 성능 개선하기](https://jojoldu.tistory.com/531) 를 같이 참고해서 보시면 좋을 거 같습니다.
+즉, 성능이 중요하다면 이런 것 또한 부담이 될 수 있을 수 있다고 생각합니다. 그래서 이번 글에서는 다루지 않지만, [조졸두님의 페이징 성능 개선하기 시리즈](https://jojoldu.tistory.com/531) 를 같이 참고해서 보시면 좋을 거 같습니다.
+
+<br> <br>
+
+## `Pageable 동작원리 간단하게 살펴보기`
+
+![스크린샷 2021-11-08 오후 8 14 56](https://user-images.githubusercontent.com/45676906/140732601-64fbf321-a448-4237-bcbe-893994ac8d40.png)
+
+Controller API 메소드 파라미터에 `Pageable`만 추가해주면 `PageRequest` 객체를 내부적으로 생성하여 위에서 보았던 페이징에 필요한 작업들을 해주는 것인데요. 그 과정을 살짝만 알아보겠습니다. 
+
+<br>
+
+![스크린샷 2021-11-08 오후 8 16 42](https://user-images.githubusercontent.com/45676906/140732822-538685fd-9f81-44a4-88dd-8fe7d454da86.png)
+
+`Pageable` 인터페이스 구현체를 보았을 때, 느낌상 `PageRequest`를 사용할 것 같아 `PageRequest` 클래스 내부 코드를 보았습니다. 
+
+<br>
+
+![스크린샷 2021-11-08 오후 8 18 44](https://user-images.githubusercontent.com/45676906/140733097-a7b7d2c2-881d-447f-aea3-040e1bab03c1.png)
+
+PageRequest 클래스에서 `of` 메소드로 객체를 생성하는 코드에 `Break Point`를 걸어놓고 디버그 모드로 실행을 해보겠습니다. (참고로 여기서 변수 이름이 `page`, `size`기 때문에 Query String에도 `page`, `size` 이름이 사용되는 것 같습니다.)
+
+<br>
+
+![스크린샷 2021-11-08 오후 8 20 53](https://user-images.githubusercontent.com/45676906/140733815-acc467df-7d47-44e7-82f8-3e96857bdbdc.png)
+
+위와 같이 특별하게 페이징 `Size`를 지정하지 않으면 `Default`로 20이 지정되는 것을 볼 수 있습니다. 여기서 `Default Paging Size`를 변경하고 싶다면 아래와 같이 하면 됩니다. 
+
+<br>
+
+![스크린샷 2021-11-08 오후 8 35 07](https://user-images.githubusercontent.com/45676906/140735186-d270481a-c925-4806-a330-7b76cd01b46d.png)
+
+위와 같이 `@PagingDefault` 애노테이션을 사용하면 따로 `size`를 Query String에 지정하지 않으면 7개씩 페이징 처리가 됩니다. 
+
+<br>
+
+이번 글의 코드를 보고 싶다면 [Github](https://github.com/wjdrbs96/blog-code/tree/master/JPA_Paging) 에서 확인하실 수 있습니다.
