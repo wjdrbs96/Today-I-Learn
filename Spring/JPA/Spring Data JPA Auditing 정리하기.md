@@ -28,7 +28,17 @@
 - `@CreatedDate`: `Entity`가 생성될 때 자동으로 생성 시간이 저장됩니다. 
 - `@LastModifiedDate`: `Entity`가 수정될 때 자동으로 수정 시간이 저장됩니다. 
 
-<br>
+<br> <br>
+
+## `EntityListeners`
+
+![스크린샷 2021-11-09 오전 11 54 31](https://user-images.githubusercontent.com/45676906/140853534-1d3ac94d-3446-4768-bbb5-51e56d9dd966.png)
+
+`@EntityListeners`는 엔티티를 DB에 적용하기 `전, 이후에 커스텀 콜백을 요청`할 수 있는 어노테이션입니다. `@EntityListeners`의 인자로 커스텀 콜백을 요청할 클래스를 지정해주면 되는데, Auditing 을 수행할 때는 JPA 에서 제공하는 `AuditingEntityListener`를 인자로 넘기면 됩니다.
+
+그래서 `AuditingEntityListener` 내부 코드를 보면 `touchForCreate`, `touceForUpdate` 메소드가 존재하고, 그 위에 `@PrePersist`, `@PreUpdate` 애노테이션이 존재하는 것도 볼 수 있는데요. 이것을 통해서 `Entity`에 생성, 수정이 일어나면 콜백이 실행되어 시간을 만들어주는 것입니다. 즉, 저처럼 `now()`를 통해서 직접 시간 생성 코드를 넣지 않아도 됩니다. 
+
+<br> <br>
 
 ![스크린샷 2021-11-08 오후 11 32 10](https://user-images.githubusercontent.com/45676906/140760467-e9c9d83a-a517-49ed-80c6-3f5964741b27.png)
 
