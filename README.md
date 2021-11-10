@@ -213,7 +213,7 @@
 
 - ### Redis
   - [Spring Data Redis 입문하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Data%20Redis%20%EC%9E%85%EB%AC%B8%ED%95%98%EA%B8%B0.md)
-  - [Spring Data Redis Host, Post 간단한 Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Redis%20port%2C%20host%20Tip.md)
+  - [Spring Data Redis Host, Port 간단한 Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Redis%20port%2C%20host%20Tip.md)
 
 - ### SOLID
   - [객체지향 설계 5원칙 SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/SOLID/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99%20SOLID.md)

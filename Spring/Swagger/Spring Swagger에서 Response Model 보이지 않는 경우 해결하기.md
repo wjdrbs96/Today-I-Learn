@@ -52,7 +52,7 @@ Swagger에서 Response Model이 보이지 않을 때는 클라이언트에게 `R
 
 <img width="1310" alt="스크린샷 2021-11-09 오후 1 38 57" src="https://user-images.githubusercontent.com/45676906/140863271-f48b1f42-61e5-4795-8329-fdf2929e56f3.png">
 
-그리고 `Swagger`를 실행해서 확인해보면 위와 같이 `Response Model`이 잘 보이는 것을 볼 수 있습니다. 
+그리고 `Swagger`를 실행해서 확인해보면 위와 같이 `Response Model`이 잘 보이는 것을 볼 수 있습니다. [Swagger 사용법을 모르겠다면?](https://jojoldu.tistory.com/31) 
 
 <br>
 
