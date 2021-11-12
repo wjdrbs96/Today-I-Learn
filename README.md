@@ -252,6 +252,11 @@
 - [8장; 프록시와 연관관계 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/8%EC%9E%A5.md)
 - [9장: 값 타입](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/9%EC%9E%A5.md)
 - [10장: 객체지향 쿼리 언어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/10%EC%9E%A5.md)
+- [12장: 스프링 데이터 JPA](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/12%EC%9E%A5.md)
+
+## Interview
+
+- [면접 전에 Github Interview Repository 모아보기]()
 
 
 ## Effective Java
