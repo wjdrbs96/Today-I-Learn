@@ -72,7 +72,7 @@
   - [String이 불변객체인 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%EC%9D%B4%20%EB%B6%88%EB%B3%80%20%EA%B0%9D%EC%B2%B4%EC%9D%B8%20%EC%9D%B4%EC%9C%A0.md)
   - [String + 연산이 일어나는 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20%2B%20%EC%97%B0%EC%82%B0%20%EA%B3%BC%EC%A0%95.md)
   - [String Constant pool이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md)
-
+  - [인코딩(Encoding) & 디코딩(Decoding)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9D%B8%EC%BD%94%EB%94%A9%2C%20%EB%94%94%EC%BD%94%EB%94%A9.md)
 
 - ### Date & Time
     - [Date & Calendar](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Calendar%EC%99%80%20Date.md)
@@ -115,7 +115,6 @@
     - [Socket](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/28%EC%9E%A5/%EB%8B%A4%EB%A5%B8%20%EC%84%9C%EB%B2%84%EB%A1%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%ED%95%98%EB%A9%B4%20%EB%90%98%EB%82%98%EC%9A%94%3F.md)
 
 - ### Etc
-    - [인코딩(Encoding) & 디코딩(Decoding)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9D%B8%EC%BD%94%EB%94%A9%2C%20%EB%94%94%EC%BD%94%EB%94%A9.md)
     - [BigDecimal이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/1%EC%A3%BC%EC%B0%A8%20%EA%B3%BC%EC%A0%9C/BigDecimal%EC%9D%B4%EB%9E%80%3F.md)
     - [자바 7부터 달라진 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/30%EC%9E%A5/Java%207%EC%97%90%EC%84%9C%20%EB%8B%AC%EB%9D%BC%EC%A7%84%20%EA%B2%83%EB%93%A4%EC%9D%80%3F.md)
     - [자바 8에 추가된 것은?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/32%EC%9E%A5)
