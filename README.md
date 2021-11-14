@@ -21,7 +21,8 @@
 
 - ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
-    - [Generic Type erasure란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/21%EC%9E%A5/Type%20erasure%EB%9E%80%3F.md)
+    - [Generic Method란?]()
+    - [Generic Type erasure란?]()
     
 - ### OOP
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
@@ -62,14 +63,16 @@
     - [Comparable과 Comparator 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Collection/Comparator%20vs%20Comparable%20%EC%B0%A8%EC%9D%B4.md)
    
 - ### java.lang
-    - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)       
-        - [String이 불변객체인 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%EC%9D%B4%20%EB%B6%88%EB%B3%80%20%EA%B0%9D%EC%B2%B4%EC%9D%B8%20%EC%9D%B4%EC%9C%A0.md)
-        - [String + 연산이 일어나는 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20%2B%20%EC%97%B0%EC%82%B0%20%EA%B3%BC%EC%A0%95.md)
-        - [String Constant pool이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md)
-    
     - [== vs equals vs hashCode](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/equals%2C%20hashCode%EB%9E%80%3F.md)
     - [clone 메소드란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/clone%20%EB%A9%94%EC%86%8C%EB%93%9C%EB%9E%80%3F.md)
     - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
+
+- ### String
+  - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
+  - [String이 불변객체인 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%EC%9D%B4%20%EB%B6%88%EB%B3%80%20%EA%B0%9D%EC%B2%B4%EC%9D%B8%20%EC%9D%B4%EC%9C%A0.md)
+  - [String + 연산이 일어나는 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20%2B%20%EC%97%B0%EC%82%B0%20%EA%B3%BC%EC%A0%95.md)
+  - [String Constant pool이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Etc/String/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md)
+
 
 - ### Date & Time
     - [Date & Calendar](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Calendar%EC%99%80%20Date.md)
@@ -223,7 +226,7 @@
 
 - ### Swagger
   - [Spring Swagger 404 에러 해결하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%20404%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
-  - [Spring Swagger Response Model 보이지 않는 경우 해결하기]()
+  - [Spring Swagger Response Model 보이지 않는 경우 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%EC%97%90%EC%84%9C%20Response%20Model%20%EB%B3%B4%EC%9D%B4%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EA%B2%BD%EC%9A%B0%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
 
 - ### Valid
   - [Spring Valid 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Spring%20Valid%20%EC%A0%95%EB%A6%AC.md)
@@ -256,7 +259,9 @@
 
 ## Interview
 
-- [면접 전에 Github Interview Repository 모아보기]()
+- [면접 전에 Github Interview Repository 모아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/Github%20Interview%20%EC%A0%95%EB%A6%AC%20%EB%AA%A8%EC%9D%8C.md)
+- [면접 전에 Java 보고 갈 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/Java/Java.md)
+- [면접 전에 DataBase 보고 갈 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/DataBase/DataBase.md)
 
 
 ## Effective Java

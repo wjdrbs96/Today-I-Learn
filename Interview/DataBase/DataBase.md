@@ -47,6 +47,7 @@ D: Durability(지속성) ⇒ 성공적으로 수행된 트랜잭션은 영원히
 
 ```
 INNER 조인은 서로 교집합이 해당하는 부분만을 가져옵니다. 
+
 반면에 OUTER JOIN에는 LEFT OUTER JOIN, RIGHER OUTER JOIN이 있는데 LEFT OUTER JOIN이면 교집합 + 왼쪽에 해당하는 것들을 가져옵니다. 
 즉, 겹치는 것이 없더라도 NULL을 채워서 가져옵니다.
 ```

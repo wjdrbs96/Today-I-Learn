@@ -227,7 +227,4 @@ gyun
 hyunwoo
 ```
 
-그래서 위와 같이 `tryAdvance()` 메소드를 사용하면 `Iterable` 메소드의 `hasNext()`와 같은 역할이고 `trySplit()`을 하면 쪼개는 메소드이다.
-따라서 결과도 위와 같이 나오는 것도 확인할 수 있다.
-
-
+그래서 위와 같이 `tryAdvance()` 메소드를 사용하면 `Iterable` 메소드의 `hasNext()`와 같은 역할이고 `trySplit()`을 하면 쪼개는 메소드이다. 따라서 결과도 위와 같이 나오는 것도 확인할 수 있다.
