@@ -68,7 +68,7 @@
     - [Wrapper class란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/%EB%9E%98%ED%8D%BC(wrapper)%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 - ### String
-  - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java_lang/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
+  - [String vs StringBuffer vs StringBuilder](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20vs%20StringBuffer%20vs%20StringBuilder.md)
   - [String이 불변객체인 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%EC%9D%B4%20%EB%B6%88%EB%B3%80%20%EA%B0%9D%EC%B2%B4%EC%9D%B8%20%EC%9D%B4%EC%9C%A0.md)
   - [String + 연산이 일어나는 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20%2B%20%EC%97%B0%EC%82%B0%20%EA%B3%BC%EC%A0%95.md)
   - [String constant pool이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md)
@@ -77,8 +77,8 @@
 - ### Date & Time
     - [Date & Calendar](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Calendar%EC%99%80%20Date.md)
     - [SimpleDateFormat](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/SimpleDateFormat.md)
-
-
+    - [LocalDateTime에서 milliseconds 제거하는 법]()
+    
 - ### java.io
     - [파일 입출력](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/26%EC%9E%A5)
     - [직렬화란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/27%EC%9E%A5/%EC%A7%81%EB%A0%AC%ED%99%94%EB%9E%80%3F.md) 
@@ -172,6 +172,9 @@
   - [Spring Data JPA로 페이징 구현하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%EB%A1%9C%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Spring Data JPA 메소드 사용법 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%82%AC%EC%9A%A9%EB%B2%95%20%EC%A0%95%EB%A6%AC.md)
   - [Spring Data JPA Auditing 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20Auditing%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
+
+- ### Common
+  - [ResponseEntity란?]()
 
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
