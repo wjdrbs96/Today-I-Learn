@@ -196,7 +196,10 @@
   - [Kotlin으로 S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%20%EC%9C%BC%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Kotlin에서 ModelMapper 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%97%90%EC%84%9C%20ModelMapper%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
   - [Kotlin으로 @Valid 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20Valid%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
-  - [Kotlin, JPA를 사용할 때 알아야 할 점]()
+  - [Kotlin, JPA를 사용할 때 알아야 할 점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20JPA%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%95%8C%20%EC%95%8C%EC%95%84%EC%95%BC%20%ED%95%A0%20%EC%A0%90.md)
+
+- ### Layer
+  - [Spring Layer에 대한 생각 정리]()
 
 - ### Logback
   - [Spring Logback으로 Slack 에러 로그 남기는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Logback/Spring%20LogBack%EC%9C%BC%EB%A1%9C%20Slack%20%EB%A1%9C%EA%B7%B8%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EB%B2%95.md)

@@ -76,5 +76,6 @@ tasks.withType<Test> {
 
 ## `Refernece`
 
+- [https://github.com/spring-guides/tut-spring-boot-kotlin](https://github.com/spring-guides/tut-spring-boot-kotlin)
 - [https://kotlinlang.org/docs/all-open-plugin.html](https://kotlinlang.org/docs/all-open-plugin.html)
 - [참고하면 좋은 글](https://blog.junu.dev/37)
