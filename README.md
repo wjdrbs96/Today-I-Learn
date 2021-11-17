@@ -199,7 +199,7 @@
   - [Kotlin, JPA를 사용할 때 알아야 할 점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20JPA%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%95%8C%20%EC%95%8C%EC%95%84%EC%95%BC%20%ED%95%A0%20%EC%A0%90.md)
 
 - ### Layer
-  - [Spring Layer에 대한 생각 정리]()
+  - [Spring Layer에 대한 생각 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Layer/Spring%20Layer%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%83%9D%EA%B0%81%20%EC%A0%95%EB%A6%AC.md)
 
 - ### Logback
   - [Spring Logback으로 Slack 에러 로그 남기는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Logback/Spring%20LogBack%EC%9C%BC%EB%A1%9C%20Slack%20%EB%A1%9C%EA%B7%B8%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EB%B2%95.md)
@@ -262,6 +262,7 @@
 - [9장: 값 타입](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/9%EC%9E%A5.md)
 - [10장: 객체지향 쿼리 언어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/10%EC%9E%A5.md)
 - [12장: 스프링 데이터 JPA](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/12%EC%9E%A5.md)
+- [13장: 웹 애플리케이션과 영속성 관리]()
 
 ## Interview
 
