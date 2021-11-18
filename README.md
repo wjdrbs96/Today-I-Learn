@@ -240,6 +240,9 @@
   - [Spring Valid 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Spring%20Valid%20%EC%A0%95%EB%A6%AC.md)
   - [Spring Valid DTO에 감싸져 있을 때 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Valid%20DTO%20%EA%B0%90%EC%8B%B8%EC%A0%B8%EC%9E%88%EC%9D%84%20%EB%95%8C%20%EC%82%AC%EC%9A%A9%20%EB%B2%95.md)
 
+- ### WebSocket
+  - [WebSocket SendTo PathVariable 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/WebSocket/WebSocket%20SendTo%20PathVariable.md)
+
 - ### yml
   - [Intellij에서 yml에 환경변수 추가하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Intellij%20%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Spring Profile Error 해결 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20profile%20Error.md)
