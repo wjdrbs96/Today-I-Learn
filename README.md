@@ -1,5 +1,7 @@
 # Today I Learn
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fwjdrbs96%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ## Java
 
 - ### Data Type
@@ -262,7 +264,7 @@
 - [9장: 값 타입](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/9%EC%9E%A5.md)
 - [10장: 객체지향 쿼리 언어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/10%EC%9E%A5.md)
 - [12장: 스프링 데이터 JPA](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/12%EC%9E%A5.md)
-- [13장: 웹 애플리케이션과 영속성 관리]()
+- [13장: 웹 애플리케이션과 영속성 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/13%EC%9E%A5.md)
 
 ## Interview
 
