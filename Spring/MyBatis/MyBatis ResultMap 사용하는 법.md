@@ -1,4 +1,4 @@
-# `MyBatis ResultMap 사용하는 법 정리`
+# `MyBatis ResultMap 사용하게 된 이유`
 
 이번 글에서는 프로젝트에서 `MyBatis`를 사용하면서 `ResultMap`을 사용한 것에 대해서 정리해보겠습니다.(ResultMap이 어떤 것인지?를 정리한 것이라기 보다 프로젝트에서 왜 ResultMap을 썼고 어떻게 적용했는지 정도만 정리해두려 작성하는 글입니다!) `MyBatis` 사용하는 법이 궁금하다면 [여기](https://devlog-wjdrbs96.tistory.com/200) 에서 확인할 수 있습니다. 
 
