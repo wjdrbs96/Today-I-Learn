@@ -7,3 +7,4 @@
 - [WooVictory - Ready-For-Tech-Interview](https://github.com/WooVictory/Ready-For-Tech-Interview)
 - [ksundong - backend-interview-question](https://github.com/ksundong/backend-interview-question)
 - [4z8l - tech_interview.zip](https://github.com/4z7l/tech_interview.zip)
+- [brave-tech-interview](https://github.com/brave-people/brave-tech-interview)
