@@ -22,7 +22,7 @@ public class MusicExam {
 ```java
 public class MusicBox {
     public synchronized void playMusicA( ) {
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 5; ++i) {
             System.out.println("MusicA !!");
 
             try {
@@ -34,7 +34,7 @@ public class MusicBox {
     }
 
     public synchronized void playMusicB() {
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 5; ++i) {
             System.out.println("MusicB !!");
 
             try {
@@ -68,6 +68,18 @@ public class MusicPlayer extends Thread {
         }
     }
 }
+```
+```
+MusicA !!
+MusicA !!
+MusicA !!
+MusicA !!
+MusicA !!
+MusicB !!
+MusicB !!
+MusicB !!
+MusicB !!
+MusicB !!
 ```
 
 위의 코드를 간단히 먼저 이해를 하고 계속 글을 따라오시면 됩니다. (간단하게 말하자면.. MusicBox를 공유하고 있습니다.) 

@@ -20,6 +20,7 @@
     - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
     - [정적 멤버를 클래스명.정적멤버로 접근해야 하는 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%A0%95%EC%A0%81%20%EB%A9%A4%EB%B2%84%EB%8A%94%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%AA%85.%EC%A0%95%EC%A0%81%EB%A9%A4%EB%B2%84%EB%A1%9C%20%EC%A0%91%EA%B7%BC%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
     - [객체지향 설계 5원칙 - SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99-SOLID.md)
+    - [인터페이스와 추상클래스의 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%20%EC%B0%A8%EC%9D%B4.md)
 
 - ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
@@ -131,7 +132,6 @@
 - ### 타입 변환
     - [암묵적 타입변환, 명시적 타입변환](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%EC%95%94%EB%AC%B5%EC%A0%81%20%ED%83%80%EC%9E%85%EB%B3%80%ED%99%98%2C%20%EB%AA%85%EC%8B%9C%EC%A0%81%20%ED%83%80%EC%9E%85%EB%B3%80%ED%99%98.md)
     
-    
 - ### 스코프
     - [스코프(Scope)란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Scope.md)
     - [함수 범위, 블록 범위, 렉시컬(lexical) 범위](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%ED%95%A8%EC%88%98%20%EB%B2%94%EC%9C%84%2C%20%EB%B8%94%EB%A1%9D%20%EB%B2%94%EC%9C%84%2C%20%EB%A0%89%EC%8B%9C%EC%BB%AC%20%EB%B2%94%EC%9C%84.md)
@@ -177,7 +177,7 @@
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
-  - [@SpringBootApplication 동작 원리 알아보기]()
+  - [@SpringBootApplication 동작 원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/%40SpringBootApplication%20%EB%8F%99%EC%9E%91%20%EC%9B%90%EB%A6%AC.md)
 
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
@@ -436,8 +436,8 @@
 - [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Stack.md)
 - [Queue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Queue.md)
 - [LinkedList](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/LinkedList.md)
-
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
+- [Heap]()
 
 - ### Tree
     - [이진트리란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Tree/%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%EB%9E%80%3F.md)
