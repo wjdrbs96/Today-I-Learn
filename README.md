@@ -23,8 +23,8 @@
 
 - ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
-    - [Generic Method란?]()
-    - [Generic Type erasure란?]()
+    - [Generic Method란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Generic/Generic%20Method.md)
+    - [Generic Type erasure란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Generic/Generic%20Type%20erasure.md)
     
 - ### OOP
     - [Overriding vs Overloading](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/Overriding%20vs%20Overloading.md)
@@ -177,6 +177,7 @@
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
+  - [@SpringBootApplication 동작 원리 알아보기]()
 
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
