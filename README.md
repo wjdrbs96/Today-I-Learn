@@ -1,7 +1,5 @@
 # Today I Learn
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fwjdrbs96%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-
 ## Java
 
 - ### Data Type
@@ -174,6 +172,7 @@
   - [Spring Data JPA로 페이징 구현하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%EB%A1%9C%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Spring Data JPA 메소드 사용법 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%82%AC%EC%9A%A9%EB%B2%95%20%EC%A0%95%EB%A6%AC.md)
   - [Spring Data JPA Auditing 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20Auditing%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
+  - [JPA MultiBagFetchException 해결하기]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
@@ -437,7 +436,7 @@
 - [Queue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Queue.md)
 - [LinkedList](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/LinkedList.md)
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
-- [Heap]()
+- [Heap](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Heap.md)
 
 - ### Tree
     - [이진트리란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Tree/%EC%9D%B4%EC%A7%84%ED%8A%B8%EB%A6%AC%EB%9E%80%3F.md)
