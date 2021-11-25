@@ -48,10 +48,10 @@
 
 쿼리가 나가는 상황을 요약하면 아래와 같습니다. 
 
-- `post.findAll() 쿼리 실행 => (id 1, 2, 3) 반환 => 총 쿼리 1번 수행`
-- `post에 해당하는 with_user 가져오기` => `총 쿼리 1번 실행`
-- `post에 해당하는 post_image 가져오기` => `총 쿼리 1번 실행`
-- `post에 해당하는 post_evaluate 가져오기` => `총 쿼리 1번 실행`
+- `post.findAll() 쿼리 실행 => (id 1, 2, 3) 반환 => 쿼리 1번 수행`
+- `post에 해당하는 with_user 가져오기` => `쿼리 3번 실행`
+- `post에 해당하는 post_image 가져오기` => `쿼리 3번 실행`
+- `post에 해당하는 post_evaluate 가져오기` => `쿼리 3번 실행`
 
 <br>
 
@@ -108,7 +108,7 @@ JPA에서 `Fetch Join`의 특징은 아래와 같습니다.
 
 ## `Hibernate default_batch_fetch_size 사용하기`
 
-이건 [김영한님 JPA 강의](https://www.inflearn.com/course/ORM-JPA-Basic) 에서도 소개해주신 적이 있고, [Jojoldu님 꼐서도 아주 좋은 내용을 정리](https://jojoldu.tistory.com/457) 해주신 것이 있습니다. 
+이건 [김영한님 JPA 강의](https://www.inflearn.com/course/ORM-JPA-Basic) 에서도 소개해주신 적이 있고, [Jojoldu님이 아주 좋은 내용을 정리 해주신 것](https://jojoldu.tistory.com/457) 이 있습니다. 
 
 ![스크린샷 2021-11-24 오후 2 31 30](https://user-images.githubusercontent.com/45676906/143180472-5997f572-f082-4cc2-a2ae-4fad4176be98.png)
 
@@ -151,8 +151,6 @@ JPA 관련 설정 `application.yml` 파일 입니다.
 그리고 위에서 보았던 `자식 테이블 하나만 Fetch Join을 걸고 나머지는 Lazy Loading` 예시 코드 그대로 `default_batch_fetch_size` 설정만 해놓고 실행하면 위와 같이 `IN`을 사용해서 쿼리가 실행되는 것을 볼 수 있습니다. 즉, `default_batch_fetch_size` 옵션을 사용하지 않았다면 게시글이 100개만 되어도 300번, 300번 총 600번 쿼리가 실행되었을 것입니다. 
 
 그런데 현재 `default_batch_fetch_size`를 1000으로 주었기 때문에 이번엔 `2번` 쿼리로 다 가져올 수 있습니다. 엄청난 차이가 있는 것을 볼 수 있습니다.
-
-<br> <br>
 
 > Tip) <br>
 > 보통 옵션값을 1,000 이상 주지는 않습니다. <br> 
