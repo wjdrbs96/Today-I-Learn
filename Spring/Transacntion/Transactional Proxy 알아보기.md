@@ -1,5 +1,7 @@
 ## `@Transactional Proxy 알아보기`
 
+
+
 ```java
 public void register(Member member) {
     try {
