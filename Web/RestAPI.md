@@ -121,3 +121,12 @@ http://test.com/sopt/appjam.jpeg
 ### Cacheable
 
 - HTTP라는 기존의 웹 표준을 그대로 사용하기 때문에 캐싱 기능 적용 가능
+
+<br> <br>
+
+##  REST API 디자인 가이드
+
+REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있다.
+
+- 첫 번째, `URI는 정보의 자원을 표현`해야 한다.
+- 두 번째, 자원에 대한 행위는 `HTTP Method(GET, POST, PUT, DELETE)`로 표현한다.

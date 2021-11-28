@@ -4,7 +4,7 @@
 
 <br>
 
-![스크린샷 2021-11-29 오전 12 24 22](https://user-images.githubusercontent.com/45676906/143774447-e32f7957-ec24-4679-832f-58675129f3db.png)
+![123123123213](https://user-images.githubusercontent.com/45676906/143775325-4ee6a913-03fb-4e3c-bd36-ccbbc67196de.png)
 
 `Intellij` 오른쪽에 보면 위와 같이 `DB` 관련 설정을 할 수 있는 곳이 있는데요. 위에 보이는 순서대로 누르겠습니다! 
 
