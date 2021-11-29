@@ -105,6 +105,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 ## `9) 다형성이란 무엇인가요?`
 
 > 다형성(polymorphism)이란 하나의 객체가 여러 가지 타입을 가질 수 있는 것을 의미합니다.
+> 하나의 메소드나 클래스가 상황에 따라 다양한 방법으로 동작하는 것을 의미한다.
 
 > List<Integer> list = new ArrayList<>();
 
@@ -180,6 +181,36 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
   - LinkedList
 - Set
   - HashSet, LinkedHashSet, TreeSet
+
+<br>
+
+### `List`
+
+- 순서가 있는 데이터의 집합이다.
+- 데이터의 중복을 허용한다.
+- LinkedList : 양방향 포인터 구조로 데이터의 삽입, 삭제가 빈번할 경우 빠른 성능을 보장한다. 스택, 큐, 양방향 큐 등을 만들기 위한 용도로 사용된다.
+- ArrayList : 상당히 빠르고 크기를 마음대로 조절할 수 있는 배열이다. 단방향 포인터 구조로 자료에 대한 순차적인 접근에 강점이 있다.
+
+<br>
+
+### `Set`
+
+- 순서가 없는 데이터의 집합이다.
+- 데이터의 중복을 허용하지 않는다.
+- HashSet : 가장 빠른 임의 접근 속도를 가진다. 순서가 랜덤으로 저장된다.
+- TreeSet : 정렬된 순서대로 보관하며 정렬 방법을 지정할 수 있다.
+- LinkedHashSet : 추가된 순서, 또는 가장 최근에 접근한 순서대로 접근이 가능하다.
+
+<br>
+
+### `Map`
+
+- 키-값 쌍으로 이루어진 데이터의 집합이다.
+- 순서는 유지되지 않고, 키는 중복을 허용하지 않는다. 값은 중복을 허용한다.
+- HashMap : Map 인터페이스를 구현하기 위해 HashTable을 사용한 클래스, 중복을 허용하지 않고 순서를 보장하지 않는다. 키와 값으로 null이 허용된다.
+- TreeMap : 이진검색트리의 형태로 키와 값이 쌍으로 이루어진 데이터를 저장한다. 정렬된 순서로 키, 값 쌍을 저장하므로 빠른 검색이 가능하다. 저장시 정렬을 하기 때문에 저장시간이 다소 오래걸린다.
+- HashTable : HashMap보다 느리지만 동기화가 지원된다. 키와 값으로 null이 허용되지 않는다.
+- LinkedHashMap : 기본적으로 HashMap을 상속받아 HashMap과 매우 흡사하다. Map에 있는 엔트리들이 연결 리스트가 유지되므로 입력한 순서대로 반복이 가능하다.
   
 <br>
 
@@ -223,6 +254,139 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 - `map`: map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있다. 
 - `flatmap`: flatMap()은 Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환합니다.
+
+<br>
+
+## `17. JVM 메모리 구조에 대해서 설명해주세요.`
+
+### `JVM 실행과정`
+
+1.프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
+2. 자바 컴파일러(javac)가 자바소스(.java)코드를 읽어 들여 자바 바이트코드(.class)로 변환시킨다.
+3. 변경된 Class 파일들을 `Class Loader`를 통해 JVM 메모리 영역(Runtime Data Areas) 으로 로딩한다.
+4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.
+5. 해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.
+6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC같은 관리 작업을 수행한다.
+
+<br>
+
+![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxKh6U%2FbtqCPzYJhpS%2FoKDKiaPoWqwqU86rf7IVVk%2Fimg.png)
+
+<br>
+
+### `Executioin Engine(실행 엔진)`
+
+.class파일을 실행시키는 역할. 클래스 로더가 JVM 내의 Runtime Data Area에 .class(바이트코드) 를 배치하고, 이를 실행 엔진에 의해 실행된다. 
+
+- Interpreter
+  - 바이트 코드를 명령어 단위로 읽어서 실행하는 인터프리터. 한 줄씩 수행하기 때문에 느리다는 단점이 있다.
+
+- JIT compiler(Just - In - Time)
+  - JIT 컴파일러는 인터프리터 방식의 단점을 보완하기 위해 도입했다. 인터프리터 방식으로 실행하다가 적절한 시점에 바이트 코드 전체를 컴파일하여 네이티브 코드로 변경하고, 이후에는 네이티브 코드를 직접 실행하는 방식이다. 단, JIT 컴파일러가 컴파일하는 과정은 바이트 코드를 인터프리팅하는 것보다 훨씬 오래 걸리므로, JIT 컴파일러를 사용하는 JVM은 내부적으로 해당 메서드가 얼마나 자주 수행되는지 확인하여, 일정 정도를 넘을 때에만 컴파일을 수행한다.
+  
+<br>
+
+### `Runtime Data Areas`
+
+1) PC Register 
+   1) Thread가 시작될 때 생성되며 생성될 때 마다 생성되는 공간으로 스레드마다 하나씩 존재한다. Thread가 어떤 부분을 어떤 명령으로 실행해야할 지에 대한 기록을 하는 부분으로 현재 수행 중인 JVM 명령의 주소를 갖는다. 그리고 JVM은 오직 JVM 스택에 스택 프레임을 추가하고(push) 제거하는(pop) 동작만 수행한다
+   
+2) JVM stack 
+   1) 프로그램 실행과정에서 임시로 할당되었다가 메소드를 빠져나가면 바로 소멸되는 특성의 데이터를 저장하기 위한 영역이다. 예를들어 호출된 메서드의 파라미터, 지역 변수, 리턴 값 및 연산 값 등이 임시로 저장되는 영역이다.
+   
+3) Native Method stack 
+   1) 자바 프로그램이 컴파일되어 생성되는 바이트 코드가 아닌 실제 실행할 수 있는 기계어로 작성된 프로그램을 실행시키는 영역이다. JAVA Native Interface를 통해 바이트 코드로 전환하여 저장한다.
+   
+4) Heap 
+   1) 객체를 저장하는 가상 메모리 공간이다. GC의 대상이 되는 영역. 프로그램 실행 중 생성되는 인스턴스(new 연산자), 배열등은 모두 Heap 영역에 생성된다. 즉, 인스턴스변수(instance variable)들이 생성되는 공간이다.
+
+5) Method Area 
+   1) 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장한다. 이 때, 그 클래스의 클래스변수(class variable)도 Method Area(메서드 영역)에 함께 생성된다.
+
+또한 Runtime constant pool 은 Method area 내부에 존재하는 영역으로, 이는 상수 자료형을 저장하여 참조하고 중복을 막는 역할을 수행한다.
+
+<br>
+
+## `18. GC에 대해서 설명해주세요.`
+
+![image](https://user-images.githubusercontent.com/45676906/143909431-0e8e4bac-bd12-4d11-91b3-365c2ab3afb9.png)
+
+- Java 8 에서 `Permanent` 영역이 사라지고 `Metaspace`가 생기고 `Native` 영역에서 관리되기 시작함
+
+<br>
+
+GC를 이해하기 위해서 객체가 제일 먼저 생성되는 Young 영역입니다. `Young` 영역은 3개의 영역으로 나뉩니다. 
+
+- Eden 영역
+- Survivor 영역(2개)
+
+<br>
+
+Survivor 영역이 2개이기 때문에 총 3개의 영역으로 나뉘는 것이다. 각 영역의 처리 절차를 순서에 따라서 기술하면 다음과 같다.
+
+- 새로 생성한 대부분의 객체는 Eden 영역에 위치한다.
+- Eden 영역에서 GC가 한 번 발생한 후 살아남은 객체는 Survivor 영역 중 하나로 이동된다.
+- Eden 영역에서 GC가 발생하면 이미 살아남은 객체가 존재하는 Survivor 영역으로 객체가 계속 쌓인다.
+- 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다.
+- 이 과정을 반복하다가 계속해서 살아남아 있는 객체는 Old 영역으로 이동하게 된다.
+
+<br> <br>
+
+## `Old 영역에 대한 GC`
+
+GC 방식은 JDK 7을 기준으로 5가지 방식이 있다.
+
+- Serial GC
+- Parallel GC
+- Parallel Old GC(Parallel Compacting GC)
+- Concurrent Mark & Sweep GC(이하 CMS)
+- G1(Garbage First) GC
+
+<br>
+
+### Parallel GC
+
+- Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개 >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
+- Parallel GC는 메모리가 충분하고 코어의 개수가 많을 때 유리하다.
+
+<br>
+
+### Parallel GC
+
+- Old 영역에서 작동할때만 다름
+- `Mark-Sweep-Compaction` 알고리즘 말고, `Mark-Summary-Compaction`을 사용한다
+
+<br>
+
+### G1 GC
+
+- G1 GC를 이해하려면 지금까지의 Young 영역과 Old 영역에 대해서는 잊는 것이 좋다.
+- G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
+- G1 GC의 가장 큰 장점은 성능이다. 지금까지 설명한 어떤 GC 방식보다도 빠르다.
+
+![1](https://d2.naver.com/content/images/2015/06/helloworld-1329-6.png)
+
+<br>
+
+### Java Version 별 GC 방식
+
+- Java 7 : Parallel GC
+- Java 8 : Parallel GC
+- Java 9 : G1 GC
+- Java 11 : G1 GC
+
+<br>
+
+## 제네릭에 대해서 설명해주세요.
+
+컴파일 과정에서 타입체크를 해주는 기능으로 객체의 타입을 컴파일 시에 체크하기 때문에 객체의 타입 안정성을 높이고 형변환의 번거로움을 줄여줍니다. 
+
+<br>
+
+## mutable vs immutable 에 대해서 설명해주세요.
+
+- mutable: 변경 가능한 객체입니다. 최초 생성 이후에 자유롭게 변경 가능합니다. 
+- immutable: 변경 불가능 객체입니다. 대표적으로 Java String 이 존재합니다. 
 
 <br>
 

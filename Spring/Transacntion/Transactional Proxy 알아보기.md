@@ -91,3 +91,30 @@ public class MemberServiceProxy {
 ```
 
 그러면 코드는 정확하지 않지만 대략적으로 위와 같이 `Spring Dynamic Proxy`를 통해서 `Proxy` 객체가 생성 만들어지고 `Proxy Class -> Real Class`를 참조하게 됩니다. 그리고 위처럼 `트랜잭션 시작, 커밋, 롤백` 코드가 동작하게 됩니다.
+
+<br> <br>
+
+## `@Transactional 적용 메소드의 롤백 처리`
+
+커밋을 수행하는 주체가 프록시 객체였던 것처럼 롤백을 처리하는 주체 또한 프록시 객체입니다. 실제로 `@Transactional`을 처리하기 위한 프록시 객체는 원본 객체의 메소드를 실행하는 과정에서 `RuntimeException`이 발생하면 트랜잭션을 롤백합니다. 
+
+![스크린샷 2021-11-30 오전 1 08 12](https://user-images.githubusercontent.com/45676906/143902302-446a2fb4-b3cd-4119-a607-bc218aea23bb.png)
+
+위처럼 따로 설정하지 않으면 `RuntimeException`, `Error`만 롤백된다고 적혀있는 것을 볼 수 있습니다. 즉, `SQLException` 같은 것은 `RuntimeException`을 상속하고 않아서 만약에 `SQLExcepton`이 발생하면 롤백이 되지 않습니다. 
+
+<br>
+
+```java
+@Transactional(rollbackFor = SQLException.class)
+public void register(Member member) {
+        try {
+            manager.begin();
+            memberService.register(member);
+            manager.commit();
+        } catch (Exception e) {
+            manager.rollback();
+        }
+    }
+```
+
+위와 같이 `RuntimeException`이 아닌 다른 클래스도 롤백을 하고 싶다면 `rollbackFor` 설정을 따로 해주어야 합니다.

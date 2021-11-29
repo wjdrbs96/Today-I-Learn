@@ -26,6 +26,14 @@ Spring Bean 으로 등록되었을 때 위와 같은 장점이 있다.
 - 필드 주입
   - 필드 주입은 권장하지 않는 방식이다. 필드 주입을 통해서 주입을 해버리면 다른 의존 관계로 바꾸고 싶어도 바꿀 수가 없다. 그리고 DI 프레임 워크가 없다면 의존성 주입을 할 수 없다는 큰 단점이 있다. 
 
+
+<br>
+
+## @Autowired 에 대해서 설명해주세요.
+
+해당 어노테이션이 존재하면 어노테이션이 붙어있는 클래스가 `IoC 컨테이너에 Bean`으로 등록되어 있는지 확인하고 등록되어 있다면 의존성 주입을 해주고, 등록되어 있지 않다면 런타임에 에러가 발생합니다.
+
+
 <br>
 
 ## 4. Bean LifeCycle 에 대해서 설명해주세요.
@@ -43,6 +51,7 @@ AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이�
 - PointCut: 어디에 적용해야 하는지에 대한 정보를 담고 있음
 - Target: Aspect에 적용이 되는 대상
 - Join Point: Advice가 적용될 위치
+- Weaving : Advice를 핵심 로직코드에 적용하는 것
 
 <br>
 
@@ -92,6 +101,10 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
   - Filter 는 Spring 영역 밖에 위치합니다. 즉 ExceptionHandler 같은 것을 통해서 에러 처리를 할 수 없습니다. 즉, 앞단에서 XSS 방어 어떤 처리를 해야 할 때 사용하면 좋습니다.
   - 또한, Controller 이후 자원 처리가 끝난 후 응답 처리에 대해서도 변경, 조작을 수행할 수 있다.
 - `Interceptor` 는 Spring 영역 안에 있어 Spring 모든 Bean에 접근 가능합니다. 그리고 Controller 앞 뒤 로 끼어들 수 있는 메소드를 제공합니다. 
+- `Filter`는 Web Application(Tomcat을 사용할 경우 web.xml)에 등록하며, `Interceptor`는 Spring의 Application Context에 등록합니다.
+
+<img width="765" alt="스크린샷 2021-11-30 오전 1 26 25" src="https://user-images.githubusercontent.com/45676906/143905208-b0137a50-15b3-4358-a07c-f3c321cd83b8.png">
+
 
 <br>
 
@@ -121,3 +134,28 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 <br>
 
+## Spring Bean Scope 에 대해서 설명해주세요. 
+
+- 싱글톤은 기본 스코프로 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프입니다.
+- 프로토타입은 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프입니다.
+- request는 웹 요청이 들어오고 나갈때까지 유지하는 스코프, session은 웹 세션이 생성, 종료할때까지, application은 웹 서블릿 컨텍스트와 같은 범위로 유지하는 스코프입니다.
+ 
+<br>
+
+## JPA 영속성 컨텍스트 장점 아는대로 설명해주세요.
+
+- 1차 캐시 : 영속성 컨텍스트는 내부에 캐시를 가지고 있는데 이것을 `1차 캐시`라고 합니다. 1차 캐시에 없으면 DB 에서 조회해옵니다. 1차 캐시에 있다면 DB 쿼리를 날리지 않습니다.
+- 변경 감지(Dirty Checking) : 스냅샷을 1차 캐시에 들어온 데이터를 스냅샷을 찍어놓습니다. commit 되는 시점에 Entity와 스냅샷과 비교하여 다르다면 update SQL을 생성합니다.  
+- 지연 로딩(Lazy Loading) : FetchType을 LAZY로 설정해놓으면 연관관계의 객체를 프록시로 가져온 후에 실제 그 객체가 사용될 때 DB에 쿼리를 날려서 가져옵니다.
+- 동일성 보장: 동일성 비교가 가능합니다.(== 사용 가능)
+- 쓰기 지연 : 엔티티 매니저는 트랜잭션을 커밋하기 직전까지 데이터베이스에 엔티티를 저장하지 않고 내부 쿼리 저장소에 INSERT SQL을 차곡차곡 모아둡니다. 그리고 트랜잭션을 커밋할 때 모아둔 쿼리를 데이터베이스에 보내는데 이것을 `트랜잭션을 지원하는 쓰기 지연` 이라 합니다.
+
+<img width="987" alt="스크린샷 2021-08-25 오전 7 45 21" src="https://user-images.githubusercontent.com/45676906/130699692-8ded3c99-0b25-415f-abe4-14d8aa6d9799.png">
+
+<br>
+
+## N + 1 문제는 어떻게 해결하시나요?
+
+N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 지연 로딩시에는 반복문을 돌면서 하위 객체를 조회할때  발생합니다. 정확한 의미는 1개의 쿼리를 실행했을 때, 내부에 존재하는 컬렉션들을 조회해오면서 생기는 문제입니다. 기본적으로 되도록이면 @OneToMany의 매핑을 하지 않을 수 있다면 하지 않는 것이 최고의 예방책입니다.
+
+만약 그런 객체를 가져와야 하는 경우 `Fetch Join`이라고 하는 JPQL의 join fetch를 사용합니다. 쿼리 한 번으로 해결할 수 있고, 또 다른 방법으로는 `EntityGraph`를 사용하는 방법이 있습니다.

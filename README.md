@@ -248,7 +248,7 @@
 - ### Transactional
   - [Transactional Isolation Level, Spring Default Isolation](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Isolation.md)
   - [Transactional Propagation 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Propagation.md)
-  - [Transactional Proxy 동작원리 알아보기]()
+  - [Transactional Proxy 동작원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Proxy%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0.md)
 
 - ### Valid
   - [Spring Valid 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Spring%20Valid%20%EC%A0%95%EB%A6%AC.md)
@@ -298,6 +298,14 @@
 - [ksundong - backend-interview-question](https://github.com/ksundong/backend-interview-question)
 - [4z8l - tech_interview.zip](https://github.com/4z7l/tech_interview.zip)
 - [brave-tech-interview](https://github.com/brave-people/brave-tech-interview)
+
+
+## Gyunny Interview Study
+
+- [Java](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/Java.md)
+- [Spring](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/Spring.md)
+- [DataBase](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/DataBase.md)
+- [DataStructure](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/DataStructure.md)
 
 
 ## Effective Java
