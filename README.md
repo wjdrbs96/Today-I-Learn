@@ -248,6 +248,7 @@
 - ### Transactional
   - [Transactional Isolation Level, Spring Default Isolation](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Isolation.md)
   - [Transactional Propagation 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Propagation.md)
+  - [Transactional Proxy 동작원리 알아보기]()
 
 - ### Valid
   - [Spring Valid 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Spring%20Valid%20%EC%A0%95%EB%A6%AC.md)
