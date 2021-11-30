@@ -51,7 +51,7 @@ Object 규약에 equals가 true 라면 hashCode 값도 같아야 한다는 규�
 
 <br>
 
-### `5) HashMap 의 충돌 과정과 Java 8에서 어떻게 하고 있는지 설명해주세요.`
+### `5) HashMap 의 충돌 과정과 Java 8에서 어떻게 충돌을 해결하고 있는지 설명해주세요.`
 
 ```
 Hash 충돌에는 '개방 주소법', '분리 연결법'이 존재합니다. 
@@ -302,6 +302,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 5) Method Area 
    1) 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장한다. 이 때, 그 클래스의 클래스변수(class variable)도 Method Area(메서드 영역)에 함께 생성된다.
+   2) Perm 영역이라고도 하는데 Java 8 부터 Metaspace 로 변경되어 Native 영역에서 관리하기 시작했다.
 
 또한 Runtime constant pool 은 Method area 내부에 존재하는 영역으로, 이는 상수 자료형을 저장하여 참조하고 중복을 막는 역할을 수행한다.
 
@@ -329,12 +330,14 @@ Survivor 영역이 2개이기 때문에 총 3개의 영역으로 나뉘는 것�
 - Eden 영역에서 GC가 발생하면 이미 살아남은 객체가 존재하는 Survivor 영역으로 객체가 계속 쌓인다.
 - 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다.
 - 이 과정을 반복하다가 계속해서 살아남아 있는 객체는 Old 영역으로 이동하게 된다.
+- Old Generation 영역에서 살아남았던 객체들이 일정 수준 쌓이게 되면 미사용된다고 식별된 객체들을 제거해주는 Full GC가 발생하게 됩니다.
+  이 과정에서 STW(Stop-The-World)가 발생하게 됩니다. (STW란, Old Generation의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
 
 <br> <br>
 
 ## `Old 영역에 대한 GC`
 
-GC 방식은 JDK 7을 기준으로 5가지 방식이 있다.
+Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 방식에 따라서 처리 절차가 달라지므로, 어떤 GC 방식이 있는지 살펴보면 이해가 쉬울 것이다. GC 방식은 JDK 7을 기준으로 5가지 방식이 있다.
 
 - Serial GC
 - Parallel GC
@@ -344,17 +347,45 @@ GC 방식은 JDK 7을 기준으로 5가지 방식이 있다.
 
 <br>
 
-### Parallel GC
+### Serial GC
 
-- Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개 >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
-- Parallel GC는 메모리가 충분하고 코어의 개수가 많을 때 유리하다.
+- Young 영역에서의 GC는 앞 절에서 설명한 방식을 사용한다. Old 영역의 GC는 `mark-sweep-compact`이라는 알고리즘을 사용한다. 이 알고리즘의 첫 단계는 Old 영역에 살아 있는 객체를 식별(Mark)하는 것이다. 그 다음에는 힙(heap)의 앞 부분부터 확인하여 살아 있는 것만 남긴다(Sweep). 마지막 단계에서는 각 객체들이 연속되게 쌓이도록 힙의 가장 앞 부분부터 채워서 객체가 존재하는 부분과 객체가 없는 부분으로 나눈다(Compaction).
+
+- Serial GC는 적은 메모리와 CPU 코어 개수가 적을 때 적합한 방식이다.
 
 <br>
 
 ### Parallel GC
 
+- Parallel GC는 Serial GC와 기본적인 알고리즘은 같다.
+- Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개 >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
+- Parallel GC는 메모리가 충분하고 코어의 개수가 많을 때 유리하다.
+
+<br>
+
+### Parallel Old GC
+
 - Old 영역에서 작동할때만 다름
-- `Mark-Sweep-Compaction` 알고리즘 말고, `Mark-Summary-Compaction`을 사용한다
+  - `Mark-Sweep-Compaction` 알고리즘 말고, `Mark-Summary-Compaction`을 사용한다
+
+<br>
+
+### CMS GC (Concurrent Mark Sweep GC)
+
+초기 Initial Mark 단계에서는 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. 따라서, 멈추는 시간은 매우 짧다. 그리고 Concurrent Mark 단계에서는 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인한다. 이 단계의 특징은 다른 스레드가 실행 중인 상태에서 동시에 진행된다는 것이다.
+
+그 다음 Remark 단계에서는 Concurrent Mark 단계에서 새로 추가되거나 참조가 끊긴 객체를 확인한다. 마지막으로 Concurrent Sweep 단계에서는 쓰레기를 정리하는 작업을 실행한다. 이 작업도 다른 스레드가 실행되고 있는 상황에서 진행한다.
+
+이러한 단계로 진행되는 GC 방식이기 때문에 stop-the-world 시간이 매우 짧다. 모든 애플리케이션의 응답 속도가 매우 중요할 때 CMS GC를 사용하며, Low Latency GC라고도 부른다.
+
+그런데 CMS GC는 stop-the-world 시간이 짧다는 장점에 반해 다음과 같은 단점이 존재한다.
+
+- 다른 GC 방식보다 메모리와 CPU를 더 많이 사용한다.
+- Compaction 단계가 기본적으로 제공되지 않는다.
+
+<br>
+
+따라서, CMS GC를 사용할 때에는 신중히 검토한 후에 사용해야 한다. 그리고 조각난 메모리가 많아 Compaction 작업을 실행하면 다른 GC 방식의 stop-the-world 시간보다 stop-the-world 시간이 더 길기 때문에 Compaction 작업이 얼마나 자주, 오랫동안 수행되는지 확인해야 한다.
 
 <br>
 
@@ -363,6 +394,7 @@ GC 방식은 JDK 7을 기준으로 5가지 방식이 있다.
 - G1 GC를 이해하려면 지금까지의 Young 영역과 Old 영역에 대해서는 잊는 것이 좋다.
 - G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
 - G1 GC의 가장 큰 장점은 성능이다. 지금까지 설명한 어떤 GC 방식보다도 빠르다.
+- 큰 메모리를 가진 멀티 프로세서 머신을 위한 컬렉터에 적합
 
 ![1](https://d2.naver.com/content/images/2015/06/helloworld-1329-6.png)
 
