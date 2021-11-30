@@ -221,6 +221,17 @@ UncheckedException : 롤백 됨
   
 <br>
 
+### `Iterable vs Iterator 차이가 무엇인가요?`
+
+![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbE4TfJ%2FbtqBh1w4sLx%2FicJkqcLkLArocYCR4rHUFK%2Fimg.png)
+
+- Iterator 인터페이스의 역할은 데이터를 순차적으로 가져올 수 있게 해주는 역할을 합니다.
+- Collection 인터페이스가 Iterable 인터페이스를 extends 한 이유는 하위 클래스에서 iterator()을 반드시 구현하게 하기 위해서 입니다.
+- List, Set, Queue 인터페이스들 마다 데이터를 꺼내는 방법이 표준화 되어 있지 않다면 데이터를 읽어올 때마다 방법을 제 각각 알아야 하기 때문이 쉽지 않을 것입니다.
+- 그래서 Iterator 인터페이스를 통해서 방법을 표준화 시켜 코드의 일관성을 유지할 수 있습니다.
+
+<br>
+
 ## `12) Kotlin과 Java의 차이점 느낀대로 말해주세요.`
 
 1. 코틀린 주 생성자 사용 방식
@@ -437,7 +448,14 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 ## 제네릭에 대해서 설명해주세요.
 
-컴파일 과정에서 타입체크를 해주는 기능으로 객체의 타입을 컴파일 시에 체크하기 때문에 객체의 타입 안정성을 높이고 형변환의 번거로움을 줄여줍니다. 
+- JDK 1.5에 도입 되었다. 
+- 컴파일 과정에서 타입체크를 해주는 기능으로 객체의 타입을 컴파일 시에 체크하기 때문에 객체의 타입 안정성을 높이고 형변환의 번거로움을 줄여줍니다. 
+
+<br>
+
+## 제네릭 Type Erasure 에 대해서 설명해주세요.
+
+제네릭이 5버전 부터 나왔기에, 하위 버전과의 호환성 유지를 위한 작업이 필요했습니다. 따라서 코드의 호환성 때매 소거(erasure) 방식을 사용하게 됩니다.
 
 <br>
 
@@ -448,3 +466,8 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
+## Call By Reference vs Call By Value 차이가 무엇인가요?
+
+- Call By Value : 값을 복사 해서 넘김
+- Call By Reference : 값의 주소를 넘김
+- `Java는 Call By Value` 이다. 
