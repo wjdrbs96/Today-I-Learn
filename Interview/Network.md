@@ -2,7 +2,7 @@
 
 ## REST API 에 대해서 아는대로 설명해주세요.
 
-REST API 란 `자원`, `행위`, `표현` 으로 이루어져 있습니다. 
+REST API 란 `자원`, `행위`, `표현` 으로 이루어져 있습니다. HTTP URI를 통해 자원을 표시하고 HTTP Method를 통해 자원에 대한 처리를 표현합니다.
 
 - URI 는 정보의 자원을 표현해야 한다. 
 - HTTP Method GET, POST, DELETE, PUT 을 사용해야 한다.
@@ -30,7 +30,7 @@ ex) Naver Login (Social Login)
 
 ## CORS 에 대해서 설명해주세요.
 
-
+URL을 보면 Protocol, Host, Port 번호를 모두 합친 것이 출처(Origin) 입니다. 두 개의 출처가 같다는 것은 Scheme, Host, Port 이 3가지가 동일하다는 뜻입니다. 프론트엔드와 백엔드의 출처가 다를 때, 다른 출처로 자원을 요청하면 CORS 에러가 난다.
 
 <br>
 
@@ -53,3 +53,8 @@ ex) Naver Login (Social Login)
 ```
 
 `따라서 반드시 인증이 인가보다 선행되어야 하는 개념이다`
+
+<br>
+
+### HTTPS 가 무엇이고 어떻게 동작하는지 설명해주세요.
+

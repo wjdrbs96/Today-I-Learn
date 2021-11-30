@@ -54,7 +54,11 @@ Object 규약에 equals가 true 라면 hashCode 값도 같아야 한다는 규�
 ### `5) HashMap 의 충돌 과정과 Java 8에서 어떻게 충돌을 해결하고 있는지 설명해주세요.`
 
 ```
-Hash 충돌에는 '개방 주소법', '분리 연결법'이 존재합니다. 
+Hash 충돌에는 '개방 주소법', '분리 연결법'이 존재합니다.
+
+Open Addressing은 데이터를 삽입하려는 해시 버킷이 이미 사용 중인 경우 다른 해시 버킷에 해당 데이터를 삽입하는 방식입니다. 
+Open Addressing은 연속된 공간에 데이터를 저장하기 때문에 Separate Chaining에 비하여 캐시 효율이 높다. 따라서 데이터 개수가 충분히 적다면 Open Addressing이 Separate Chaining보다 더 성능이 좋다
+ 
 자바 Hash는 분리 연결법을 사용하고 있습니다. 해시 버킷에 충돌이 일어날 때마다 옆으로 LinkedList 형태로 저장하는 것을 말하는데요. 
 이렇게 저장해서 길이가 8이 되면 리스트 → 트리로 변경이 됩니다. 
 그리고 다시 6개 이하가 되면 트리 → 리스트 형태로 바뀝니다.
@@ -169,6 +173,9 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 체크 예외는 RuntimeException의 하위 클래스가 아니면서 Exception 클래스의 하위 클래스들입니다. `체크 예외의 특징은 반드시 에러 처리를 해야하는 특징(try/catch or throw)`을 가지고 있습니다.
 
 언체크 예외는 RuntimeException의 하위 클래스들을 의미합니다. 이것은 체크 예외와는 달리 에러 처리를 강제하지 않습니다.
+
+CheckedException : 롤백 되지 않음
+UncheckedException : 롤백 됨
 ```
 
 <br> 
@@ -231,7 +238,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 - Date -> LocalDateTime, LocalDate 등장
 - Lambda, Stream 생성
 - Interface Default Method 생성
-- JVM Permanet 삭제
+- JVM Permanent 영역 삭제
 
 <br>
 
@@ -246,7 +253,10 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 ## `15. 프로세스 vs 쓰레드 차이점에 대해서 설명해주세요.`
 
 - 프로세스는 운영체제로부터 자원을 할당받습니다. 즉, 프로그램이 메모리에 올라간 상태를 의미합니다.
-- 스레드는 프로세스로부터 자원을 할당받고, 프로세스의 코드/데이터/힙영역을 공유하기 때문에 좀 더 효율적으로 통신할 수 있습니다. 또한 컨텍스트 스위칭도 캐시 메모리를 비우지 않아도 되는 스레드쪽이 빠릅니다. 그리고, 스레드는 자원 공유로 인해 문제가 발생할 수 있으니 이를 염두에 둔 프로그래밍을 해야합니다.
+- `스레드는 프로세스로부터 자원을 할당받고, 프로세스의 코드/데이터/힙영역을 공유`하기 때문에 좀 더 효율적으로 통신할 수 있습니다. 또한 컨텍스트 스위칭도 캐시 메모리를 비우지 않아도 되는 스레드쪽이 빠릅니다. 그리고, 스레드는 자원 공유로 인해 문제가 발생할 수 있으니 이를 염두에 둔 프로그래밍을 해야합니다.
+-	프로세스를 생성하는거보다 Thread 생성이 더 시간 적게듬
+-	프로세스를 종료하는거보다 Thread 종료가 더 시간 적게듬
+-	프로세스를 스위칭하는거보다 같은 프로세스에 있는 두 Thread 스위칭이 더 시간 적게듬
 
 <br>
 
@@ -256,17 +266,17 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 - `flatmap`: flatMap()은 Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환합니다.
 
 <br>
-
+ 
 ## `17. JVM 메모리 구조에 대해서 설명해주세요.`
 
 ### `JVM 실행과정`
 
-1.프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
+1. 프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
 2. 자바 컴파일러(javac)가 자바소스(.java)코드를 읽어 들여 자바 바이트코드(.class)로 변환시킨다.
 3. 변경된 Class 파일들을 `Class Loader`를 통해 JVM 메모리 영역(Runtime Data Areas) 으로 로딩한다.
 4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.
 5. 해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.
-6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC같은 관리 작업을 수행한다.
+6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
 
 <br>
 
@@ -276,7 +286,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 ### `Executioin Engine(실행 엔진)`
 
-.class파일을 실행시키는 역할. 클래스 로더가 JVM 내의 Runtime Data Area에 .class(바이트코드) 를 배치하고, 이를 실행 엔진에 의해 실행된다. 
+.class파일을 실행시키는 역할을 합니다. 클래스 로더가 JVM 내의 Runtime Data Area에 .class(바이트코드) 를 배치하고, 이를 `실행 엔진`에 의해 실행된다. 
 
 - Interpreter
   - 바이트 코드를 명령어 단위로 읽어서 실행하는 인터프리터. 한 줄씩 수행하기 때문에 느리다는 단점이 있다.
@@ -287,6 +297,8 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 <br>
 
 ### `Runtime Data Areas`
+
+![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fci4Dqe%2FbtqCOyMIluC%2FkcfCKeWROOa7wGGKMdBy5K%2Fimg.png)
 
 1) PC Register 
    1) Thread가 시작될 때 생성되며 생성될 때 마다 생성되는 공간으로 스레드마다 하나씩 존재한다. Thread가 어떤 부분을 어떤 명령으로 실행해야할 지에 대한 기록을 하는 부분으로 현재 수행 중인 JVM 명령의 주소를 갖는다. 그리고 JVM은 오직 JVM 스택에 스택 프레임을 추가하고(push) 제거하는(pop) 동작만 수행한다
@@ -303,10 +315,22 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 5) Method Area 
    1) 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장한다. 이 때, 그 클래스의 클래스변수(class variable)도 Method Area(메서드 영역)에 함께 생성된다.
    2) Perm 영역이라고도 하는데 Java 8 부터 Metaspace 로 변경되어 Native 영역에서 관리하기 시작했다.
+   3) Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었음. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
+
+<br>
 
 또한 Runtime constant pool 은 Method area 내부에 존재하는 영역으로, 이는 상수 자료형을 저장하여 참조하고 중복을 막는 역할을 수행한다.
 
 <br>
+
+## `JRE vs JDK 차이가 무엇인가요?`
+
+![jdk vs jre](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FL2JVv%2FbtqAU6c3LWW%2FCDMSryWI5LedYjoUmSZkD0%2Fimg.png)
+
+- JRE가 아닌 JDK 부분을 보면 주로 Tool 관련된 것임을 알 수 있습니다. 대표적인 예시로 `컴파일러`, `디버깅 도구`들이 속해 있습니다.
+- JRE를 보면 `java.lang`, `java.util`, `Math`와 같은 패키지들을 가지고 있고, 자바 실행 환경을 담당하고 있습니다.
+
+<br> 
 
 ## `18. GC에 대해서 설명해주세요.`
 
@@ -328,10 +352,10 @@ Survivor 영역이 2개이기 때문에 총 3개의 영역으로 나뉘는 것�
 - 새로 생성한 대부분의 객체는 Eden 영역에 위치한다.
 - Eden 영역에서 GC가 한 번 발생한 후 살아남은 객체는 Survivor 영역 중 하나로 이동된다.
 - Eden 영역에서 GC가 발생하면 이미 살아남은 객체가 존재하는 Survivor 영역으로 객체가 계속 쌓인다.
-- 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다.
+- 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다. Young 에서 일어나는 GC 를 `Minor GC` 라고 합니다.
 - 이 과정을 반복하다가 계속해서 살아남아 있는 객체는 Old 영역으로 이동하게 된다.
-- Old Generation 영역에서 살아남았던 객체들이 일정 수준 쌓이게 되면 미사용된다고 식별된 객체들을 제거해주는 Full GC가 발생하게 됩니다.
-  이 과정에서 STW(Stop-The-World)가 발생하게 됩니다. (STW란, Old Generation의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
+- Old Generation 영역에서 살아남았던 객체들이 일정 수준 쌓이게 되면 미사용된다고 식별된 객체들을 제거해주는 `Full GC`가 발생하게 됩니다.
+  이 과정에서 `STW(Stop-The-World)`가 발생하게 됩니다. (STW란, Old Generation의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
 
 <br> <br>
 
@@ -349,16 +373,18 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 ### Serial GC
 
-- Young 영역에서의 GC는 앞 절에서 설명한 방식을 사용한다. Old 영역의 GC는 `mark-sweep-compact`이라는 알고리즘을 사용한다. 이 알고리즘의 첫 단계는 Old 영역에 살아 있는 객체를 식별(Mark)하는 것이다. 그 다음에는 힙(heap)의 앞 부분부터 확인하여 살아 있는 것만 남긴다(Sweep). 마지막 단계에서는 각 객체들이 연속되게 쌓이도록 힙의 가장 앞 부분부터 채워서 객체가 존재하는 부분과 객체가 없는 부분으로 나눈다(Compaction).
-
-- Serial GC는 적은 메모리와 CPU 코어 개수가 적을 때 적합한 방식이다.
+- Young 영역에서의 GC는 앞 절에서 설명한 방식을 사용한다. Old 영역의 GC는 `Mark-Sweep-Compact`이라는 알고리즘을 사용한다. 
+  1. 이 알고리즘의 첫 단계는 `Old 영역에 살아 있는 객체를 식별(Mark)`하는 것이다. 
+  2. 그 다음에는 `힙(heap)의 앞 부분부터 확인하여 살아 있는 것만 남긴다(Sweep)`. 
+  3. 마지막 단계에서는 각 객체들이 연속되게 쌓이도록 힙의 가장 앞 부분부터 채워서 객체가 존재하는 부분과 객체가 없는 부분으로 나눈다(`Compaction`).
+- `Serial GC는 적은 메모리와 CPU 코어 개수가 적을 때 적합한 방식이다.`
 
 <br>
 
 ### Parallel GC
 
-- Parallel GC는 Serial GC와 기본적인 알고리즘은 같다.
-- Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개 >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
+- `Parallel GC는 Serial GC와 기본적인 알고리즘은 같다`.
+- `Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개` >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
 - Parallel GC는 메모리가 충분하고 코어의 개수가 많을 때 유리하다.
 
 <br>
@@ -372,11 +398,11 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 ### CMS GC (Concurrent Mark Sweep GC)
 
-초기 Initial Mark 단계에서는 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. 따라서, 멈추는 시간은 매우 짧다. 그리고 Concurrent Mark 단계에서는 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인한다. 이 단계의 특징은 다른 스레드가 실행 중인 상태에서 동시에 진행된다는 것이다.
+초기 Initial Mark 단계에서는 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. 따라서, 멈추는 시간은 매우 짧다. 그리고 `Concurrent Mark 단계에서는 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인한다.` 이 단계의 특징은 다른 스레드가 실행 중인 상태에서 동시에 진행된다는 것이다.
 
 그 다음 Remark 단계에서는 Concurrent Mark 단계에서 새로 추가되거나 참조가 끊긴 객체를 확인한다. 마지막으로 Concurrent Sweep 단계에서는 쓰레기를 정리하는 작업을 실행한다. 이 작업도 다른 스레드가 실행되고 있는 상황에서 진행한다.
 
-이러한 단계로 진행되는 GC 방식이기 때문에 stop-the-world 시간이 매우 짧다. 모든 애플리케이션의 응답 속도가 매우 중요할 때 CMS GC를 사용하며, Low Latency GC라고도 부른다.
+`이러한 단계로 진행되는 GC 방식이기 때문에 stop-the-world 시간이 매우 짧다.` 모든 애플리케이션의 응답 속도가 매우 중요할 때 CMS GC를 사용하며, Low Latency GC라고도 부른다.
 
 그런데 CMS GC는 stop-the-world 시간이 짧다는 장점에 반해 다음과 같은 단점이 존재한다.
 
@@ -394,7 +420,7 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 - G1 GC를 이해하려면 지금까지의 Young 영역과 Old 영역에 대해서는 잊는 것이 좋다.
 - G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
 - G1 GC의 가장 큰 장점은 성능이다. 지금까지 설명한 어떤 GC 방식보다도 빠르다.
-- 큰 메모리를 가진 멀티 프로세서 머신을 위한 컬렉터에 적합
+- 큰 메모리를 가진 멀티 프로세서 머신을 위한 컬렉터에 적합하다.
 
 ![1](https://d2.naver.com/content/images/2015/06/helloworld-1329-6.png)
 

@@ -1,48 +1,44 @@
 ## 손 코딩 문제
 
 1. 소수 판별하기
-2. Snake 포맷에서 CamelCase 포맷 바꾸기
 3. 만화 별점주는 DB 구축해보기
 
 <br>
 
 Q. 문자열에서 처음으로 반복되지 않는 문자를 찾아내는 효율적인 함수를 작성하라.
-예들 들어, “total” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘o’ 이며, “teeter” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘r’이다.
+예를 들어, “total” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘o’ 이며, “teeter” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘r’이다.
 
-```
-public static void main(String[] args) throws IOException {
-/*
-Q.
-    문자열에서 처음으로 반복되지 않는 문자를 찾아내는 효율적인 함수를 작성하라.
-    예들 들어, “total” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘o’ 이며,
-     “teeter” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘r’이다.
+```java
+/**
+ * 문자열에서 처음으로 반복되지 않는 문자를 찾아내는 효율적인 함수를 작성하라.
+ * 예들 들어, “total” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘o’ 이며,
+ * “teeter” 에서 처음으로 등장하는 반복되지 않는 문자는 ‘r’이다.
  */
+public class Five {
+    public static String solution(String s) {
+        Map<Character, Integer> hm = new HashMap<>();
 
-    String s = "total";
-
-    int[] alpha = new int[27];
-
-    for(int i=0;i<s.length();i++){
-
-        char nowChar = s.charAt(i);
-
-        alpha[nowChar-'a']++;
-
-    }
-
-    for(int i=0;i<s.length();i++){
-
-        char nowChar = s.charAt(i);
-
-        if(alpha[nowChar-'a']==1){
-            System.out.println(nowChar);
-            break;
+        for (int i = 0; i < s.length(); ++i) {
+            hm.putIfAbsent(s.charAt(i), 1);
         }
 
+        char ch = ' ';
+        for (int i = 0; i < s.length(); ++i) {
+            if (hm.get(s.charAt(i)) > 1) {
+                ch = s.charAt(i);
+                break;
+            }
+
+            hm.put(s.charAt(i), hm.get(s.charAt(i)) + 1);
+        }
+
+        return String.valueOf(ch);
     }
 
+    public static void main(String[] args) {
+        System.out.println(solution("total"));
+    }
 }
-
 ```
 
 <br>
@@ -59,129 +55,44 @@ Ex. String pickup(List<?> ads);
 - 30만원 짜리 광고 C
 
 ```java
-public static String pickup(List<ADS> ads){
-	  //0~100
-	  double value = Math.random();
-
-    int total = 0;
-
-    for(ADS ad : ads){
-        total+=ad.adMoney;
-    }
-
-    List<Double> adsValue = new ArrayList<>();
-
-    for(ADS ad : ads){
-        adsValue.add((double)ad.adMoney/(double)total);
-    }
-
-    for(int i=0;i<adsValue.size();i++){
-
-        if(value <= adsValue.get(i)){
-
-            return ads.get(i).adTitle;
-        }
-
-        value-=adsValue.get(i);
-
-    }
-
-    return "empty";
-}
-
-public static class ADS{
-    Integer adMoney;
-    String adTitle;
-
-    public ADS(Integer adMoney, String adTitle) {
-        this.adMoney = adMoney;
-        this.adTitle = adTitle;
-    }
-}
 
 ```
-
-<br>
-
-```java
-    
-public static String pickup(List<ADS> ads){
-		double value = Math.random();
-
-    int total = 0;
-
-    for(ADS ad : ads){
-        total+=ad.adMoney;
-    }
-
-    List<Double> adsValue = new ArrayList<>();
-
-    for(ADS ad : ads){
-        adsValue.add((double)ad.adMoney/(double)total);
-    }
-
-    for(int i=0;i<adsValue.size();i++){
-
-        if(value <= adsValue.get(i)){
-
-            return ads.get(i).adTitle;
-        }
-
-        value-=adsValue.get(i);
-
-    }
-
-    return "empty";
-}
-
-public static class ADS{
-    Integer adMoney;
-    String adTitle;
-
-    public ADS(Integer adMoney, String adTitle) {
-        this.adMoney = adMoney;
-        this.adTitle = adTitle;
-    }
-}
-
-```
-
 
 <br>
 
 Q. 21, 9, 4, 1, 5 (높은수부터 차례대로 정렬)
 
 ```java
-    
-public static int[] sort(List<Integer> numbers){
-		int[] sortedNums = new int[numbers.size()];
+public class Four {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    sortedNums[0]=numbers.get(0);
+        int[] list = new int[6];
 
-    for(int i=1;i<numbers.size();i++){
-
-        int nowIndex = i;
-        sortedNums[nowIndex]=numbers.get(nowIndex);
-
-        while(nowIndex>0){
-            if(sortedNums[nowIndex]>sortedNums[nowIndex-1]){
-                int tmp = sortedNums[nowIndex];
-                sortedNums[nowIndex]=sortedNums[nowIndex-1];
-                sortedNums[nowIndex-1]=tmp;
-                nowIndex--;
-            }
-            else{
-                break;
-            }
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 6; ++i) {
+            list[i] = Integer.parseInt(st.nextToken());
         }
 
+        sort(list);
+
+        System.out.println(Arrays.toString(list));
     }
 
-    return sortedNums;
-
+    private static void sort(int[] list) {
+        int i = 0, j = 0, key = 0;
+        for (i = 1; i < list.length; ++i) {
+            key = list[i];
+            for (j = i - 1; j >= 0 && key > list[j]; --j) {
+                list[j + 1] = list[j];
+            }
+            list[j + 1] = key;
+        }
+    }
 }
-
 ```
+
+- 삽입 정렬
 
 <br>
 
@@ -266,3 +177,96 @@ public class One {
 
 - 2017년 1월 1일이 무슨 요일인지 찾기
 - 월요일이라면 7로 나누고 나머지 요일은 생각하기
+
+<br>
+
+Q. 정수를 입력 받을 것이고, 뒤에서부터 세자리마다 콤마를 찍어주는 코드를 작성하세요. (천 원하면 1,000 인 것처럼)
+
+```java
+public class Six {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String money = br.readLine();
+
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        for (int i = money.length() - 1; i >= 0; --i) {
+            count++;
+            sb.append(money.charAt(i));
+            if (count == 3) {
+                sb.append(",");
+                count = 0;
+            }
+        }
+
+        System.out.println(sb.reverse());
+    }
+}
+```
+
+<br>
+
+Q. 주어진 문자열에서 "x"를 제외하세요. 단, 문자열의 맨 앞 또는 맨 뒤에 "x"가 나타나는 경우는 제외하지 않습니다.
+
+```
+ex)
+
+stringX("xxHxix") => "xHix"
+
+stringX("abxxxcd") => "abcd"
+
+stringX("xabxxxcdx") => "xabcdx"
+```
+
+```java
+public class Seven {
+    public static String solution(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(s.charAt(0));
+        for (int i = 1; i < s.length() - 1; ++i) {
+            if (s.charAt(i) == 'x') continue;
+            sb.append(s.charAt(i));
+        }
+
+        sb.append(s.charAt(s.length() - 1));
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution("xabxxxcdx"));
+    }
+}
+```
+
+<br>
+
+Q. Snake 포맷에서 CamelCase 포맷 바꾸기 ex) User_id => UserId
+
+```java
+public class Eight {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String name = br.readLine();
+
+        String[] list = name.split("_");
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.length; ++i) {
+            String s = list[i];
+            for (int j = 0; j < s.length(); ++j) {
+                if (j == 0) {
+                    sb.append(String.valueOf(s.charAt(j)).toUpperCase());
+                } else {
+                    sb.append(s.charAt(j));
+                }
+            }
+        }
+
+        System.out.println(sb);
+    }
+}
+```

@@ -2,7 +2,7 @@
 
 ## 1. 의존성 주입이란 무엇인가? 
 
-의존 관계 주입(Dependency Injection)이라고도 하며, 어떤 객체가 사용하는 의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법이다. (new 연산자를 이용해서 객체를 생성하는 것이라고 생각하면 된다)   
+의존 관계 주입(Dependency Injection)이라고도 하며, 어떤 객체가 사용하는 의존 객체를 직접 만들어 사용하는게 아니라, 외부에서 주입 받아 사용하는 방법이다. (new 연산자를 이용해서 객체를 생성하는 것이라고 생각하면 된다)   
 
 <br>
 
@@ -25,14 +25,12 @@ Spring Bean 으로 등록되었을 때 위와 같은 장점이 있다.
   - Setter 를 통해서도 의존성 주입을 할 수 있다. 하지만 Setter를 통해서 의존 관계를 변경할 수 있어 여러 명에서 개발할 때 예상치 못한 에러를 발생할 수 있다는 단점이 있다.  
 - 필드 주입
   - 필드 주입은 권장하지 않는 방식이다. 필드 주입을 통해서 주입을 해버리면 다른 의존 관계로 바꾸고 싶어도 바꿀 수가 없다. 그리고 DI 프레임 워크가 없다면 의존성 주입을 할 수 없다는 큰 단점이 있다. 
-
-
+  
 <br>
 
 ## @Autowired 에 대해서 설명해주세요.
 
 해당 어노테이션이 존재하면 어노테이션이 붙어있는 클래스가 `IoC 컨테이너에 Bean`으로 등록되어 있는지 확인하고 등록되어 있다면 의존성 주입을 해주고, 등록되어 있지 않다면 런타임에 에러가 발생합니다.
-
 
 <br>
 
@@ -44,7 +42,7 @@ Spring Bean 으로 등록되었을 때 위와 같은 장점이 있다.
 
 ## 4. AOP란 무엇인가요? 
 
-AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이다. `흩어진 관심사`를 `Aspect` 라는 모듈화를 시켜 중복되는 코드를 재사용하겠다는 것이 취지이다. 
+AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이다. `흩어진 관심사`를 `Aspect` 라는 모듈화를 시켜 중복되는 코드를 재사용하겠다는 것이 취지이다. 그리고 `Proxy Pattern`을 사용한다. 
 
 - Aspect: 공통 코드를 모아놓는 모듈
 - Advice: 실질적으로 어떤 일을 해야 하는지를 담고 있음
@@ -55,7 +53,7 @@ AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이�
 
 <br>
 
-Spring AOP에서는 `프록시 패턴`을 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다. 
+Spring AOP에서는 `Dynamic Proxy`를 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다. 
 
 - 컴파일
 - 로드 타임
@@ -65,11 +63,19 @@ Spring AOP에서는 `프록시 패턴`을 사용해서 기존의 코드를 건�
 
 ## 5. Proxy 패턴이란?
 
+프록시 패턴이란 실제 클래스가 구현하고 있는 인터페이스를 똑같이 구현하고, 실제 클래스를 참조하면서 프록시 클래스를 만듭니다. 그리고 프록시 클래스에서 추가하고자 하는 코드를 추가하고 중간에 실제 코드를 호출하는 방식입니다. 
+
 <br>
 
 ## 6. 스프링이 AOP를 내부적으로 처리하기 위해서 어떤 동작을 하고 있는지 아시면 설명해주세요. 
 
-`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 commit과 rollback처리를 해준다
+Spring AOP는 런타임에 A 라는 클래스가 Bean 으로 등록될 때 A 라는 클래스를 참조하는 `Proxy` 객체를 만든 후에 흩어진 관심사의 코드를 `Weaving` 시킨 후에 작동하게 만듭니다. (Dynamic Proxy) 
+
+<br>
+
+## @Transactional AOP로 어떻게 동작하나요?
+
+해당 어노테이션이 붙어있는 메소드를 호출하면 프록시 객체의 메소드가 먼저 호출됩니다. 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 commit과 rollback처리를 해준다)
 
 <br>
 
@@ -85,7 +91,12 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 ## 8. Spring MVC 동작 방식 설명해주세요. 
 
-클라이언트에서 특정 Controller URI 로 요청이 오면 Filter 를 거친 후에 DispatcherServlet 이 응답을 받습니다. DispatcherServlet 은 요청 온 것을 `HadlerMapping` 에게 넘겨 어떤 Controller 의 URI 인지 찾도록 요청합니다. 그리고 `HandlerAdapter` 를 통해서 해당 컨트롤러 메소드를 호출하여 실제 오는 응답 값을 얻습니다. 만약 Controller 어노테이션과 model.addAttribute 같은 것들을 사용했다면 여기에 값을 담아서 옵니다. 
+클라이언트에서 특정 Controller URI 로 요청이 오면 Filter 를 거친 후에 DispatcherServlet 이 응답을 받습니다. DispatcherServlet 은 요청 온 것을 `HadlerMapping` 에게 넘겨 어떤 Controller 의 URI 인지 찾도록 요청합니다. 그리고 `HandlerAdapter` 를 통해서 해당 컨트롤러 메소드를 호출하여 실제 오는 응답 값을 얻습니다. 만약 Controller 어노테이션과 model.addAttribute 같은 것들을 사용했다면 여기에 값을 담아서 옵니다.
+
+1. DispatcherServlet 이 HandlerMapping 에게 해당 요청이 어떤 Controller 가 담당하는지 찾도록 요청합니다.
+2. DispatcherServlet 이 어떤 Controller 인지 알았다면 HandlerAdapter 를 통해서 해당 클래스의 반환 값을 얻어오고 model.addAttribute 가 있다면 거기에 값을 넣어서 가져옵니다.
+3. 리턴 값을 가지고 ViewResolver 를 통해서 View 를 찾아서 DispatcherServlet 에게 반환합니다. 
+4. DispatcherServlet 은 View 응답 생성 요청을 합니다.
 
 그리고 Controller 라면 View 를 찾아야 하니 `ViewResolver`가 수행되어 어떤 뷰를 return 해주어야 하는지 찾게 됩니다. 
 
@@ -99,12 +110,13 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 - `Filter`: 
   - Filter 는 Spring 영역 밖에 위치합니다. 즉 ExceptionHandler 같은 것을 통해서 에러 처리를 할 수 없습니다. 즉, 앞단에서 XSS 방어 어떤 처리를 해야 할 때 사용하면 좋습니다.
-  - 또한, Controller 이후 자원 처리가 끝난 후 응답 처리에 대해서도 변경, 조작을 수행할 수 있다.
-- `Interceptor` 는 Spring 영역 안에 있어 Spring 모든 Bean에 접근 가능합니다. 그리고 Controller 앞 뒤 로 끼어들 수 있는 메소드를 제공합니다. 
-- `Filter`는 Web Application(Tomcat을 사용할 경우 web.xml)에 등록하며, `Interceptor`는 Spring의 Application Context에 등록합니다.
+  - 또한, Controller 이후 자원 처리가 끝난 후 응답 처리에 대해서도 변경, 조작을 수행할 수 있다. 즉, Request, Resposne 조작할 수 있음
+  - `Filter`는 Web Application(Tomcat을 사용할 경우 web.xml)에 등록하며,
+- `Interceptor`
+  - Spring 영역 안에 있어 Spring 모든 Bean에 접근 가능합니다. 그리고 Controller 앞 뒤 로 끼어들 수 있는 메소드를 제공합니다. 
+  - `Interceptor`는 Spring의 Application Context에 등록합니다.
 
 <img width="765" alt="스크린샷 2021-11-30 오전 1 26 25" src="https://user-images.githubusercontent.com/45676906/143905208-b0137a50-15b3-4358-a07c-f3c321cd83b8.png">
-
 
 <br>
 
@@ -112,7 +124,7 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 - REQUIRED: 아무 설정도 하지 않는 DEFAULT 설정입니다. `REQUIRED`는 부모 트랜잭션이 존재하는 상황에서 자식 트랜잭션을 호출하면 자식 트랜잭션도 부모 트랜잭션에 합류합니다. 그리고 자식에서 에러가 발생해도 부모 까지 모두 Rollback 되고, 부모에서 에러가 발생해도 자식도 모두 Rollback 된다는 특징이 있습니다.
 - REQUIRED_NEW: 무조건 새로운 트랜잭션을 만듭니다. 부모에서 에러가 발생하더라도 자식에서 문제가 없다면 문제 없이 트랜잭션 Commit 됩니다.
-- 
+- NESTED : 부모 트랜잭션이 존재하면 부모 트랜잭션에 중첩시키고, 부모 트랜잭션이 존재하지 않는다면 새로운 트랜잭션을 생성한다. 부모 트랜잭션에 예외가 발생하면 자식 트랜잭션도 rollback한다. 자식 트랜잭션에 예외가 발생하더라도 부모 트랜잭션은 rollback하지 않는다. 
 
 <br>
 
@@ -136,8 +148,8 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 ## Spring Bean Scope 에 대해서 설명해주세요. 
 
-- 싱글톤은 기본 스코프로 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프입니다.
-- 프로토타입은 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프입니다.
+- `싱글톤은 기본 스코프로 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프`입니다.
+- `프로토타입은 빈의 생성과 의존관계 주입까지만 관여`하고 더는 관리하지 않는 매우 짧은 범위의 스코프입니다.
 - request는 웹 요청이 들어오고 나갈때까지 유지하는 스코프, session은 웹 세션이 생성, 종료할때까지, application은 웹 서블릿 컨텍스트와 같은 범위로 유지하는 스코프입니다.
  
 <br>
