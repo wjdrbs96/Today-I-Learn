@@ -270,3 +270,23 @@ public class Eight {
     }
 }
 ```
+
+<br>
+
+Q. 1 ~ 10000까지 중 8의 개수 구하기
+
+```java
+public class Nine {
+    public static void main(String[] args) {
+        int count = 0;
+        for (int i = 1; i <= 10000; ++i) {
+            String num = String.valueOf(i);
+            for (int j = 0; j < num.length(); ++j) {
+                if (num.charAt(j) == '8') count++;
+            }
+        }
+
+        System.out.println(count);
+    }
+}
+```

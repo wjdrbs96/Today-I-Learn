@@ -19,9 +19,9 @@
 
 ## `2) SOLID 에 대해서 설명해주세요.`
 
-> S → SRP : 단일 책임 원칙 : 어떤 클래스를 변경해야 하는 이유는 하나여야 한다.
+> S → SRP → 단일 책임 원칙 : 어떤 클래스를 변경해야 하는 이유는 하나여야 한다.
 
-> O → OCP : 개방 폐쇄 원칙 : 확장에는 열려있고, 변경에는 닫혀있어야 합니다. 대표적인 예시는 JDBC가 있음
+> O → OCP → 개방 폐쇄 원칙 : 확장에는 열려있고, 변경에는 닫혀있어야 합니다. 대표적인 예시는 JDBC가 있음
 
 > L → LSP → 리스코프 치환 원칙 : 서브 타입은 언제나 자신의 기반 타입으로 교체할 수 있어야 한다. 즉, 부모 클래스의 인스턴스를 사용하는 위치에 자식 클래스의 인스턴스를 대신 사용했을 때 코드가 원래 의도대로 작동해야 한다는
 
@@ -70,9 +70,9 @@ Reference: [https://d2.naver.com/helloworld/831311](https://d2.naver.com/hellowo
 
 ## `6) HashMap과 HashTable의 차이에 대해서 설명해주세요.`
 
-> HashTable은 싱크로나이즈드가 붙어 있어서 Thread-Safe 하다는 특징이 있으며 아주 예전부터 있던 클래스가 현재는 잘 관리되지 않는 클래스임 + Key에 null을 허용하지 않음
+> HashTable 은 싱크로나이즈드가 붙어 있어서 Thread-Safe 하다는 특징이 있으며 아주 예전부터 있던 클래스가 현재는 잘 관리되지 않는 클래스임 + Key에 null을 허용하지 않음
 
-> HashMap은 Thread-Safe 하지 않다는 특징을 가지고 있음 + null을 허용함
+> HashMap 은 Thread-Safe 하지 않다는 특징을 가지고 있음 + null을 허용함
 
 <br>
 
@@ -80,9 +80,11 @@ Reference: [https://d2.naver.com/helloworld/831311](https://d2.naver.com/hellowo
 
 HashMap 은 멀티 스레드 환경에서 사용할 수 없는 클래스입니다. HashTable 은 멀티스레드 환경에서 사용할 수 있지만 너무 예전에 나온 클래스이고 단점에 대한 보완을 하고 있는 클래스도 아닙니다. 그래서 HashMap 의 멀티스레드에서 사용할 수 없다는 단점을 보완하는 클래스가 ConcurrentHashMap 입니다. 
 
-ConcurrentHashMap 은 `put` 작업을 할 때 메소드 전체에 `Synchronized`가 붙어있지 않다는 특징이 있습니다. 그리고 `Lock`을 버킷 마다 가지고 있어 같은 버킷에 대해서 쓰는 것이 아니라면 여러 쓰레드에서도 동시에 쓰기 작업을 할 수 있습니다. 
+ConcurrentHashMap 은 `put` 작업을 할 때 메소드 전체에 `Synchronized`가 붙어있지 않다는 특징이 있습니다. 그리고 `Lock`을 버킷 마다 가지고 있어 같은 버킷에 대해서 쓰는 것이 아니라면 여러 쓰레드에서도 동시에 쓰기 작업을 할 수 있습니다.
 
-즉, ConcurrentHashMap은 멀티 쓰레드 환경에서 읽기 작업보다 쓰기 작업이 많을 때 사용하면 좋습니다.
+ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 수 있다.
+
+즉, ConcurrentHashMap 은 멀티 쓰레드 환경에서 읽기 작업보다 쓰기 작업이 많을 때 사용하면 좋습니다.
 
 <br>
 
@@ -174,8 +176,8 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 언체크 예외는 RuntimeException의 하위 클래스들을 의미합니다. 이것은 체크 예외와는 달리 에러 처리를 강제하지 않습니다.
 
-CheckedException : 롤백 되지 않음
-UncheckedException : 롤백 됨
+CheckedException : 롤백 되지 않음 => ClassNotFoundException
+UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 ```
 
 <br> 
@@ -366,7 +368,7 @@ Survivor 영역이 2개이기 때문에 총 3개의 영역으로 나뉘는 것�
 - 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다. Young 에서 일어나는 GC 를 `Minor GC` 라고 합니다.
 - 이 과정을 반복하다가 계속해서 살아남아 있는 객체는 Old 영역으로 이동하게 된다.
 - Old Generation 영역에서 살아남았던 객체들이 일정 수준 쌓이게 되면 미사용된다고 식별된 객체들을 제거해주는 `Full GC`가 발생하게 됩니다.
-  이 과정에서 `STW(Stop-The-World)`가 발생하게 됩니다. (STW란, Old Generation의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
+  이 과정에서 `STW(Stop-The-World)`가 발생하게 됩니다. (STW란, `Old Generation`의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
 
 <br> <br>
 
@@ -453,12 +455,6 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
-## 제네릭 Type Erasure 에 대해서 설명해주세요.
-
-제네릭이 5버전 부터 나왔기에, 하위 버전과의 호환성 유지를 위한 작업이 필요했습니다. 따라서 코드의 호환성 때매 소거(erasure) 방식을 사용하게 됩니다.
-
-<br>
-
 ## mutable vs immutable 에 대해서 설명해주세요.
 
 - mutable: 변경 가능한 객체입니다. 최초 생성 이후에 자유롭게 변경 가능합니다. 
@@ -471,3 +467,72 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 - Call By Value : 값을 복사 해서 넘김
 - Call By Reference : 값의 주소를 넘김
 - `Java는 Call By Value` 이다. 
+
+<br>
+
+## String 상수 풀이 무엇인가요? 
+
+```java
+String str1 = "hello";
+String str2 = new String("hello");
+```
+
+- 두 코드의 차이점에 대해서 설명해주세요. 
+- `str1`은 `상수풀`에서 가져오고 `new String()`은 `Heap`에 객체가 저장됩니다. 
+
+<br>
+
+```java
+String str1 = "hello";
+String str2 = "hello";
+
+str1 == str2 
+```
+
+- 위 코드의 결과는 무엇일까요? true 입니다. 둘 다 `String 상수 풀`에서 가져오기 때문에 `true`가 나옵니다.
+
+<br>
+
+```java
+String str1 = new String("hello");
+String str2 = new String("hello");
+
+str1 == str2
+```
+
+- 위 코드의 결과는 무엇일까요? `new`를 통해 객체를 생성하면 메모리가 각각 할당 되기 때문에 `false`가 나옵니다.
+
+<br>
+
+## String 상수풀은 GC 영역의 대상인가요?
+
+- 조사 필요
+- GC 대상 아니라고 생각합니다. (아마두?)
+
+<br>
+
+## 두 객체간의 equals 가 true 이면 hashCode 도 무조건 true 인가요?
+
+- equals 비교에 사용되는 정보가 변경되지 않았다면, 애플리케이션이 실행되는 동안 그 객체의 hashCode 메소드는 몇 번을 호출해도 일관되게 항상 같은 값을 반환해야 합니다.(단, 애플리케이션을 다시 실행한다면 이 값이 달라져도 상관없습니다.)
+- equals(Object)가 두 객체를 같다고 판단했다면, 두 객체의 hashCode는 똑같은 값을 반환해야 합니다.
+- equals(Object)가 두 객체를 다르다고 판단했더라도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
+
+<br>
+
+위의 문장들은 Object 명세에서 발췌한 규약입니다.
+
+<br>
+
+## 두 객체간의 hashCode 가 true 이면 무조건 equals 가 true 인가요?
+
+위의 Object 명세를 보면 `true` 라고 생각합니다.
+
+<br>
+
+## final int[] arr = {1, 2, 3, 4, ,5] 에서 arr[1] = 10 처럼 값을 바꾸는 것이 가능한가요?
+
+- 가능합니다. final 은 `초기화`가 한번만 가능한것이라 내부 값을 바꿀 수 있습니다.
+- final List<Integer> list = new ArrayList<>(); 에서 list.add(1) 도 마찬가지로 값을 변경할 수 있습니다.
+
+<br>
+

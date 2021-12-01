@@ -83,9 +83,9 @@ Spring AOP는 런타임에 A 라는 클래스가 Bean 으로 등록될 때 A 라
 
 SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguration`, `@EnableAutoConfiguration` 대표적으로 3가지가 존재한다. 
 
-- ComponentScan: 현재 어노테이션이 존재하는 같은 곳에 위치한 Bean 으로 등록할 수 있는 어노테이션을 찾아서 자동으로 Bean 으로 등록해주는 역할을 합니다.
-- EnableAutoConfigure: 스프링 의존성에 autoconfigure 에 보면 자동으로 값들을 설정해준다. 대표적으로 Spring Boot 에서는 MVC 설정을 따로 하지 않아도 편리하게 사용할 수 있는데 이 어노테이션이 자동으로 번거로운 설정들을 대신 해줍니다.
-- SpringBootConfiguration 은 Configration 과 거의 같은 어노테이션이지만, Spring Boot 에서 `@SpringBootTest` 어노테이션을 사용해서 테스트 코드에서 작동할 때 관련 설정들을 자동으로 읽어오도록 해주는 역할을 합니다. 
+- `ComponentScan`: 현재 어노테이션이 존재하는 같은 곳에 위치한 Bean 으로 등록할 수 있는 어노테이션을 찾아서 자동으로 Bean 으로 등록해주는 역할을 합니다.
+- `EnableAutoConfigure`: 스프링 의존성에 autoconfigure 에 보면 자동으로 값들을 설정해준다. 대표적으로 Spring Boot 에서는 MVC 설정을 따로 하지 않아도 편리하게 사용할 수 있는데 이 어노테이션이 자동으로 번거로운 설정들을 대신 해줍니다.
+- `SpringBootConfiguration` 은 Configration 과 거의 같은 어노테이션이지만, Spring Boot 에서 `@SpringBootTest` 어노테이션을 사용해서 테스트 코드에서 작동할 때 관련 설정들을 자동으로 읽어오도록 해주는 역할을 합니다. 
 
 <br>
 
@@ -110,8 +110,8 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 - `Filter`: 
   - Filter 는 Spring 영역 밖에 위치합니다. 즉 ExceptionHandler 같은 것을 통해서 에러 처리를 할 수 없습니다. 즉, 앞단에서 XSS 방어 어떤 처리를 해야 할 때 사용하면 좋습니다.
-  - 또한, Controller 이후 자원 처리가 끝난 후 응답 처리에 대해서도 변경, 조작을 수행할 수 있다. 즉, Request, Resposne 조작할 수 있음
-  - `Filter`는 Web Application(Tomcat을 사용할 경우 web.xml)에 등록하며,
+  - 또한, Controller 이후 자원 처리가 끝난 후 응답 처리에 대해서도 변경, 조작을 수행할 수 있다. 즉, Servlet 영역이다 보니 Request, Resposne 조작할 수 있음
+  - `Filter`는 Web Application(Tomcat을 사용할 경우 web.xml)에 등록한다.
 - `Interceptor`
   - Spring 영역 안에 있어 Spring 모든 Bean에 접근 가능합니다. 그리고 Controller 앞 뒤 로 끼어들 수 있는 메소드를 제공합니다. 
   - `Interceptor`는 Spring의 Application Context에 등록합니다.
@@ -150,7 +150,7 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 - `싱글톤은 기본 스코프로 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프`입니다.
 - `프로토타입은 빈의 생성과 의존관계 주입까지만 관여`하고 더는 관리하지 않는 매우 짧은 범위의 스코프입니다.
-- request는 웹 요청이 들어오고 나갈때까지 유지하는 스코프, session은 웹 세션이 생성, 종료할때까지, application은 웹 서블릿 컨텍스트와 같은 범위로 유지하는 스코프입니다.
+- `request`는 웹 요청이 들어오고 나갈때까지 유지하는 스코프, `session은` 웹 세션이 생성, 종료할때까지, `application`은 웹 서블릿 컨텍스트와 같은 범위로 유지하는 스코프입니다.
  
 <br>
 
@@ -171,3 +171,27 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 지연 로딩시에는 반복문을 돌면서 하위 객체를 조회할때  발생합니다. 정확한 의미는 1개의 쿼리를 실행했을 때, 내부에 존재하는 컬렉션들을 조회해오면서 생기는 문제입니다. 기본적으로 되도록이면 @OneToMany의 매핑을 하지 않을 수 있다면 하지 않는 것이 최고의 예방책입니다.
 
 만약 그런 객체를 가져와야 하는 경우 `Fetch Join`이라고 하는 JPQL의 join fetch를 사용합니다. 쿼리 한 번으로 해결할 수 있고, 또 다른 방법으로는 `EntityGraph`를 사용하는 방법이 있습니다.
+
+<br>
+
+## JPA 써보셨으면 JPA 영속성 컨텍스트는 언제 열리나요?
+
+트랜잭션이 시작될 때 영속성 컨텍스트가 열립니다.
+
+<br>
+
+
+<br>
+
+## Spring 요청이 올 때 임베디드 톰캣이 있는데 요청마다 쓰레드가 생성될까여? 프로세스가 생성될까요?
+
+쓰레드가 생성됩니다.
+
+<br>
+
+## 쓰레드가 생성된다면 10개 요청이 오면 10개 쓰레드가 생성될까요?
+
+10개의 쓰레드가 생성됩니다. 톰캣 기본 설정으로 내부에 200개의 쓰레드가 존재합니다. 
+
+<br>
+
