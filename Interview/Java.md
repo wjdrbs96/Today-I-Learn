@@ -180,7 +180,24 @@ CheckedException : 롤백 되지 않음 => ClassNotFoundException
 UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 ```
 
-<br> 
+<br>
+
+## 어떤 경우에 Checked? Unchecked를 쓸까요?
+
+<br>
+
+## 객체지향 장단점에 대해서 말씀해주세요. 
+
+- ### 장점
+  - 코드를 응집력 있게 작성할 수 있음
+  - 객체의 역할, 책임, 협력을 생각하면서 짜다 보면 규모가 크고 여러명에서 작업하는 프로젝트에서는 좀 더 효율적일 수 있음
+
+- ### 단점
+  - 객체지향에 대해서 잘 알기가 쉽지 않음 (러닝 커브?)
+  - 오히려 객체지향적으로 짜다 보면 작은 프로젝트에서도 더 복잡해질 수도 있다고 생각함
+  - 클래스가 많아지고 코드가 길어질 수 있음
+
+<br>
 
 ## `14) Collection 인터페이스 하위 인터페이스를 말해주세요.`
 
@@ -525,7 +542,7 @@ str1 == str2
 
 ## 두 객체간의 hashCode 가 true 이면 무조건 equals 가 true 인가요?
 
-위의 Object 명세를 보면 `true` 라고 생각합니다.
+`false` 입니다. 왜냐하면 Object 명세를 보면 equals가 다르다고 했더라도 hashCode가 무조건 다른 것이 아니기 때문입니다. 즉, 해시코드가 같은데 equals는 false 가 나올 수 있습니다.  
 
 <br>
 

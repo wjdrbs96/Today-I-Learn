@@ -42,6 +42,13 @@ ex) Naver Login (Social Login)
   
 <br>
 
+## PUT vs PATCH 차이점에 대해서 설명해주세요.
+
+- PUT : 리소스 전체를 변경할 때 사용
+- PATCH : 리소스 일부를 변경할 때 사용
+
+<br>
+
 ## CORS 에 대해서 설명해주세요.
 
 URL을 보면 Protocol, Host, Port 번호를 모두 합친 것이 출처(Origin) 입니다. 두 개의 출처가 같다는 것은 Scheme, Host, Port 이 3가지가 동일하다는 뜻입니다. 프론트엔드와 백엔드의 출처가 다를 때, 다른 출처로 자원을 요청하면 CORS 에러가 난다.
@@ -112,3 +119,12 @@ HTTPS는 HTTP에 보안 계층을 추가한 것입니다. HTTPS는 제3자 인�
 <br>
 
 ## TCP 에서 연결하고 연결 해제 하는 과정에 대해서 설명해주세요. 
+
+### 3-way-Handshake
+
+<br>
+
+### 4-way-Handshake
+
+<br>
+
