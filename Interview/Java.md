@@ -23,11 +23,15 @@
 
 > O → OCP → 개방 폐쇄 원칙 : 확장에는 열려있고, 변경에는 닫혀있어야 합니다. 대표적인 예시는 JDBC가 있음
 
-> L → LSP → 리스코프 치환 원칙 : 서브 타입은 언제나 자신의 기반 타입으로 교체할 수 있어야 한다. 즉, 부모 클래스의 인스턴스를 사용하는 위치에 자식 클래스의 인스턴스를 대신 사용했을 때 코드가 원래 의도대로 작동해야 한다는
+> L → LSP → 리스코프 치환 원칙 : 서브 타입은 언제나 자신의 기반 타입으로 교체할 수 있어야 한다. 즉, 부모 클래스의 인스턴스를 사용하는 위치에 자식 클래스의 인스턴스를 대신 사용했을 때 코드가 원래 의도대로 작동해야 합니다. 아버지 - 딸 (리스코프 치환 원칙 위배), 동물 - 강아지 (리스토프 치환 원칙 적합)
 
 > I → ISP → 인터페이스 분리 원칙 : SRP와 상당히 유사한데, 인터페이스는 자신이 사용하지 않는 메소드를 가져서는 안된다.
 
 > D → DIP → 의존 역전 원칙 : 추상 적인 것은 구체적인 것에 의존하면 안된다. 구체적인 것이 추상적인 것에 의존해야 한다.
+
+<br>
+
+
 
 <br>
 
@@ -108,6 +112,20 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 <br>
 
+## `ArrayList, LinkedList 삽입, 삭제, 검색 시간 복잡도 얘기해주세요.`
+
+|컬렉션|읽기(접근시간)|추가/삭제| 비 고 |
+|--------|-------|-------|---------------|
+| ArrayList | 빠르다 | 느리다 | 순차적인 추가삭제는 더 빠름. <br> 비효율적인 메모리 사용 |
+| LinkedList | 느리다 | 빠르다 | 데이터가 많을 수록 접근성이 떨어짐 |
+
+> 다르고자 하는 데이터의 개수가 변하지 않는 경우라면, ArrayList가 최상의 선택이겠지만, 데이터 개수의 변경이 잦다면 LinkedList를 사용하는 것이 더 나은 선택이 될 것입니다.
+
+![time](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc47wrr%2FbtqNG0s9sD1%2FGE9KaZbmsXUbPKVzOkon20%2Fimg.png)
+
+
+<br>
+
 ## `9) 다형성이란 무엇인가요?`
 
 > 다형성(polymorphism)이란 하나의 객체가 여러 가지 타입을 가질 수 있는 것을 의미합니다.
@@ -183,6 +201,9 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 <br>
 
 ## 어떤 경우에 Checked? Unchecked를 쓸까요?
+
+- Checked 의 대표적으로 `ClassNotFoundException`, `FileNotFoundException` 같은 클래스들이 있음. `try-catch`를 강제해야 하는 경우
+- Unchecked 는 대표적으로 `ArrayOutOfIndexException`, `NullPointerException` 등이 있다. 런타임에 발생하는 예외들
 
 <br>
 
@@ -267,7 +288,7 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 - Date -> LocalDateTime, LocalDate 등장
 - Lambda, Stream 생성
-- Interface Default Method 생성
+- Interface Default Method 추가
 - JVM Permanent 영역 삭제
 
 <br>
@@ -528,6 +549,14 @@ str1 == str2
 
 <br>
 
+## Object equals 는 어떻게 동작하나요?
+
+![스크린샷 2021-12-02 오후 11 48 41](https://user-images.githubusercontent.com/45676906/144445001-1830a2c8-8e98-479e-aa89-b3d35e57c0b3.png)
+
+Object equals 는 `==`을 사용해서 비교합니다. 
+
+<br>
+
 ## 두 객체간의 equals 가 true 이면 hashCode 도 무조건 true 인가요?
 
 - equals 비교에 사용되는 정보가 변경되지 않았다면, 애플리케이션이 실행되는 동안 그 객체의 hashCode 메소드는 몇 번을 호출해도 일관되게 항상 같은 값을 반환해야 합니다.(단, 애플리케이션을 다시 실행한다면 이 값이 달라져도 상관없습니다.)
@@ -542,7 +571,7 @@ str1 == str2
 
 ## 두 객체간의 hashCode 가 true 이면 무조건 equals 가 true 인가요?
 
-`false` 입니다. 왜냐하면 Object 명세를 보면 equals가 다르다고 했더라도 hashCode가 무조건 다른 것이 아니기 때문입니다. 즉, 해시코드가 같은데 equals는 false 가 나올 수 있습니다.  
+`false` 입니다. 왜냐하면 Object 명세를 보면 equals가 다르다고 했더라도 hashCode가 무조건 다른 것이 아니기 때문입니다.(해시 버킷에 충돌날 경우가 있기 때문에) 즉, 해시코드가 같은데 equals는 false 가 나올 수 있습니다.  
 
 <br>
 
@@ -550,6 +579,55 @@ str1 == str2
 
 - 가능합니다. final 은 `초기화`가 한번만 가능한것이라 내부 값을 바꿀 수 있습니다.
 - final List<Integer> list = new ArrayList<>(); 에서 list.add(1) 도 마찬가지로 값을 변경할 수 있습니다.
+
+<br>
+
+## Stream foreach 랑 for 문 중에 뭐가 더 빠르다고 생각하시나요? 
+
+일반적으로 `Stream.forEach()`를 사용하면 전통적인 `for-loop`를 사용할 때보다 오버헤드가 훨씬 심각하게 발생하기 때문에, 모든 for-loop를 Stream.forEach()로 대체하면, 애플리케이션 전체에 걸쳐 누적되는 CPU 싸이클 낭비는 무시하지 못할 수준이 될 수 있다.
+
+원시 데이터(primitive data type)를 반복문으로 처리할 때는 절대적으로 전통적인 `for-loop`를 써야한다(collections보다 배열의 경우에는 특히 더)
+
+<br>
+
+## int, char 은 어떻게 초기화 할까요? 
+
+- int 는 `int a = 0` 식으로 하면 된다.
+- 하지만 `char ch =''`는 이런식으로 초기화 할 수 없다.  따라서 `char ch = ' '` or `char ch = '\u0000'`
+
+<br>
+
+## static 이 무엇인가요? 
+
+- static은 클래스 멤버라고 하며, 인스턴스가 생성될 때마다 독립적으로 생기는 멤버 변수와 달리 해당 클래스에 하나만 생성되고 모든 인스턴스에서 공동으로 접근할 수 있는 멤버이다
+- static 키워드를 통해 생성된 정적멤버들은 PermGen 또는 Metaspace에 저장되며 저장된 메모리는 모든 객체가 공유하며 하나의 멤버를 어디서든지 참조할 수 있는 장점이 있습니다.
+- 그러나, GC의 관리 영역 밖에 존재하기 때문에 프로그램 종료시까지 메모리가 할당된 채로 존재합니다. 너무 남발하게 되면 시스템 성능에 악영향을 줄 수 있습니다.
+
+<br>
+
+## 객체지향 4대 원칙에 대해서 설명해주실 수 있나요?
+
+### 캡슐화(Encapsulation): 정보 은닉(information hiding)
+
+비슷한 역할을 하는 속성과 메소드들을 하나의 클래스로 모은것을 캡슐화 라고 한다. 캡슐화에 속한 개념으로 정보 은닉이라는것이 있는데, 캡슐 내부의 로직이나 변수들을 감추고 외부에는 기능(api)만을 제공하는것을 의미한다.
+
+<br>
+
+### 상속(Inheritance): 재사용
+
+상속이란 클래스를 재사용 하는것이다. 상위 클래스를 하위 클래스에서 상속 받게 되면 상위 클래스의 멤버변수나 메소드를 그대로 물려 받을 수 있다. 상속이 있기 때문에 코드를 재활용할 수 있고 그렇기 때문에 생산성이 높고 유지보수 하기가 좋다.
+
+<br>
+
+### 추상화(Abstraction): 모델링
+
+객체지향에서의 추상화는 어떤 하위클래스들에 존재하는 공통적인 메소드를 인터페이스로 정의하는것을 예로 들 수 있다.
+
+<br>
+
+### 다형성(Polymorphism): 사용 편의
+
+다형성은, 같은 모양의 함수가 상황에 따라 다르게 동작 하는것을 의미한다. 대표적으로 오버로딩과 오버라이딩이 있다. 또는 `List<String> list = new ArrayList<>()` 와 같은 형태가 대표적이다. 
 
 <br>
 

@@ -454,13 +454,14 @@
   
 - [PHP로 AWS S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/PHP/php%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C.md)
 
-## Data Structrue
+## Data Structure
 
 - [Stack](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Stack.md)
 - [Queue](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Queue.md)
 - [LinkedList](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/LinkedList.md)
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
 - [Heap](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Heap.md)
+- [Binary Search]()
 - [Sort]()
   - [Insertion Sort](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Sort/Insertion%20Sort.md)
 

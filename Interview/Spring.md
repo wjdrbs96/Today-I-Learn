@@ -47,13 +47,13 @@ AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이�
 - Aspect: 공통 코드를 모아놓는 모듈
 - Advice: 실질적으로 어떤 일을 해야 하는지를 담고 있음
 - PointCut: 어디에 적용해야 하는지에 대한 정보를 담고 있음
-- Target: Aspect에 적용이 되는 대상
-- Join Point: Advice가 적용될 위치
-- Weaving : Advice를 핵심 로직코드에 적용하는 것
+- Target: Aspect 에 적용이 되는 대상
+- Join Point: Advice 가 적용될 위치
+- Weaving : Advice 를 핵심 로직코드에 적용하는 것
 
 <br>
 
-Spring AOP에서는 `Dynamic Proxy`를 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다. 
+Spring AOP 에서는 `Dynamic Proxy`를 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다. 
 
 - 컴파일
 - 로드 타임
@@ -197,3 +197,4 @@ N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 �
 <br>
 
 ## Connection Pool 관련 설정을 해보신 적이 있나요? 
+
