@@ -461,7 +461,7 @@
 - [LinkedList](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/LinkedList.md)
 - [Graph](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Graph.md)
 - [Heap](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Heap.md)
-- [Binary Search]()
+- [Binary Search](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Binary%20Search.md)
 - [Sort]()
   - [Insertion Sort](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Data_Structrue/Sort/Insertion%20Sort.md)
 

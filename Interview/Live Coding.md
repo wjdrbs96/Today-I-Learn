@@ -290,3 +290,66 @@ public class Nine {
     }
 }
 ```
+
+<br>
+
+Q. 인터페이스를 구현해서 큐를 구현해보세요.
+
+```java
+public interface Queue<T> {
+    void enqueue(T item);
+    void dequeue();
+}
+
+public class Test implements Queue<String> {
+
+    private List<String> list;
+
+    public Test() {
+        list = new LinkedList<>();
+    }
+
+    @Overide
+    void enqueue(String item) {
+        list.add(item);
+    }
+
+    @Overide
+    String dequeue(String item) {
+        if (list.size() > 0) {
+            String result = list.get(0);
+            list.remove(0);
+            return result;
+        }
+    }
+}
+```
+
+<br>
+
+Q. emp.name 별 salary.amount 합계 산출 - name은 uniq, not null, 추가로 그러면 여기서 합계가 200 이상인 사람만 출력
+
+```
+emp
+| id | name |
+| 1  | AA   |
+| 2  | BB   |
+| 3  | CC   |
+| 4  | DD   |
+
+salary
+| id | emp_id    | payed_date    | amount |
+| 1  | 1         | 2021-01-01    | 100    |
+| 2  | 1         | 2021-02-01    | 100    |
+| 3  | 2         | 2021-01-01    | 50     |
+| 4  | 2         | 2021-02-01    | 100    |
+| 5  | 3         | 2021-01-01    | 200    |
+| 6  | 3         | 2021-02-01    | 300    |
+
+SELECT e.name, SUM(s.amount)
+FROM emp e 
+LEFT JOIN salary s
+ON e.id = s.emp_id
+GROUP BY e.name 
+HAVING SUM(s.amount) >= 200
+```

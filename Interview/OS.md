@@ -12,8 +12,8 @@
 
 ## 그럼 Stack, Heap 이 무엇인가요?
 
-- stack은 지역변수, 함수 호출 저장함. 함수 호출이 끝나면 Stack pop 
-- heap은 동적 메모리 할당
+- Stack 은 지역변수, 함수 호출 저장함. 함수 호출이 끝나면 Stack pop 
+- Heap 은 동적 메모리 할당
 
 <br>
 

@@ -50,6 +50,10 @@ ex) Naver Login (Social Login)
 
 <br>
 
+## 쿠키와 세션의 차이점이 무엇인가요? 
+
+<br>
+
 ## CORS 에 대해서 설명해주세요.
 
 URL을 보면 Protocol, Host, Port 번호를 모두 합친 것이 출처(Origin) 입니다. 두 개의 출처가 같다는 것은 Scheme, Host, Port 이 3가지가 동일하다는 뜻입니다. 프론트엔드와 백엔드의 출처가 다를 때, 다른 출처로 자원을 요청하면 CORS 에러가 난다.
@@ -168,5 +172,3 @@ UDP는 전송 계층에서 효율적으로 통신할 수 있도록 돕는 프로
 ## http://www.naver.com 을 쳤을 때 발생하는 일들에 대해서 설명해주세요. 
 
 <br>
-
-
