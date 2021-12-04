@@ -168,11 +168,15 @@
   - [다양한 의존 관계 주입 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EB%8B%A4%EC%96%91%ED%95%9C%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84%20%EC%A3%BC%EC%9E%85%20%EB%B0%A9%EB%B2%95.md)
   - [Spring Bean LifeCycle 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B9%88%20%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4.md)
 
+- ### Gradle
+  - [Spring Gradle jar 테스트 코드 없이 빌드하는 법]()
+
 - ### JPA
   - [Spring Data JPA로 페이징 구현하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%EB%A1%9C%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Spring Data JPA 메소드 사용법 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%82%AC%EC%9A%A9%EB%B2%95%20%EC%A0%95%EB%A6%AC.md)
   - [Spring Data JPA Auditing 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20Auditing%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
   - [JPA MultiBagFetchException 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20MultiBagFetchException%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
+  - [JPA에서 외래키를 DB에 반영하기 싫을 때]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
@@ -262,6 +266,7 @@
   - [Spring Profile Error 해결 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20profile%20Error.md)
   - [Spring yml prod, dev 환경 나누기1](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20%EC%9A%B4%EC%98%81%ED%99%98%EA%B2%BD%2C%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EB%82%98%EB%88%84%EA%B8%B0.md)
   - [Spring yml, prod, dev 환경 나누기2](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/yml%20dev%2C%20prod%2C%20local%20%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0.md)
+  - [Intellij local.yml 사용하는 법]()
 
 ## QueryDSL
 

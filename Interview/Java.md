@@ -627,3 +627,21 @@ Object equals 는 `==`을 사용해서 비교합니다.
 
 <br>
 
+## 아래의 코드를 보고 결과를 설명해주세요.
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Integer a = 1;
+        Integer b = 1;
+        Integer c = 99999;
+        Integer d = 99999;
+
+        System.out.println(a == b);   // 1
+        System.out.println(c == d);   // 2
+    }
+}
+```
+
+- 1번은 `true` 입니다. 이유는 Integer 는 -127 ~ 127 까지는 캐싱을 해놓기 때문에 true 가 나옵니다.
+- 2번은 `false` 입니다. 그 이후에는 실제 값을 비교해서 가져오기 때문에 `==` 으로 비교하면 `false`가 나옵니다. 
