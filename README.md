@@ -160,8 +160,7 @@
 
 - ### AWS
   - [AWS EC2에 jar 파일 배포하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/EC2%20jar%20%EB%B0%B0%ED%8F%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
-  - [AWS EC2에서 실시간 log 보는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/Spring%20AWS%20EC2%20log%20%EB%B3%B4%EA%B8%B0.md)
-  - [AWS EC2에서 Spring 실시간 Access log 보는 법]()
+  - [AWS EC2에서 Spring 실시간 로그, 엑세스 로그 확인하는 법]()
 -
 - ### DI
   - [Spring 의존 자동 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%20%EC%9E%90%EB%8F%99%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80.md)
@@ -699,7 +698,7 @@
 - [Nginx란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Ngnix%EB%9E%80%3F.md)
 - [Nginx 명령어 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Nginx%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%A0%95%EB%A6%AC.md)
 - [Nginx로 Proxy Server 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Nginx%20%ED%94%84%EB%A1%9D%EC%8B%9C%20%EC%84%9C%EB%B2%84.md)
-- [AWS EC2 Linux2에서 Nginx Let's Encrypts로 HTTPS 적용하는 법]()
+- [AWS EC2 Linux2에서 Nginx Let's Encrypts로 HTTPS 적용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Nginx/Nginx%20Encrypt%EB%A1%9C%20HTTPS%20%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 
 ## Unix
