@@ -648,7 +648,26 @@ public class Test {
 
 <br>
 
+## 자바에서 멀티스레드 동기화 하는 방법들에 대해서 설명해주세요.
+
+- synchronized 
+- java.util.concurrent.locks 
+- java.util.concurrent.atomic
+- [참고하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Thread/java.util.concurrent.locks/ReentrantLock%EC%9D%B4%EB%9E%80%3F.md)
+
+<br>
+
 ## List 의 remove 동작 방식을 설명해주세요.
+
+![스크린샷 2021-12-08 오전 1 57 48](https://user-images.githubusercontent.com/45676906/145072657-8c10a96b-4472-47bb-ac9c-bf0fd9bfedff.png)
+
+<br>
+
+![스크린샷 2021-12-08 오전 1 58 04](https://user-images.githubusercontent.com/45676906/145072696-ff26a12b-207b-4936-8b89-e85ac5f36ca4.png)
+
+`ArrayList`를 보면 `remove` 메소드가 두 가지 존재합니다. 여기서 볼 점은 `Object`를 `remove`하는 것인데 내부 동작원리는 객체의 `equals`를 기반으로 비교하게 됩니다. 
+
+즉, 해당 `Object`에 `equals`, `hashCode` 기반으로 동작하기 때문에 `오버라이딩`을 해서 구현해놓아야 올바르게 작동하게 됩니다. 
 
 <br>
 
@@ -657,3 +676,5 @@ public class Test {
 <br>
 
 ## 해시맵에 데이터 저장과 조회하는데에 시간복잡도가 어떻게 되나요?
+
+<br>

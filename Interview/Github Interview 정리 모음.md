@@ -8,3 +8,5 @@
 - [ksundong - backend-interview-question](https://github.com/ksundong/backend-interview-question)
 - [4z8l - tech_interview.zip](https://github.com/4z7l/tech_interview.zip)
 - [brave-tech-interview](https://github.com/brave-people/brave-tech-interview)
+- [https://github.com/tvandame/back-end-developer-interview-questions/blob/master/Translations/Korean/README_KR.md](https://github.com/tvandame/back-end-developer-interview-questions/blob/master/Translations/Korean/README_KR.md)
+- [https://github.com/yoonje/developer-interview-questions-and-answers](https://github.com/yoonje/developer-interview-questions-and-answers)
