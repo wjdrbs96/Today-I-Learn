@@ -160,8 +160,8 @@
 
 - ### AWS
   - [AWS EC2에 jar 파일 배포하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/EC2%20jar%20%EB%B0%B0%ED%8F%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
-  - [AWS EC2에서 Spring 실시간 로그, 엑세스 로그 확인하는 법]()
--
+  - [AWS EC2에서 Spring 실시간 로그, 엑세스 로그 확인하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AWS/Spring%20%EC%8B%A4%EC%8B%9C%EA%B0%84%20%EB%A1%9C%EA%B7%B8%2C%20%EC%97%91%EC%84%B8%EC%8A%A4%20%EB%A1%9C%EA%B7%B8%20%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- 
 - ### DI
   - [Spring 의존 자동 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%20%EC%9E%90%EB%8F%99%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80.md)
   - [Spring 의존성 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%EC%84%B1%20%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80%3F.md)
@@ -194,6 +194,9 @@
 
 - ### JUnit
   - [Parameterized 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JUnit5/Parameterized.md)
+
+- ### JWT
+  - [Spring에서 JWT 사용하는 법]()
 
 - ### Mockito
   - [Test에서 public이 아닌 필드를 Reflection 으로 값 넣어주기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Mockito/Test%EC%97%90%EC%84%9C%20public%EC%9D%B4%20%EC%95%84%EB%8B%8C%20%ED%95%84%EB%93%9C%EB%A5%BC%20Reflection%20%EC%9C%BC%EB%A1%9C%20%EA%B0%92%20%EB%84%A3%EC%96%B4%EC%A3%BC%EA%B8%B0.md)
@@ -314,6 +317,12 @@
 - [OS](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/OS.md)
 - [DataStructure](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/DataStructure.md)
 
+
+## Baekjoon
+
+### 1주차
+
+- [백준 11728]() 
 
 ## Effective Java
 
