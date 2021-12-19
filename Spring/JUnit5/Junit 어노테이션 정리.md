@@ -25,3 +25,31 @@ class PostControllerTest {
 }
 ```
 
+<br> <br>
+
+## `MockMvc`
+
+```java
+class Test {
+    @Test
+    @DisplayName("가장 모임이 많은 책을 조회할 수 있다")
+    void getBookHavingMostGroupTest() throws Exception {
+        // given
+        given(bookService.getBookHavingMostGroup()).willReturn(DUMMY_BOOK_RESPONSE_DTO);
+
+        // when
+        var actions = mvc.perform(get("/api/v2/book/group/most")
+                .contentType(MediaType.APPLICATION_JSON));
+
+        // then
+        MvcResult mvcResult = actions
+                .andExpect(status().isOk())
+                .andReturn();
+        
+        List<BookResponseDto> bookResponseDtos = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<>() {
+        });
+    }
+}
+```
+
+- andExpect() 도 있지만, 위의 것도 있다. 참고합시다.

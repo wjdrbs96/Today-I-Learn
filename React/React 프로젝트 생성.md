@@ -3,8 +3,8 @@
 ```
 npx create-react-app 프로젝트명
 ```
-
-- nodejs 가 설치되어 있어야 `npx`를 사용할 수 있음
+ 
+- nodejs 가 설치되어 있어야 `npx`를 사용할 수 있음(이름에 대문자를 허용하지 않음)
 
 <br>
 
@@ -12,8 +12,8 @@ npx create-react-app 프로젝트명
 
 ```
 npm start
+yarn start
 ```
-
 
 
 <br> <br>
@@ -23,5 +23,3 @@ npm start
 ```
 npx lite-server --baseDir 1-vanila/
 ```
-
-- vanila 라는 
