@@ -147,7 +147,8 @@
 ## React
 
 - [React 프로젝트 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1.md)
-- [React Proxy 설정하는 법]()
+- [React Proxy 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20Proxy%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [React 여러가지 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20%EC%A0%95%EB%A6%AC.md)
 
 
 ## Design Pattern
