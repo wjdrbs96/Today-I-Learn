@@ -9,7 +9,10 @@
 지금의 예시처럼 어떤 비슷한 느낌의 계열끼리 있을 때 추상 클래스를 사용합니다
 
 인터페이스는 클래스가 무엇을 할 수 있다라고 하는 기능을 구현하도록 강제하는 특징을 가지고 있습니다. 
-그래서 인터페이스는 extends 키워드가 아니라 implements 키워드를 사용하는 것을 알 수 있습니다. 
+그래서 인터페이스는 extends 키워드가 아니라 implements 키워드를 사용하는 것을 알 수 있습니다.
+
+또한 인터페이스의 멤버 변수는 public static final 이어야 하며, 이를 생략할 수 있습니다. 
+그리고 인터페이스의 모든 메소드는 public abstract 이어야 하며, 이를 생략할 수 있습니다. (단, static 메소드와 default 메소드는 예외) 
 
 인터페이스는 implements 라는 키워드처럼 인터페이스에 정의된 메소드를 각 클래스의 목적에 맞게 기능을 구현하는 느낌이고, 
 추상 클래스는 extends 키워드를 사용해서 자신의 기능들을 하위 클래스로 확장 시키는 느낌이라고 생각합니다.
@@ -118,7 +121,6 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 > 다르고자 하는 데이터의 개수가 변하지 않는 경우라면, ArrayList가 최상의 선택이겠지만, 데이터 개수의 변경이 잦다면 LinkedList를 사용하는 것이 더 나은 선택이 될 것입니다.
 
 ![time](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc47wrr%2FbtqNG0s9sD1%2FGE9KaZbmsXUbPKVzOkon20%2Fimg.png)
-
 
 <br>
 
