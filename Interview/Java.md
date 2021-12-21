@@ -101,11 +101,11 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 ## `8) ArrayList vs LinkedList 차이를 설명해주세요.`
 
 ```
-ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 ArrayList를 만들면 크기 10의 배열로 만들게 됩니다. 
+ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 ArrayList를 만들면 크기 10의 배열로 만들게 됩니다. 개수가 초과되면 1.5 배씩 크기가 늘어납니다. 늘어나는 과정에서 오버헤드가 발생합니다. 
 배열의 특징이다 보니 검색을 할 때 O(1)로 가져올 수 있고 끝에서 추가하고 삭제하는 것도 O(1)로 할 수 있습니다. 
 하지만 앞이나 중간에 삽입 삭제를 했을 때는 나머지 원소들을 다 땡겨야 한다는 큰 단점을 가지고 있습니다.  
 
-반면에 LinkedList는 불연속적으로 있는 데이터들을 연결한 형태입니다. 즉, 데이터를 삽입, 삭제 하는 것은 쉽습니다. 
+반면에 LinkedList는 불연속적으로 있는 데이터들을 연결한 형태입니다. 즉, 데이터를 삽입, 삭제 하는 것은 쉽습니다. 그리고 양방향 연결리스트 형태로 구현되어 있습니다. 
 하지만 검색에는 ArrayList 보다 상대적으로 느리다는 것을 알 수 있습니다.
 ```
 
@@ -198,14 +198,14 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 <br>
 
-## 어떤 경우에 Checked? Unchecked를 쓸까요?
+## `어떤 경우에 Checked? Unchecked를 쓸까요?`
 
 - Checked 의 대표적으로 `ClassNotFoundException`, `FileNotFoundException` 같은 클래스들이 있음. `try-catch`를 강제해야 하는 경우
 - Unchecked 는 대표적으로 `ArrayOutOfIndexException`, `NullPointerException` 등이 있다. 런타임에 발생하는 예외들
 
 <br>
 
-## 객체지향 장단점에 대해서 말씀해주세요. 
+## `객체지향 장단점에 대해서 말씀해주세요.` 
 
 - ### 장점
   - 코드를 응집력 있게 작성할 수 있음
@@ -322,10 +322,12 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 1. 프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
 2. 자바 컴파일러(javac)가 자바소스(.java)코드를 읽어 들여 자바 바이트코드(.class)로 변환시킨다.
-3. 변경된 Class 파일들을 `Class Loader`를 통해 JVM 메모리 영역(Runtime Data Areas) 으로 로딩한다.
+3. 변경된 Class 파일들을 `Class Loader`를 통해 `JVM 메모리 영역(Runtime Data Areas)` 으로 로딩한다.
 4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.
 5. 해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.
 6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
+7. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼습니다. 
+   1. Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었따. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
 
 <br>
 
@@ -401,7 +403,7 @@ Survivor 영역이 2개이기 때문에 총 3개의 영역으로 나뉘는 것�
 - 새로 생성한 대부분의 객체는 Eden 영역에 위치한다.
 - Eden 영역에서 GC가 한 번 발생한 후 살아남은 객체는 Survivor 영역 중 하나로 이동된다.
 - Eden 영역에서 GC가 발생하면 이미 살아남은 객체가 존재하는 Survivor 영역으로 객체가 계속 쌓인다.
-- 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다. Young 에서 일어나는 GC 를 `Minor GC` 라고 합니다.
+- 하나의 Survivor 영역이 가득 차게 되면 그 중에서 살아남은 객체를 다른 Survivor 영역으로 이동한다. 그리고 가득 찬 Survivor 영역은 아무 데이터도 없는 상태로 된다. `Young 에서 일어나는 GC 를 Minor GC 라고 합니다.`
 - 이 과정을 반복하다가 계속해서 살아남아 있는 객체는 Old 영역으로 이동하게 된다.
 - Old Generation 영역에서 살아남았던 객체들이 일정 수준 쌓이게 되면 미사용된다고 식별된 객체들을 제거해주는 `Full GC`가 발생하게 됩니다.
   이 과정에서 `STW(Stop-The-World)`가 발생하게 됩니다. (STW란, `Old Generation`의 쌓인 많은 객체들을 효율적으로 제거해주기 위해 JVM이 잠시 멈추는 현상을 뜻합니다.)
@@ -420,7 +422,7 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
-### Serial GC
+### `Serial GC`
 
 - Young 영역에서의 GC는 앞 절에서 설명한 방식을 사용한다. Old 영역의 GC는 `Mark-Sweep-Compact`이라는 알고리즘을 사용한다. 
   1. 이 알고리즘의 첫 단계는 `Old 영역에 살아 있는 객체를 식별(Mark)`하는 것이다. 
@@ -430,7 +432,7 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
-### Parallel GC
+### `Parallel GC`
 
 - `Parallel GC는 Serial GC와 기본적인 알고리즘은 같다`.
 - `Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개` >> **Serial GC보다 빠르게 객체를 처리할 수 있다**
@@ -438,33 +440,37 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
-### Parallel Old GC
+### `Parallel Old GC`
 
 - Old 영역에서 작동할때만 다름
   - `Mark-Sweep-Compaction` 알고리즘 말고, `Mark-Summary-Compaction`을 사용한다
 
 <br>
 
-### CMS GC (Concurrent Mark Sweep GC)
+### `CMS GC (Concurrent Mark Sweep GC)`
 
-초기 Initial Mark 단계에서는 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. 따라서, 멈추는 시간은 매우 짧다. 그리고 `Concurrent Mark 단계에서는 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인한다.` 이 단계의 특징은 다른 스레드가 실행 중인 상태에서 동시에 진행된다는 것이다.
+초기 `Initial Mark` 단계에서는 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. 따라서, 멈추는 시간은 매우 짧다. 그리고 `Concurrent Mark 단계에서는 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인한다.` 이 단계의 특징은 다른 스레드가 실행 중인 상태에서 동시에 진행된다는 것이다.
 
-그 다음 Remark 단계에서는 Concurrent Mark 단계에서 새로 추가되거나 참조가 끊긴 객체를 확인한다. 마지막으로 Concurrent Sweep 단계에서는 쓰레기를 정리하는 작업을 실행한다. 이 작업도 다른 스레드가 실행되고 있는 상황에서 진행한다.
+그 다음 Remark 단계에서는 `Concurrent Mark` 단계에서 새로 추가되거나 참조가 끊긴 객체를 확인한다. 마지막으로 `Concurrent Sweep` 단계에서는 쓰레기를 정리하는 작업을 실행한다. 이 작업도 다른 스레드가 실행되고 있는 상황에서 진행한다.
 
 `이러한 단계로 진행되는 GC 방식이기 때문에 stop-the-world 시간이 매우 짧다.` 모든 애플리케이션의 응답 속도가 매우 중요할 때 CMS GC를 사용하며, Low Latency GC라고도 부른다.
 
-그런데 CMS GC는 stop-the-world 시간이 짧다는 장점에 반해 다음과 같은 단점이 존재한다.
+그런데 `CMS GC는 stop-the-world 시간이 짧다는 장점`에 반해 다음과 같은 단점이 존재한다.
 
 - 다른 GC 방식보다 메모리와 CPU를 더 많이 사용한다.
 - Compaction 단계가 기본적으로 제공되지 않는다.
 
 <br>
 
+- `Initial Mark`: 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는다.
+- `Concurrent Mark`: 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 새로 추가되거나 참조가 끊긴 객체를 확인한다.
+- `Concurrent Sweep`: GC 대상들을 정리하는 작업을 실행한다. 
+
 따라서, CMS GC를 사용할 때에는 신중히 검토한 후에 사용해야 한다. 그리고 조각난 메모리가 많아 Compaction 작업을 실행하면 다른 GC 방식의 stop-the-world 시간보다 stop-the-world 시간이 더 길기 때문에 Compaction 작업이 얼마나 자주, 오랫동안 수행되는지 확인해야 한다.
 
 <br>
 
-### G1 GC
+### `G1 GC`
 
 - G1 GC를 이해하려면 지금까지의 Young 영역과 Old 영역에 대해서는 잊는 것이 좋다.
 - G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
@@ -558,8 +564,8 @@ Object equals 는 `==`을 사용해서 비교합니다.
 ## 두 객체간의 equals 가 true 이면 hashCode 도 무조건 true 인가요?
 
 - equals 비교에 사용되는 정보가 변경되지 않았다면, 애플리케이션이 실행되는 동안 그 객체의 hashCode 메소드는 몇 번을 호출해도 일관되게 항상 같은 값을 반환해야 합니다.(단, 애플리케이션을 다시 실행한다면 이 값이 달라져도 상관없습니다.)
-- equals(Object)가 두 객체를 같다고 판단했다면, 두 객체의 hashCode는 똑같은 값을 반환해야 합니다.
-- equals(Object)가 두 객체를 다르다고 판단했더라도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다. 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
+- `equals(Object)가 두 객체를 같다고 판단했다면, 두 객체의 hashCode는 똑같은 값을 반환해야 합니다.`
+- `equals(Object)가 두 객체를 다르다고 판단했더라도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다.` 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
 
 <br>
 
@@ -673,10 +679,20 @@ public class Test {
 
 <br>
 
-## List sort 메소드는 어떤 정렬 알고리즘을 사용하나요?
+## 리플렉션이란?
+
+리플렉션은 구체적인 클래스 타입을 알지 못해서 그 클래스의 메소드와 타입 그리고 변수들을 접근할 수 있도록 해주는 자바 API 입니다.
 
 <br>
 
-## 해시맵에 데이터 저장과 조회하는데에 시간복잡도가 어떻게 되나요?
+## List sort 메소드는 어떤 정렬 알고리즘을 사용하나요?
+
+
+
+<br>
+
+## 해시맵에 데이터 저장과 조회하는데 시간복잡도가 어떻게 되나요?
+
+
 
 <br>
