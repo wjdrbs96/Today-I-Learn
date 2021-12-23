@@ -188,6 +188,9 @@
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
   - [@SpringBootApplication 동작 원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/%40SpringBootApplication%20%EB%8F%99%EC%9E%91%20%EC%9B%90%EB%A6%AC.md)
 
+- ### CORS
+  - [Spring React에서 CORS 해결하는 방법]()
+
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [Spring H2 Memory DB 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20memory%20DB%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
