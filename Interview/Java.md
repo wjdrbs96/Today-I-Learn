@@ -282,6 +282,11 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 <br>
 
+## `코틀린이랑 자바가 어떻게 100% 호환되는지 설명해주세요.`
+
+
+<br>
+
 ## `13. Java 8에 추가된 것들에 대해서 설명해주세요.`
 
 - Date -> LocalDateTime, LocalDate 등장
@@ -481,6 +486,15 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
+### `Stop the world 는 어느 GC 에서 일어나나요?`
+
+<br>
+
+## `CMS GC에서는 Comapction 은 아예 발생하지 않나요?`
+
+
+<br>
+
 ### Java Version 별 GC 방식
 
 - Java 7 : Parallel GC
@@ -583,6 +597,10 @@ Object equals 는 `==`을 사용해서 비교합니다.
 
 - 가능합니다. final 은 `초기화`가 한번만 가능한것이라 내부 값을 바꿀 수 있습니다.
 - final List<Integer> list = new ArrayList<>(); 에서 list.add(1) 도 마찬가지로 값을 변경할 수 있습니다.
+
+<br>
+
+## 박싱 언박싱 차이가 무엇인가요?
 
 <br>
 

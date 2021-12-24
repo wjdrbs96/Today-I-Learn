@@ -189,7 +189,7 @@
   - [@SpringBootApplication 동작 원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/%40SpringBootApplication%20%EB%8F%99%EC%9E%91%20%EC%9B%90%EB%A6%AC.md)
 
 - ### CORS
-  - [Spring React에서 CORS 해결하는 방법]()
+  - [Spring React에서 CORS 해결하는 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/CORS/Spring%EC%97%90%EC%84%9C%20CORS%20%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 - ### H2
   - [Spring H2 DB 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/H2/Spring%20H2%20DB%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
@@ -233,6 +233,9 @@
 
 - ### MVC
   - [Spring MVC 프레임워크 동작 방식 디버깅을 통해서 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MVC/Spring%20MVC%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%20%EB%8F%99%EC%9E%91%20%EB%B0%A9%EC%8B%9D.md)
+
+- ### Session
+  - [HttpSession 동작 원리]()
 
 - ### MongoDB
   - [Spring Boot MongoDB 연결시 권한 에러 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MongoDB/Spring%20Boot%20MongoDB%20Auth%20Error%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)

@@ -1,0 +1,231 @@
+# `HttpSession 동작 원리`
+
+로그인을 구현하는 방법에는 크게 `JWT`, `Session-Cookie` 방식 두 가지가 존재합니다. 저는 지금까지 두 가지 중에 항상 `JWT`를 사용해서 로그인을 구현해왔는데요. 그래서 `Session-Cookie`를 사용했을 때 어떤 장단점이 있는지 직접 개발하면서 체감 해보진 못하고 이론적으로만 공부해보았습니다. `JWT`는 직접 개발하면서 느낀 결과 여러가지 장점이 있지만, `토큰이 탈취 당할 수 있다는 것이 가장 큰 단점이라고 많이 느꼈습니다.`
+
+그래서 이번 글에서는 JWT 대신 `세션`에 대해서 알아보고 추가적으로 `인터셉터`, `쿠키`에 대해서도 살~짝 정리해보겠습니다.
+
+<br> <br>
+
+## `HttpSession 사용하기`
+
+Controller에서 `HttpSession`을 사용하려면 아래의 두 가지 방법 중 한 가지를 이용하면 됩니다.
+
+- `요청 매핑 애노테이션 적용 메소드에 HttpSession 파라미터를 추가한다.`
+- `요청 매핑 애노테이션 적용 메소드에 HttpServletRequest 파라미터를 추가하고 HttpServletRequest를 이용해서 HttpSession을 구한다.`
+
+<br>
+
+```kotlin
+@PostMapping("/signup")
+fun sign(@RequestBody signUpDTO: SignUpDTO, httpSession: HttpSession) {}
+```
+
+위와 같이 사용하는 방식이 첫 번째 방식입니다. 이렇게 사용하게 되면 `항상 HttpSession을 생성하게 됩니다.`
+
+<br>
+
+```kotlin
+@PostMapping("/signup")
+fun sign(@RequestBody signUpDTO: SignUpDTO, req: HttpServletRequest) {
+	val session = req.session
+}
+```
+
+`HttpServletRequest`를 사용하는 것이 두 번째 방법입니다. 이렇게 사용하게 되면 `필요한 시점에만 HttpSession`을 생성할 수 있습니다.
+
+<br>
+
+그리고 HttpSession에 대해서 좀 더 알아보기 위해서 [공식문서](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/http/HttpSession.html)를 보았는데요.
+
+> Provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user <br>
+
+> The servlet container uses this interface to create a session between an HTTP client and an HTTP server. The session persists for a specified time period, across more than one connection or page request from the user. A session usually corresponds to one user, who may visit a site many times. The server can maintain a session in many ways such as using cookies or rewriting URLs. <br>
+
+> Session information is scoped only to the current web application ( ServletContext), so information stored in one context will not be directly visible in another.
+
+위의 영어는 공식문서에서 내용을 가져왔습니다. 파파고의 힘을 빌려 해석해보면 아래와 같습니다.
+
+<br>
+
+> 둘 이상의 페이지 요청에서 사용자를 식별하거나, 웹 사이트를 방문하고 해당 사용자에 대한 정보를 저장하는 방법을 제공한다. <br>
+
+> 서블릿 컨테이너는 HttpSession 인터페이스를 사용하여 HTTP 클라이언트와 HTTP 서버 간의 세션을 작성합니다. 세션은 지정된 시간 동안 사용자의 둘 이상의 연결 또는 페이지 요청에 걸쳐 지속됩니다. 세션은 일반적으로 사이트를 여러 번 방문할 수 있는 한 사용자에 해당합니다. 서버는 쿠키를 사용하거나 URL을 다시 작성하는 등의 다양한 방법으로 세션을 유지관리할 수 있습니다. <br>
+
+> 세션 정보는 현재 웹 응용프로그램(ServletContext)으로만 범위가 지정되므로, 한 컨텍스트에 저장된 정보는 다른 컨텍스트에서 직접 볼 수 없습니다.
+
+<br>
+
+세션만 보더라도 `Spring MVC` 내부에서 엄청나게 복잡하고 많은 일들이 일어나고 있다는 것을 알 수 있습니다. 그래서 `Spring`에서 Session을 구현한다면 `HttpSession`을 사용하게 될 것입니다.
+
+```kotlin
+httpSession.setAttribute("user", user)
+httpSession.getAttribute("user")
+httpSession.invalidate()       
+```
+
+위와 같이 `setAttribute`를 사용해서 `user`를 세션에 저장하고 `getAttribute`를 사용해서 다시 `user`를 꺼내올 수 있습니다. 그리고 `invalidate`를 통해서 세션을 제거할 수 있습니다.
+
+`그러면 여기서 잠깐!!` 한 가지 궁금한 점이 생기는데요.
+
+<br>
+
+### `궁금한 점`
+
+```
+HttpSession.getAttribute("user");
+
+사용자 A가 접속해도 "user" Key로 값을 가져오고,
+사용자 B가 접속해도 "user" Key로 가져옵니다. 
+같은 Key를 쓰는데 어떻게 유저 A와 B를 구분해서 값을 가져오나요?
+```
+
+위와 같이 `Key가 같은데 user를 구분해서 가져오는 것이 가능한 이유가 무엇일까요?` 이것에 대해 이해하려면 먼저 `JSESSIONID` 라는 것을 먼저 알아야 합니다.
+
+<br> <br>
+
+## `JSESSIONID란?`
+
+- 톰캣 컨테이너에서 세션을 유지하기 위해 발급하는 키
+
+- 상태를 저장하기 위해서 톰캣은 JSESSIONID 쿠키를 클라이언트(브라우저)에게 발급해주고 이 값을 통해 세션을 유지할 수 있도록 한다.
+
+<br>
+
+`JSESSIONID란`에 대해서 간단하게 요약하면 위와 같이 정의할 수 있습니다.
+
+![스크린샷 2021-10-19 오후 1 40 04](https://user-images.githubusercontent.com/45676906/137845216-962dda2e-7485-4731-8bc3-80fcc41ab8cc.png)
+
+> The name to be used for all session cookies created for this context. If set, this overrides any name set by the web application. If not set, the value specified by the web application, if any, will be used, or the name JSESSIONID if the web application does not explicitly set one.
+
+그리고 잠깐 톰캣 [공식 문서](https://tomcat.apache.org/tomcat-8.5-doc/config/context.html)를 보면서 `sessionCookieName`에 대해서 살펴보겠습니다.
+
+간단하게 요약하자면 `특별하게 이름을 지정하지 않으면 JSESSIONID 이름이 사용된다.` 정도인 것 같습니다. 그러면 `JSESSIONID` 으로 어떻게 위의 질문에 대한 답을 어떻게 해결할 수 있는 것일까요?
+
+<br>
+
+```kotlin
+@PostMapping("/signup")
+fun sign(@RequestBody signUpDTO: SignUpDTO, httpSession: HttpSession) {
+	httpSession.setAttribute("email", signUpDTO.email)
+}
+```
+
+먼저 위의 코드는 `email`을 세션으로 등록하고 있는데요. 한번 `Postman`으로 위의 API를 호출해보겠습니다.
+
+![스크린샷 2021-10-19 오후 1 54 39](https://user-images.githubusercontent.com/45676906/137846544-41f65982-afea-4cd2-bd0f-6d458d2f197b.png)
+
+그러면 위의 API를 호출하면 Postman에서 볼 수 있듯이 `Response Cookie`에 `JSESSIONID`가 포함되어서 응답으로 오는 것을 볼 수 있습니다. 즉, 세션이 서버에 등록되면 서버에서 응답 값으로 클라이언트(브라우저)에게 `JSESSIONID`을 Response Header에 담아서 보내주는 것을 볼 수 있습니다.
+
+<br>
+
+```kotlin
+@GetMapping
+fun test(httpSession: HttpSession): String {
+	httpSession.setAttribute("key", "value")
+	return "test"
+}
+```
+
+이번에는 `GET` 방식의 세션을 저장하는 임시 코드를 작성하고 `크롬 브라우저`에서 요청한 후에 `개발자 도구`를 확인해보겠습니다.
+
+![스크린샷 2021-10-19 오후 2 00 54](https://user-images.githubusercontent.com/45676906/137846857-7bd686e7-8a12-4863-8590-2a2ac13e2bc8.png)
+
+그리고 `Network` 탭에서 확인을 해보면 포스트맨에서 본 것과 동일하게 `Response Headers`에 `Set-Cookie`에 `JSESSIONID`를 담아서 응답이 온 것을 확인할 수 있습니다. 그리고 한번 더 동일하게 크롬에서 요청을 보내보겠습니다.
+
+<br>
+
+![스크린샷 2021-10-19 오후 2 03 13](https://user-images.githubusercontent.com/45676906/137847058-dd47e352-685d-4870-a155-2ca9757bfbb9.png)
+
+한번 더 요청을 보내니 이번에는 `Request Headers`에 `Cookie`로 `JSESSIONID`를 서버로 보내는 것을 볼 수 있습니다. 즉, 전체적인 흐름을 정리하면 아래와 같습니다.
+
+1. 클라이언트(웹 브라우저의 사용자)가 처음으로 웹 어플리케이션을 방문하거나 request.getSession()을 통해 HttpSession을 처음으로 가져 오면 `서블릿 컨테이너`는 새로운 HttpSession 객체를 생성하고 길고 unique한 ID를 생성 후, 서버의 메모리에 저장합니다.
+2. 서블릿 컨테이너는 `JSESSIONID`란 이름을 key로, 생성한 session ID를 value로 하여 HTTP 응답의 Set-Cookie header에 cookie로 설정합니다
+3. 브라우저는 다음 요청부터 `Request Headers`에 `JSESSIONID`를 담아서 서버로 요청을 보냅니다.
+4. `서블릿 컨테이너`는 들어오는 모든 HTTP request의 cookie header에서 `JSESSIONID`라는 이름의 cookie가 있는지 확인하고 해당 값 (session ID)을 사용하여 서버의 메모리에 저장된 HttpSession을 가져옵니다.
+
+<br> <br>
+
+### `JSESSIONID가 존재할 경우`
+
+![image](https://user-images.githubusercontent.com/45676906/137858815-74a2934c-1b1d-4c33-a9f7-434ad57e8219.png)
+
+<br>
+
+### `JSESSIONID 없을 경우`
+
+![image](https://user-images.githubusercontent.com/45676906/137858881-0c307719-7d42-4fd8-8b57-551eed08e6b0.png)
+
+> 클라이언트 측에서는 웹브라우저 인스턴스가 실행되는 동안 session cookie가 활성화됩니다. 따라서 클라이언트가 웹 브라우저 인스턴스(모든 탭 / 창)를 닫으면 클라이언트 session이 삭제됩니다. 새 브라우저에서 session과 연관된 cookie는 존재하지 않으므로 더 이상 cookie는 전송되지 않습니다. 이로 인해 새로운 HTTP Session이 생성되고 새로운 session cookie가 사용됩니다. <br>
+
+> Reference : [https://jojoldu.tistory.com/118](https://jojoldu.tistory.com/118)
+
+<br>
+
+위에서 `클라이언트가 웹 브라우저 인스턴스(모든 탭 / 창)를 닫으면 클라이언트 session이 삭제됩니다.` 라는 말이 나오는데요. 저도 많이 들어봤던 말이지만, 실제로 정말 그런지 한번 테스트를 해보겠습니다. (`반드시 시크릿 모드로 브라우저를 키셔야 합니다.`)
+
+![스크린샷 2021-10-20 오후 10 41 56](https://user-images.githubusercontent.com/45676906/138104552-b8427742-28e9-4999-93b5-fb1826b31051.png)
+
+위에서 보았던 것처럼 첫 번째 요청은 `Response Headers`에 `JSESSIONID`이 응답으로 오는 것을 볼 수 있습니다.
+
+<br>
+
+![스크린샷 2021-10-20 오후 10 45 03](https://user-images.githubusercontent.com/45676906/138105183-8c9b7682-56a3-4c0c-9996-cea9d8646cb9.png)
+
+그리고 브라우저를 전부 다 닫은 후에 다시 시크릿 모드를 키고, 요청을 보내보면 세션 값이 바뀐 것을 볼 수 있는데요. 즉, `클라이언트가 웹 브라우저 인스턴스(모든 탭 / 창)를 닫으면 클라이언트 session이 삭제됩니다.` 라는 말처럼 동작하는 것을 확인할 수 있습니다.
+
+<br>
+
+그러면 지금까지 위에서 정리한 내용을 바탕으로 `같은 Key를 쓰는데 어떻게 유저 A와 B를 구분해서 값을 가져오나요?` 라는 질문은 요청이 올 때의 `Request Header에 존재하는 JSESSIONID로 구분할 수 있다.` 라고 답할 수 있을 것 같은데요. 이것 또한 정말로 그런지  한번 더 테스트를 해보겠습니다.
+
+<br>
+
+![스크린샷 2021-10-20 오후 10 59 35](https://user-images.githubusercontent.com/45676906/138107682-3609627e-2f6d-4423-9411-447b46d89b82.png)
+
+위와 같이 간단하게 코드를 기반으로 아래와 같이 진행해보겠습니다.
+
+1. 시크릿 모드 브라우저에서 `http://localhost:8080/api/v1`로 요청 보내기
+2. 시크릿 모드 브라우저 전부 다 끈 후에 시크릿 모드 브라우저 다시 키기
+3. `http://localhost:8080/api/v1/test`로 요청 보내기
+
+<br>
+
+지금까지 계속 보았듯이 1번을 진행하면 서버에서 `Response Header에 JESSIONID` 값을 보내줄 것입니다. 그런데 2번을 진행하면 1번에서 받은 `JSESSIONID`가 사라지게 될 것인데요. 이러한 상태로 3번을 호출해서 `getAttribute()`를 하게 되면 어떤 결과를 출력하게 될까? 라는 것을 알아보는 테스트 입니다.
+
+<br>
+
+![스크린샷 2021-10-20 오후 11 05 06](https://user-images.githubusercontent.com/45676906/138108573-d59e95b3-8e55-4556-835a-4ef163294440.png)
+
+결과가 null이 찍히는 것을 볼 수 있습니다. 즉, `setAttribute` 할 때의 `key`가 중요한 것이 아니라 클라이언트(브라우저)에서 요청을 보낼 떄 `Request Header`에 `JESSIONID`가 있냐 없냐가 유저를 구분하는데 중요한 역할을 한다는 것을 다시 한번 알 수 있습니다. 정리하자면 2번 단계에서 브라우저를 전부 다 끈 후에 다시 켰기에 `JESSIONID`가 없는 상태로 `getAttribute()`를 하려 했기 때문에 `null`이 출력된 것입니다.
+
+<br> <br>
+
+## `읽어보면 좋은 내용`
+
+> ServletContext는 웹 애플리케이션이 살아있는 한 계속 살아있습니다. 그리고 그것은 모든 session에서 모든 request간에 공유됩니다. 클라이언트가 동일한 브라우저 인스턴스로 웹 어플리케이션과 상호 작용하고, session이 서버에서 time out되지 않은 한 HttpSession은 계속 유지됩니다. 같은 session은 모든 request간에 공유됩니다. HttpServletRequest와 HttpServletResponse는 서블릿이 클라이언트로부터 HTTP request을 받을 때부터 완성된 응답이 도착할 때까지(역자주: 웹 페이지가 랜더링되는 시점)살아있습니다. 그외 다른 곳에서는 공유되지 않습니다. 모든 Servlet, Filter 및 Listener 인스턴스는 웹 어플리케이션이 살아있는 한 계속 살아있습니다. ServletContext, HttpServletRequest 및 HttpSession에 정의 된 모든 attribute는 해당 객체가 살아있는 동안 지속됩니다. <br>
+
+> Reference : [https://jojoldu.tistory.com/118](https://jojoldu.tistory.com/118)
+
+<br> <br>
+
+## `Thread Safety`
+
+> 서블릿과 필터는 모든 request에서 공유됩니다. 멀티 스레드와 다른 스레드 (HTTP request)는 동일한 인스턴스를 사용할 수 있습니다.그렇지 않으면 매 request마다 init() 및 destroy()를 다시 실행하기에는 너무 많은 비용이 듭니다. <br>
+
+> 또한 request나 session 에서 사용하는 데이터를 서블릿이나 필터의 인스턴스 변수로 할당해서는 안됩니다. 다른 session의 모든 request간에 공유되어 스레드로부터 안전하지 않습니다. <br>
+
+> Reference : [https://jojoldu.tistory.com/118](https://jojoldu.tistory.com/118)
+
+```kotlin
+class ExampleServlet : HttpServlet() {
+
+    private lateinit var thisIsNOTThreadSafe: Any //쓰레드에 안전하지 않은 변수
+
+    override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
+        val thisIsThreadSafe: Any  // 쓰레드에 안전한 지역변수
+        thisIsNOTThreadSafe = req!!.getParameter("foo");   // BAD!! 모든 request가 공유합니다.
+        thisIsThreadSafe = req.getParameter("foo");      // OK, 이건 쓰레드에 안전합니다.
+    }
+}
+```
+
+`간단히 말해서`부터 `쓰레드 예제`는 [Jojoldu님 블로그](https://jojoldu.tistory.com/118) 에서 가져왔습니다. `HttpSession`에 대해서 마지막 이 부분을 보면서 이해하면 좋을 거 같아서 가져왔습니다.
