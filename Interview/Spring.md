@@ -50,7 +50,7 @@ IoC 컨테이너 생성 -> Bean 등록 -> Bean 객체들의 의존 관계 주입
 </details>
 
 <details>
-  <summary>SpringBootApplication 동작 방식을 설명해주세요.</summary>
+  <summary>@SpringBootApplication 동작 방식을 설명해주세요.</summary>
   <br>
 
 SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguration`, `@EnableAutoConfiguration` 대표적으로 3가지가 존재한다.
@@ -324,6 +324,103 @@ N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 �
 <details>
   <summary>AutoIncrement PK 지닌 테이블에 한 트랜잭션 내에서 insert를 10번 했을 때 네트워크 상으로 쿼리가 몇번 실행될까요?</summary>
   <br>
+</details>
+
+<details>
+  <summary>영속성 컨텍스트를 사용하면 쓰기 지연이 가능한 이유가 무엇인가요?</summary>
+
+데이터를 저장하면 등록 쿼리를 데이터베이스에 바로 보내지 않고 메모리에 모아 둡니다. 그리고 트랜잭션을 커밋할 때 등록 쿼리를 데이터베이스에 보낸 후에 커밋하기 때문에 가능합니다.
+
+</details>
+
+<details>
+  <summary>영속성 컨텍스트의 변경 감지가 동작하는 과정에 대해서 설명해주세요.</summary>
+
+엔티티의 변경사항을 데이터베이스에 자동으로 반영하는 기능을 `변경 감지`라고 합니다. JPA는 엔티티를 영속성 컨텍스트에 보관할 때, `최초 상태를 복사해서 저장해두는데 이것을 스냅샷이라고 합니다.` 그리고 플러시 시점에 스냅샷과 엔티티를 비교해서 변경된 엔티티를 찾습니다. `변경 감지는 영속성 컨텍스트가 관리하는 영속 상태의 엔티티에만 적용됩니다.` 
+
+1. 트랜잭션을 커밋하면 엔티티 매니저 내부에서 먼저 `flush()`가 호출됩니다.
+2. 엔티티와 스냅샷을 비교해서 변경된 엔티티를 찾습니다.
+3. 변경된 엔티티가 있으면 수정 쿼리를 생성해서 쓰기 지연 SQL 저장소에 보냅니다.
+4. 쓰기 지연 저장소의 SQL을 데이터베이스에 보닙니다.
+5. 데이터베이스 트랜잭션을 커밋합니다.
+
+</details>
+
+<details>
+  <summary>영속성 컨텍스트의 1차 캐시 특징에 대해서 설명해주세요.</summary>
+
+## `엔티티 조회, 1차 캐시`
+
+<img width="703" alt="스크린샷 2021-08-25 오전 7 13 32" src="https://user-images.githubusercontent.com/45676906/130697054-93744483-9c26-4764-8864-18a645a130ba.png">
+
+```java
+// 엔티티를 생성한 상태 (비영속)
+Member member = new Member();
+member.setId(1L);
+member.setUsername("Gyunny");
+
+// 엔티티를 영속
+em.persist(member);   
+```
+
+영속성 컨텍스트는 내부에 캐시를 가지고 있는데 이것을 `1차 캐시`라고 합니다. 영속 상태의 엔티티는 모두 이곳에 저장됩니다. 즉, 영속성 컨텍스트 내부에 Map이 하나 있는데 키는 @Id로 매핑한 식별자이고 값은 엔티티 인스턴스입니다.
+
+<br> <br>
+
+## `1차 캐시에서 조회`
+
+```java
+// 엔티티를 생성한 상태 (비영속)
+Member member = new Member();
+member.setId(1L);
+member.setUsername("Gyunny");
+
+// 엔티티를 영속
+em.persist(member);   
+
+// 1차 캐시에서 조회
+Member findMember = em.find(Member.class, "1L");
+```
+
+<img width="980" alt="스크린샷 2021-08-25 오전 7 19 18" src="https://user-images.githubusercontent.com/45676906/130697561-1b0c585c-0a4b-4c0c-ab57-82278ba751a2.png">
+
+em.find()를 호출하면 우선 1차 캐시에서 식별자 값으로 엔티티를 찾습니다.
+
+<br> <br>
+
+## `만약 1차 캐시에 없는 2번 Member를 조회한다면?`
+
+```java
+Member findMember2 = em.find(Member.class, 2L);
+```
+
+<img width="1471" alt="스크린샷 2021-08-25 오전 7 21 24" src="https://user-images.githubusercontent.com/45676906/130697770-f840afea-6b3c-4f4a-a146-67a7c5227e64.png">
+
+만약 em.find()를 호출했는데 엔티티가 1차 캐시에 없으면 엔티티 매니저는 데이터베이스를 조회해서 결과로 나온 Member2를 1차 캐시에 저장한 후에 영속 상태의 엔티티를 반환합니다.
+(한 트랜잭션 안에서만 효과가 있기 때문에 막 그렇게 성능의 이점이 있지는 않음!)
+
+<br>
+
+![스크린샷 2021-08-25 오전 7 26 57](https://user-images.githubusercontent.com/45676906/130698357-c7adabcf-5159-4d93-9877-180d76f35865.png)
+
+위와 같이 `엔티티를 영속 상태`로 만든 후에 `em.find()`를 통해서 조회했을 때 실제로 1차 캐시에서 조회를 하는지 알아보겠습니다.
+
+<br>
+
+![스크린샷 2021-08-25 오전 7 29 17](https://user-images.githubusercontent.com/45676906/130698478-d9f3c305-5a03-49cb-b06d-1e6dd6151364.png)
+
+결과를 보면 `em.find()`를 했을 때 `SELECT` 쿼리가 실행되지 않은 것을 볼 수 있습니다. 즉, DataBase에서 조회한 것이 아니라 1차 캐시에서 조회해서 결과를 반환한 것을 알 수 있습니다.
+
+이번에는 위에서 말했던 것처럼 1차 캐시에 없는 멤버를 조회했을 때는 어떻게 되는지 알아보겠습니다.
+
+![스크린샷 2021-08-25 오전 7 35 31](https://user-images.githubusercontent.com/45676906/130698993-f223f7d5-a8b7-4aec-bc76-d2b76e103da4.png)
+
+1번 멤버가 DB에 존재하는 상태로 1번 멤버를 두 번 find() 하는 코드입니다. 위 코드의 결과를 예측해보면 첫 번째 find()만 SELECT 쿼리가 실행되고 두 번째 find()는 1차 캐시에서 가져오기 때문에 SELECT 쿼리가 실행되지 않을 것이라 예상할 수 있습니다. 실제로 그런지 한번 실행해보겠습니다.
+
+![스크린샷 2021-08-25 오전 7 38 17](https://user-images.githubusercontent.com/45676906/130699148-3306a37b-742e-4678-b2dc-bf2b80bbf7c4.png)
+
+결과를 보면 예상했던 대로 SELECT 쿼리가 한번만 실행된 것을 확인할 수 있습니다. (하지만 현업에선 그렇게~ 도움을 주진 않는다고 하는,,)
+
 </details>
 
 <br>

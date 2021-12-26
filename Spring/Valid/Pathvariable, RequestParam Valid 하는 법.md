@@ -1,6 +1,6 @@
 ## `@Pathvariable @Valid로 검증하는 법`
 
-이번 글에서는 `@RequestParam`, `@Pathvariable` 어노테이션을 사용해서 값을 받아오는 상황에서 `Valid` 할 수 있는 방법에 대해서 정리해보려 합니다.
+이번 글에서는 `@RequestParam`, `@PathVariable` 어노테이션을 사용해서 값을 받아오는 상황에서 `Valid` 할 수 있는 방법에 대해서 정리해보려 합니다.
 
 ```
 implementation 'org.hibernate:hibernate-validator:7.0.2.Final'
