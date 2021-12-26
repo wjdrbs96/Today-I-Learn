@@ -270,7 +270,7 @@
   - [Transactional Isolation Level, Spring Default Isolation](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Isolation.md)
   - [Transactional Propagation 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Propagation.md)
   - [Transactional Proxy 동작원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Proxy%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0.md)
-  - [Transactional readOnly=true 동작원리]()
+  - [Transactional readOnly=true 동작원리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20readOnly%3Dtrue%20%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.md)
 
 - ### Valid
   - [Spring Valid 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Valid/Spring%20Valid%20%EC%A0%95%EB%A6%AC.md)
@@ -761,6 +761,7 @@
 - [Pull Request를 통해 코드 리뷰하는 법](https://devlog-wjdrbs96.tistory.com/231?category=882255)
 
 ## Retrospect
-   
+
+- [개발자를 꿈꾸는 대학생의 2020년 회고](https://devlog-wjdrbs96.tistory.com/240)
 - [Github 1일 1커밋을 1년 7개월 동안 해오면서..](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/1%EC%9D%BC%201%EC%BB%A4%EB%B0%8B%20%ED%9A%8C%EA%B3%A0.md)
-- [개발자를 꿈꾸는 대학생의 2020년 회고](https://devlog-wjdrbs96.tistory.com/240)    
+- [2021년에 대해서 25가지 적어보기]()
