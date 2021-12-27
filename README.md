@@ -311,6 +311,7 @@
 - [10장: 객체지향 쿼리 언어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/10%EC%9E%A5.md)
 - [12장: 스프링 데이터 JPA](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/12%EC%9E%A5.md)
 - [13장: 웹 애플리케이션과 영속성 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/13%EC%9E%A5.md)
+- [15장: 고급 주제와 성능 최적화]()
 
 ## Interview
 
@@ -764,4 +765,4 @@
 
 - [개발자를 꿈꾸는 대학생의 2020년 회고](https://devlog-wjdrbs96.tistory.com/240)
 - [Github 1일 1커밋을 1년 7개월 동안 해오면서..](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/1%EC%9D%BC%201%EC%BB%A4%EB%B0%8B%20%ED%9A%8C%EA%B3%A0.md)
-- [2021년에 대해서 25가지 적어보기]()
+- [2021년에 대해서 25가지 적어보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/2021%EB%85%84%2025%EA%B0%80%EC%A7%80%20%ED%9A%8C%EA%B3%A0.md)
