@@ -52,4 +52,4 @@ class Test {
 }
 ```
 
-- andExpect() 도 있지만, 위의 것도 있다. 참고합시다.
+- andExpect() 도 있지만, 위의 것도 있다. 참고하기
