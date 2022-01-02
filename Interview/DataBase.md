@@ -216,6 +216,32 @@ A, B 컬럼을 인덱스로 설정할 때 복합인덱스라 한다. 두 번째 
 
 </details>
 
+<details>
+  <summary>레디스를 사용할 때 주의해야 할 점이 무엇일까요?</summary>
+  <br>
+
+레디스에 너무 많은 데이터를 저장하면 `OutOfMemoryException`이 발생할 수 있기 때문에 `TTL` 같은 것을 설정해서 제거하거나 필요 없는 데이터를 제거하면서 메모리 관리할 수 있을 것 같습니다.
+
+</details>
+
+<details>
+  <summary>레디스가 싱글스레드여서 발생하는 문제점은 무엇이 있을까요?</summary>
+  <br>
+
+싱글스레드 이기 때문에 오래 걸리는 작업을 하는 것을 조심해야 합니다.
+
+</details>
+
+<details>
+  <summary>레디스 샤딩이 무엇에 대해서 설명해주세요.</summary>
+  <br>
+</details>
+
+<details>
+  <summary>레디스 클러스터에 대해서 설명해주세요.</summary>
+  <br>
+</details>
+
 <br>
 
 ## `Etc`

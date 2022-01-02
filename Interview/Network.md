@@ -279,8 +279,11 @@ STOMP 프로토콜은 WebSocket 위에서 동작하는 프로토콜로써 클라
 </details>
 
 <details>
-  <summary>http://www.naver.com 을 쳤을 때 발생하는 일들에 대해서 설명해주세요.</summary>
+  <summary>https://www.naver.com 을 쳤을 때 발생하는 일들에 대해서 설명해주세요.</summary>
   <br>
+
+
+
 </details>
 
 <details>
