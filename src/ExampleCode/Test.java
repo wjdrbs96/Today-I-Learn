@@ -1,5 +1,8 @@
 package ExampleCode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Test {
     public static void main(String[] args) {
         Integer a = 1;
@@ -9,5 +12,7 @@ public class Test {
 
         System.out.println(a == b);
         System.out.println(c == d);
+
+        Set<Integer> set = new HashSet<>();
     }
 }

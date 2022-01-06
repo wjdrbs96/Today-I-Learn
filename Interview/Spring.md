@@ -502,3 +502,13 @@ Member findMember2 = em.find(Member.class, 2L);
 Propagtaion은 REQUIRED 가 적용되고, Isolation Level 은 사용하는 RDBMS 의 고립 레벨을 따라 갑니다. 그리고 RuntimeException, Error 일 때 Rollback 되도록 설정 되어 있습니다.
 
 </details>
+
+<details>
+  <summary>OSIV 가 무엇인지 설명해주세요.</summary>
+  <br>
+
+`OSIV(Open Session In View)`는 영속성 컨텍스트를 뷰까지 열어둔다는 뜻입니다. 영속성 컨텍스트가 살아있으면 엔티티는 영속 상태로 유지됩니다. 따라서 뷰에서도 지연 로딩을 사용할 수 있습니다. 초기 설정이 `OSIV=true` 인데, `OSIV=false`로 바꿔서 `View Layer`에서는 영속성 컨텍스트를 열어놓지 않도록 할 수 있습니다.
+
+[참고](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/13%EC%9E%A5.md#osiv%EB%9E%80)
+
+</details>
