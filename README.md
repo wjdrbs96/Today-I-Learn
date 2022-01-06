@@ -144,6 +144,10 @@
     - [동등 연산자(==) vs 일치연산자(===)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80%20%3D%3D%3D%20%EC%97%B0%EC%82%B0%EC%9E%90%20%EC%B0%A8%EC%9D%B4.md)
     - [Call Stack이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JavaScript/Call%20Stack%EC%9D%B4%EB%9E%80.md)
 
+## JQuery
+
+- [JQuery 기록](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JQuery/JQuery%20%EC%A0%95%EB%A6%AC.md)
+
 ## React
 
 - [React 프로젝트 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1.md)
@@ -289,6 +293,7 @@
 
 ## QueryDSL
 
+- [프로젝트에서 QueryDSL 사용하는 법]()
 - [gradle QueryDSL 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/1.%20gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 
