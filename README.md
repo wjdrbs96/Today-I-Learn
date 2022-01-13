@@ -191,6 +191,7 @@
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
   - [@SpringBootApplication 동작 원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/%40SpringBootApplication%20%EB%8F%99%EC%9E%91%20%EC%9B%90%EB%A6%AC.md)
+  - [ThreadLocal Tip 정리하기]()
 
 - ### CORS
   - [Spring React에서 CORS 해결하는 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/CORS/Spring%EC%97%90%EC%84%9C%20CORS%20%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94%20%EB%B2%95.md)
@@ -201,7 +202,7 @@
 
 - ### Interceptor & Filter
   - [Interceptor와 Filter 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Interceptor%20%26%20Filter/Interceptor%EC%99%80%20Filter%20%EC%A0%95%EB%A6%AC.md)
-  - [원하는 URL에서만 인터셉터 실행되도록 하는 법]()
+  - [원하는 URL에서만 인터셉터 실행되도록 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Interceptor%20%26%20Filter/Interceptor%20%EC%9B%90%ED%95%98%EB%8A%94%20URL%20%EB%A7%8C%20%EC%8B%A4%ED%96%89%EB%90%98%EB%8F%84%EB%A1%9D%20%ED%95%98%EA%B8%B0.md)
 
 - ### JSP
   - [Spring Boot에서 JSP 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JSP/Spring%20Boot%EC%97%90%EC%84%9C%20JSP%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
