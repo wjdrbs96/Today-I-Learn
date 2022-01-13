@@ -279,10 +279,21 @@ STOMP 프로토콜은 WebSocket 위에서 동작하는 프로토콜로써 클라
 </details>
 
 <details>
-  <summary>https://www.naver.com 을 쳤을 때 발생하는 일들에 대해서 설명해주세요.</summary>
+  <summary> www.google.com 을 쳤을 때 발생하는 일들에 대해서 설명해주세요.</summary>
   <br>
 
+- 브라우저 주소창에 www.google.com 치면 google 서버를 찾아간다.
+- DNS(실제 서버가 어디에있는지 알고 있는 서버)가 연결해줄 곳을 찾음 (여기서 주소 앞에 https가 붙었다면 https방식으로 통신하겠다.)
+- 서버의 기본설정이 대부분 index.html되어 있어 서버에서 이파일을 클라이언트로 보냄
+- 브라우저는 텍스트로 이루어진 index.html 파일을 파싱한다.
+- 한줄한줄 읽으면서 DOM트리를 만들어나감.
+- 중간에 link태그를 만나 css요청이 발생하면, 요청과 응답과정을 거치고 css를 파싱함
+- CSS파싱이 끝나면 중단된 html을 다시읽고 DOM트리를 완성
+- 완성된 DOM트리와 CSSOM트리를 합쳐 Render Tree를 만들고 그린다.
+- 중간에 HTML파서는 Script태그를 만나게 되면 javascript 코드를 실행하기 위해 파싱을 중단
+- 제어권한을 자바스크립트 엔진에게 넘기고, 자바스크립트 코드 또는 파일을 로드해서 파싱하고 실행
 
+![image](https://user-images.githubusercontent.com/45676906/148794878-b48f001d-ab97-4fb8-8bc9-caa85c00431f.png)
 
 </details>
 
@@ -295,3 +306,11 @@ STOMP 프로토콜은 WebSocket 위에서 동작하는 프로토콜로써 클라
   <summary>OSI 7 Layer 에 대해서 설명해주세요.</summary> 
   <br>
 </details> 
+
+<details>
+  <summary>L4 로드 밸런싱과 L7 로드 밸런싱에 대해 설명하고, 차이를 말해보세요</summary>
+
+- L4는 4계층인 네트워크 계층에서 사용됩니다. 패킷 레벨에서만 트래픽을 분산하기 때문에 속도가 빠르고 효율성이 높습니다. L7 로드 밸런싱보다 저렴합니다.
+- L7는 7계층인 애플리케이션 계층에서 사용됩니다. HTTP Header, Cookie 등과 같이 사용자가 요청한 정보들을 바탕으로 트래픽을 분산하기 때문에 섬세한 라우팅이 가능하고 비정상적인 트래픽을 판별할 수 있습니다. L4 로드 밸런싱보다 가격이 비쌉니다.
+
+</details>

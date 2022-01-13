@@ -487,3 +487,11 @@ Master, Slave 로 나눠서 Replication 할 수 있습니다.
   <summary>낙관적 락이랑 비관적 락 이 무엇인지 아는지?</summary>
   <br>
 </details>
+
+<details>
+  <summary>쿼리가 실행되는 순서를 설명해주세요.</summary>
+  <br>
+
+FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY
+
+</details>
