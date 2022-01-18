@@ -187,11 +187,12 @@
   - [Spring Data JPA Auditing 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20Auditing%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
   - [JPA MultiBagFetchException 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20MultiBagFetchException%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [JPA에서 외래키를 DB에 반영하기 싫을 때](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%EC%97%90%EC%84%9C%20%EC%99%B8%EB%9E%98%ED%82%A4%EB%A5%BC%20DB%EC%97%90%20%EB%B0%98%EC%98%81%ED%95%98%EA%B8%B0%20%EC%8B%AB%EC%9D%84%20%EB%95%8C.md)
+  - [JPA에서 Soft Delete 할 때 꿀팁]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
   - [@SpringBootApplication 동작 원리 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/%40SpringBootApplication%20%EB%8F%99%EC%9E%91%20%EC%9B%90%EB%A6%AC.md)
-  - [ThreadLocal Tip 정리하기]()
+  - [ThreadLocal Tip 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ThreadLocal%20Tip.md)
 
 - ### CORS
   - [Spring React에서 CORS 해결하는 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/CORS/Spring%EC%97%90%EC%84%9C%20CORS%20%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94%20%EB%B2%95.md)
