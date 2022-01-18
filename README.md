@@ -15,7 +15,7 @@
     - [Primitive Type vs Reference Type](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85%EA%B3%BC%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4%ED%83%80%EC%9E%85.md)
     - [initalization](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/initialization.md)
     - [Java Call By Reference vs Call By Value](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Call%20by%20Reference%20vs%20Call%20By%20Value.md)
-    - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
+    - [자바 메모리 관리 스택(Stack) & 힙(Heap)](https://g`ithub.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%9E%90%EB%B0%94%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
     - [정적 멤버를 클래스명.정적멤버로 접근해야 하는 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%A0%95%EC%A0%81%20%EB%A9%A4%EB%B2%84%EB%8A%94%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%AA%85.%EC%A0%95%EC%A0%81%EB%A9%A4%EB%B2%84%EB%A1%9C%20%EC%A0%91%EA%B7%BC%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
     - [객체지향 설계 5원칙 - SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99-SOLID.md)
     - [인터페이스와 추상클래스의 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%20%EC%B0%A8%EC%9D%B4.md)
@@ -187,7 +187,7 @@
   - [Spring Data JPA Auditing 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%20Auditing%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
   - [JPA MultiBagFetchException 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20MultiBagFetchException%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [JPA에서 외래키를 DB에 반영하기 싫을 때](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%EC%97%90%EC%84%9C%20%EC%99%B8%EB%9E%98%ED%82%A4%EB%A5%BC%20DB%EC%97%90%20%EB%B0%98%EC%98%81%ED%95%98%EA%B8%B0%20%EC%8B%AB%EC%9D%84%20%EB%95%8C.md)
-  - [JPA에서 Soft Delete 할 때 꿀팁]()
+  - [JPA에서 Soft Delete 할 때 꿀팁](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Soft%20Delete%20Tip.md)
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
@@ -355,6 +355,11 @@
 ### 1주차
 
 - [백준 11728]() 
+
+
+## 대규모 시스템 설계 기초
+
+- [1장: 사용자 수에 따른 규모 확장성]()
 
 ## Effective Java
 
