@@ -2,6 +2,28 @@
 
 이번 글에서는 프로젝트에서 `QueryDSL` 사용하는 법에 대해서 간단하게 정리해보겠습니다. [QueryDSL 설정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/1.%20gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md) 에서 설정을 하고 왔다고 가정하겠습니다.
 
+<br>
+
+## `QueryDSL Config`
+
+```java
+@Configuration
+public class QueryDslConfig {
+    
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Bean
+    public JPAQueryFactory jpaQueryFactory() {
+        return new JPAQueryFactory(entityManager);
+    }
+}
+```
+
+위와 같이 `QueryDSL에 필요한 설정들을 Config`에 작성하겠습니다.
+
+<br>
+
 ```java
 @Entity
 public class Board {

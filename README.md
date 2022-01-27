@@ -188,6 +188,7 @@
   - [JPA MultiBagFetchException 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20MultiBagFetchException%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [JPA에서 외래키를 DB에 반영하기 싫을 때](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%EC%97%90%EC%84%9C%20%EC%99%B8%EB%9E%98%ED%82%A4%EB%A5%BC%20DB%EC%97%90%20%EB%B0%98%EC%98%81%ED%95%98%EA%B8%B0%20%EC%8B%AB%EC%9D%84%20%EB%95%8C.md)
   - [JPA에서 Soft Delete 할 때 꿀팁](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Soft%20Delete%20Tip.md)
+  - [JPA AttributeOverride Tip]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
