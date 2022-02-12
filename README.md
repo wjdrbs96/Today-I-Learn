@@ -188,7 +188,8 @@
   - [JPA MultiBagFetchException 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20MultiBagFetchException%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [JPA에서 외래키를 DB에 반영하기 싫을 때](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%EC%97%90%EC%84%9C%20%EC%99%B8%EB%9E%98%ED%82%A4%EB%A5%BC%20DB%EC%97%90%20%EB%B0%98%EC%98%81%ED%95%98%EA%B8%B0%20%EC%8B%AB%EC%9D%84%20%EB%95%8C.md)
   - [JPA에서 Soft Delete 할 때 꿀팁](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Soft%20Delete%20Tip.md)
-  - [JPA AttributeOverride Tip]()
+  - [JPA AttributeOverride Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20AttributeOverride.md)
+  - [JPA Auditing CreatedBy 넣기]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
@@ -501,7 +502,7 @@
 - [Pm2 사용법 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Pm2%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
 - [Controller - Service 계층 분리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/Controller-Service%20%EA%B3%84%EC%B8%B5%EB%B6%84%EB%A6%AC.md)
 - [dotenv 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/dotenv%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-- [AWS EC2 Linux2에서 NodeJS 실행하는 법]()
+- [AWS EC2 Linux2에서 NodeJS 실행하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/NodeJS/AWS%20Linux2%20Node%20%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0.md)
 
 ## PHP
   
