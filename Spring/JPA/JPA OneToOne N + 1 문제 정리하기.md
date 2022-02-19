@@ -263,9 +263,13 @@ public class ThumbnailImage {
 
 ## `N + 1 문제를 해결해보기`
 
-`N + 1` 문제를 해결하려면 `fetct join`, `entity graph`, `batch size` 같은 것들을 사용하면 됩니다. 하지만 나는 `File 엔티티`만 조회하고 싶은데 썸네일 이미지까지 같이 조회하는 것이 썩 좋지만은 않은데요. 저는 외래키를 썸네일 이미지가 가지도록 했지만, `File Entity`를 조회하는 일이 많기에 File 엔티티에서 외래키를 가지는 것이 더 적절한 것인가 라는 생각도 드는 것 같습니다. 
+`N + 1` 문제를 해결하려면 `fetct join`, `entity graph`, `batch size` 같은 것들을 사용하면 됩니다. 하지만 `N + 1 문제를 해결하는 fetch join`을 사용하면 저는 `File Entity`만 조회하고 싶은데 `Thumbnail Image Entity` 까지 같이 조회하게 되어 이것도 마냥 해법은 아니라고 생각합니다. 
 
-<br>
+그래서 제가 내린 결론은 `상황에 따라 다르게 해야 한다` 라고 생각했습니다. 만약에 `File`만 조회하는 경우는 거의 없고, 대체적으로 `Thumbnail Image`가 필요하다면 `fetch join`으로 사용해서 계속 `File-Thumbnail Image`를 같이 조회해도 엄청 큰 부하는 준다고 생각하지 않기 때문입니다.
+
+그런데 만약 대부분의 곳에서 `File` 조회만 필요하고 일부분에서 `File-Thumbnail`을 같이 조회하는 것이 필요하다면, 처음 말했던 방식처럼 `File Entity에서 thumbnail_id` 외래키를 가지도록 설계하여 `Thumbnail Image Entity`를 저장할 때 `Write` 작업을 2번하도록 하는 것도 하나의 방법이라 생각합니다.
+
+<br> <br>
 
 ## `Reference`
 
