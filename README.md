@@ -192,7 +192,7 @@
   - [JPA AttributeOverride Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20AttributeOverride.md)
   - [JPA Auditing CreatedBy 넣기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Auditing%20CreatedBy%20%EB%84%A3%EA%B8%B0.md)
   - [JPA OneToOne에서 N + 1 발생하는 문제 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20OneToOne%20N%20%2B%201%20%EB%AC%B8%EC%A0%9C%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
-  - [하나의 트랜잭션에서 100번의 변경감지를 하면 몇 번의 Update 쿼리가 실행될까?]()
+  - [하나의 트랜잭션에서 100번의 변경감지를 하면 몇 번의 Update 쿼리가 실행될까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/%ED%95%98%EB%82%98%EC%9D%98%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%97%90%EC%84%9C%20Update%EB%A5%BC%20%EC%97%AC%EB%9F%AC%EB%B2%88%20%ED%95%9C%EB%8B%A4%EB%A9%B4%20%EB%AA%87%EB%B2%88%EC%9D%98%20%EC%BF%BC%EB%A6%AC%EA%B0%80%20%EC%8B%A4%ED%96%89%EB%90%A0%EA%B9%8C%3F.md)
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
