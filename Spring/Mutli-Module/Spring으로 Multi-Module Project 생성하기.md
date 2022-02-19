@@ -43,13 +43,46 @@ plugins {
     id 'java'
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-
 allprojects {
     repositories {
         mavenCentral()
+    }
+}
+
+subprojects {
+    apply {
+        plugin 'java'
+        plugin 'io.spring.dependency-management'
+        plugin 'org.springframework.boot'
+    }
+
+    group = 'com.maru'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    sourceCompatibility = '11'
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }
 
@@ -58,23 +91,13 @@ bootJar {
 }
 ```
 
+`Root Gradle`에는 공통된 설정들을 넣습니다.
+
 <br>
 
 ## `api-module build.gradle`
 
 ```
-plugins {
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
-    id 'java'
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 dependencies {
     implementation project(":domain")
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -105,12 +128,6 @@ bootJar {
 ## `domain module build.gradle`
 
 ```
-plugins {
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
-    id 'java'
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

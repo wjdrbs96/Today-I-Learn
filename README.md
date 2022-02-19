@@ -180,7 +180,7 @@
 
 - ### Gradle
   - [Spring Gradle jar 테스트 코드 없이 빌드하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Gradle/gradle%20build%20Test%20%EC%97%86%EC%9D%B4%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
-  - [Gradle Property로 의존성 버전 관리하는 법]()
+  - [Gradle Property로 의존성 버전 관리하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Gradle/gradle%20property%EB%A1%9C%20%EC%9D%98%EC%A1%B4%EC%84%B1%20%EB%B2%84%EC%A0%84%20%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 - ### JPA
   - [Spring Data JPA로 페이징 구현하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/Spring%20Data%20JPA%EB%A1%9C%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94%20%EB%B2%95.md)
@@ -190,7 +190,8 @@
   - [JPA에서 외래키를 DB에 반영하기 싫을 때](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%EC%97%90%EC%84%9C%20%EC%99%B8%EB%9E%98%ED%82%A4%EB%A5%BC%20DB%EC%97%90%20%EB%B0%98%EC%98%81%ED%95%98%EA%B8%B0%20%EC%8B%AB%EC%9D%84%20%EB%95%8C.md)
   - [JPA에서 Soft Delete 할 때 꿀팁](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Soft%20Delete%20Tip.md)
   - [JPA AttributeOverride Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20AttributeOverride.md)
-  - [JPA Auditing CreatedBy 넣기]()
+  - [JPA Auditing CreatedBy 넣기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Auditing%20CreatedBy%20%EB%84%A3%EA%B8%B0.md)
+  - [JPA OneToOne에서 N + 1 발생하는 문제 정리]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
@@ -277,8 +278,8 @@
   - [Spring Swagger Response Model 보이지 않는 경우 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%EC%97%90%EC%84%9C%20Response%20Model%20%EB%B3%B4%EC%9D%B4%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EA%B2%BD%EC%9A%B0%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
 
 - ### Thymleaf
-  - [Thymeleaf PathVariable, Query String 사용법]()
-  - [Thymeleaf common import 하는 법]()
+  - [Thymeleaf PathVariable, Query String 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Thymeleaf/Thymeleaf%20PathVariable%2C%20Query%20String.md)
+  - [Thymeleaf common import 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Thymeleaf/Thymeleaf%20common%20import%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 - ### Transactional
   - [Transactional Isolation Level, Spring Default Isolation](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Isolation.md)
