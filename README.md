@@ -191,7 +191,8 @@
   - [JPA에서 Soft Delete 할 때 꿀팁](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Soft%20Delete%20Tip.md)
   - [JPA AttributeOverride Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20AttributeOverride.md)
   - [JPA Auditing CreatedBy 넣기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20Auditing%20CreatedBy%20%EB%84%A3%EA%B8%B0.md)
-  - [JPA OneToOne에서 N + 1 발생하는 문제 정리]()
+  - [JPA OneToOne에서 N + 1 발생하는 문제 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/JPA/JPA%20OneToOne%20N%20%2B%201%20%EB%AC%B8%EC%A0%9C%20%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0.md)
+  - [하나의 트랜잭션에서 100번의 변경감지를 하면 몇 번의 Update 쿼리가 실행될까?]()
 
 - ### Common
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
