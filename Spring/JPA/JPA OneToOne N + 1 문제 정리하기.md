@@ -72,9 +72,9 @@ Hibernate:
         id=?
 ```
 
-위의 `saveThumbnail` 메소드를 보면 `Thumbnail Image`를 먼저 저장을 합니다. 그리고 저장한 후에 나온 `thumbnail_id` 값을 `File 테이블에 존재하는 thumbnail_id`에 업데이트 쿼리를 한번 더 실행을 해주어야 합니다. 즉, `File과 Thumbnail Image를 연결하는 작업`이 필요합니다.
+위의 `saveThumbnail` 메소드를 보면 `Thumbnail Image`를 먼저 저장을 합니다. 그리고 저장한 후에 나온 `thumbnail_id` 값을 `File 테이블에 존재하는 thumbnail_id`에 업데이트 쿼리를 한번 더 실행을 해주어야 합니다. `File과 Thumbnail Image를 연결하는 작업`이 필요합니다.
 
-즉, `Write` 작업이 2번 필요합니다. 이 때 저는 `Write` 작업이 2번 일어나서 성능이 걱정된다기 보다는 `Thumbnail Image`를 저장하는데 `2번의 Write 작업`이 필요하다는 것이 깔끔하지 않다고 생각했습니다.
+즉, `Write` 작업이 2번 필요한데요. 이 때 저는 `Write` 작업이 2번 일어나서 성능이 걱정된다기 보다는 `Thumbnail Image`를 저장하는데 `2번의 Write 작업`이 필요하다는 것이 깔끔하지 않다고 생각했습니다.
 
 그래서 `File 테이블에서 thumbnail_id` 외래키를 가지는 것이 아니라 `thumbnail_image 테이블에서 file_id`를 가지면 한번의 `Write` 작업으로 해결할 수 있기 때문에, `File 테이블에서 외래키`를 가지는 방법보다는 `Thumbnail Image 테이블에서 file_id 외래키`를 가지는 것이 더 좋은 방법이라고 생각했습니다. 
 
@@ -197,7 +197,7 @@ public class File {
 
 테이블 관점에서 보면 `File 테이블`(외래키가 없는 테이블)에서 `Thumbnail Image`(외래키가 있는 테이블)을 조회할 수 있다는 특징이 있습니다. 
 
-하지만 객체 관점에서는 `File -> Thumbnail`을 참조하기 위해서는 `File -> Thumbnail Image`를 참조하는 관계가 필요합니다. 즉, `양방향` 매핑이 필요한데요. 그런데 이렇게 `@OneToOne` 관계에서 양방향 매핑이 되어 `연관관계 주인`이 아닌 곳에서 조회했을 때 문제가 발생하는데요. 그 부분을 아래에서 자세히 알아보겠습니다.
+하지만 객체 관점에서는 `File -> Thumbnail`을 참조하기 위해서는 `File -> Thumbnail Image`를 참조하는 관계가 필요합니다. 즉, `양방향` 매핑이 필요한데요. 그런데 이렇게 `@OneToOne` 관계에서 양방향 매핑이 되어 `연관관계 주인`이 아닌 곳에서 조회했을 때 발생하는 문제가 있습니다. 그 부분을 아래에서 자세히 알아보겠습니다.
 
 양방향 매핑을 한 이유는 비즈니스에 따라 다를 수 있겠지만 일반적으로는 `File을 통해서 Thumbnail Image`를 조회하는 경우가 대부분이고, `Thumbnail Image를 통해서 File`을 조회하는 경우는 거의 없을 것이기 때문입니다.
 
@@ -252,7 +252,7 @@ public class File {
 
 <img width="555" alt="스크린샷 2022-02-13 오전 11 45 51" src="https://user-images.githubusercontent.com/45676906/153736038-3f449a03-2349-4f44-b5d2-77f0facc24cf.png">
 
-`File Entity` 입장에서는 `File에 연결되어 있는 Thumbnail Image`의 존재 여부를 조회해보기 전까지는 알 수 없습니다. `File 테이블에는 thumbnail_id 라는 외래키가 없기 때문입니다.` 
+`File 테이블에는 thumbnail_id 라는 외래키가 없기 때문에 File Entity` 입장에서는 `File에 연결되어 있는 Thumbnail Image`가 `null` 인지 아닌지를 조회해보기 전까지는 알 수 없습니다. 
 
 그리고 `LAZY` 로딩이어서 `프록시 객체`를 사용할 것처럼 보이지만, 실제로는 `Proxy` 객체를 사용하지 않고 있습니다. 그 이유는 `Proxy 객체를 만들기 위해서는 Thumbnail Image 객체가 null인지 값이 있는지를 알아야 하는데, File Entity 객체 관점으로는 알 수 없기 때문입니다.`
 
@@ -274,9 +274,9 @@ public class File {
 
 ## `@OneToMany 에서 Lazy Loading이 적용되는 이유가 무엇일까?`
 
-저는 `@OneToOne` 관계에서 연관관계 주인이 아닌 쪽에서 조회를 하면 `참조하고 있는 객체가 null 인지 아닌지 알 수 없기 때문에 프록시를 사용할 수 없다.` 라고 정리를 했었는데요.
+이제 `@OneToOne` 관계에서 연관관계 주인이 아닌 쪽에서 조회를 하면 `참조하고 있는 객체가 null 인지 아닌지 알 수 없기 때문에 프록시를 사용할 수 없기 때문에 N + 1 문제`가 발생하는 것은 이해했는데요.   
 
-그러면 `@OneToMany` 관계에서도 `연관관계 주인`이 아니기 때문에 똑같이 `Proxy` 객체가 적용이 되지 않아야 맞는거 아닐까? 라는 생각을 했습니다. 
+그러면 `@OneToMany` 관계에서도 `연관관계 주인`이 아니기 때문에 똑같이 `Proxy`가 적용되지 않아야 맞는거 아닐까? 라는 생각을 했습니다. 
 
 ```java
 @Entity
@@ -295,17 +295,15 @@ public class User {
 }
 ```
 
-`@OneToMany` 경우라면 위와 같이 `List` 형태로 참조 하고 있을 것인데요. `@OneToMany`는 `Lazy Loading`이 적용되는 이유는 무엇일까요? 
+`@OneToMany` 경우라면 위와 같이 `List` 형태로 참조하고 있을 것인데요. `@OneToMany`는 `OneToOne`과 다르개 `Lazy Loading`이 적용이 됩니다. 적용이 되는 이유는 무엇일까요? 
 
 위에서 말했던 [링크](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy) 에서 답이 나와 있는데요. 
 
 > many-to-one associations (and one-to-many, obviously) do not suffer from this issue. Owner entity can easily check its own FK (and in case of one-to-many, empty collection proxy is created initially and populated on demand), so the association can be lazy.
 
-<br>
+요약하자면, `@OneToMany 관계는 빈 컬렉션이 초기화될 때(new ArrayList<>() 할 때) Proxy가 생긴다.` 입니다. 다시 말하면 `posts` 자체는 `null`이 아니고 `size 자체가 0`일 수 있는 것이기 때문에 `@OneToMany` 관계는 `@OneToOne`과 다르게 `Lazy Loading`이 가능했던 것입니다.
 
-요약하자면, `@OneToMany 관계는 비어있는 컬렉션이 초기화될 때 Proxy가 생긴다.` 입니다. 그렇기 때문에 `@OneToMany` 관계는 `@OneToOne`과 다르게 `Lazy Loading`이 가능했던 것입니다.
-
-그러면 다시 `@OneToOne` 관계로 돌아와서 이번에는 `연관관계 주인인 Thumbnail Image Entity`에서 조회를 해보겠습니다.
+그러면 이번에는 다시 `@OneToOne` 관계로 돌아와서 `연관관계 주인인 Thumbnail Image Entity`에서 조회를 해보겠습니다.
 
 <br> <br>
 
@@ -399,5 +397,5 @@ Hibernate:
 
 ## `Reference`
 
-- [김영한 JPA ORM 프로그래밍]()
+- [자바 ORM 표준 JPA 프로그래밍]()
 - [https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy)
