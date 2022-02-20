@@ -21,7 +21,7 @@
 
 1. `File Table`에서 `thumbnail_id` 라는 외래키를 가진다.
 2. `thumbnail_id`는 `nullable`한 컬럼이어야 한다.
-3. `Thumbnail_Image` 엔티티를 저장하기 위해서는 2번의 쿼리를 실행해야 한다.(`Thumbnail 저장 쿼리`, `File 테이블에 thumbnail_id 외래키 업데이트 쿼리`)
+3. `Thumbnail_Image Entity`를 저장하기 위해서는 2번의 쿼리를 실행해야 한다.(`Thumbnail 저장 쿼리`, `File 테이블에 thumbnail_id 외래키 업데이트 쿼리`)
 
 <br>
 
@@ -34,14 +34,42 @@ public class ThumbnailImageService {
 
     private final FileRepository fileRepository;
     private final ThumbnailRepository thumbnailRepository;
-    
+
     @Transactional
     public void saveThumbnail(final Long fileId, final ThumbnailImageRequestDto thumbnailImageRequestDto) {
-        var thumbnailImage = thumbnailRepository.save(thumbnailImageRequestDto.toEntity());
         var file = fileRepository.findById(fileId).orElseThrow(EntityNotFoundException::new);
-        file.updateThumbnail(thumbnailImage.getId()); 
+        file.setThumbnailImage(thumbnailImageRequestDto.toEntity());
     }
 }
+```
+
+```sql
+Hibernate: 
+    select
+        file0_.id as id1_0_0_,
+        file0_.file_size as file_siz2_0_0_,
+        file0_.filename as filename3_0_0_,
+        file0_.thumbnail_image_id as thumbnai4_0_0_ 
+    from
+        file file0_ 
+    where
+        file0_.id=?
+Hibernate: 
+    insert 
+    into
+        thumbnail_image
+        (thumbnail_image_name, thumbnail_image_size) 
+    values
+        (?, ?)
+Hibernate: 
+    update
+        file 
+    set
+        file_size=?,
+        filename=?,
+        thumbnail_image_id=? 
+    where
+        id=?
 ```
 
 위의 `saveThumbnail` 메소드를 보면 `Thumbnail Image`를 먼저 저장을 합니다. 그리고 저장한 후에 나온 `thumbnail_id` 값을 `File 테이블에 존재하는 thumbnail_id`에 업데이트 쿼리를 한번 더 실행을 해주어야 합니다. 즉, `File과 Thumbnail Image를 연결하는 작업`이 필요합니다.
@@ -60,7 +88,7 @@ public class ThumbnailImageService {
 
 <br> <br>
 
-## `File 엔티티를 조회할 때`
+## `File Entity를 조회할 때`
 
 현재 `File 테이블에는 5개의 데이터가 존재하고 Thumbnail 테이블에서 1개 이상의 데이터`가 존재하는 상황입니다.
 
@@ -79,7 +107,7 @@ public class FileService {
 }
 ```
 
-이 때 위와 같이 `File`을 전체 조회하는 `findAll()`을 통해서 조회하고 있습니다.(File 5개를 조회하는 것입니다.) 이 때 저는 `File 엔티티`를 조회하는 쿼리 한번만 실행될 것이라 예측했습니다.
+이 때 위와 같이 `File`을 전체 조회하는 `findAll()`을 통해서 조회하고 있습니다.(File 5개를 조회하는 것입니다.) 이 때 저는 `File Entity`를 조회하는 쿼리 한번만 실행될 것이라 예측했습니다.
 
 ```sql
 Hibernate: 
@@ -141,7 +169,7 @@ Hibernate:
         thumbnaili0_.file_id=?
 ```
 
-하지만 실행된 쿼리를 보았을 때는 예상과 달랐습니다. `File` 테이블 조회했을 때의 결과 `row`의 수 만큼 `Thumbnail Image 엔티티`를 조회하는 쿼리가 실행된 것을 볼 수 있습니다. 즉, 위에서 5개의 `File` 데이터가 있다고 했으니 `Thumbnail Image`를 조회하는 쿼리 5번이 더 실행되어 `총 6번의 쿼리가 실행`된 것을 볼 수 있습니다.
+하지만 실행된 쿼리를 보았을 때는 예상과 달랐습니다. `File` 테이블 조회했을 때의 결과 `row`의 수 만큼 `Thumbnail Image Entity`를 조회하는 쿼리가 실행된 것을 볼 수 있습니다. 즉, 위에서 5개의 `File` 데이터가 있다고 했으니 `Thumbnail Image`를 조회하는 쿼리 5번이 더 실행되어 `총 6번의 쿼리가 실행`된 것을 볼 수 있습니다.
 
 저는 여기서 `왜 이러한 현상이 발생하는 것인지?`가 궁금했습니다. 이러한 현상이 발생하는 이유를 알아보기 위해서 이번에는 `Entity` 관점에서 알아보겠습니다. 
 
@@ -165,7 +193,7 @@ public class File {
 }
 ```
 
-현재 `File` 테이블에서 외래키를 가지기 때문에 `File` 엔티티는 `mappedBy` 속성을 가진 연관관계의 주인이 아닌 것을 알 수 있습니다. 그리고 `지연로딩(LAZY)`이 적용되어 있습니다.
+현재 `File` 테이블에서 외래키를 가지기 때문에 `File Entity`는 `mappedBy` 속성을 가진 연관관계의 주인이 아닌 것을 알 수 있습니다. 그리고 `지연로딩(LAZY)`이 적용되어 있습니다.
 
 테이블 관점에서 보면 `File 테이블`(외래키가 없는 테이블)에서 `Thumbnail Image`(외래키가 있는 테이블)을 조회할 수 있다는 특징이 있습니다. 
 
@@ -188,13 +216,13 @@ public class ThumbnailImage {
 
     private String thumbnailImageSize;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private File file;
 
 }
 ```
 
-`ThumbnailImage` 엔티티는 외래키를 가지고 있는 테이블과 연결되어 있는 엔티티이기 때문에 객체의 관점에서도 `연관관계의 주인`이 됩니다.
+`ThumbnailImage Entity`는 외래키를 가지고 있는 테이블과 연결되어 있는 엔티티이기 때문에 객체의 관점에서도 `연관관계의 주인`이 됩니다.
 
 <br> <br>
 
@@ -230,9 +258,56 @@ public class File {
 
 그래서 `Thumbnail Image`를 조회하는 쿼리들이 실행되는 것입니다. 이렇게 쿼리들을 실제로 조회를 하면 `영속성 컨텍스트에 엔티티들이 올라오기 때문에` 프록시 객체를 사용할 이유가 없어져서 `LAZY` 로딩으로 설정하여도 `즉시 로딩`처럼 동작하는 것입니다.
 
-> 지연 로딩을 설정하여도 즉시 로딩`으로 동작하는 이유는 JPA의 구현체인 Hibernate 에서 프록시 기능의 한계`로 지연 로딩을 지원하지 못하기 때문에 발생한다.
+> 지연 로딩을 설정하여도 `즉시 로딩`으로 동작하는 이유는 JPA의 구현체인 Hibernate 에서 프록시 기능의 한계`로 지연 로딩을 지원하지 못하기 때문에 발생한다.
 > <br> <br> 
 > Reference: JPA ORM 프로그래밍
+
+<br>
+
+좀 더 자세한 설명은 [여기](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy) 에서도 확인할 수 있는데요.
+
+>  The reason for this is that owner entity MUST know whether association property should contain a proxy object or NULL and it can't determine that by looking at its base table's columns due to one-to-one normally being mapped via shared PK, so it has to be eagerly fetched anyway making proxy pointless.
+
+<br>
+
+위의 링크를 보면 위와 같이 설명하고 있습니다. 즉, 연관관계 주인이 아닌 테이블에서는 프록시로 만들 객체가 `null` 인지 아닌지 알 수 없기 때문에 조회하는 쿼리가 실행되는 것입니다.
+
+<br> <br>
+
+## `@OneToMany 에서 Lazy Loading이 적용되는 이유가 무엇일까?`
+
+저는 `@OneToOne` 관계에서 연관관계 주인이 아닌 쪽에서 조회를 하면 `참조하고 있는 객체가 null 인지 아닌지 알 수 없기 때문에 프록시를 사용할 수 없다.` 라고 정리를 했었는데요.
+
+그러면 `@OneToMany` 관계에서도 `연관관계 주인`이 아니기 때문에 똑같이 `Proxy` 객체가 적용이 되지 않아야 맞는거 아닐까? 라는 생각을 했습니다. 
+
+```java
+@Entity
+public class User {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nickname;
+
+    private String part;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts = new ArrayList<>();
+
+}
+```
+
+`@OneToMany` 경우라면 위와 같이 `List` 형태로 참조 하고 있을 것인데요. `@OneToMany`는 `Lazy Loading`이 적용되는 이유는 무엇일까요? 
+
+위에서 말했던 [링크](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy) 에서 답이 나와 있는데요. 
+
+> many-to-one associations (and one-to-many, obviously) do not suffer from this issue. Owner entity can easily check its own FK (and in case of one-to-many, empty collection proxy is created initially and populated on demand), so the association can be lazy.
+
+<br>
+
+요약하자면, `@OneToMany 관계는 비어있는 컬렉션이 초기화될 때 Proxy가 생긴다.` 입니다. 그렇기 때문에 `@OneToMany` 관계는 `@OneToOne`과 다르게 `Lazy Loading`이 가능했던 것입니다.
+
+그러면 다시 `@OneToOne` 관계로 돌아와서 이번에는 `연관관계 주인인 Thumbnail Image Entity`에서 조회를 해보겠습니다.
 
 <br> <br>
 
@@ -255,7 +330,7 @@ public class ThumbnailImage {
 }
 ```
 
-`Thumbnail Image` 엔티티를 보면 `연관 관계의 주인`입니다. 즉, `Thumbnail Image` 테이블에서 `file_id 외래키`를 가지고 있기 때문에 `Thumbnail Image` 객체 입장에서 굳이 `File` 엔티티를 조회해보지 않아도 `File` 엔티티가 존재하는지 안하는지를 알 수 있습니다. 
+`Thumbnail Image Entity`를 보면 `연관 관계의 주인`입니다. 즉, `Thumbnail Image` 테이블에서 `file_id 외래키`를 가지고 있기 때문에 `Thumbnail Image` 객체 입장에서 굳이 `File Entity`를 조회해보지 않아도 `File Entity`가 존재하는지 안하는지를 알 수 있습니다. 
 
 그렇기에 프록시 객체도 만들 수 있어서 `Thumbnail Image`를 통해서 `File`을 조회했을 때 `지연로딩`이 적용될 수 있는 것입니다.
 
@@ -271,6 +346,15 @@ public class ThumbnailImage {
 
 <br> <br>
 
+## `마지막 정리하기`
+
+저는 `DB 테이블` 관점에서 `Entity` 설계를 해야 좀 더 적절하다고 생각이 듭니다. `File 테이블`에서 `thumbnail_id` 외래키를 가지면 `File 테이블`에서 `nullable` 컬럼을 가져야 하는 것이 좋지는 않다고 생각했습니다. `nullable 컬럼`을 가진다면 비즈니스 로직에서 검증 로직이 추가될 가능성이 있기에 좋지 않다고 생각했습니다.
+
+뿐만 아니라 확장성을 고려했을 때 `File`이 여러 개의 `Thumbnail Image`를 가질 수 있게 된다고 고려했을 때를 생각했을 때도 `Thumbnail Image`에서 `file_id`로 가지는 것이 더 적절하다고 생각했습니다.
+
+<br> <br>
+
 ## `Reference`
 
+- [https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy)
 - [김영한 JPA ORM 프로그래밍]()
