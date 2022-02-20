@@ -268,8 +268,6 @@ public class File {
 
 >  The reason for this is that owner entity MUST know whether association property should contain a proxy object or NULL and it can't determine that by looking at its base table's columns due to one-to-one normally being mapped via shared PK, so it has to be eagerly fetched anyway making proxy pointless.
 
-<br>
-
 위의 링크를 보면 위와 같이 설명하고 있습니다. 즉, 연관관계 주인이 아닌 테이블에서는 프록시로 만들 객체가 `null` 인지 아닌지 알 수 없기 때문에 조회하는 쿼리가 실행되는 것입니다.
 
 <br> <br>
@@ -326,7 +324,6 @@ public class ThumbnailImage {
 
     @OneToOne(fetch = FetchType.LAZY)
     private File file;
-
 }
 ```
 
@@ -340,9 +337,51 @@ public class ThumbnailImage {
 
 `N + 1` 문제를 해결하려면 `fetct join`, `entity graph`, `batch size` 같은 것들을 사용하면 됩니다. 하지만 `N + 1 문제를 해결하는 fetch join`을 사용하면 저는 `File Entity`만 조회하고 싶은데 `Thumbnail Image Entity` 까지 같이 조회하게 되어 이것도 마냥 해법은 아니라고 생각합니다. 
 
-그래서 제가 내린 결론은 `상황에 따라 다르게 해야 한다` 라고 생각했습니다. 만약에 `File`만 조회하는 경우는 거의 없고, 대체적으로 `Thumbnail Image`가 필요하다면 `fetch join`으로 사용해서 계속 `File-Thumbnail Image`를 같이 조회해도 엄청 큰 부하는 준다고 생각하지 않기 때문입니다.
+<br> <br>
 
-그런데 만약 대부분의 곳에서 `File` 조회만 필요하고 일부분에서 `File-Thumbnail`을 같이 조회하는 것이 필요하다면, 처음 말했던 방식처럼 `File Entity에서 thumbnail_id` 외래키를 가지도록 설계하여 `Thumbnail Image Entity`를 저장할 때 `Write` 작업을 2번하도록 하는 것도 하나의 방법이라 생각합니다.
+## `Batch Size는 @OneToOne의 N + 1 문제를 해결할 수 있을까?`
+
+```yaml
+spring:
+  jpa:
+    properties:
+      hibernate.default_batch_fetch_size: 1000
+```
+
+`N + 1`을 해결하는 대표적인 방법 중에 하나가 `Batch Size` 입니다. 사용 방법은 위와 같이 `application.yml`에 `batch size` 설정을 주는 것입니다. `Batch Size`는 `N + 1` 쿼리 처럼 쿼리를 나눠서 실행하지 않고 `IN` 절을 통해서 쿼리를 실행하는 것입니다.
+
+그래서 저는 위의 설정을 한 후에 `File`을 조회하면 `N + 1` 문제가 발생하지 않고 `IN` 절을 통해서 한번의 쿼리가 실행될 것이라고 예상했습니다. 하지만 여전히 `N + 1` 문제가 발생했습니다. 즉, 결과가 달라지지 않았는데요. `@OneToOne` 문제에서 발생하는 `N + 1` 문제는 `Batch Size`로는 해결할 수 없었습니다.
+
+<br> <br>
+
+## `fetch join을 사용해서 N + 1 문제를 해결해보기`
+
+그래서 이번에는 `N + 1` 문제를 해결하는 가장 대표적인 `fetch join`을 사용해보겠습니다.
+
+```sql
+SELECT f FROM File f join fetch f.thumbnailImage
+```
+
+위와 같은 `JPQL`을 사용하여 `fetch join`을 사용했을 때 어떤 쿼리들이 실행되는지 알아보겠습니다. 
+
+```sql
+Hibernate: 
+    select
+        file0_.id as id1_0_0_,
+        thumbnaili1_.id as id1_2_1_,
+        file0_.file_size as file_siz2_0_0_,
+        file0_.filename as filename3_0_0_,
+        thumbnaili1_.file_id as file_id4_2_1_,
+        thumbnaili1_.thumbnail_image_name as thumbnai2_2_1_,
+        thumbnaili1_.thumbnail_image_size as thumbnai3_2_1_ 
+    from
+        file file0_ 
+    inner join
+        thumbnail_image thumbnaili1_ 
+            on file0_.id=thumbnaili1_.file_id
+```
+
+이번에는 `N + 1` 쿼리가 발생하지 않고 `JOIN`을 통해서 1번의 쿼리로 조회할 수 있습니다. 
 
 <br> <br>
 
@@ -352,9 +391,13 @@ public class ThumbnailImage {
 
 뿐만 아니라 확장성을 고려했을 때 `File`이 여러 개의 `Thumbnail Image`를 가질 수 있게 된다고 고려했을 때를 생각했을 때도 `Thumbnail Image`에서 `file_id`로 가지는 것이 더 적절하다고 생각했습니다.
 
+하지만 `상황에 따라 다를 수 있다` 라고 생각합니다. 만약에 `File`만 조회하는 경우는 거의 없고, `File, Thumbnail Image`가 같이 필요할 때가 많다면 `fetch join`으로 사용해서 계속 `File-Thumbnail Image`를 같이 조회해도 엄청 큰 부하는 준다고 생각하지 않기 때문입니다.
+
+그런데 만약 대부분의 곳에서 `File` 조회만 필요하고 일부분에서 `File-Thumbnail`을 같이 조회하는 것이 필요하고, `JOIN`을 하는 것 자체가 부담이라면 처음 말했던 방식처럼 `File Entity에서 thumbnail_id` 외래키를 가지도록 설계하여 `Thumbnail Image Entity`를 저장할 때 `Write` 작업을 2번하도록 하는 것도 하나의 방법이라 생각합니다.
+
 <br> <br>
 
 ## `Reference`
 
-- [https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy)
 - [김영한 JPA ORM 프로그래밍]()
+- [https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy](https://stackoverflow.com/questions/1444227/how-can-i-make-a-jpa-onetoone-relation-lazy)
