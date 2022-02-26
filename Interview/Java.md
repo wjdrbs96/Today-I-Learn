@@ -133,7 +133,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 5. 해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.
 6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
 7. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼습니다.
-    1. Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었따. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
+    1. Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었다. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
 
 <br>
 
@@ -302,7 +302,7 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 </details>
 
 <details>
-    <summary>Java Version 별 GC 방식이 어떻게 되나요?></summary>
+    <summary>Java Version 별 GC 방식이 어떻게 되나요?</summary>
     <br>
 
 - Java 7 : Parallel GC
@@ -321,7 +321,6 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
     <br>
 
 - 두 클래스는 완전히 동일한데 하나의 차이만 존재합니다. StringBuilder는 Thread-Safe 하지 않고, StringBuffer는 Thread-Safe 합니다.  String 클래스는 불변 클래스입니다. 즉 값이 매번 바뀌면 새로 메모리를 할당해서 얻습니다.
-- String 도 불변 클래스입니다.
 
 </details>
 
