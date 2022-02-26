@@ -359,13 +359,6 @@
 - [DataStructure](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Interview/DataStructure.md)
 
 
-## Baekjoon
-
-### 1주차
-
-- [백준 11728]() 
-
-
 ## 대규모 시스템 설계 기초
 
 - [1장: 사용자 수에 따른 규모 확장성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/System%20Design%20Interview/1.%20%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%88%98%EC%97%90%20%EB%94%B0%EB%A5%B8%20%EA%B7%9C%EB%AA%A8%20%ED%99%95%EC%9E%A5%EC%84%B1.md)
@@ -543,8 +536,8 @@
 ## Network
 
 - [TCP/IP란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/TCP%20IP%EB%9E%80.md)
-- [HTTPS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTPS%EB%9E%80%3F.md)
 - [CORS란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/CORS%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+- [브라우저에 www.naver.com을 치면 일어나는 일](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%97%90%20www.naver.com%20%EC%9D%84%20%EC%B9%98%EB%A9%B4%20%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94%20%EC%9D%BC.md)
 
 - [Network Layer](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network)
     - [Network Layer 특징](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/Network/Network%20Layer.md)
@@ -563,6 +556,10 @@
 - [HTTP](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network/HTTP)
   - [HTTP 메소드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTP%20%EB%A9%94%EC%86%8C%EB%93%9C.md)
   - [HTTP 메소드 속성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTP/HTTP%20%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%86%8D%EC%84%B1.md)
+
+- [HTTPS](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Network/HTTPS)
+  - [HTTPS SSL 통신 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTPS/HTTPS%20SSL%20%ED%86%B5%EC%8B%A0%20%EA%B3%BC%EC%A0%95.md)
+  - [HTTPS란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Network/HTTPS/HTTPS%EB%9E%80%3F.md)
 
 ## DataBase
 
