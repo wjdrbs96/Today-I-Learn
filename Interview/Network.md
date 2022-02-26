@@ -295,6 +295,53 @@ STOMP 프로토콜은 WebSocket 위에서 동작하는 프로토콜로써 클라
 
 ![image](https://user-images.githubusercontent.com/45676906/148794878-b48f001d-ab97-4fb8-8bc9-caa85c00431f.png)
 
+<br>
+
+## 두 번째
+
+![11111](https://user-images.githubusercontent.com/45676906/155827885-ebb8e9e1-6f0d-45b1-a12f-9c5bd8059be5.png)
+
+`AWS Route53의 예시`
+
+1. 사용자가 웹 브라우저를 열어 주소 표시줄에 www.example.com을 입력하고 Enter 키를 누릅니다.
+2. www.example.com에 대한 요청은 일반적으로 케이블 인터넷 공급업체, DSL 광대역 공급업체 또는 기업 네트워크 같은 인터넷 서비스 제공업체(ISP)가 관리하는 DNS 해석기로 라우팅됩니다.
+3. ISP의 DNS 해석기는 www.example.com에 대한 요청을 DNS 루트 이름 서버에 전달합니다. 
+4. ISP의 DNS 해석기는 www.example.com에 대한 요청을 이번에는 .com 도메인의 TLD 이름 서버 중 하나에 다시 전달합니다. .com 도메인의 이름 서버는 example.com 도메인과 연관된 4개의 Amazon Route 53 이름 서버의 이름을 사용하여 요청에 응답합니다. 
+5. ISP의 DNS 해석기는 Amazon Route 53 이름 서버 하나를 선택해 www.example.com에 대한 요청을 해당 이름 서버에 전달합니다. 
+6. Amazon Route 53 이름 서버는 example.com 호스팅 영역에서 www.example.com 레코드를 찾아 웹 서버의 IP 주소 192.0.2.44 등 연관된 값을 받고 이 IP 주소를 DNS 해석기로 반환합니다. 
+7. ISP의 DNS 해석기가 마침내 사용자에게 필요한 IP 주소를 확보하게 됩니다. 해석기는 이 값을 웹 브라우저로 반환합니다. 또한, DNS 해석기는 다음에 누군가가 example.com을 탐색할 때 좀 더 빠르게 응답할 수 있도록 사용자가 지정하는 일정 기간 example.com의 IP 주소를 캐싱(저장)합니다. 자세한 내용은 Time to Live(TTL)를 참조하세요. 
+8. 웹 브라우저는 DNS 해석기로부터 얻은 IP 주소로 www.example.com에 대한 요청을 전송합니다. 여기가 콘텐츠가 있는 곳으로, 예를 들어 웹 사이트 엔드포인트로 구성된 Amazon S3 버킷 또는 Amazon EC2 인스턴스에서 실행되는 웹 서버입니다. 
+9. 192.0.2.44에 있는 웹 서버 또는 그 밖의 리소스는 www.example.com의 웹 페이지를 웹 브라우저로 반환하고, 웹 브라우저는 이 페이지를 표시합니다.
+
+<br>
+
+## 세 번째
+
+![11](https://gentlysallim.com/wp-content/uploads/2021/03/210111_03_2.jpg)
+
+1. 브라우저에서 Nesite.com을 검색하고, 사용하고 있는 통신사인 KT DNS 서버에게 도메인 주소에 해당하는 IP 주소를 요청함
+   (브라우저 기본 DNS 설정이 통신사 DNS 서버이기 때문)
+
+2. ISP 서버에선 캐시 데이터가 없다는 걸 확인하고 루트 DNS 서버에게 어디로 가야 하는지 요청함(캐시가 있다면 8.로 건너 뜀.)
+
+3. 루트 서버는 TLD DNS 서버 주소만 관리하기 때문에, ***.com 도메인을 보고는 COM 최상위 도메인을 관리하는 TLD DNS 서버 주소를 안내함.
+
+4. ISP 서버는 COM 서버에게 어디로 가야 하는지 다시 요청함.
+
+5. COM 서버는 가비아 DNS 서버에서 해당 도메인이 관리되고 있는 걸 확인하고 안내함.
+
+6. ISP 서버는 가비아 서버에게 또 다시 요청함.
+
+7. 가비아 서버는 “Nesite.com = 12.123.123.123”이라는 정보를 확인하고 이 IP를 알려줌. 동시에 ISP 서버는 해당 정보를 캐시로 기록해 둠.
+
+8. ISP 서버는 브라우저에게 힘들게 알아 낸 12.123.123.123 주소를 안내함.
+
+9. 브라우저는 12.123.123.123 IP 주소를 갖고 있는 호스팅 서버에게 웹사이트를 출력하라고 요청함.
+
+10. 드디어 보임.
+
+- [세 번째 예시 참고 링크](https://gentlysallim.com/dns%EB%9E%80-%EB%AD%90%EA%B3%A0-%EB%84%A4%EC%9E%84%EC%84%9C%EB%B2%84%EB%9E%80-%EB%AD%94%EC%A7%80-%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC/)
+
 </details>
 
 <details>
