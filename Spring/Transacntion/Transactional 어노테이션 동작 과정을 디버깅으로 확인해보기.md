@@ -1,4 +1,4 @@
-# `@Transactional 어노테이션 동작 과정을 디버깅을 통해 확인해보기`
+# `@Transactional 어노테이션 동작 과정을 디버깅을 통해 알아보기`
 
 먼저 이 글은 `공식 문서`를 기반으로 완벽한 근거로 옳은 소리만으로 작성된 글이 아니고, 여러 가지 글을 참고하며 저의 생각을 기반으로 작성된 글입니다. 그래서 틀린 말이나 부족한 말이 존재할 수 있습니다.
 
@@ -148,7 +148,7 @@ public class ProxySimpleEventService implements EventService {
 
 `Code Generator Library`의 약자로, 클래스의 바이트코드를 조작하여 Proxy 객체를 생성해주는 라이브러리입니다. 동적으로 타겟 클래스의 바이트 코드를 조작하고 이후 호출시엔 조작된 바이트 코드를 재사용함으로써 성능도 `Dynamic Proxy`보다 앞선다고 밝혀졌습니다.
 
-`CGLib`과 `Dynamic Proxy`에 대한 자세한 설명은 [여기](https://gmoon92.github.io/spring/aop/2019/04/20/jdk-dynamic-proxy-and-cglib.html) 에서도 확인할 수 있습니다.
+`CGLib`과 `Dynamic Proxy`에 대한 자세한 설명은 [여기](https://gmoon92.github.io/spring/aop/2019/04/20/jdk-dynamic-proxy-and-cglib.html) 를 참고하시는 것을 추천드립니다. 링크에 자세히 나와 있어서 여기서는 이정도만 설명하고 넘어가겠습니다.
 
 <br> <br>
 
@@ -170,6 +170,14 @@ public class ProxySimpleEventService implements EventService {
 
 <br> <br>
 
+## `@Transactional 어떤 속성을 가지고 있을까?`
+
+![스크린샷 2022-02-27 오전 3 41 26](https://user-images.githubusercontent.com/45676906/155855246-09c046ed-ea96-47ff-a644-82bbe9ef8476.png)
+
+`@Transactional` 어노테이션을 보면 대표적으로 `propagation`, `isolation`, `readOnly`에 대한 설정을 할 수 있습니다. 하지만 이번 글에서 이런 부분까지 다루면 너무 글이 길어지기 때문이 이러한 설정을 할 수 있다 정도로만 정리하고 넘어가겠습니다.
+
+<br> <br> 
+
 ## `디버깅을 통해 @Transactional 코드의 동작 과정을 알아보자.`
 
 <img width="683" alt="스크린샷 2021-10-20 오후 5 10 27" src="https://user-images.githubusercontent.com/45676906/155855752-5d229f56-ebfd-4093-8422-aee7fd983948.png">
@@ -179,6 +187,8 @@ public class ProxySimpleEventService implements EventService {
 ![스크린샷 2022-02-27 오전 3 55 30](https://user-images.githubusercontent.com/45676906/155855651-0cbc471c-2f9a-4b98-8b01-b7821256c7f2.png)
 
 먼저 `@Transactional 어노테이션이 존재하는 saveThumbnail` 메소드를 호출하고 있는 것을 볼 수 있습니다. 그런데 `saveThumbnail`을 호출하고 있지만, 밑에 클래스 이름을 보면 `CGLib` 이라고 써져 있는 것을 볼 수 있습니다. 즉, `saveThumbnail` 메소드가 `@Transactional`이 붙어 있기 때문에 `saveThumbnail` 메소드를 호출해도 실제 메소드가 호출되기 전에 `프록시` 객체가 생성되어 `Proxy` 객체가 먼저 생성되는 것을 볼 수 있습니다.
+
+저는 `Proxy` 객체가 만들어 진 후에 비즈니스 로직이 끝난 다음에 트랜잭션이 커밋을 할 것인지 롤백을 하던지 할텐데, 그 때의 로직이 어떻게 흘러가는지 디버깅을 통해서 알아보겠습니다. 
 
 <br>
 
@@ -206,11 +216,9 @@ public class ProxySimpleEventService implements EventService {
 
 <br> <br>
 
-## `@Transactional 어떤 속성을 가지고 있을까?`
+## `마무리 하며`
 
-![스크린샷 2022-02-27 오전 3 41 26](https://user-images.githubusercontent.com/45676906/155855246-09c046ed-ea96-47ff-a644-82bbe9ef8476.png)
-
-`@Transactional` 어노테이션을 보면 대표적으로 `propagation`, `isolation`, `readOnly`에 대한 설정을 할 수 있습니다. 하지만 이번 글에서 이런 부분까지 다루면 너무 글이 길어지기 때문이 이러한 설정을 할 수 있다 정도로만 정리하고 넘어가겠습니다. 
+이번 글의 정리로 `Dynamic Proxy`가 무엇이며, `CGLib`은 무엇이며 두 개는 어떠한 차이점이 있는지에 대해서 알아볼 수 있었습니다. 뿐만 아니라 디버깅을 통해서 내부 코드를 완벽하게 이해하여 정리하지는 못했지만, `@Transactional` 어노테이션은 `CGLib` 기반으로 `Proxy` 객체가 생성되어 트랜잭션 관련 작업의 코드들을 생성해주어 대신 작업해준다 라는 것을 좀 더 자세히 알아볼 수 있는 시간이었습니다.
 
 <br> <br>
 
@@ -218,4 +226,4 @@ public class ProxySimpleEventService implements EventService {
 
 - [인프런 스프링 프레임워크 핵심기술](https://www.inflearn.com/course/spring-framework_core)
 - [https://gmoon92.github.io/spring/aop/2019/04/20/jdk-dynamic-proxy-and-cglib.html](https://gmoon92.github.io/spring/aop/2019/04/20/jdk-dynamic-proxy-and-cglib.html)
-- [Spring Core Document](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core)
+- [Spring Core Document](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-proxies)
