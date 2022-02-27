@@ -201,7 +201,7 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 - 타겟 클래스가 인터페이스를 구현하고 있다면 `Dynamic Proxy`를 사용하여 프록스 객체를 만들게 됩니다.
 - 타켓 클래스가 인터페이스를 구현하고 있지 않다면 `CGLib`을 사용하여 프록시 객체를 만들게 됩니다.
 
-- `Reference`: [https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-proxies](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-proxies) 
+`Reference`: [https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-proxies](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-introduction-proxies) 
 
 </details>
 
@@ -209,9 +209,9 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
   <summary>Dynamic Proxy vs CGLIB 차이점이 무엇인가요?</summary>
   <br>
 
-1. 스프링에서는 CGLib, Dynamic Proxy 를 사용해서 프록시 패턴을 구현하고 있습니다.
+1. 스프링에서는 `CGLib`, `Dynamic Proxy` 를 사용해서 프록시 패턴을 구현하고 있습니다.
 2. `Dynamic Proxy`는 인터페이스 타입만 생성할 수 있는 반면에 `CGLib`은 실제 구현하고자 하는 타입을 생성할 수 있어서 인터페이스를 구현하지 않는데 프록시 객체를 만들어야 하는 경우에는 `CGLib`을 사용합니다.
-3. `Spring Boot`의 경우 기본적으로 프록시 객체를 생성할 때 `CGLib`를 사용하고 있다.
+3. 타켓 클래스가 인터페이스를 구현하고 있지 않다면 `프록시 객체를 생성할 때 `CGLib`를 사용한다.
 4. `CGLib`는 `JDK Proxy`와는 달리 리플렉션을 사용하지 않고 `바이트코드 조작을 통해 프록시 객체 생성`을 하고 있다.
   
 </details>
@@ -295,13 +295,20 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 
 N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 지연 로딩시에는 반복문을 돌면서 하위 객체를 조회할때  발생합니다. 정확한 의미는 1개의 쿼리를 실행했을 때, 내부에 존재하는 컬렉션들을 조회해오면서 생기는 문제입니다. 기본적으로 되도록이면 @OneToMany의 매핑을 하지 않을 수 있다면 하지 않는 것이 최고의 예방책입니다.
 
-만약 그런 객체를 가져와야 하는 경우 `Fetch Join`이라고 하는 JPQL의 join fetch를 사용합니다. 쿼리 한 번으로 해결할 수 있고, 또 다른 방법으로는 `EntityGraph`를 사용하는 방법이 있습니다.
+만약 그런 객체를 가져와야 하는 경우 `Fetch Join`이라고 하는 JPQL의 join fetch를 사용합니다. 쿼리 한 번으로 해결할 수 있고, 또 다른 방법으로는 `EntityGraph`를 사용하는 방법이 있습니다. 또한 `Batch Size` 옵션을 사용하여 N + 1 문제를 해결할수도 있습니다.
+
+`@OneToOne` 관계에서 연관관계 주인이 아닌 쪽에서 조회하면 `Proxy`의 한계로 `null`인지 아닌지 직접 조회해보아야 한다는 특징 때문에 `N + 1` 문제가 발생한다는 특징이 있습니다. 이 때도 `fetct join`을 활용해서 `N + 1` 문제를 해결할 수 있습니다.
 
 </details>
 
 <details>
   <summary>N + 1 문제를 해결하는 방법들에 대해서 아는대로 말해주세요.</summary>
   <br>
+
+- `fetch join`을 사용해서 객체를 한번에 가져오는 방법이 있습니다.
+- `entity graph`를 사용하여 N + 1 문제를 해결할 수 있습니다.
+- `Batch Size` 옵션을 사용하여 `Size` 만큼 `IN` 쿼리로 가져와서 N + 1 문제를 해결할 수 있습니다.
+
 </details>
 
 <details>
@@ -313,7 +320,7 @@ N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 �
   <summary>JPA 영속성 컨텍스트(PersistenceContext)는 언제 열리나요?</summary>
   <br>
 
-트랜잭션이 시작될 때 영속성 컨텍스트(PersistenceContext)가 열립니다.(엔티티 매니저를 만들면 그 내부에 영속성 컨텍스트가 생성됩니다.)
+`트랜잭션이 시작될 때 영속성 컨텍스트(PersistenceContext)가 열립니다.`(엔티티 매니저를 만들면 그 내부에 영속성 컨텍스트가 생성됩니다.)
 </details>
 
 <details>
@@ -344,8 +351,9 @@ N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 �
 
 <details>
   <summary>영속성 컨텍스트를 사용하면 쓰기 지연이 가능한 이유가 무엇인가요?</summary>
+  <br>
 
-데이터를 저장하면 등록 쿼리를 데이터베이스에 바로 보내지 않고 메모리에 모아 둡니다. 그리고 트랜잭션을 커밋할 때 등록 쿼리를 데이터베이스에 보낸 후에 커밋하기 때문에 가능합니다.
+데이터를 저장하면 등록 쿼리를 데이터베이스에 바로 보내지 않고 메모리에 모아 둡니다. 그리고 트랜잭션을 커밋할 때 등록 쿼리를 데이터베이스에 한번에 보낸 후에 커밋하기 때문에 가능합니다.
 
 </details>
 
@@ -447,7 +455,7 @@ Member findMember2 = em.find(Member.class, 2L);
   <summary>@Transactional 어노테이션이 동작하는 방식에 대해서 설명해주세요</summary>
   <br>
 
-`Spring AOP`를 사용해서 동작하게 됩니다. 해당 어노테이션이 붙어있는 메소드를 호출하면 `프록시 객체의 메소드가 먼저 호출`됩니다. (프록시 내부에 트랜잭션 코드가 존재하고 실제 메소드를 여기서 호출함) 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 commit과 rollback처리를 해준다.)
+`Spring AOP`를 사용해서 동작하게 됩니다. 해당 어노테이션이 붙어있는 메소드를 호출하면 `프록시 객체의 메소드가 먼저 호출`됩니다. (프록시 내부에 트랜잭션 코드가 존재하고 실제 메소드를 여기서 호출함) 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 `트랜잭션 begin, commit과 rollback처리`를 해줍니다.)
 
 </details>
 
@@ -504,7 +512,7 @@ Member findMember2 = em.find(Member.class, 2L);
 </details>
 
 <details>
-  <summary>REPEATABLE READ 를 사용하게 되면 방어되는 db의 오류 동작이 어떤 게 방어가 될까요?</summary>
+  <summary>REPEATABLE READ 를 사용하게 되면 방어되는 DB의 오류 동작이 어떤 게 방어가 될까요?</summary>
   <br>
 
 `READ COMMITTED`에서 `UNREPETABLE READ`가 발생한다는 문제가 있습니다. `UNREPEATABLE READ`는 A 트랜잭션에 C 라는 쿼리로 테이블을 조회했을 때 결과가 1건이 나왔습니다. 그런데 이 때 B 트랜잭션에서 제가 조회했던 곳의 필드 값을 Update 했습니다. 그리고 제가 한번 더 C 라는 쿼리로 조회했는데 이번에는 결과가 2건이 나오게 되는 이런 상황, 같은 트랜잭션에서 같은 쿼리를 날렸는데 결과가 다른 문제를 `UNREPEATABLE READ` 라고 하고 `REPEATABLE READ`는 이러한 문제를 해결하였습니다.
