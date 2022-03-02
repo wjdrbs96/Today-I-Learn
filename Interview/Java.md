@@ -179,6 +179,29 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 
 </details>
 
+<details>
+    <summary>List 의 remove 동작 방식을 설명해주세요.</summary>
+
+![스크린샷 2021-12-08 오전 1 57 48](https://user-images.githubusercontent.com/45676906/145072657-8c10a96b-4472-47bb-ac9c-bf0fd9bfedff.png)
+
+![스크린샷 2021-12-08 오전 1 58 04](https://user-images.githubusercontent.com/45676906/145072696-ff26a12b-207b-4936-8b89-e85ac5f36ca4.png)
+
+`ArrayList`를 보면 `remove` 메소드가 두 가지 존재합니다. 여기서 볼 점은 `Object`를 `remove`하는 것인데 내부 동작원리는 객체의 `equals`를 기반으로 비교하게 됩니다.
+
+즉, 해당 `Object`에 `equals`, `hashCode` 기반으로 동작하기 때문에 `오버라이딩`을 해서 구현해놓아야 올바르게 작동하게 됩니다.
+
+</details>
+
+<details>
+    <summary>List sort 메소드는 어떤 정렬 알고리즘을 사용하나요?</summary>
+    <br>
+</details>
+
+<details>
+    <summary>해시맵에 데이터 저장과 조회하는데 시간복잡도가 어떻게 되나요?</summary>
+    <br>
+</details>
+
 <br>
 
 ## `JVM, GC`
@@ -557,6 +580,65 @@ Object equals 는 `==`을 사용해서 비교합니다.
 
 <br>
 
+## `Lambda & Stream`
+
+<details>
+    <summary>Stream map vs FlatMap 차이점에 대해서 설명해주세요.</summary>
+    <br>
+
+- `map`: map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있습니다.
+- `flatmap`: flatMap()은 Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환합니다.
+
+</details>
+
+<details>
+    <summary>Stream foreach 랑 for 문 중에 뭐가 더 빠르다고 생각하시나요?</summary>
+    <br>
+
+일반적으로 `Stream.forEach()`를 사용하면 전통적인 `for-loop`를 사용할 때보다 오버헤드가 훨씬 심각하게 발생하기 때문에, 모든 for-loop를 Stream.forEach()로 대체하면, 애플리케이션 전체에 걸쳐 누적되는 CPU 싸이클 낭비는 무시하지 못할 수준이 될 수 있다.
+
+원시 데이터(primitive data type)를 반복문으로 처리할 때는 절대적으로 전통적인 `for-loop`를 써야한다(collections보다 배열의 경우에는 특히 더)
+
+</details>
+
+<br>
+
+## `Generic`
+
+<details>
+    <summary>제네릭에 대해서 설명해주세요.</summary>
+    <br>
+
+- JDK 1.5에 도입 되었다.
+- 컴파일 과정에서 타입체크를 해주는 기능으로 객체의 타입을 컴파일 시에 체크하기 때문에 객체의 타입 안정성을 높이고 형변환의 번거로움을 줄여줍니다.
+
+</details>
+
+<br>
+
+## `Kotlin`
+
+<details>
+    <summary>Kotlin과 Java의 차이점 느낀대로 말해주세요.</summary>
+    <br>
+
+1. 코틀린 주 생성자 사용 방식
+2. NULL 가능 여부
+3. Data Class를 사용하면 `Equals`, `toString` 같은 것들을 자동으로 만들어줌
+4. 코틀린의 val, var
+5. 코틀린은 기본이 final class
+6. 코틀린 파라미터 디폴트 값 설정 가능
+7. 확장 함수
+
+</details>
+
+<details>
+    <summary>코틀린이랑 자바가 어떻게 100% 호환되는지 설명해주세요.</summary>
+    <br>
+</details>
+
+<br>
+
 ## `Etc`
 
 <details>
@@ -666,26 +748,6 @@ Object equals 는 `==`을 사용해서 비교합니다.
 </details>
 
 <details>
-    <summary>Kotlin과 Java의 차이점 느낀대로 말해주세요.</summary>
-    <br>
-
-1. 코틀린 주 생성자 사용 방식
-2. NULL 가능 여부
-3. Data Class를 사용하면 `Equals`, `toString` 같은 것들을 자동으로 만들어줌
-4. 코틀린의 val, var
-5. 코틀린은 기본이 final class
-6. 코틀린 파라미터 디폴트 값 설정 가능
-7. 확장 함수
-
-</details>
-
-<details>
-    <summary>코틀린이랑 자바가 어떻게 100% 호환되는지 설명해주세요.</summary>
-    <br>
-</details>
-
-
-<details>
     <summary>Java 8에 추가된 것들에 대해서 설명해주세요.</summary> 
     <br>
 
@@ -705,24 +767,6 @@ Object equals 는 `==`을 사용해서 비교합니다.
 - 프로세스를 생성하는거보다 Thread 생성이 더 시간 적게듬
 - 프로세스를 종료하는거보다 Thread 종료가 더 시간 적게듬
 - 프로세스를 스위칭하는거보다 같은 프로세스에 있는 두 Thread 스위칭이 더 시간 적게듬
-
-</details>
-
-<details>
-    <summary>Stream map vs FlatMap 차이점에 대해서 설명해주세요.</summary>
-    <br>
-
-- `map`: map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있습니다.
-- `flatmap`: flatMap()은 Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환합니다.
-
-</details>
-
-<details>
-    <summary>제네릭에 대해서 설명해주세요.</summary>
-    <br>
-
-- JDK 1.5에 도입 되었다.
-- 컴파일 과정에서 타입체크를 해주는 기능으로 객체의 타입을 컴파일 시에 체크하기 때문에 객체의 타입 안정성을 높이고 형변환의 번거로움을 줄여줍니다.
 
 </details>
 
@@ -748,16 +792,6 @@ Object equals 는 `==`을 사용해서 비교합니다.
 <details>
     <summary>박싱 언박싱 차이가 무엇인가요?</summary> 
     <br>
-</details>
-
-<details>
-    <summary>Stream foreach 랑 for 문 중에 뭐가 더 빠르다고 생각하시나요?</summary>
-    <br>
-
-일반적으로 `Stream.forEach()`를 사용하면 전통적인 `for-loop`를 사용할 때보다 오버헤드가 훨씬 심각하게 발생하기 때문에, 모든 for-loop를 Stream.forEach()로 대체하면, 애플리케이션 전체에 걸쳐 누적되는 CPU 싸이클 낭비는 무시하지 못할 수준이 될 수 있다.
-
-원시 데이터(primitive data type)를 반복문으로 처리할 때는 절대적으로 전통적인 `for-loop`를 써야한다(collections보다 배열의 경우에는 특히 더)
-
 </details>
 
 <details>
@@ -842,33 +876,6 @@ public class Test {
 </details>
 
 <details>
-    <summary>List 의 remove 동작 방식을 설명해주세요.</summary>
-
-![스크린샷 2021-12-08 오전 1 57 48](https://user-images.githubusercontent.com/45676906/145072657-8c10a96b-4472-47bb-ac9c-bf0fd9bfedff.png)
-
-![스크린샷 2021-12-08 오전 1 58 04](https://user-images.githubusercontent.com/45676906/145072696-ff26a12b-207b-4936-8b89-e85ac5f36ca4.png)
-
-`ArrayList`를 보면 `remove` 메소드가 두 가지 존재합니다. 여기서 볼 점은 `Object`를 `remove`하는 것인데 내부 동작원리는 객체의 `equals`를 기반으로 비교하게 됩니다.
-
-즉, 해당 `Object`에 `equals`, `hashCode` 기반으로 동작하기 때문에 `오버라이딩`을 해서 구현해놓아야 올바르게 작동하게 됩니다.
-
-</details>
-
-<details>
     <summary>리플렉션이란 무엇인가요?</summary>
     <br>
 </details>
-
-<details>
-    <summary>List sort 메소드는 어떤 정렬 알고리즘을 사용하나요?</summary>
-    <br>
-</details>
-
-<details>
-    <summary>해시맵에 데이터 저장과 조회하는데 시간복잡도가 어떻게 되나요?</summary>
-    <br>
-</details>
-
-
-
-<br>
