@@ -62,8 +62,8 @@ IoC 컨테이너 생성 -> Bean 등록 -> Bean 객체들의 의존 관계 주입
 SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguration`, `@EnableAutoConfiguration` 대표적으로 3가지가 존재한다.
 
 - `ComponentScan`: 현재 어노테이션이 존재하는 같은 곳에 위치한 Bean 으로 등록할 수 있는 어노테이션을 찾아서 자동으로 Bean 으로 등록해주는 역할을 합니다.
-- `EnableAutoConfigure`: 스프링 의존성에 autoconfigure 에 보면 자동으로 값들을 설정해준다. 대표적으로 Spring Boot 에서는 MVC 설정을 따로 하지 않아도 편리하게 사용할 수 있는데 이 어노테이션이 자동으로 번거로운 설정들을 대신 해줍니다.
-- `SpringBootConfiguration` 은 Configration 과 거의 같은 어노테이션이지만, Spring Boot 에서 `@SpringBootTest` 어노테이션을 사용해서 테스트 코드에서 작동할 때 관련 설정들을 자동으로 읽어오도록 해주는 역할을 합니다.
+- `EnableAutoConfigure`: @ComponentScan에서 먼저 스캔해서 Bean으로 등록하고 tomcat등 스프링이 정의한 외부 의존성을 갖는 class들을 스캔해서 Bean으로 등록합니다. 스프링 의존성에 autoconfigure 에 보면 자동으로 값들을 설정해준다. 대표적으로 Spring Boot 에서는 MVC 설정을 따로 하지 않아도 편리하게 사용할 수 있는데 이 어노테이션이 자동으로 번거로운 설정들을 대신 해줍니다.
+- `SpringBootConfiguration` 은 Configration 과 거의 같은 어노테이션이지만, Spring Boot 에서 `@SpringBootTest` 어노테이션을 사용해서 테스트 코드에서 작동할 때 관련 설정들을 자동으로 읽어오도록 해주는 역할을 합니다.(`SpringBootTestContextBootstrapper` 기억하기)
 
 </details>
 
@@ -168,7 +168,7 @@ AOP는 `Aspect Oriented Programming` 으로 `관점 지향 프로그래밍` 이�
 
 <br>
 
-Spring AOP 에서는 `Dynamic Proxy`를 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다.
+Spring AOP 에서는 `Dynamic Proxy` or `CGLib`을 사용해서 기존의 코드를 건드리지 않고 코드를 추가하는 방식을 사용한다. 코드를 추가할 때는 3가지 방법이 있다.
 
 - 컴파일
 - 로드 타임
@@ -211,14 +211,25 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 
 1. 스프링에서는 `CGLib`, `Dynamic Proxy` 를 사용해서 프록시 패턴을 구현하고 있습니다.
 2. `Dynamic Proxy`는 인터페이스 타입만 생성할 수 있는 반면에 `CGLib`은 실제 구현하고자 하는 타입을 생성할 수 있어서 인터페이스를 구현하지 않는데 프록시 객체를 만들어야 하는 경우에는 `CGLib`을 사용합니다.
-3. 타켓 클래스가 인터페이스를 구현하고 있지 않다면 `프록시 객체를 생성할 때 `CGLib`를 사용한다.
-4. `CGLib`는 `JDK Proxy`와는 달리 리플렉션을 사용하지 않고 `바이트코드 조작을 통해 프록시 객체 생성`을 하고 있다.
-  
+3. 타켓 클래스가 인터페이스를 구현하고 있지 않다면 `프록시 객체를 생성할 때 CGLib`를 사용한다.
+4. `CGLib`는 `JDK Proxy`와는 달리 리플렉션을 사용하지 않고 `바이트코드를 조작하여 프록시 객체를 생성하고 있다.`
+5. `Dynamic Proxy`는 `리플랙션의 Proxy 클래스가 동적으로 Proxy를 생성해줍니다.`
+
 </details>
 
 <details>
   <summary>@Cacheable 어노테이션이 어떻게 동작하는지 알고 계신가요?</summary> 
   <br>
+</details>
+
+<details>
+  <summary>리플랙션이 무엇인지 알고 계신가요?</summary>
+  <br>
+
+리플렉션은 자바 코드 자체를 추상화하여 구체적인 객체정보를 알지 못하더라도 클래스정보들을 접근 할 수 있도록 하는 자바 API 입니다. 이를 통해 동적 객체 선언, 동적 메서드 호출 기능을 사용 할 수 있는데, Spring에서는 DI, Proxy등에서 리플렉션이 사용됩니다.
+
+리플렉션을 사용하면 코드가 지져분해지고, 성능이 떨어진다는 단점이 존재하기 때문에 꼭 필요할 때 사용하는 것이 좋습니다.
+
 </details>
 
 <br>
@@ -238,7 +249,7 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
   <summary>JPA의 EntityManager는 언제 생성되나요?</summary>
   <br>
 
-`EntityManagerFactory`를 통해서 요청이 올 때마다 `EntityManager`를 생성합니다. `EntityManager`는 내부적으로 데이터베이스 커넥션 풀을 사용합니다.
+`EntityManagerFactory`를 통해서 요청이 올 때마다 `EntityManager`를 생성합니다. `EntityManager는 내부적으로 데이터베이스 커넥션 풀을 사용합니다.`
 
 ![image](https://user-images.githubusercontent.com/45676906/130561404-a884dac8-c921-4b6d-959e-7d4fb1813982.png)
 
@@ -256,11 +267,11 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
   <summary>JPA 영속성 컨텍스트 장점 아는대로 설명해주세요.</summary>
   <br>
 
-- 1차 캐시 : 영속성 컨텍스트는 내부에 캐시를 가지고 있는데 이것을 `1차 캐시`라고 합니다. 1차 캐시에 없으면 DB 에서 조회해옵니다. 1차 캐시에 있다면 DB 쿼리를 날리지 않습니다.(JPA는 1차 캐시를 통해서 반복 가능한 읽기(REPEATABLE RAD) 등급의 트랜잭션 격리 수준을 데이터베이스가 아닌 애플리케이션 차원에서 제공한다는 장점이 있습니다.)
-- 변경 감지(Dirty Checking) : 스냅샷을 1차 캐시에 들어온 데이터를 스냅샷을 찍어놓습니다. commit 되는 시점에 Entity와 스냅샷과 비교하여 다르다면 update SQL을 생성합니다.
-- 지연 로딩(Lazy Loading) : FetchType을 LAZY로 설정해놓으면 연관관계의 객체를 프록시로 가져온 후에 실제 그 객체가 사용될 때 DB에 쿼리를 날려서 가져옵니다.
-- 동일성 보장: 동일성 비교가 가능합니다.(== 사용 가능)
-- 쓰기 지연 : `엔티티 매니저는 트랜잭션을 커밋하기 직전까지 데이터베이스에 엔티티를 저장하지 않고 내부 쿼리 저장소에 INSERT SQL을 차곡차곡 모아둡니다.` 그리고 트랜잭션을 커밋할 때 모아둔 쿼리를 데이터베이스에 보내는데 이것을 `트랜잭션을 지원하는 쓰기 지연` 이라 합니다.
+- `1차 캐시` : 영속성 컨텍스트는 내부에 캐시를 가지고 있는데 이것을 `1차 캐시`라고 합니다. 1차 캐시에 없으면 DB 에서 조회해옵니다. 1차 캐시에 있다면 DB 쿼리를 날리지 않습니다.(JPA는 1차 캐시를 통해서 반복 가능한 읽기(REPEATABLE RAD) 등급의 트랜잭션 격리 수준을 데이터베이스가 아닌 애플리케이션 차원에서 제공한다는 장점이 있습니다.)
+- `변경 감지(Dirty Checking)` : 스냅샷을 1차 캐시에 들어온 데이터를 스냅샷을 찍어놓습니다. commit 되는 시점에 Entity와 스냅샷과 비교하여 다르다면 update SQL을 생성합니다.
+- `지연 로딩(Lazy Loading)` : FetchType을 LAZY로 설정해놓으면 연관관계의 객체를 프록시로 가져온 후에 실제 그 객체가 사용될 때 DB에 쿼리를 날려서 가져옵니다.
+- `동일성 보장`: 동일성 비교가 가능합니다.(== 사용 가능)
+- `쓰기 지연` : `엔티티 매니저는 트랜잭션을 커밋하기 직전까지 데이터베이스에 엔티티를 저장하지 않고 내부 쿼리 저장소에 INSERT SQL을 차곡차곡 모아둡니다.` 그리고 트랜잭션을 커밋할 때 모아둔 쿼리를 데이터베이스에 보내는데 이것을 `트랜잭션을 지원하는 쓰기 지연` 이라 합니다.
 
 <img width="987" alt="스크린샷 2021-08-25 오전 7 45 21" src="https://user-images.githubusercontent.com/45676906/130699692-8ded3c99-0b25-415f-abe4-14d8aa6d9799.png">
 
@@ -455,7 +466,8 @@ Member findMember2 = em.find(Member.class, 2L);
   <summary>@Transactional 어노테이션이 동작하는 방식에 대해서 설명해주세요</summary>
   <br>
 
-`Spring AOP`를 사용해서 동작하게 됩니다. 해당 어노테이션이 붙어있는 메소드를 호출하면 `프록시 객체의 메소드가 먼저 호출`됩니다. (프록시 내부에 트랜잭션 코드가 존재하고 실제 메소드를 여기서 호출함) 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 `트랜잭션 begin, commit과 rollback처리`를 해줍니다.)
+- `Spring AOP`를 사용해서 동작하게 됩니다. `@Transactional` 어노테이션이 붙어있는 메소드를 호출하면 `프록시 객체의 메소드가 먼저 호출`됩니다. (프록시 내부에 트랜잭션 코드가 존재하고 프록시 코드를 통해서 실제 요청했던 메소드를 여기서 호출함) 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 `트랜잭션 begin, commit과 rollback처리`를 해줍니다.)
+- 실제 호출했던 메소드의 클래스가 인터페이스를 구현하고 있다면 `Dynamic Proxy`를 사용하고, 인터페이스를 구현하고 있지 않다면 `CGLib`을 사용해서 `Proxy` 객체를 생성합니다.
 
 </details>
 
@@ -469,7 +481,7 @@ Member findMember2 = em.find(Member.class, 2L);
 
 그리고 `readOnly`를 사용하면 `해당 트랜잭션 내에서 쓰기 작업을 할 수 없습니다.` 즉, `읽기 전용이기 때문에 영속성 컨텍스트는 스냅샷을 보관하지 않습니다.` 따라서 메모리 사용량을 최적화할 수 있습니다.
 
-즉, 강제로 플러시를 호출하지 않는 한 플러시가 일어나지 않습니다. 따라서 트랜잭션을 커밋하더라도 영속성 컨텍스트가 플러시 되지 않아서 엔티티의 등록, 수정, 삭제가 동작하지 않고 또한 읽기 전용으로 영속성 컨텍스트는 변경 감지를 위한 스냅샷을 보관하지 않으므로 성능이 향상됩니다.
+즉, `강제로 플러시를 호출하지 않는 한 플러시가 일어나지 않습니다.` 따라서 트랜잭션을 커밋하더라도 영속성 컨텍스트가 플러시 되지 않아서 엔티티의 등록, 수정, 삭제가 동작하지 않고 또한 읽기 전용으로 영속성 컨텍스트는 변경 감지를 위한 스냅샷을 보관하지 않으므로 성능이 향상됩니다.
 
 </details>
 
