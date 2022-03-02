@@ -6,7 +6,7 @@
     <summary>HashMap 의 충돌 과정과 Java 8에서 어떻게 충돌을 해결하고 있는지 설명해주세요.</summary>
     <br>
 
-Hash 충돌에는 '개방 주소법', '분리 연결법'이 존재합니다.
+Hash 충돌에는 `개방 주소법`, `분리 연결법`이 존재합니다.
 
 `Open Addressing`은 데이터를 삽입하려는 해시 버킷이 이미 사용 중인 경우 다른 해시 버킷에 해당 데이터를 삽입하는 방식입니다.
 `Open Addressing`은 연속된 공간에 데이터를 저장하기 때문에 Separate Chaining에 비하여 캐시 효율이 높다. 따라서 데이터 개수가 충분히 적다면 Open Addressing이 Separate Chaining보다 더 성능이 좋다 그리고 `HashMap`은 데이터 삭제가 빈번한데 `Open Addressing` 방식은 데이터를 삭제할 때 효율적이지 못합니다.
@@ -23,7 +23,7 @@ Hash 충돌에는 '개방 주소법', '분리 연결법'이 존재합니다.
 
 > 둘 모두 Worst Case O(M)이다. 하지만 Open Addressing은 연속된 공간에 데이터를 저장하기 때문에 Separate Chaining에 비하여 캐시 효율이 높다. 따라서 데이터 개수가 충분히 적다면 Open Addressing이 Separate Chaining보다 더 성능이 좋다. 하지만 배열의 크기가 커질수록(M 값이 커질수록) 캐시 효율이라는 Open Addressing의 장점은 사라진다. 배열의 크기가 커지면, L1, L2 캐시 적중률(hit ratio)이 낮아지기 때문이다.
 
-> Java HashMap에서 사용하는 방식은 Separate Channing이다. Open Addressing은 데이터를 삭제할 때 처리가 효율적이기 어려운데, HashMap에서 remove() 메서드는 매우 빈번하게 호출될 수 있기 때문이다. 게다가 HashMap에 저장된 키-값 쌍 개수가 일정 개수 이상으로 많아지면, 일반적으로 Open Addressing은 Separate Chaining보다 느리다. Open Addressing의 경우 해시 버킷을 채운 밀도가 높아질수록 Worst Case 발생 빈도가 더 높아지기 때문이다. 반면 Separate Chaining 방식의 경우 해시 충돌이 잘 발생하지 않도록 '조정'할 수 있다면 Worst Case 또는 Worst Case에 가까운 일이 발생하는 것을 줄일 수 있다(
+> Java HashMap에서 사용하는 방식은 Separate Channing이다. Open Addressing은 데이터를 삭제할 때 처리가 효율적이기 어려운데, HashMap에서 remove() 메서드는 매우 빈번하게 호출될 수 있기 때문이다. 게다가 HashMap에 저장된 키-값 쌍 개수가 일정 개수 이상으로 많아지면, 일반적으로 Open Addressing은 Separate Chaining보다 느리다. Open Addressing의 경우 해시 버킷을 채운 밀도가 높아질수록 Worst Case 발생 빈도가 더 높아지기 때문이다. 반면 Separate Chaining 방식의 경우 해시 충돌이 잘 발생하지 않도록 '조정'할 수 있다면 Worst Case 또는 Worst Case에 가까운 일이 발생하는 것을 줄일 수 있다.
 
 > String 객체 해시 함수에서 31을 사용하는 이유는, 31이 소수이며 또한 어떤 수에 31을 곱하는 것은 빠르게 계산할 수 있기 때문이다. 31N=32N-N인데, 32는 25이니 어떤 수에 대한 32를 곱한 값은 shift 연산으로 쉽게 구현할 수 있다. 따라서 N에 31을 곱한 값은, (N << 5) – N과 같다. 31을 곱하는 연산은 이렇게 최적화된 머신 코드로 생성할 수 있기 때문에, String 클래스에서 해시 값을 계산할 때에는 31을 승수로 사용한다.
 
@@ -450,8 +450,14 @@ str1 == str2
     <summary>String 상수풀은 GC 영역의 대상인가요?</summary>
     <br>
 
-- 조사 필요
-- GC 대상 아니라고 생각합니다. (아마두?)
+- Java6까지 string constant pool의 위치는 Perm 영역이었다. Perm 영역에 위치하였던 게 Java7에서 Heap 영역으로 변경되었다. 그 이유는 OOM 문제 때문입니다.
+- Perm 영역은 고정된 사이즈고 Runtime에 사이즈가 확장되지 않는다. Perm 영역의 사이즈를 늘릴 수는 있지만 어쨌거나 Runtime에 사이즈가 변경되는 것은 아니다. 그래서 Java6까지는 String의 intern() 메서드를 호출하는 것은 OutOfMemoryException을 발생시킬 수 있고 그 부분을 컨트롤할 수 없었기 때문에 거의 사용하지 않는 것이 맞다.
+- 그래서 Oracle의 엔지니어들이 Java7에서 Perm 영역이 아닌 Heap 영역으로 string constant pool의 위치를 변경하였다. Heap 영역으로 변경함으로써 얻는 이점이 무엇일까?
+- 관련 업데이트 참조 http://bugs.java.com/view_bug.do?bug_id=6962931
+- `바로 string constant pool의 모든 문자열도 GC의 대상이 될 수 있다는 점이다.`
+
+- Reference: [https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc](https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc)
+
 
 </details>
 
@@ -473,8 +479,7 @@ str1 == str2
     <br>
 
 ```
-자바 직렬화란 자바 시스템 내부에서 사용되는 객체 또는 데이터를 외부의 자바 시스템에서도 사용할 수 있도록 
-바이트(byte) 형태로 데이터 변환하는 기술과 바이트로 변환된 데이터를 다시 객체로 변환하는 기술(역직렬화)을 아울러서 이야기합니다.
+자바 직렬화란 자바 시스템 내부에서 사용되는 객체 또는 데이터를 외부의 자바 시스템에서도 사용할 수 있도록 바이트(byte) 형태로 데이터 변환하는 기술과 바이트로 변환된 데이터를 다시 객체로 변환하는 기술(역직렬화)을 아울러서 이야기합니다.
 ```
 
 <br>
@@ -508,8 +513,7 @@ str1 == str2
 
 언체크 예외는 RuntimeException의 하위 클래스들을 의미합니다. 이것은 체크 예외와는 달리 에러 처리를 강제하지 않습니다.
 
-CheckedException : 롤백 되지 않음 => ClassNotFoundException
-UncheckedException : 롤백 됨 => ArrayOutOfIndexException
+`Spring`의 `@Transactional`의 기본 속성을 보면 `UnCheckedExcepetion` 일 때 `Rollback` 하는게 기본 설정 값입니다.
 
 </details>
 
