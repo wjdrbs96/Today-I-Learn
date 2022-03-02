@@ -144,6 +144,41 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 </details>
 
+<details>
+    <summary>Stack 클래스 대신 ArrayDeque 클래스를 권장하는 이유를 알고 계신가요?</summary>
+    <br>
+
+1. Stack 클래스는 `synchronized`가 존재하기 때문에 `Thread-Safe` 하다는 특징이 있습니다. 즉, 멀티스레드 환경이 아니라면 오버헤드가 발생합니다.
+2. `Stack` 클래스는 `Vector` 클래스를 잘못 확장한 자바의 실수입니다. `Stack`은 `LIFO` 구조를 이용해야 하는데 `Vector` 클래스를 확장하면 데이터에서 데이터 삽입, 삭제가 가능하기 때문입니다.
+
+</details>
+
+<details>
+    <summary>Queue 인터페이스를 구현하는 클래스 중에 동시성 처리를 담당하는 인터페이스를 알고 계신가요?</summary>
+    <br>
+
+`BlockingQueue` 라고 `Queue` 인터페이스를 구현하며 `concurrent` 패키지에 존재하는 인터페이스 있습니다. 이를 구현하는 클래스에는 `ArrayBlockingQueue`가 대표적으로 존재합니다. 
+
+`BlockingQueue` 에서는 하나의 쓰레드는 put을 하고, 나머지 쓰레드는 take()를 하는데 사용됩니다. 그리고 위에서 말했던 것처럼 큐가 꽉차있으면 put() 과정은 take()가 일어날 때까지 대기하게 됩니다. 그리고 큐가 비어있다면 put()이 일어날 때까지 take() 과정은 대기합니다.
+
+즉, 어떤 쓰레드가 큐에 삽입을 할 때 큐가 꽉 차있다면 해당 쓰레드는 대기를 하게 됩니다. 그리고 어떤 쓰레드가 큐에 삭제를 하려고 할 때 큐가 비어 있다면 해당 쓰레드도 대기를 하게 됩니다.
+
+</details>
+
+<details>
+    <summary>ConcurrentHashMap 이 무엇인지 설명해주세요.</summary>
+    <br>
+
+HashMap 은 멀티 스레드 환경에서 사용할 수 없는 클래스입니다. HashTable 은 멀티스레드 환경에서 사용할 수 있지만 너무 예전에 나온 클래스이고 단점에 대한 보완을 하고 있는 클래스도 아닙니다. 그래서 HashMap 의 멀티스레드에서 사용할 수 없다는 단점을 보완하는 클래스가 ConcurrentHashMap 입니다.
+
+ConcurrentHashMap 은 `put` 작업을 할 때 메소드 전체에 `Synchronized`가 붙어있지 않다는 특징이 있습니다. 그리고 `Lock`을 버킷 마다 가지고 있어 같은 버킷에 대해서 쓰는 것이 아니라면 여러 쓰레드에서도 동시에 쓰기 작업을 할 수 있습니다.
+
+ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 수 있습니다.
+
+즉, ConcurrentHashMap 은 멀티 쓰레드 환경에서 읽기 작업보다 쓰기 작업이 많을 때 사용하면 좋습니다.
+
+</details>
+
 <br>
 
 ## `JVM, GC`
@@ -157,10 +192,9 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 1. 프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
 2. 자바 컴파일러(javac)가 자바소스(.java)코드를 읽어 들여 자바 바이트코드(.class)로 변환시킨다.
 3. 변경된 Class 파일들을 `Class Loader`를 통해 `JVM 메모리 영역(Runtime Data Areas)` 으로 로딩한다.
-4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.
-5. 해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.
-6. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
-7. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼습니다.
+4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.(해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.)
+5. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
+6. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼습니다.
     1. Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었다. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
 
 <br>
@@ -199,8 +233,8 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 
 5) Method Area
     1) 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장한다. 이 때, 그 클래스의 클래스변수(class variable)도 Method Area(메서드 영역)에 함께 생성된다.
-    2) Perm 영역이라고도 하는데 Java 8 부터 Metaspace 로 변경되어 Native 영역에서 관리하기 시작했다.
-    3) Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었음. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
+    2) `Perm 영역이라고도 하는데 Java 8 부터 Metaspace 로 변경되어 Native 영역에서 관리하기 시작했다.`
+    3) `Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었음. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.`
 
 <br>
 
@@ -215,7 +249,7 @@ ArrayList는 동적 배열과 비슷합니다. 크기를 지정하지 않고 Arr
 ![jdk vs jre](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FL2JVv%2FbtqAU6c3LWW%2FCDMSryWI5LedYjoUmSZkD0%2Fimg.png)
 
 - JRE가 아닌 JDK 부분을 보면 주로 Tool 관련된 것임을 알 수 있습니다. 대표적인 예시로 `컴파일러`, `디버깅 도구`들이 속해 있습니다.
-- JRE를 보면 `java.lang`, `java.util`, `Math`와 같은 패키지들을 가지고 있고, 자바 실행 환경을 담당하고 있습니다.
+- JRE를 보면 `java.lang`, `java.util`, `Math`와 같은 패키지들을 가지고 있고, `자바 실행 환경`을 담당하고 있습니다.
 
 </details>
 
@@ -398,6 +432,15 @@ str1 == str2
 
 </details>
 
+<details>
+    <summary>mutable vs immutable 에 대해서 설명해주세요.</summary>
+    <br>
+
+- mutable: 변경 가능한 객체입니다. 최초 생성 이후에 자유롭게 변경 가능합니다.
+- immutable: 변경 불가능 객체입니다. 대표적으로 Java String 이 존재합니다.
+
+</details>
+
 <br>
 
 ## `Serializable`
@@ -458,6 +501,62 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 <br>
 
+## `equals & hashCode`
+
+<details>
+    <summary>equals로 재정의 한다면 hashCode도 재정의 해야 하는 이유는?</summary>
+    <br>
+
+```
+Object 규약에 equals가 true 라면 hashCode 값도 같아야 한다는 규약이 있습니다.(해시코드가 true 이면 equals는 반드시 true가 아닙니다. 버킷 하나에 충돌이 난 경우가 있기 때문에) 이러한 이유는 만약에 A 클래스에 equals만 오버라이딩 해서 필드의 값들이 같다면 true 라고 했다고 가정하겠습니다. 
+그러면 그 때 HashMap을 사용한다면 Key(class), Value(값) 으로 저장한 후에 다시 get 해온다면 null을 출력하게 될 것입니다. 
+왜냐하면 HashMap은 해시 코드 기반으로 버킷의 위치를 결정하기 때문입니다. 즉, 같은 객체인데 다른 버킷에 위치하기 때문에 null이 출력되게 됩니다.
+```
+
+</details>
+
+<details>
+    <summary>equals vs hashCode vs == 차이점이 무엇인가요?</summary>
+    <br>
+
+- equals: 객체가 가지는 필드들이 같은 값을 가지는지 확인하는 메소드
+- hashCode: 객체가 같은 메모리 주소에 저장되어 있는지 확인하는 메소드
+- == : 객체가 저장된 메모리 주소가 같은지 판단
+
+</details>
+
+<details>
+    <summary>Object equals 는 어떻게 동작하나요?</summary>
+    <br>
+
+![스크린샷 2021-12-02 오후 11 48 41](https://user-images.githubusercontent.com/45676906/144445001-1830a2c8-8e98-479e-aa89-b3d35e57c0b3.png)
+
+Object equals 는 `==`을 사용해서 비교합니다.
+
+</details>
+
+<details>
+    <summary>두 객체간의 equals 가 true 이면 hashCode 도 무조건 true 인가요?</summary>
+    <br>
+
+- equals 비교에 사용되는 정보가 변경되지 않았다면, 애플리케이션이 실행되는 동안 그 객체의 hashCode 메소드는 몇 번을 호출해도 일관되게 항상 같은 값을 반환해야 합니다.(단, 애플리케이션을 다시 실행한다면 이 값이 달라져도 상관없습니다.)
+- `equals(Object)가 두 객체를 같다고 판단했다면, 두 객체의 hashCode는 똑같은 값을 반환해야 합니다.`
+- `equals(Object)가 두 객체를 다르다고 판단했더라도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다.` 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
+
+위의 문장들은 Object 명세에서 발췌한 규약입니다.
+
+</details>
+
+<details>
+    <summary>두 객체간의 hashCode 가 true 이면 무조건 equals 가 true 인가요?</summary>
+    <br>
+
+`false` 입니다. 왜냐하면 Object 명세를 보면 equals가 다르다고 했더라도 hashCode가 무조건 다른 것이 아니기 때문입니다.(해시 버킷에 충돌날 경우가 있기 때문에) 즉, 해시코드가 같은데 equals는 false 가 나올 수 있습니다.
+
+</details>
+
+<br>
+
 ## `Etc`
 
 <details>
@@ -488,11 +587,11 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 
 > S → SRP → 단일 책임 원칙 : 어떤 클래스를 변경해야 하는 이유는 하나여야 한다.
 
-> O → OCP → 개방 폐쇄 원칙 : 확장에는 열려있고, 변경에는 닫혀있어야 합니다. 대표적인 예시는 JDBC가 있음
+> O → OCP → 개방 폐쇄 원칙 : 확장에는 열려있고, 변경에는 닫혀있어야 합니다. 대표적인 예시는 JDBC가 있음 (즉, 자바 애플리케이션은 데이터베이스라고 하는 주변의 변화에 닫혀 있는 것입니다. 데이터베이스를 교체한다는 것은 데이터베이스가 자신의 확장에는 열려 있다는 것입니다.)
 
 > L → LSP → 리스코프 치환 원칙 : 서브 타입은 언제나 자신의 기반 타입으로 교체할 수 있어야 한다. 즉, 부모 클래스의 인스턴스를 사용하는 위치에 자식 클래스의 인스턴스를 대신 사용했을 때 코드가 원래 의도대로 작동해야 합니다. 아버지 - 딸 (리스코프 치환 원칙 위배), 동물 - 강아지 (리스토프 치환 원칙 적합)
 
-> I → ISP → 인터페이스 분리 원칙 : SRP와 상당히 유사한데, 인터페이스는 자신이 사용하지 않는 메소드를 가져서는 안된다.
+> I → ISP → 인터페이스 분리 원칙 : SRP와 상당히 유사한데, 인터페이스는 자신이 사용하지 않는 메소드를 가져서는 안된다. 상위 클래스는 풍성할수록 좋다. 풍성할수록 하위 클래스에게 많은 기능을 확장시켜주는 것이고, 형변환, 코드 중복을 줄여줍니다. 인터페이스 내에 메소드는 최소한 일수록 좋다. 인터페이스는 하위 클래스에게 구현을 강제하도록 하는 역할입니다. 즉, 최소한의 기능만 제공하면서 하나의 역할에 집중하라는 뜻입니다.
 
 > D → DIP → 의존 역전 원칙 : 추상 적인 것은 구체적인 것에 의존하면 안된다. 구체적인 것이 추상적인 것에 의존해야 한다.
 
@@ -507,32 +606,6 @@ UncheckedException : 롤백 됨 => ArrayOutOfIndexException
 - 클래스 final : 다른 클래스의 조상이 될 수 없습니다.
 
 - 필드 final : 초기화가 한번만 가능합니다.
-
-</details>
-
-<details>
-    <summary>equals로 재정의 한다면 hashCode도 재정의 해야 하는 이유는?</summary>
-    <br>
-
-```
-Object 규약에 equals가 true 라면 hashCode 값도 같아야 한다는 규약이 있습니다. 이러한 이유는 만약에 A 클래스에 equals만 오버라이딩 해서 필드의 값들이 같다면 true 라고 했다고 가정하겠습니다. 
-그러면 그 때 HashMap을 사용한다면 Key(class), Value(값) 으로 저장한 후에 다시 get 해온다면 null을 출력하게 될 것입니다. 
-왜냐하면 HashMap은 해시 코드 기반으로 하기에 다른 버킷에 존재하기 때문입니다.
-```
-
-</details>
-
-<details>
-    <summary>ConcurrentHashMap 이 무엇인지 설명해주세요.</summary>
-    <br>
-
-HashMap 은 멀티 스레드 환경에서 사용할 수 없는 클래스입니다. HashTable 은 멀티스레드 환경에서 사용할 수 있지만 너무 예전에 나온 클래스이고 단점에 대한 보완을 하고 있는 클래스도 아닙니다. 그래서 HashMap 의 멀티스레드에서 사용할 수 없다는 단점을 보완하는 클래스가 ConcurrentHashMap 입니다.
-
-ConcurrentHashMap 은 `put` 작업을 할 때 메소드 전체에 `Synchronized`가 붙어있지 않다는 특징이 있습니다. 그리고 `Lock`을 버킷 마다 가지고 있어 같은 버킷에 대해서 쓰는 것이 아니라면 여러 쓰레드에서도 동시에 쓰기 작업을 할 수 있습니다.
-
-ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 수 있다.
-
-즉, ConcurrentHashMap 은 멀티 쓰레드 환경에서 읽기 작업보다 쓰기 작업이 많을 때 사용하면 좋습니다.
 
 </details>
 
@@ -624,16 +697,6 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 </details>
 
 <details>
-    <summary>equals vs hashCode vs == 차이점이 무엇인가요?</summary>
-    <br>
-
-- equals: 객체가 가지는 필드들이 같은 값을 가지는지 확인하는 메소드
-- hashCode: 객체가 같은 메모리 주소에 저장되어 있는지 확인하는 메소드
-- == : 객체가 저장된 메모리 주소가 같은지 판단
-
-</details>
-
-<details>
     <summary>프로세스 vs 쓰레드 차이점에 대해서 설명해주세요.</summary>
     <br>
 
@@ -649,7 +712,7 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
     <summary>Stream map vs FlatMap 차이점에 대해서 설명해주세요.</summary>
     <br>
 
-- `map`: map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있다.
+- `map`: map()은 데이터를 특정 데이터로 변환하는데 사용됩니다. 스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환해야 할 때가 있습니다.
 - `flatmap`: flatMap()은 Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환합니다.
 
 </details>
@@ -664,15 +727,6 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 </details>
 
 <details>
-    <summary>mutable vs immutable 에 대해서 설명해주세요.</summary>
-    <br>
-
-- mutable: 변경 가능한 객체입니다. 최초 생성 이후에 자유롭게 변경 가능합니다.
-- immutable: 변경 불가능 객체입니다. 대표적으로 Java String 이 존재합니다.
-
-</details>
-
-<details>
     <summary>Call By Reference vs Call By Value 차이가 무엇인가요?</summary> 
     <br>
 
@@ -682,36 +736,6 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 
 </details>
 
-<details>
-    <summary>Object equals 는 어떻게 동작하나요?</summary>
-    <br>
-
-![스크린샷 2021-12-02 오후 11 48 41](https://user-images.githubusercontent.com/45676906/144445001-1830a2c8-8e98-479e-aa89-b3d35e57c0b3.png)
-
-Object equals 는 `==`을 사용해서 비교합니다.
-
-</details>
-
-<details>
-    <summary>두 객체간의 equals 가 true 이면 hashCode 도 무조건 true 인가요?</summary>
-    <br>
-
-- equals 비교에 사용되는 정보가 변경되지 않았다면, 애플리케이션이 실행되는 동안 그 객체의 hashCode 메소드는 몇 번을 호출해도 일관되게 항상 같은 값을 반환해야 합니다.(단, 애플리케이션을 다시 실행한다면 이 값이 달라져도 상관없습니다.)
-- `equals(Object)가 두 객체를 같다고 판단했다면, 두 객체의 hashCode는 똑같은 값을 반환해야 합니다.`
-- `equals(Object)가 두 객체를 다르다고 판단했더라도, 두 객체의 hashCode가 서로 다른 값을 반환할 필요는 없습니다.` 단, 다른 객체에 대해서는 다른 값을 반환해야 해시테이블의 성능이 좋아집니다.
-
-위의 문장들은 Object 명세에서 발췌한 규약입니다.
-
-</details>
-
-<details>
-    <summary>두 객체간의 hashCode 가 true 이면 무조건 equals 가 true 인가요?</summary>
-    <br>
-
-`false` 입니다. 왜냐하면 Object 명세를 보면 equals가 다르다고 했더라도 hashCode가 무조건 다른 것이 아니기 때문입니다.(해시 버킷에 충돌날 경우가 있기 때문에) 즉, 해시코드가 같은데 equals는 false 가 나올 수 있습니다.
-
-</details>
- 
 <details>
     <summary>final int[] arr = {1, 2, 3, 4, ,5] 에서 arr[1] = 10 처럼 값을 바꾸는 것이 가능한가요?</summary>
     <br>
