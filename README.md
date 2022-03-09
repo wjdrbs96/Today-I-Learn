@@ -362,6 +362,7 @@
 ## 대규모 시스템 설계 기초
 
 - [1장: 사용자 수에 따른 규모 확장성](https://github.com/wjdrbs96/Today-I-Learn/blob/master/System%20Design%20Interview/1.%20%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%88%98%EC%97%90%20%EB%94%B0%EB%A5%B8%20%EA%B7%9C%EB%AA%A8%20%ED%99%95%EC%9E%A5%EC%84%B1.md)
+- [10장: 알림 시스템 설계]()
 
 ## Effective Java
 
@@ -795,3 +796,4 @@
 - [Github 1일 1커밋을 1년 7개월 동안 해오면서..](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/1%EC%9D%BC%201%EC%BB%A4%EB%B0%8B%20%ED%9A%8C%EA%B3%A0.md)
 - [2021년에 대해서 25가지 적어보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/2021%EB%85%84%2025%EA%B0%80%EC%A7%80%20%ED%9A%8C%EA%B3%A0.md)
 - [개발자를 꿈꾸는 대학생이 2021년 회고](https://devlog-wjdrbs96.tistory.com/430)
+- [2년 동안의 1일 1커밋을 그만두며](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Retrospect/2%EB%85%84%20%EB%8F%99%EC%95%88%EC%9D%98%201%EC%9D%BC%201%EC%BB%A4%EB%B0%8B%EC%9D%84%20%EA%B7%B8%EB%A7%8C%EB%91%90%EB%A9%B0.md)
