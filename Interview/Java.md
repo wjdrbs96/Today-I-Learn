@@ -654,6 +654,14 @@ Object equals 는 `==`을 사용해서 비교합니다.
     <br>
 </details>
 
+<details>
+    <summary>(Kotlin) companion object는 Java의 어떤 코드로 컨버팅되는지?</summary>
+    <br>
+
+- static
+
+</details>
+
 <br>
 
 ## `Etc`

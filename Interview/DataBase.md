@@ -194,6 +194,12 @@ A, B 컬럼을 인덱스로 설정할 때 복합인덱스라 한다. 두 번째 
 
 </details>
 
+<details>
+  <summary>B+ Tree를 쓰면 왜 조회할 때 이득을 보는지 설명해주세요.</summary>  
+  <br>
+
+</details>
+
 <br>
 
 ## `Redis`
@@ -311,6 +317,43 @@ A, B 컬럼을 인덱스로 설정할 때 복합인덱스라 한다. 두 번째 
 
 <br>
 
+## `Query`
+
+<details>
+  <summary>INNER JOIN과 OUTER JOIN의 차이를 말해주세요.</summary>
+  <br>
+
+INNER 조인은 서로 교집합이 해당하는 부분만을 가져옵니다.
+
+반면에 OUTER JOIN에는 LEFT OUTER JOIN, RIGHER OUTER JOIN이 있는데 LEFT OUTER JOIN이면 교집합 + 왼쪽에 해당하는 것들을 가져옵니다.
+즉, 겹치는 것이 없더라도 NULL을 채워서 가져옵니다.
+
+</details>
+
+<details>
+  <summary>Union 과 JOIN 의 차이는 무엇인가요?</summary>
+  <br>
+
+- ### Union
+  - 각 쿼리의 결과 합을 반환하는 합집합 (중복제거)
+  - UNION ALL : 각 쿼리의 모든 결과를 포함한 합집합 (중복제거 안함)
+
+- ### Join
+  - Inner join (교집합)
+  - Outer Join (합집합)
+
+</details>
+
+<details>
+  <summary>쿼리가 실행되는 순서를 설명해주세요.</summary>
+  <br>
+
+- FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY
+
+</details>
+
+<br>
+
 ## `Etc`
 
 <details>
@@ -335,36 +378,11 @@ A, B 컬럼을 인덱스로 설정할 때 복합인덱스라 한다. 두 번째 
 </details>
 
 <details>
-  <summary>INNER JOIN과 OUTER JOIN의 차이를 말해주세요.</summary>
-  <br>
-
-INNER 조인은 서로 교집합이 해당하는 부분만을 가져옵니다.
-
-반면에 OUTER JOIN에는 LEFT OUTER JOIN, RIGHER OUTER JOIN이 있는데 LEFT OUTER JOIN이면 교집합 + 왼쪽에 해당하는 것들을 가져옵니다.
-즉, 겹치는 것이 없더라도 NULL을 채워서 가져옵니다.
-
-</details>
-
-<details>
   <summary>MySQL이랑 MariaDB는 어떤 DB 엔진을 쓰는지 알고 계신가요?</summary>
   <br>
 
 MyISAM, innoDB 대표적이고 이외에도 여러가지가 존재합니다.
 
-</details>
-
-<details>
-  <summary>Union 과 JOIN 의 차이는 무엇인가요?</summary>
-  <br>
-
-- ### Union
-  - 각 쿼리의 결과 합을 반환하는 합집합 (중복제거)
-  - UNION ALL : 각 쿼리의 모든 결과를 포함한 합집합 (중복제거 안함)
-
-- ### Join
-  - Inner join (교집합)
-  - Outer Join (합집합)
-  
 </details>
 
 <details>
@@ -536,13 +554,5 @@ Master, Slave 로 나눠서 Replication 할 수 있습니다.
 - NOSQL은 RDBMS에 비해 `자유로운 형태`로 데이터를 저장합니다. 또한 `수평확장을 할 수 있고 분산처리를 지원`합니다. 다양한 형태의 NOSQL 데이터베이스가 있고, 대표적으로 key-value store, bigtable, dynamo, document db, graph db 등이 있습니다.
 
 - 둘은 대체될 수 있는 것이 아니고, 각각 필요한 시점에 적절히 선택해서 사용해야 합니다. 둘 다 같이쓰는 상호보완적인 존재가 될 수도 있습니다.
-
-</details>
-
-<details>
-  <summary>쿼리가 실행되는 순서를 설명해주세요.</summary>
-  <br>
-
-- FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY
 
 </details>

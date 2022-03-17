@@ -363,3 +363,25 @@ TCP/IP는 위의 그림에서 볼 수 있듯이 4개의 계층만 존재하는 �
 - `L7는 7계층인 애플리케이션 계층`에서 사용됩니다. HTTP Header, Cookie 등과 같이 사용자가 요청한 정보들을 바탕으로 트래픽을 분산하기 때문에 섬세한 라우팅이 가능하고 비정상적인 트래픽을 판별할 수 있습니다. L4 로드 밸런싱보다 가격이 비쌉니다.
 
 </details>
+
+<details>
+  <summary>HTTP 1.1 vs HTTP 2.0 차이점</summary> 
+  <br>
+</details>
+
+<details>
+  <summary>HTTP 1.1과 HTTP 2.0 가 리소스(이미지 등)를 가져올 때의 차이점</summary>
+  <br>
+</details>
+
+<details>
+  <summary>로드밸런서와 API 게이트웨이의 차이점을 알고 계시나요?</summary>  
+  <br>
+</details>
+
+<details>
+  <summary>로드밸런싱 알고리즘 대표적인 것 하나만 특징과 함께 말해주세요.</summary>  
+  <br>
+
+- 라운드 로빈
+</details>

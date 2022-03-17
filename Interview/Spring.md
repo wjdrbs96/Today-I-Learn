@@ -79,6 +79,11 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 
 </details>
 
+<details>
+  <summary>Bean scope 별 Bean의 생성과 파괴 시점 설명해주세요.</summary>
+  <br>
+</details>
+
 <br>
 
 ## `Spring MVC`
@@ -232,6 +237,16 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 
 리플렉션을 사용하면 코드가 지져분해지고, 성능이 떨어진다는 단점이 존재하기 때문에 꼭 필요할 때 사용하는 것이 좋습니다.
 
+</details>
+
+<details>
+  <summary>DynamicProxy의 한계가 무엇일까요? </summary>  
+  <br>
+</details>
+
+<details>
+  <summary>@JvmStatic 이 무엇인지 아시나요?</summary>  
+  <br>
 </details>
 
 <br>
