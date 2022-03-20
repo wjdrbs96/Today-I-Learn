@@ -315,7 +315,7 @@
 
 ## `Toby Spring`
 
-- [1장: 오브젝트와 의존관계]()
+- [1장: 오브젝트와 의존관계](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Toby/1.%20%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%EC%99%80%20%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84.md)
 
 
 ## 자바 ORM 표준 JPA 프로그래밍
