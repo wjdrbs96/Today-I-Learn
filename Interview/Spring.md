@@ -12,7 +12,7 @@
   <summary>Spring Bean 이란 무엇인가요?</summary>  
   <br>
 
-Spring Bean 이란 IoC 컨테이너에서 관리하는 객체를 말한다.
+Spring Bean 이란 IoC 컨테이너에서 관리하는 객체를 말한다.(스프링이 제어권을 가지고 직접 만들고 관계를 부여하는 오브젝트를 Bean 이라고 부른다.)
 
 - 스프링 IoC 컨테이너에 등록된 Bean들은 `의존성 관리가 수월`해진다.
 - 스프링 IoC 컨테이너에 등록된 Bean들은 `싱글톤`의 형태이다
@@ -20,6 +20,14 @@ Spring Bean 이란 IoC 컨테이너에서 관리하는 객체를 말한다.
 Spring Bean 으로 등록되었을 때 위와 같은 장점이 있다.
 
 </details>
+
+<details>
+  <summary>IoC 컨테이너란 무엇인가요?</summary>
+  <br>
+
+스프링에서는 빈의 생성과 관계설정 같은 제어를 담당하는 IoC 오브젝트를 `빈 팩토리(Bean Factory)` 라고 부릅니다. 보통은 빈 팩토리보다는 이를 좀 더 확장한 `애플리케이션 컨텍스트`를 주로 사용합니다.
+
+</details>  
 
 <details>
   <summary>Spring 의존성 주입 방식 3가지에 대해서 설명해주세요.</summary>
@@ -73,6 +81,7 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
   <summary>Spring Bean Scope 에 대해서 설명해주세요.</summary>
   <br>
 
+- 스프링이 관리하는 오브젝트, 즉 빈이 생성되고, 존재하고, 적용되는 범위를 `스코프(Scope)`라고 합니다.
 - `싱글톤은 기본 스코프로 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프`입니다.
 - `프로토타입은 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프`입니다.
 - `request`는 웹 요청이 들어오고 나갈때까지 유지하는 스코프, `session`은 웹 세션이 생성, 종료할때까지, `application`은 웹 서블릿 컨텍스트와 같은 범위로 유지하는 스코프입니다.
