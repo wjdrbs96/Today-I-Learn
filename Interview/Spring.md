@@ -91,6 +91,14 @@ SpringBootApplication 내부를 보면 `ComponentSacn`, `@SpringBootConfiguratio
 <details>
   <summary>Bean scope 별 Bean의 생성과 파괴 시점 설명해주세요.</summary>
   <br>
+
+Bean 생명주기는 `IoC 컨테이너 생성 -> Bean 등록 -> 의존관계 주입 -> 초기화 콜백 -> 사용 -> 소멸 전 콜백 -> IoC 컨테이너 종료` 순으로 진행된다.
+
+- 싱글톤: 객체의 생명 주기를 IoC 컨테이너가 생성되고 종료될 때까지 싱글톤으로 관리하는 것이기 때문에 위의 과정에서 처럼 Bean 등록 시점에 생성되고 IoC 컨테이너 종료와 소멸전 콜백 사이에 파괴되지 않나 싶다.
+- 프로토타입: 빈의 생성과 의존관계 주입까지만 과녕하고 더는 관여하지 않기 때문에 파괴는 수동으로 해야 하지 않을까 싶다.
+- Request: 요청당 Bean이 생명주기를 탈 거 같다.
+- Session: 세션의 범위에 따라 Bean 생명주기를 타지 않을까 싶다.
+
 </details>
 
 <br>
@@ -251,11 +259,18 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 <details>
   <summary>DynamicProxy의 한계가 무엇일까요? </summary>  
   <br>
+
+- DynamicProxy는 원본 클래스가 인터페이스를 구현하고 있어야 사용할 수 있다는 단점이 있습니다.
+- 리플렉션을 사용하기 때문에 성능이 떨어지고, 코드가 지져분해진다는 단점이 있습니다.
+
 </details>
 
 <details>
   <summary>@JvmStatic 이 무엇인지 아시나요?</summary>  
   <br>
+
+@JvmStatic은 static 변수의 get/set 함수를 자동으로 만들라는 의미입니다.
+
 </details>
 
 <br>
@@ -376,6 +391,35 @@ N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 �
 <details>
   <summary>영속성 전이에 대해서 아는대로 설명해주세요.</summary>
   <br>
+
+## `영속성 전이: CASCADE 주의`
+
+- 영속성 전이는 연관관계를 매핑하는 것과 아무 관련이 없습니다.
+- 엔티티를 영속화할 뿐 연관된 엔티티도 함께 영속화하는 편리함을 제공할 뿐입니다.
+
+<br> <br>
+
+## `CASCADE의 종류`
+
+- `ALL: 모두 적용`
+- `PERSIST: 영속`
+- `REMOVE: 삭제`
+- `MERGE: 병합`
+- `REFRESH: 갱신`
+- `DETACH: 분리`
+
+예를들어 데이터베이스에서 유저가 쓴 게시글처럼 연관되어 있을 때 유저를 삭제할 때 CASCADE 속성을 지정해서 유저가 작성한 글 까지 한번에 다 삭제하려고 할 때 사용할 수 있습니다.
+
+<br>
+
+## `고아 객체`
+
+JPA는 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제하는 기능을 제공하는데 이것을 `고아 객체` 제거 라고 합니다.
+
+![스크린샷 2021-10-04 오후 2 51 03](https://user-images.githubusercontent.com/45676906/135800547-af26ad0a-0a2e-4e2f-8ec3-6132c1009f32.png)
+
+위와 같이 `orphanRemoval = true` 옵션을 준 후에 Parent 중에 Child 하나의 연관관계를 끊어보겠습니다.
+
 </details>
 
 <details>
