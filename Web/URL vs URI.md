@@ -18,7 +18,7 @@
 
 <br> <br>
 
-### `URL`와 `URI` 구분 
+### `URL와 URI 구분` 
 
 - `http://www.naver.com` => URL이면서 URI
 

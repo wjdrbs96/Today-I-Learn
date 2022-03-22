@@ -365,7 +365,7 @@
 
 ## 그림으로 배우는 HTTP & Network Basic
 
-- [1.웹과 네트워크의 기본에 대해 알아보자]()
+- [1.웹과 네트워크의 기본에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/HTTP%20Network%20Basic/1.%20%EC%9B%B9%EA%B3%BC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98%20%EA%B8%B0%EB%B3%B8%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 
 
 ## 대규모 시스템 설계 기초
