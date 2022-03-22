@@ -265,14 +265,6 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
 
 </details>
 
-<details>
-  <summary>@JvmStatic 이 무엇인지 아시나요?</summary>  
-  <br>
-
-@JvmStatic은 static 변수의 get/set 함수를 자동으로 만들라는 의미입니다.
-
-</details>
-
 <br>
 
 ## `Spring Security`
@@ -345,7 +337,7 @@ Parameter, Method, Class, Package, Annotation 등등 인거 같은?!
   <summary>N + 1 문제는 어떻게 해결하시나요?</summary>
   <br>
 
-N + 1 쿼리는 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 지연 로딩시에는 반복문을 돌면서 하위 객체를 조회할때  발생합니다. 정확한 의미는 1개의 쿼리를 실행했을 때, 내부에 존재하는 컬렉션들을 조회해오면서 생기는 문제입니다. 기본적으로 되도록이면 @OneToMany의 매핑을 하지 않을 수 있다면 하지 않는 것이 최고의 예방책입니다.
+N + 1 쿼리는 대표적으로 `@OneToMany` 관계에서 즉시로딩을 사용할 때 혹은 지연 로딩시에는 반복문을 돌면서 하위 객체를 조회할때  발생합니다. 정확한 의미는 1개의 쿼리를 실행했을 때, 내부에 존재하는 컬렉션들을 조회해오면서 생기는 문제입니다. 기본적으로 되도록이면 @OneToMany의 매핑을 하지 않을 수 있다면 하지 않는 것이 최고의 예방책입니다.
 
 만약 그런 객체를 가져와야 하는 경우 `Fetch Join`이라고 하는 JPQL의 join fetch를 사용합니다. 쿼리 한 번으로 해결할 수 있고, 또 다른 방법으로는 `EntityGraph`를 사용하는 방법이 있습니다. 또한 `Batch Size` 옵션을 사용하여 N + 1 문제를 해결할수도 있습니다.
 
@@ -434,7 +426,7 @@ JPA는 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동�
   <summary>영속성 컨텍스트를 사용하면 쓰기 지연이 가능한 이유가 무엇인가요?</summary>
   <br>
 
-데이터를 저장하면 등록 쿼리를 데이터베이스에 바로 보내지 않고 메모리에 모아 둡니다. 그리고 트랜잭션을 커밋할 때 등록 쿼리를 데이터베이스에 한번에 보낸 후에 커밋하기 때문에 가능합니다.
+데이터를 저장하면 등록 쿼리를 데이터베이스에 바로 보내지 않고 메모리(쿼리 저장소)에 모아 둡니다. 그리고 트랜잭션을 커밋할 때 등록 쿼리를 데이터베이스에 한번에 보낸 후에 커밋하기 때문에 가능합니다.
 
 </details>
 
@@ -538,6 +530,7 @@ Member findMember2 = em.find(Member.class, 2L);
 
 - `Spring AOP`를 사용해서 동작하게 됩니다. `@Transactional` 어노테이션이 붙어있는 메소드를 호출하면 `프록시 객체의 메소드가 먼저 호출`됩니다. (프록시 내부에 트랜잭션 코드가 존재하고 프록시 코드를 통해서 실제 요청했던 메소드를 여기서 호출함) 그리고 트랜잭션이 시작되고 실제 클래스의 메소드가 호출되고 커밋되는 방식으로 진행됩니다. (`Proxy` 객체를 생성해서 내부에 클래스 객체를 넣어두고 앞뒤로 `트랜잭션 begin, commit과 rollback처리`를 해줍니다.)
 - 실제 호출했던 메소드의 클래스가 인터페이스를 구현하고 있다면 `Dynamic Proxy`를 사용하고, 인터페이스를 구현하고 있지 않다면 `CGLib`을 사용해서 `Proxy` 객체를 생성합니다.
+- Dynamic Proxy는 리플렉션을 사용하고, CGLib은 바이트코드를 조작하는 방식으로 Proxy 객체를 생성하여 작업한다.
 
 </details>
 
@@ -547,7 +540,7 @@ Member findMember2 = em.find(Member.class, 2L);
 
 엔티티가 영속성 컨텍스트에 관리되면 1차 캐시, 변경 감지, 지연 로딩, 동일성 보장, 쓰기 지연 5가지 이점을 얻을 수 있습니다.
 
-그런데 트랜잭션에 `readOnly=ture` 설정하면 스프링 프레임워크가 하이버네이트 세션 플러시 모드를 `MANUAL`로 설정한다.
+그런데 트랜잭션에 `readOnly=ture` 설정하면 `스프링 프레임워크가 하이버네이트 세션 플러시 모드를 MANUAL`로 설정한다.
 
 그리고 `readOnly`를 사용하면 `해당 트랜잭션 내에서 쓰기 작업을 할 수 없습니다.` 즉, `읽기 전용이기 때문에 영속성 컨텍스트는 스냅샷을 보관하지 않습니다.` 따라서 메모리 사용량을 최적화할 수 있습니다.
 
@@ -589,7 +582,7 @@ Member findMember2 = em.find(Member.class, 2L);
   <summary>Spring Transactional Isolation 에 대해서 설명해주세요.</summary>
   <br>
 
-특별히 설정하지 않으면 `Isolation.Default`가 설정됩니다. `Isolation.Default`는 현재 사용하고 있는 `RDBS` 기본 격리 레벨을 따라 갑니다. 저는 `MySQL InnoDB`를 사용하고 있기 때문에 `REPEATABLE READ`가 사용됩니다.
+특별히 설정하지 않으면 `Isolation.Default`가 설정됩니다. `Isolation.Default`는 현재 사용하고 있는 `RDBS` 기본 격리 레벨을 따라 갑니다.
 
 </details>
 

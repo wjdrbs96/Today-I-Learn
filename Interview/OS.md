@@ -65,3 +65,17 @@
   <summary>데드락은 언제 발생할까요?</summary>
   <br>
 </details>
+
+<br>
+
+## `CPU 스케줄링 알고리즘`
+
+<details>
+  <summary>라운드 로빈 알고리즘이 무엇인지 설명해주세요.</summary>
+  <br>
+
+라운드 로빈 스케줄링(Round Robin Scheduling, RR)은 시분할 시스템을 위해 설계된 선점형 스케줄링의 하나로서, 프로세스들 사이에 우선순위를 두지 않고, 순서대로 시간단위(Time Quantum)로 CPU를 할당하는 방식의 CPU 스케줄링 알고리즘이다.
+
+보통 시간 단위는 10 ms ~ 100 ms 정도이다. 시간 단위동안 수행한 프로세스는 준비 큐의 끝으로 밀려나게 된다. Context Switching의 오버헤드가 큰 반면, 응답시간이 짧아지는 장점이 있어 실시간 시스템에 유리하다.
+
+</details>

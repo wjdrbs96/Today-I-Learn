@@ -367,8 +367,8 @@
 
 - [1장: 웹과 네트워크의 기본에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/HTTP%20Network%20Basic/1.%20%EC%9B%B9%EA%B3%BC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98%20%EA%B8%B0%EB%B3%B8%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 - [2장: 간단한 프로토콜 HTTP](https://github.com/wjdrbs96/Today-I-Learn/blob/master/HTTP%20Network%20Basic/2.%20%EA%B0%84%EB%8B%A8%ED%95%9C%20%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C%20HTTP.md)
-- [3장: HTTP 정보는 HTTP 메세지에 있다]()
-- [4장: 결과를 전달하는 HTTP 상태 코드]()
+- [3장: HTTP 정보는 HTTP 메세지에 있다](https://github.com/wjdrbs96/Today-I-Learn/blob/master/HTTP%20Network%20Basic/3.%20HTTP%20%EC%A0%95%EB%B3%B4%EB%8A%94%20HTTP%20%EB%A9%94%EC%84%B8%EC%A7%80%EC%97%90%20%EC%9E%88%EB%8B%A4.md)
+- [4장: 결과를 전달하는 HTTP 상태 코드](https://github.com/wjdrbs96/Today-I-Learn/blob/master/HTTP%20Network%20Basic/4.%20%EA%B2%B0%EA%B3%BC%EB%A5%BC%20%EC%A0%84%EB%8B%AC%ED%95%98%EB%8A%94%20HTTP%20%EC%83%81%ED%83%9C%20%EC%BD%94%EB%93%9C.md)
 
 
 ## 대규모 시스템 설계 기초

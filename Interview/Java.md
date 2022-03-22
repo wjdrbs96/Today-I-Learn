@@ -271,6 +271,7 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
     1) 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 프로그램 실행 중 어떤 클래스가 사용되면, JVM은 해당 클래스의 클래스파일(*.class)을 읽어서 분석하여 클래스에 대한 정보(클래스 데이터)를 이곳에 저장한다. 이 때, 그 클래스의 클래스변수(class variable)도 Method Area(메서드 영역)에 함께 생성된다.
     2) `Perm 영역이라고도 하는데 Java 8 부터 Metaspace 로 변경되어 Native 영역에서 관리하기 시작했다.`
     3) `Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었음. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.`
+    4) Oracle의 엔지니어들이 `Java7에서 Perm 영역이 아닌 Heap 영역으로 string constant pool의 위치를 변경하여 최대한 GC가 될 수 있도록 하였다`. (OutOfMemoryException을 방지하기 위해서)
 
 <br>
 
@@ -381,22 +382,14 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 ### `G1 GC`
 
 - G1 GC를 이해하려면 지금까지의 Young 영역과 Old 영역에 대해서는 잊는 것이 좋다.
-- G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
+- 이 바둑판 모양의 구역에서 일부를 선정하여 Young 영역으로 지정한 후 해당 구역에 데이터가 꽉 차면 GC를 진행합니다. GC 후 살아있는 객체만 Servivor영역으로 이동합니다.
+  - Heap을 동일한 크기의 Heap 영역 세트로 분할한다.
+  - G1 GC는 바둑판의 각 영역에 객체를 할당하고 GC를 실행한다. 그러다가, 해당 영역이 꽉 차면 다른 영역에서 객체를 할당하고 GC를 실행한다.
 - G1 GC의 가장 큰 장점은 성능이다. 지금까지 설명한 어떤 GC 방식보다도 빠르다.
 - 큰 메모리를 가진 멀티 프로세서 머신을 위한 컬렉터에 적합하다.
 
 ![1](https://d2.naver.com/content/images/2015/06/helloworld-1329-6.png)
 
-</details>
-
-<details>
-    <summary>Stop the world 는 어느 GC 에서 일어나나요?</summary>
-    <br>
-</details>
-
-<details>
-    <summary>CMS GC에서는 Comapction 은 아예 발생하지 않나요?</summary>
-    <br>
 </details>
 
 <details>
@@ -537,6 +530,10 @@ str1 == str2
 - Checked 의 대표적으로 `ClassNotFoundException`, `FileNotFoundException` 같은 클래스들이 있음. `try-catch`를 강제해야 하는 경우
 - Unchecked 는 대표적으로 `ArrayOutOfIndexException`, `NullPointerException` 등이 있다. 런타임에 발생하는 예외들
 
+요즘 대부분의 프로그래밍 언어에서는 `Checked Exception`이 존재하지 않는다. 자바에서도 Checked Exception을 사용할 이유가 없다. 만약에 메소드 호출 깊이가 깊어지는데 예외 처리를 강제해서 throws 한번만 했다고 가정하자.
+
+그런데 try-catch 하는 곳과 예외가 발생한 곳의 깊이 차이가 3 정도 된다면 중간에 있는 메소드에서는 모두 `thrwos`를 사용해서 코드를 고쳐야할 것이다. 즉, SOLID 원칙 중에 하나인 OCP가 깨지는 것이다. 이러한 것때문에 굳이 예외 처리를 강제하는 Checked Exception을 사용하지 않는 것이 좋다.
+
 </details>
 
 <br>
@@ -544,7 +541,7 @@ str1 == str2
 ## `equals & hashCode`
 
 <details>
-    <summary>equals로 재정의 한다면 hashCode도 재정의 해야 하는 이유는?</summary>
+    <summary>equals로 재정의 한다면 hashCode도 재정의 해야 하는 이유에 대해서 설명해주세요.</summary>
     <br>
 
 ```
@@ -659,6 +656,14 @@ Object equals 는 `==`을 사용해서 비교합니다.
     <br>
 
 - `Java static`과 `companion object`는 다름
+
+</details>
+
+<details>
+  <summary>@JvmStatic 이 무엇인지 아시나요?</summary>  
+  <br>
+
+@JvmStatic은 static 변수의 get/set 함수를 자동으로 만들라는 의미입니다.
 
 </details>
 
