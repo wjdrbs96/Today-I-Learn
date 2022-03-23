@@ -4,7 +4,7 @@
   <summary>REST API 에 대해서 아는대로 설명해주세요.</summary> 
   <br>
 
-REST API 란 `자원`, `행위`, `표현` 으로 이루어져 있습니다. HTTP URI를 통해 자원을 표시하고 `HTTP Method`를 통해 자원에 대한 처리를 표현합니다.
+REST API 란 `자원`, `행위`, `표현` 으로 이루어져 있습니다. `HTTP URI를 통해 자원을 표시`하고 `HTTP Method를 통해 자원에 대한 처리`를 표현합니다.
 
 - `URI 는 정보의 자원을 표현`해야 한다.
 - `자원에 대한 행위는 HTTP Method GET, POST, DELETE, PUT로 표현한다.`
@@ -306,11 +306,6 @@ STOMP 프로토콜은 WebSocket 위에서 동작하는 프로토콜로써 클라
 
 - [세 번째 예시 참고 링크](https://gentlysallim.com/dns%EB%9E%80-%EB%AD%90%EA%B3%A0-%EB%84%A4%EC%9E%84%EC%84%9C%EB%B2%84%EB%9E%80-%EB%AD%94%EC%A7%80-%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC/)
 
-</details>
-
-<details>
-  <summary>로드 밸런서의 전략은 무엇이 있나요?</summary>
-  <br>
 </details>
 
 <details>
