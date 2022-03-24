@@ -101,6 +101,16 @@ Bean 생명주기는 `IoC 컨테이너 생성 -> Bean 등록 -> 의존관계 주
 
 </details>
 
+<details>
+  <summary>스프링은 왜 Bean을 싱글톤으로 관리할까요?</summary>
+  <br>
+
+스프링은 주로 적용되는 대상이 자바 엔터프라이즈 기술을 사용하는 서버환경이기 때문이다. 스프링이 처음 설계됐던 대규모의 엔터프라이즈 서버환경은 서버 하나당 최대로 초당 수십에서 수백 번씩 브라우저나 여타 시스템으로부터의 요청을 받아 처리할 수 있는 높은 성능이 요구되는 환경이었다.
+
+그런데 매번 클라이언트에서 요청이 올때마다 각 로직을 담당하는 오브젝트를 새로 만들어서 사용한다고 생각해보자. 아무리 GC 성능이 좋아도 부하가 있을 수가 있다. 그렇기 때문에 IoC 컨테이너에서 객체를 싱글톤으로 관리해서 계속 재사용하겠다는 취지이다.
+
+</details>
+
 <br>
 
 ## `Spring MVC`
@@ -574,11 +584,6 @@ Member findMember2 = em.find(Member.class, 2L);
 </details>
 
 <details>
-  <summary>트랜잭션널이 붙어있는 메서드 A가 있고, 트랜잭셔널이 없는 메서드 B가 있다고 가정해보겠습니다. B에서 A를 호출할 때 어떻게 동작할까요?</summary>
-  <br>
-</details>
-
-<details>
   <summary>Spring Transactional Isolation 에 대해서 설명해주세요.</summary>
   <br>
 
@@ -609,5 +614,31 @@ Propagtaion은 REQUIRED 가 적용되고, Isolation Level 은 사용하는 RDBMS
 `OSIV(Open Session In View)`는 영속성 컨텍스트를 뷰까지 열어둔다는 뜻입니다. 영속성 컨텍스트가 살아있으면 엔티티는 영속 상태로 유지됩니다. 따라서 뷰에서도 지연 로딩을 사용할 수 있습니다. 초기 설정이 `OSIV=true` 인데, `OSIV=false`로 바꿔서 `View Layer`에서는 영속성 컨텍스트를 열어놓지 않도록 할 수 있습니다.
 
 [참고](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/13%EC%9E%A5.md#osiv%EB%9E%80)
+
+</details>
+
+<details>
+  <summary>JPA의 한계에는 어떤 것이 있을까요?</summary>
+  <br>
+
+통계 쿼리나 복잡한 쿼리는 JPA, QueryDSL로 작성하는데 한계가 있다. 이런 복잡한 쿼리들은 직접 쿼리를 작성해서 하는 것이 더 좋다고 생각한다.
+
+</details>
+
+<br>
+
+## `Etc`
+
+<details>
+  <summary>sync, asnyc, blocking, non-blocking 특징에 대해서 말해주세요.</summary>
+</details>
+
+<details>
+  <summary>DTO는 왜 사용하는거 같나요?</summary>
+  <br>
+
+- 계층간의 데이터 이동할 때도 필요함 
+- 클라이언트 <--> 서버로 데이터 받아올 때도 필요함 
+- API를 개발할 때 클라이언트한테 반환하는 것을 Entity로 하지 않고 DTO로 변환시켜서 반환하게 되는데 이럴 때도 사용 가능
 
 </details>

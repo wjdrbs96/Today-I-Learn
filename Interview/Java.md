@@ -230,7 +230,7 @@ ConcurrentHashMap 은 읽기 작업에는 여러 쓰레드가 동시에 읽을 �
 3. 변경된 Class 파일들을 `Class Loader`를 통해 `JVM 메모리 영역(Runtime Data Areas)` 으로 로딩한다.
 4. 로딩된 class 파일들은 `Execution engine`을 통해 해석된다.(해석된 바이트 코드는 `Runtime Data Areas`에 배치되어 실질적인 수행이 이루어지게된다.)
 5. 이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC 같은 관리 작업을 수행한다.
-6. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼습니다.
+6. 추가로 Runtime Data Area에 Java 7에서 Java 8로 넘어오면서 Out of Memory 문제로 Permanent 영역이 사라지고 Metaspace 영역이 생겼다.
     1. Perm 영역에서 Method Meta 정보, Static 변수, 상수, 상수 풀 들이 저장되었다. 그런데 Perm -> Metaspace 로 바뀌면서 Static Object 는 Heap 영역으로 옮겨져서 최대한 GC 대상이 될 수 있도록 했다.
 
 <br>
@@ -505,6 +505,11 @@ str1 == str2
 
 </details>
 
+<details>
+    <summary>직렬화는 왜 사용하는걸까요?</summary>
+    <br>
+</details>
+
 <br>
 
 ## `Exception`
@@ -669,7 +674,15 @@ Object equals 는 `==`을 사용해서 비교합니다.
 
 <br>
 
-## `Etc`
+### `Interface & abstsract class`
+
+<details>
+    <summary>인터페이스는 왜 쓰는거 같나요?</summary>
+    <br>
+
+인터페이스를 통해서 구현체의 공통된 특징들을 추상화할 수 있고, 외부에서 인터페이스를 참조하여 구현체를 감추는 기능도 한다. 즉, A 클래스가 인터페이스를 참조하게 되면 인터페이스와의 결합도가 낮아지고 인터페이의 구현체를 바꿔도 A 클래스에 영향을 주지 않게 된다는 장점이 있다.
+
+</details>
 
 <details>
     <summary>추상 클래스와 인터페이스의 차이에 대해서 설명해주세요.</summary>
@@ -692,6 +705,31 @@ Object equals 는 `==`을 사용해서 비교합니다.
 ```
 
 </details>
+
+<br>
+
+## `Thread`
+
+<details>
+    <summary>자바에서 멀티스레드 동기화 처리를 어떻게 하는지 아시나요?</summary> 
+    <br>
+
+- `synchronized 사용`
+- `java.util.concurrent.locks 사용`
+- `java.util.concurrent.atomic 사용`
+
+위와 같이 3가지 방법이 있습니다.
+
+</details>
+
+<details>
+    <summary>쓰레드를 많이 만들면 뭐가 안좋을까요?</summary>
+    <br>
+</details>
+
+<br>
+
+## `Etc`
 
 <details>
     <summary>SOLID 에 대해서 설명해주세요.</summary>
