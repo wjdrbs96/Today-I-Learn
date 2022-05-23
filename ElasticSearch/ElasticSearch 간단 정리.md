@@ -63,7 +63,7 @@ WHERE v.serviceType Like 'test%' AND v.serviceLocale Like 'test%' ...
 
 `settings`에는 여러가지 설정을 할 수 있지만 대표적으로 `analyzer`, `tokenizer`, `filter`로 구성할 수 있습니다.
 
-<img width="810" alt="스크린샷 2022-05-22 오후 6 22 29" src="https://media.oss.navercorp.com/user/30855/files/b3fef761-282d-41af-a5b2-d71b3d7e0b39">
+<img width="810" alt="123123" src="https://user-images.githubusercontent.com/45676906/169836098-4bca1741-59a2-47be-8b42-2ef3c5ede37a.png">
 
 즉, `settings`에 넣을 수 있는 값은 3가지가 존재하는데 각각 어떤 것들이 있는지 좀 더 자세히 알아보겠습니다.
 
@@ -97,7 +97,7 @@ WHERE v.serviceType Like 'test%' AND v.serviceLocale Like 'test%' ...
 
 ### `mappings란?`
 
-<img width="810" alt="123123" src="https://user-images.githubusercontent.com/45676906/169836098-4bca1741-59a2-47be-8b42-2ef3c5ede37a.png">
+<img width="795" alt="123123123" src="https://user-images.githubusercontent.com/45676906/169837462-b1eedd81-7a22-4087-b821-a7634c897f73.png">
 
 ElasticSearch에 `mappings`을 정의한대로 `인덱스` 필드들이 생긴다고 이해를 하면 됩니다. 즉, 제가 `title`, `content`, `createdAt`으로 검색한다면 `Property`에는 3개가 들어갈 것입니다.
 
