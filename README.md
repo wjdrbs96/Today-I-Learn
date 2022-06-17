@@ -246,6 +246,7 @@
 
 - ### Lombok
   - [Builder를 사용할 때 기본 생성자, 전체 생성자에 대해서 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Lombok/Builder%2C%20NoArgsConstructor%2C%20AllArgsConstructor%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0.md)
+  - [Lombok 사용 제한 하는 법]()
 
 - ### MVC
   - [Spring MVC 프레임워크 동작 방식 디버깅을 통해서 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MVC/Spring%20MVC%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%20%EB%8F%99%EC%9E%91%20%EB%B0%A9%EC%8B%9D.md)
