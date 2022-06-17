@@ -1,6 +1,6 @@
 ## `PR Auto Review 등록하는 법`
 
-- .github/CODEONWERS
+- .github/CODEOWNERS
 
 위와 같은 파일을 만든다.
 
