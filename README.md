@@ -232,7 +232,7 @@
   - [Jackson Primitive boolean Type is 사라지는 직렬화 문제 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Issue/Jackson%20primitive%20boolean%20is%20%EC%A7%81%EB%A0%AC%ED%99%94%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
 
 - ### Jasypt
-  - [Jasypt yml 암호화 하는 법]()
+  - [Jasypt yml 암호화 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Jasypt/Jasypt%20yml%20%EC%95%94%ED%98%B8%ED%99%94%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 - ### Kotlin
   - [Kotlin으로 S3 파일 업로드 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%20%EC%9C%BC%EB%A1%9C%20S3%20%ED%8C%8C%EC%9D%BC%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
@@ -285,6 +285,9 @@
 - ### Swagger
   - [Spring Swagger 404 에러 해결하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%20404%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
   - [Spring Swagger Response Model 보이지 않는 경우 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%EC%97%90%EC%84%9C%20Response%20Model%20%EB%B3%B4%EC%9D%B4%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EA%B2%BD%EC%9A%B0%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
+
+- ### Test
+  - [Multi Module Domain 모듈에서 테스트 코드 작성하기]()
 
 - ### Thymleaf
   - [Thymeleaf PathVariable, Query String 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Thymeleaf/Thymeleaf%20PathVariable%2C%20Query%20String.md)
