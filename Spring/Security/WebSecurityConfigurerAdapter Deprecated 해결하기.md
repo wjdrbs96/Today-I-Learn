@@ -156,3 +156,10 @@ public class SecurityConfig {
 ```
 
 기존에 위에 있던 설정들을 최신 Security에 맞게 바꿔보면 위와 같이 바꿀 수 있습니다. 
+
+<br>
+
+## `Reference`
+
+- [https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html)
+- [https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter](https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)
