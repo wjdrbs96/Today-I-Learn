@@ -280,7 +280,8 @@
 
 - ### Security
   - [Spring Security를 사용할 때 Swagger 사용 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Security/Spring%20Security%20Swaager%20%EC%82%AC%EC%9A%A9%20%EB%B2%95.md)
-  - [Spring Security Form 인증 살펴보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Security/form/Security%20Form%20%EC%9D%B8%EC%A6%9D%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0.md)  
+  - [Spring Security Form 인증 살펴보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Security/form/Security%20Form%20%EC%9D%B8%EC%A6%9D%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0.md)
+  - [WebSecurityConfigurerAdapter Deprecated 해결하기]()
 
 - ### Swagger
   - [Spring Swagger 404 에러 해결하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Swagger/Spring%20Swagger%20404%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0.md)
