@@ -270,6 +270,11 @@
   - [Spring Boot에서 MyBatis 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MyBatis/Spring%EC%97%90%EC%84%9C%20MyBatis%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [MyBatis ResultMap 사용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/MyBatis/MyBatis%20ResultMap%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
+- ### QueryDSL
+  - [프로젝트에서 QueryDSL 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Querydsl/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C%20QueryDSL%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+  - [gradle QueryDSL 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Querydsl/gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+  - [QueryProjection 어노테이션 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Querydsl/QueryProjection%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
+
 - ### Redis
   - [Spring Data Redis 입문하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Data%20Redis%20%EC%9E%85%EB%AC%B8%ED%95%98%EA%B8%B0.md)
   - [Spring Data Redis Host, Port 간단한 Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Redis%20port%2C%20host%20Tip.md)
@@ -314,11 +319,6 @@
   - [Spring yml prod, dev 환경 나누기1](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Spring%20%EC%9A%B4%EC%98%81%ED%99%98%EA%B2%BD%2C%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EB%82%98%EB%88%84%EA%B8%B0.md)
   - [Spring yml, prod, dev 환경 나누기2](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/yml%20dev%2C%20prod%2C%20local%20%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0.md)
   - [Intellij local.yml 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/yml/Intellij%20%EC%97%90%EC%84%9C%20yml%20local%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
-
-## QueryDSL
-
-- [프로젝트에서 QueryDSL 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C%20QueryDSL%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
-- [gradle QueryDSL 설정하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Querydsl/1.%20gradle%20Querydsl%20%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 ## ElasticSearch
 
