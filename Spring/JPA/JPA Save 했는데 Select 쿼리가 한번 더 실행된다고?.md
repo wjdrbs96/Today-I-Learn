@@ -158,3 +158,9 @@ Hibernate:
 ## `결론`
 
 Auto Increment 설정된 테이블만 사용한다면 위와 같은 일이 일어나지 않겠지만.. 복합키를 사용하거나 Auto Increment를 사용하지 않는 경우면 위와 같은 상황이 생길 수 있기 때문에 유의하고 JPA를 사용하면 좋을 거 같습니다. 
+
+<br>
+
+## `Reference`
+
+- [https://stackoverflow.com/questions/1069992/jpa-entitymanager-why-use-persist-over-merge](https://stackoverflow.com/questions/1069992/jpa-entitymanager-why-use-persist-over-merge)
