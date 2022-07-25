@@ -718,7 +718,7 @@
   - [ECR 시작하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/ECR/ECR%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 
 - ### Elastic Beanstalk
-  - [환경변수 주입할 때 알아야 할 것]()
+  - [환경변수 주입할 때 알아야 할 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Elastic%20Beanstalk/%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98.md)
 
 - ### Load-Balancer
     - [ELB(Elastic Load Balancing) 개념 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/AWS/Load-Balancer/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1%20%EC%A0%95%EB%A6%AC.md)
