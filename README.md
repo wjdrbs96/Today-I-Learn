@@ -297,9 +297,12 @@
 - ### Test
   - [Multi Module Domain 모듈에서 테스트 코드 작성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Test/Multi%20Module%EC%9D%98%20Domain%20%EB%AA%A8%EB%93%88%EC%97%90%EC%84%9C%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%BD%94%EB%93%9C%20%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0.md)
 
-- ### Thymleaf
+- ### Thymeleaf
   - [Thymeleaf PathVariable, Query String 사용법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Thymeleaf/Thymeleaf%20PathVariable%2C%20Query%20String.md)
   - [Thymeleaf common import 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Thymeleaf/Thymeleaf%20common%20import%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+
+- ### Tomcat
+  - [Tomcat Error Page 재정의 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Tomcat/Tomcat%20Error%20Page%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0.md)
 
 - ### Transactional
   - [Transactional Isolation Level, Spring Default Isolation](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Transacntion/Transactional%20Isolation.md)
