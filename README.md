@@ -150,8 +150,8 @@
 
 ## Kafka
 
-- [Kafka Topic이란?]()
-- [Kafka Lag란?]()
+- [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
+- [Kafka Lag란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Lag%EC%9D%B4%EB%9E%80.md)
 
 ## React
 
