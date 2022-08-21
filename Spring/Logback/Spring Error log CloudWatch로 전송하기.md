@@ -8,8 +8,6 @@
 
 그래서 이번 글에서는 `CloudWatch`와 `Spring Logback`을 사용해서 `Spring Error log`를 CloudWatch Log Group 으로 전송하는 법에 대해서 정리 해보겠습니다.
 
-이번 글의 실습을 진행하기 위해서는 `반드시` [IAM 설정](https://devlog-wjdrbs96.tistory.com/326) 을 하고 오셔야 합니다.(CloudWatch 관련, CloudWatch Agent는 설치 안하셔도 될 거 같습니다.)
-
 <br>
 
 ## `Spring 설정하기`
@@ -21,7 +19,7 @@ Spring에서 `CloudWatch`로 Error log를 전송할 수 있도록 정말 편리�
 ### `gradle`
 
 ```
-compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.4.0'
+implementation "ca.pjer:logback-awslogs-appender:1.6.0"
 ```
 
 <br>
@@ -32,11 +30,11 @@ compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.4.0'
 <dependency>
     <groupId>ca.pjer</groupId>
     <artifactId>logback-awslogs-appender</artifactId>
-    <version>1.4.0</version>
+    <version>1.6.0</version>
 </dependency>
 ```
 
-위의 의존성을 추가하고 프로젝트 세팅을 해보겠습니다. 
+위의 의존성을 추가하고 프로젝트 세팅을 해보겠습니다. (버전은 시기에 따라 달라질 수 있습니다.)
 
 <br>
 
@@ -46,172 +44,205 @@ compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.4.0'
 
 <br>
 
+## `AWS IAM CloudWatch 권한 추가하기`
+
+<img src="https://user-images.githubusercontent.com/45676906/185792273-bad9eec8-aa4e-4154-8f21-9dd2154d90ae.png" width="300px" alt="스크린샷 2022-08-21 오후 10 04 59">
+
+<br>
+
+<img src="https://user-images.githubusercontent.com/45676906/185792369-13678955-8d5e-44b1-ad7a-0771e314700c.png" width="300px" alt="스크린샷 2022-08-21 오후 10 07 26">
+
+`CloudWatchFullAccess` 권한을 추가하겠습니다.
+
+<br>
+
 ## `logback.xml`
 
 ```xml
-<configuration packagingData="true">
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx"
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+    <property name="LOG_PATTERN"
+              value="${LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){blue} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
-    <!-- Register the shutdown hook to allow logback to cleanly stop appenders -->
-    <!-- this is strongly recommend when using AwsLogsAppender in async mode, -->
-    <!-- to allow the queue to flush on exit -->
-    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+    <springProperty name="AWS_ACCESS_KEY" source="cloud.aws.credentials.accessKey"/>
+    <springProperty name="AWS_SECRET_KEY" source="cloud.aws.credentials.secretKey"/>
 
-    <!-- Timestamp used into the Log Stream Name -->
-    <timestamp key="timestamp" datePattern="yyyyMMddHHmmssSSS"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_PATTERN}</Pattern>
+        </layout>
+    </appender>
 
-    <!-- The actual AwsLogsAppender (asynchronous mode because of maxFlushTimeMillis > 0) -->
-    <appender name="ASYNC_AWS_LOGS" class="ca.pjer.logback.AwsLogsAppender">
-
-        <!-- Send only WARN and above -->
+    <appender name="aws_cloud_watch_log" class="ca.pjer.logback.AwsLogsAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
-
-        <!-- Nice layout pattern -->
         <layout>
-            <pattern>%d{yyyyMMdd'T'HHmmss} %thread %level %logger{15} %msg%n</pattern>
+            <pattern>[%thread] [%date] [%level] [%file:%line] - %msg%n</pattern>
         </layout>
-
-        <!-- Hardcoded Log Group Name -->
-        <logGroupName>Spring-log</logGroupName>
-
-        <!-- Log Stream Name UUID Prefix -->
-        <logStreamUuidPrefix>mystream/</logStreamUuidPrefix>
-
-        <!-- Hardcoded AWS region -->
-        <!-- So even when running inside an AWS instance in us-west-1, logs will go to us-west-2 -->
+        <logGroupName>Marryting-log</logGroupName>
+        <logStreamUuidPrefix>Marryting-log-</logStreamUuidPrefix>
         <logRegion>ap-northeast-2</logRegion>
-
-        <!-- Maximum number of events in each batch (50 is the default) -->
-        <!-- will flush when the event queue has 50 elements, even if still in quiet time (see maxFlushTimeMillis) -->
         <maxBatchLogEvents>50</maxBatchLogEvents>
-
-        <!-- Maximum quiet time in millisecond (0 is the default) -->
-        <!-- will flush when met, even if the batch size is not met (see maxBatchLogEvents) -->
         <maxFlushTimeMillis>30000</maxFlushTimeMillis>
-
-        <!-- Maximum block time in millisecond (5000 is the default) -->
-        <!-- when > 0: this is the maximum time the logging thread will wait for the logger, -->
-        <!-- when == 0: the logging thread will never wait for the logger, discarding events while the queue is full -->
         <maxBlockTimeMillis>5000</maxBlockTimeMillis>
-
-        <!-- Retention value for log groups, 0 for infinite see -->
-        <!-- https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html for other -->
-        <!-- possible values -->
-
         <retentionTimeDays>0</retentionTimeDays>
+        <accessKeyId>${AWS_ACCESS_KEY}</accessKeyId>
+        <secretAccessKey>${AWS_SECRET_KEY}</secretAccessKey>
     </appender>
 
-    <!-- A console output -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{yyyyMMdd'T'HHmmss} %thread %level %logger{15} %msg%n</pattern>
-        </encoder>
-    </appender>
+    <springProfile name="local,dev">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        
+        <logger name="com.amazonaws.util.EC2MetadataUtils" level="error" additivity="false">
+        </logger>
 
-    <!-- Root with a threshold to INFO and above -->
-    <root level="INFO">
-        <!-- Append to the console -->
-        <appender-ref ref="STDOUT"/>
-        <!-- Append also to the (async) AwsLogsAppender -->
-        <appender-ref ref="ASYNC_AWS_LOGS"/>
-    </root>
+        <logger name="mashup.spring.jsmr" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="mashup.spring.jsmr" level="error" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="aws_cloud_watch_log"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+        <logger name="com.amazonaws.util.EC2MetadataUtils" level="error" additivity="false">
+        </logger>
+
+        <logger name="mashup.spring.jsmr" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
 </configuration>
 ```
 
-전체의 코드는 위와 같은데요. 이 중에서 자세히 볼 부분에 대해서만 정리를 해보겠습니다. 
+전체 Logback 코드는 위와 같은데요. 코드에 대해서 일부분 정리해보겠습니다. 
 
 <br>
 
-![스크린샷 2021-05-13 오전 11 02 19](https://user-images.githubusercontent.com/45676906/118067159-fdf70980-b3da-11eb-8946-fab23e2a9f0a.png)
+<img width="1389" alt="스크린샷 2022-08-21 오후 10 20 14" src="https://user-images.githubusercontent.com/45676906/185792930-f9b2c67d-75c5-4270-87e4-33c735fb9f56.png">
 
-이번 글에서는 이정도의 설정만 보면 될 거 같고 자세히 더 알고 싶다면 [여기](https://github.com/pierredavidbelanger/logback-awslogs-appender) 를 참고하시면 될 것 같습니다. 그리고 `Spring logback` 관련으로 찾아서 보아도 좋을 거 같습니다.
-
-<br>
-
-## `Controller 만들기`
-
-![스크린샷 2021-05-13 오전 11 06 15](https://user-images.githubusercontent.com/45676906/118067319-46162c00-b3db-11eb-9ddb-8742be9853e8.png)
-
-```java
-@Slf4j
-@RestController
-public class HelloController {
-
-    @GetMapping("/")
-    public String hello() {
-        log.error("에러입니다!");
-        return "hello";
-    }
-}
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="LOG_PATTERN"
+              value="${LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){blue} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+</configuration>
 ```
 
-저는 위와 같이 해당 API가 호출되면 `error log`를 출력하도록 만들어놓았습니다. 이게 설정 끝입니다! 정말 간단한 것 같습니다.(라이브러리의 힘...) 이제 프로젝트 jar를 만들어서 EC2로 업로드 해보겠습니다.
+위처럼 `property` 라는 속성을 통해서 로그의 패턴을 어떻게 출력할 것인지 정의할 수 있습니다. 
 
 <br>
 
-## `Spring jar 만들기`
-
-```
-./gradlew clean build
-```
-
-![스크린샷 2021-05-13 오전 11 08 37](https://user-images.githubusercontent.com/45676906/118067496-a1481e80-b3db-11eb-86b0-80ec7c71eee1.png)
-
-그러면 위와 같이 `jar` 파일이 만들어지는데요. 저는 이것을 `Filezila`를 사용해서 `EC2`에 올리겠습니다. 간단하게 Filezila는 어떻게 사용하는지에 대해서도 정리해보겠습니다.
-
-<br>
-
-### `Filezila 사용법`
-
-![스크린샷 2021-05-13 오전 11 10 34](https://user-images.githubusercontent.com/45676906/118067776-2e8b7300-b3dc-11eb-804f-b82c853745b1.png)
-
-![스크린샷 2021-05-13 오전 11 13 41](https://user-images.githubusercontent.com/45676906/118067914-6eeaf100-b3dc-11eb-9ae5-7fd5ca0a9984.png)
-
-위와 같이 하면 `EC2`로 jar 파일이 전송됩니다.
-
-<br>
-
-![스크린샷 2021-05-13 오전 11 15 55](https://user-images.githubusercontent.com/45676906/118068022-98a41800-b3dc-11eb-8ceb-b17a72f39c7f.png)
-
-그리고 EC2에 접속해서 확인해보면 위와 같이 jar 파일이 존재하는 것을 확인할 수 있습니다. 바로 jar를 실행시키겠습니다.
-
-<br>
-
-```
-sudo amazon-linux-extras install java-openjdk11 (제가 설치한 자바 11버전 명령어)
-sudo nohup java -jar *.jar &
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_PATTERN}</Pattern>
+        </layout>
+    </appender>
+</configuration>
 ```
 
-혹시 EC2에 자바가 설치되지 않았다면 java를 설치한 후에 위의 명령어를 사용하셔야 합니다.(저는 EC2 Linux2 버전입니다. java 8을 설치하고 싶다면 [여기](https://jojoldu.tistory.com/261) 를 참고하면 좋습니다.)
+그리고 위에서 정의한 로그 패턴을 출력할 `appender`를 하나 정의합니다.
 
 <br>
 
-![스크린샷 2021-05-13 오전 11 19 15](https://user-images.githubusercontent.com/45676906/118068307-1a944100-b3dd-11eb-8e5b-cdede5ea6985.png)
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProperty name="AWS_ACCESS_KEY" source="cloud.aws.credentials.accessKey"/>
+    <springProperty name="AWS_SECRET_KEY" source="cloud.aws.credentials.secretKey"/>
+</configuration>
+```
+
+`springProperty` 속성을 사용하면 `logback.xml` 파일에서 `application.yml`에 있는 `AWS IAM AccessKey, SecretKey` 값을 읽어와서 사용할 수 있습니다.
+
+<br>
+
+<img width="751" alt="스크린샷 2022-08-21 오후 10 30 34" src="https://user-images.githubusercontent.com/45676906/185793314-02a68962-10a7-4511-b5c9-a34a5e22e2f7.png">
+
+이제 CloudWatch로 Spring Log를 전송하는 `ca.pjer:logback-awslogs-appender` 라이브러리를 활용하는 appender 부분을 알아보겠습니다.
+
+- logGroupName: CloudWatch log Group Name
+- logStreamUuidPrefix: Marryting-Api-log-d880c850-c43c-4313-b0f6-8d32139470b 와 같은 로그 스트림의 UUID가 생깁니다.
+- logRegion: CloudWatch AWS Region
+- maxBatchLogEvents: 배치의 최대 이벤트 갯수를 설정하는 것이며 1 ~ 10000사이 값만 설정이 가능하다. 이벤트 대기열에 갯수가 50개가 되면 AWS Cloud Watch로 로그가 전송됩니다.
+- maxFlushTimeMillis: 마지막 플러시가 발생된 이후 지정된 시간이 지나면 AWS Cloud Watch로 로그가 전송된다. 0일 경우 로그를 동기로 전송하고 0보다 큰값일 경우 비동기로 로그가 전송됩니다. 
+- maxBlockTimeMillis: 로그가 전송되는 동안 코드가 계속 실행되는 것을 차단하고 값을 0으로 세팅하면 전송중에 발생되는 모든 로그를 버립니다. 
+- retentionTimeDays: 로그그룹의 보존기간을 얘기합니다. 0으로 세팅하면 보존기간은 무기한으로 보존됩니다.
+- accessKeyId: AWS IAM Access Key (위에서 SpringProperty로 yml에서 읽어온 것 사용하기)
+- secretAccessKey: AWS IAM Secret Key (위에서 SpringProperty로 yml에서 읽어온 것 사용하기)
+
+<br>
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProfile name="local,dev">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <logger name="com.amazonaws.util.EC2MetadataUtils" level="error" additivity="false">
+        </logger>
+
+        <logger name="mashup.spring.jsmr" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="mashup.spring.jsmr" level="error" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="aws_cloud_watch_log"/>
+        </logger>
+    </springProfile>
+</configuration>
+```
+
+마지막으로 `springProfile`을 사용하면 `active profile` 값에 따라 logback 설정을 커스텀할 수 있습니다. 
+
+<br>
 
 ```
-sudo netstat -tnlp
+<logger name="mashup.spring.jsmr" level="error" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="aws_cloud_watch_log"/>
+</logger>
 ```
 
-그러면 위의 명령어로 확인해보면 jar가 실행가 8080 포트에서 잘 실행되고 있는 것을 볼 수 있습니다.
+예를들어, 위처럼 로그 레벨 error에 해당할 때 위에서 정의한 appender 2개를 추가해서 정의할 수 있는 형식입니다.  
 
 <br>
 
-![스크린샷 2021-05-13 오전 11 21 03](https://user-images.githubusercontent.com/45676906/118068443-57f8ce80-b3dd-11eb-9d67-9a6185778f6f.png)
+## `Error 발생시키기`
 
-그리고 해당 주소로 접속해보면 위와 같이 `Controller`에서 만든 대로 잘 응답이 오는 것도 확인할 수 있습니다. 위의 API 호출이 되었기 때문에 `log.error()`로 출력했던 로그가 `CloudWatch`로 전송이 되었을 것입니다. 
-정말 잘 되었는지 확인을 한번 해보겠습니다.
+위처럼 logback을 작성하면 `log.error()`로 출력되는 에러들을 `CloudWatch`로 전송하게 되는데요. 
 
-<br>
+<img width="1285" alt="스크린샷 2022-08-21 오후 10 46 25" src="https://user-images.githubusercontent.com/45676906/185793962-97fb55b7-f93e-4fe0-aaf8-1302b43147ab.png">
 
-![스크린샷 2021-05-13 오전 11 22 44](https://user-images.githubusercontent.com/45676906/118068592-95f5f280-b3dd-11eb-9af2-b441694ece45.png)
-
-저는 위와 같이 CloudWatch에 `Spring-log` 라는 로그그룹이 존재하는데 여기로 log를 전송했습니다.
+`log.error()`가 출력되는 어떤 것들을 실행시켜보겠습니다.(저는 현재 진행하고 있는 프로젝트를 실행시켰습니다.)
 
 <br>
 
-![스크린샷 2021-05-13 오전 11 24 37](https://user-images.githubusercontent.com/45676906/118068711-cdfd3580-b3dd-11eb-9daa-337d1c0c6ac3.png)
+![스크린샷 2022-08-21 오후 10 47 39](https://user-images.githubusercontent.com/45676906/185794019-f9b860c5-3376-4531-a1a1-5c9517d4843d.png)
 
-제가 몇번 호출했던 결과들이 `CloudWatch` 로그 그룹에 잘 출력이 되는 것을 확인할 수 있습니다.
+그러면 위처럼 CloudWatch에 로그가 잘 쌓이는 것을 확인할 수 있습니다. 
 
-자세한 코드는 [Github](https://github.com/wjdrbs96/Spring_CloudWatch) 에서 확인하실 수 있습니다.
+<br>
+
+## `Reference`
+
+- [https://github.com/pierredavidbelanger/logback-awslogs-appender](https://github.com/pierredavidbelanger/logback-awslogs-appender)
