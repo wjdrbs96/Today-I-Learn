@@ -148,6 +148,11 @@
 
 - [JQuery 기록](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JQuery/JQuery%20%EC%A0%95%EB%A6%AC.md)
 
+## Kafka
+
+- [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
+- [Kafka Lag란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Lag%EC%9D%B4%EB%9E%80.md)
+
 ## React
 
 - [React 프로젝트 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1.md)
