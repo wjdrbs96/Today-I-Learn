@@ -29,7 +29,8 @@
 ## `Spring Boot 파일 업로드`
 
 ```
-implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+implementation "com.amazonaws:aws-java-sdk-s3:${awsJavaSdkVersion}"
+ex) implementation "com.amazonaws:aws-java-sdk-s3:1.12.281
 ```
 
 Spring Boot는 gradle 기반으로 이고 `build.gradle`에 위의 의존성을 추가하겠습니다.
@@ -57,6 +58,37 @@ cloud:
 
 <br>
 
+## `AWS S3 Config`
+
+```java
+@Configuration
+public class AwsConfig {
+
+    @Value("${cloud.aws.credentials.accessKey}")
+    private String accessKey;
+
+    @Value("${cloud.aws.credentials.secretKey}")
+    private String secretKey;
+
+    @Value("${cloud.aws.region.static}")
+    private String region;
+
+    @Bean
+    public AmazonS3 amazonS3() {
+        AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
+        return AmazonS3ClientBuilder.standard()
+                .withRegion(region)
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .build();
+    }
+}
+```
+
+yml에 등록한 `accessKey`, `secretKey`, `region`을 `Bean`으로 등록해줍니다.
+
+
+<br>
+
 ## `파일 업로드 코드`
 
 ```java
@@ -67,20 +99,17 @@ public class S3Upload {
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
 
-    @Value("${cloud.aws.s3.dir}")
-    private String dir;
-
-    private final AmazonS3Client s3Client;
-
-    public String upload(InputStream inputStream, String originFileName, String fileSize) {
-        String s3FileName = UUID.randomUUID() + "-" + originFileName;
+    private final AmazonS3 amazonS3;
+    
+    public String upload(MultipartFile multipartFile) throws IOException {
+        String s3FileName = UUID.randomUUID() + "-" + multipartFile.getOriginalFilename();
 
         ObjectMetadata objMeta = new ObjectMetadata();
-        objMeta.setContentLength(Long.parseLong(fileSize));
+        objMeta.setContentLength(multipartFile.getInputStream().available());
 
-        s3Client.putObject(bucket, s3FileName, inputStream, objMeta);
+        amazonS3.putObject(bucket, s3FileName, multipartFile.getInputStream(), objMeta);
 
-        return s3Client.getUrl(bucket, dir + s3FileName).toString();
+        return amazonS3.getUrl(bucket, s3FileName).toString();
     }
 }
 ```
@@ -90,7 +119,7 @@ Spring Boot로 AWS S3로 파일 업로드 하는 코드는 위의 코드가 전�
 <br>
 
 ```
-String s3FileName = UUID.randomUUID() + "-" + originFileName;
+String s3FileName = UUID.randomUUID() + "-" + multipartFile.getOriginalFilename();
 ```
 
 S3에 저장되는 파일의 이름이 중복되지 않기 위해서 UUID로 생성한 랜덤 값과 파일 이름을 연결하여 S3에 업로드 하겠습니다.
@@ -99,7 +128,7 @@ S3에 저장되는 파일의 이름이 중복되지 않기 위해서 UUID로 생
 
 ```
 ObjectMetadata objMeta = new ObjectMetadata();
-objMeta.setContentLength(Long.parseLong(fileSize));
+objMeta.setContentLength(multipartFile.getInputStream().available());
 ```
 
 그리고 Spring Server에서 S3로 파일을 업로드해야 하는데, 이 때 파일의 사이즈를 ContentLength로 S3에 알려주기 위해서 ObjectMetadata를 사용합니다.
@@ -115,7 +144,7 @@ s3Client.putObject(bucket, s3FileName, inputStream, objMeta);
 <br>
 
 ```
-s3Client.getUrl(bucket, dir + s3FileName).toString();
+amazonS3.putObject(bucket, s3FileName, multipartFile.getInputStream(), objMeta);
 ```
 
 그리고 `getUrl` 메소드를 통해서 S3에 업로드된 사진 URL을 가져오는 방식입니다.
@@ -132,8 +161,7 @@ public class FileUploadController {
     private final S3Upload s3Upload;
     
     @PostMapping("/upload")
-    public ApiResponse<String> uploadFile(@RequestParam("images") MultipartFile multipartFile,
-                                          @RequestParam String fileSize) throws IOException {
+    public ApiResponse<String> uploadFile(@RequestParam("images") MultipartFile multipartFile) throws IOException {
         return ApiResponse.success(
                 HttpStatus.CREATED, s3Upload.upload(multipartFile.getInputStream(), multipartFile.getOriginalFilename(), fileSize)
         );
