@@ -842,8 +842,8 @@
 - [pull과 fetch의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/4%EC%A3%BC%EC%B0%A8/pull%EA%B3%BC%20fetch%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)
 - [Commit Message 규칙](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/%EC%BB%A4%EB%B0%8B%EB%A9%94%EC%84%B8%EC%A7%80.md)
 - [알아두면 좋은 브랜치 전략](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4%20%EC%A2%8B%EC%9D%80%20%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%A0%84%EB%9E%B5.md)
-- [Intellij에서 Rebase 및 충돌 해결 하는 법]()
-- [Intellij에서 Squash Commits 하는 법]()
+- [Intellij에서 Rebase 및 충돌 해결 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/Intellij/Intellij%EC%97%90%EC%84%9C%20Rebase%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [Intellij에서 Squash Commits 하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Git/Intellij/Intellij%EC%97%90%EC%84%9C%20Squash%20Commit%20%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 ## Github
 
