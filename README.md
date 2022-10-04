@@ -153,6 +153,10 @@
 - [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
 - [Kafka Lag란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Lag%EC%9D%B4%EB%9E%80.md)
 
+## 카프카 데이터 플랫폼의 최강자
+
+- [3장: 카프카 디자인]()
+
 ## React
 
 - [React 프로젝트 생성하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/React/React%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1.md)
