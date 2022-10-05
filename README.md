@@ -152,10 +152,13 @@
 
 - [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
 - [Kafka Lag란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Lag%EC%9D%B4%EB%9E%80.md)
+- [Kafka 조금 아는 척하기 1]()
+- [Kafka 조금 아는 척하기 2]()
+- [Kafka 조금 아는 척하기 3]()
 
 ## 카프카 데이터 플랫폼의 최강자
 
-- [3장: 카프카 디자인]()
+- [3장: 카프카 디자인](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka-Data-Platform/3%EC%9E%A5.md)
 
 ## React
 
