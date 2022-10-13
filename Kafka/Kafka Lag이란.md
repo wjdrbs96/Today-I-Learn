@@ -1,4 +1,4 @@
-## `Kafka Lag이란?`
+## `Kafka Lag란?`
 
 <img width="318" alt="스크린샷 2022-08-18 오후 6 51 19" src="https://user-images.githubusercontent.com/45676906/185366548-ace54a3d-43c1-462b-bb0f-d0e98dc929b0.png">
 
