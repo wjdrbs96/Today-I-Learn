@@ -4,34 +4,6 @@
 
 <br>
 
-## `ElasticSearch를 사용한 이유는 무엇일까?`
-
-보통 저는 사이드 프로젝트에서 검색을 구현해야 할 때는 `MySQL Like`를 사용해서 구현했습니다. 하지만 `MySQL Like %title%` 검색은 인덱스를 이용하지 못하기 때문에 데이터의 양이 많다면 DB 서버에 부하를 주는 작업일 수 있습니다.
-
-그렇기에 `MySQL Like`로 검색을 구현하기에는 한계가 있다고 생각합니다. 그런데 만약에 검색해야 하는 데이터 종류가 한개가 아니라 여러 개라면 어떻게 할 수 있을까요?
-
-```sql
-SELECT *
-FROM velad v
-WHERE v.serviceType Like '%test%' AND v.serviceLocale Like '%test%' ...
-```
-
-위와 같이 검색의 컬럼 마다 `Like` 검색을 사용하게 될 것입니다. 하나만 Like를 사용해도 DB 서버에 부담이 될 수 있는데, 검색해야 할 종류가 여러가지라면 더욱 더 사용하기 힘들 것입니다.
-
-<br>
-
-```sql
-SELECT *
-FROM velad v
-WHERE v.serviceType Like 'test%' AND v.serviceLocale Like 'test%' ...
-```
-
-그러면 MySQL 인덱스를 이용할 수 있게 %를 뒤에만 넣으면 어떠냐 할 수 있는데요. 이렇게 했을 때는 검색어에 맞는 검색 데이터가 잘 나오지 않을 수 있고 위에서 말한 것과 마찬가지로 검색해야 하는 조건이 여러 개라면 사용하기 쉽지 않습니다.
-
-즉, MySQL Like를 사용해서 간단하게 검색을 구현하는 것은 불가능할 것 같고,  검색 개발에 많이 사용되는 ElasticSearch를 사용해야겠다는 생각을 했습니다.
-
-<br>
-
 ## `ElasticSearch 기본 개념과 용어 정리`
 
 - `색인(indexing)`: 데이터가 검색될 수 있는 구조로 변경하기 위해 원본 문서를 검색어 토큰들로 변환하여 저장하는 일련의 과정
