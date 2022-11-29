@@ -148,6 +148,10 @@
 
 - [JQuery 기록](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JQuery/JQuery%20%EC%A0%95%EB%A6%AC.md)
 
+## Cassandra
+
+- [Cassandra Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key.md)
+
 ## Kafka
 
 - [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
