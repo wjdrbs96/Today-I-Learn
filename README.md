@@ -539,6 +539,10 @@
 
 - [Logstash란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Logstash/Logstash%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%3F.md)
 
+## Filebeat
+
+- [Filebeat란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Filebeat/Filebeat%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+
 ## 자바의 신
 
 - [20장: 가장 많이 쓰는 패키지는 자바랭](https://github.com/wjdrbs96/Today-I-Learn/tree/master/Java_God/20%EC%9E%A5)
