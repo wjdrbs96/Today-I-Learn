@@ -2,18 +2,42 @@
 
 ### `primary key`
 
-DB의 pk와 비슷하다. row를 유일무이하게 해주는 key를 의미한다. 1개 이상의 키가 필요하다.
+- 한개(row)의 데이터가 유니크하게 보장해주는 Key 를 말하고 1개 이상 필요하다.
+- Partition Key + Clustering Key 로 구성되어 있다.
+
+```sql
+create table test_1 (
+  key text PRIMARY KEY,
+  data text      
+);
+```
+
+- 기본 Primary Key
+
+```sql
+ create table test_2 (
+         t_partition_key text,
+         t_clustering_key int,
+         data text,
+         PRIMARY KEY(t_partition_key, t_clustering_key)      
+ );
+```
+
+- Composite Primary Key
 
 <br>
 
-### `partition key`
+### `Partition key`
 
-partition key는 primary key의 1번째 key(예시에서는 col1)를 의미한다. 저장소 row key로 직접 변환하고 해시 알고리즘에 따라 클러스터에 저장(분배)된다. 대부분의 질의는 partition key를 제공해서 카산드라는 요청된 데이터가 어느 노드에 있는지 알게 된다.
+- Primary key의 첫번째 key를 의미함.
+- 해시 알고리즘에 따라 클러스터에 분배되어 저장된다.
 
 <br>
 
-### `clustering key`
+### `Clustering key`
 
-primary key의 1번째 key외 나머지 key를 clustering key(또는 clustering column)라 한다. 해당 key는 디스크에 데이터 순서를 안다. 하지만 어느 노드에 저장될지는 결정하지 않는다.
+- Primary Key에서 Partition Key를 뺀 나머지 Key를 말함.
+- 지정한 순서대로 데이터가 저장 됨. 
 
-순서 관련해서 오름차순, 내림차순으로 변경할 수 있다.
+> with clustering order by (test_col_1 desc)
+
