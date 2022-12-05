@@ -150,7 +150,7 @@
 
 ## Cassandra
 
-- [Cassandra Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key.md)
+- [Cassandra Key 개념과 Select 쿼리시 알아두어야 할 것]()
 
 ## Kafka
 
