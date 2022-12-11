@@ -349,7 +349,8 @@
 
 ## ElasticSearch
 
-- [ElasticSearch 입문하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/ElasticSearch/ElasticSearch%20%EA%B0%84%EB%8B%A8%20%EC%A0%95%EB%A6%AC.md)
+- [ElasticSearch 기본]()
+- [ElasticSearch 간단 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/ElasticSearch/ElasticSearch%20%EA%B0%84%EB%8B%A8%20%EC%A0%95%EB%A6%AC.md)
 
 ## Intellij
 
