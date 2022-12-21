@@ -21,10 +21,18 @@ filebeat.inputs:
 
 output.elasticsearch:
   hosts: ["localhost:9200"]
+  index: "index.%{+yyyy.MM.dd}"  
+  # Optional
+  protocol: "http"
+  username: "username"   
+  password: "password"
 
 setup.kibana:
   host: "localhost:5601"
 ```
+
+1. `filebeat.inputs.paths`에 지정된 파일들이 `Filebeat`를 통해 `ElasticSearch`에 적재된다.
+2. ElasticSearch에 적재될 때 인덱스 테이블 이름은 `index.%{+yyyy.MM.dd}`으로 생성된다.(ex: index.2022.12.21 즉, 날짜별로 인덱스가 생기는 것임)
 
 <br>
 
