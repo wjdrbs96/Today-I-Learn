@@ -264,7 +264,7 @@
   - [Kotlin에서 ModelMapper 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%97%90%EC%84%9C%20ModelMapper%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
   - [Kotlin으로 @Valid 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20Valid%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
   - [Kotlin, JPA를 사용할 때 알아야 할 점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%EC%9C%BC%EB%A1%9C%20JPA%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%95%8C%20%EC%95%8C%EC%95%84%EC%95%BC%20%ED%95%A0%20%EC%A0%90.md)
-  - [Kotlin JPA에 Entity에서 data class를 사용하면 안되는 이유]()
+  - [Kotlin JPA에 Entity에서 data class를 사용하면 안되는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Kotlin/Kotlin%20JPA%EC%97%90%EC%84%9C%20Entity%EC%97%90%20data%20class%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4%20%EC%95%88%EB%90%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
 
 - ### Layer
   - [Spring Layer에 대한 생각 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Layer/Spring%20Layer%EC%97%90%20%EB%8C%80%ED%95%9C%20%EC%83%9D%EA%B0%81%20%EC%A0%95%EB%A6%AC.md)

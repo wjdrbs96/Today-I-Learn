@@ -14,7 +14,7 @@ Kotlin data class는 상속이 불가능하기 때문에 JPA 리플렉션을 이
 
 <br>
 
-### `Entity Dirty Checking`
+### `3. Entity Dirty Checking`
 
 `copy` 메소드를 사용해서 `Entity Dirty Checking`을 하려고 하면 동작하지 않는다. 이유는 `copy` 메소드는 새로운 객체를 생성하는 것이기 때문에 동작하지 않는 것이 당연하다.
 
