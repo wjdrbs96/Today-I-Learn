@@ -2,8 +2,8 @@
 
 이 글은 제가 Kafka를 사용하면서 겪은 경험보다는 `Kafka를 공부하면서 처음 사용할 때 알면 좋은 것들의 이론`에 대해 정리한 글입니다. 참고한 곳은 맨 아래에 있습니다.
 
-- [Kafka 기본]
-  - [Cluster, Broker란?] 
+- [Kafka 기본]()
+  - [Cluster, Broker란?]()
   - [Lag 란?]()
   - [Topic, Partition 이란?]()
   - [레코드란?]()
