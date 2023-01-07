@@ -160,6 +160,7 @@
 - [Kafka 조금 아는 척하기 2](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20%EC%A1%B0%EA%B8%88%20%EC%95%84%EB%8A%94%20%EC%B2%99%ED%95%98%EA%B8%B0%202.md)
 - [Kafka 조금 아는 척하기 3](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka%20%EC%A1%B0%EA%B8%88%20%EC%95%84%EB%8A%94%20%EC%B2%99%ED%95%98%EA%B8%B0%203.md)
 - [Kafka acks=all일 때 min.insync.replicas=2로 설정해야 하는 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/acks%3Dall%20%EC%9D%BC%20%EB%95%8C%20min-insync-replicas%3D2%EB%A1%9C%20%EC%84%A4%EC%A0%95%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
+- [Kafka 처음 공부할 때 보면 좋은 것들]()
 
 ## Kibana
 
