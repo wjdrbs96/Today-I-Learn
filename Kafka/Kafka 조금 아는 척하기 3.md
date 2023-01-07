@@ -2,7 +2,7 @@
 
 ```java
 public class Kafka {
-    public void producer() {
+    public void consumer() {
         Properties prop = new Properties();
         prop.put("bootstrap.servers", "localhost:9002");
         prop.put("group.id", "group1");
