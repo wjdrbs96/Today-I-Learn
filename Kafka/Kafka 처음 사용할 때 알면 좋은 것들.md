@@ -1,4 +1,4 @@
-## `Kafka 처음 사용할 때 알면 좋은 것들`
+# `Kafka 처음 사용할 때 알면 좋은 것들`
 
 이 글은 제가 Kafka를 사용하면서 겪은 경험보다는 `Kafka를 공부하면서 처음 사용할 때 알면 좋은 것들의 이론`에 대해 정리한 글입니다. 참고한 곳은 맨 아래에 있습니다.
 
@@ -13,26 +13,34 @@
   - [Replication Factor란?]()
   - [리더 팔로워란?]()
   - [ISR 이란?]()
-- [Producer]
+- [Producer]()
   - [Producer 주요 옵션]()
   - [ack=all과 브로커의 min.insync.replicas 옵션의 관계]()
-- [Consumer]
+- [Consumer]()
   - [Consumer 대표 옵션]()
   - [컨슈머 그룹이란?]()
     - [컨슈머 리밸런스 특징]()
-    - [컨슈머 하트비트]()
+    - [컨슈머 하트비트란?]()
     - [컨슈머 그룹 특징]()
-    - [토픽의 파티션에는 하나의 컨슈머만 연결 가능]()
+    - [토픽의 파티션에는 하나의 컨슈머만 연결 가능하다]()
   - [커밋과 오프셋이란?]()
     - [자동 커밋]()
     - [수동 커밋]()
     - [동기 오프셋 커밋]()
     - [비동기 오프셋 커밋]()
-    
-- [Zookeeper란?]
-- [필수 카프카 명령어]
+- [Zookeeper란?]()
+- [필수 카프카 명령어]()
+  - [토픽 생성하기]()
+  - [토픽 제거하기]()
+  - [토픽 리스트 확인]()
+  - [토픽 상세보기]()
+  - [토픽의 파티션 수 변경]()
+  - [컨슈머 그룹 리스트 확인]()
+  - [컨슈머 상태와 오프셋 확인]()
 
 <br>
+
+## `카프카 기본`
 
 ### `Cluster, Broker란?`
 
@@ -49,12 +57,6 @@ Kafka Broker가 모여서 Cluster를 이룬다고 할 수 있다.(쉽게 말하�
 만약 Producer가 데이터를 넣는 속도가 Consumer가 데이터를 소비하는 속도보다 빠르다면 컨슈머가 마지막으로 읽은 offset과 Producer가 마지막으로 넣은 offset의 차이가 발생한다. 이 차이를 `Consumer Lag` 이라고 한다.
 
 Kafka에서 Lag 값을 통해 Producer, Consumer의 상태를 유추할 수 있다. 즉, Lag이 높다면 Consumer에 문제가 있다는 뜻일 수 있다.
-
-<br>
-
-#### `Lag 값 확인하기`
-
-
 
 <br>
 
@@ -151,6 +153,8 @@ Kafka 에서는 이러한 현상을 막기 위해 `ISR` 이라는 개념이 존�
 
 <br>
 
+## `Producer`
+
 ### `Producer 주요 옵션`
 
 - [bootstrap.servers](https://kafka.apache.org/documentation/#producerconfigs_bootstrap.servers)
@@ -205,7 +209,7 @@ Kafka 에서는 이러한 현상을 막기 위해 `ISR` 이라는 개념이 존�
 
 [Kafka 문서](https://www.conduktor.io/kafka/kafka-topic-configuration-min-insync-replicas)를 확인해보면 `ack=all 일 때, min.insync.replicas=2` 설정을 권장하고 있다.
 
-![image](https://user-images.githubusercontent.com/45676906/211142618-ef14ff83-a7c2-42c6-bd80-b5d8c6c45a97.png)
+<img width="537" alt="스크린샷 2023-01-07 오후 5 49 21" src="https://user-images.githubusercontent.com/45676906/211142618-ef14ff83-a7c2-42c6-bd80-b5d8c6c45a97.png">
 
 `min.insync.replicas` 옵션이 `2` 라면 위와 같이 하나의 브로커가 문제가 생겨도 클러스터 전체 장애로 이어지지 않는다. 
 
@@ -216,6 +220,8 @@ Kafka 에서는 이러한 현상을 막기 위해 `ISR` 이라는 개념이 존�
 acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka-topic-configuration-min-insync-replicas)에서 확인할 수 있다.
 
 <br>
+
+## `Consumer`
 
 ### `Consumer 대표 옵션`
 
@@ -245,8 +251,6 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
   - `기본 값: 5초`
 
 <br>
-
-
 
 ### `컨슈머 그룹이란?`
 
@@ -280,7 +284,7 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
 
 <br>
 
-#### `토픽의 파티션에는 하나의 컨슈머만 연결 가능`
+#### `토픽의 파티션에는 하나의 컨슈머만 연결 가능하다.`
 
 - 메세지 처리량을 올리기 위해서 파티션 수는 늘리지 않고 컨슈머 수만 늘리는 것은 의미가 없다. 토픽의 파티션에는 하나의 컨슈머만 연결이 가능하기 때문에 컨슈머를 추가해도 메세지를 소비할 수 없기 때문이다.
 - 하나의 파티션에 하나의 컨슈머만 붙을 수 있는 이유는 `각각의 파티션에 대해서는 메세지 순서를 보장하기` 위해서다.
@@ -334,6 +338,43 @@ poll() 메소드가 호출된 이후에 `commitSync()` 메소드를 호출하여
 <br>
 
 ### `Zookeeper란?`
+
+#### `Controller election`
+
+- 리터 선출 시 주키퍼의 메타데이터 정보를 참조한다.
+- 주키퍼는 현재의 컨트롤러가 장애가 나면 새로운 컨트롤러가 선정되는 것을 보장한다.
+
+<br>
+
+#### `Configuration Of Topics`
+
+각 토픽에 대한 파티션 수, 모든 복제본 위치, 모든 토픽에 대한 구성 재정의 목록 및 모든 토픽에 대한 설정 재정의 목록 및 선호되는 리더 노드 등 정보를 가지고 있는다.
+
+<br>
+
+#### `Access control lists`
+
+ACLs는 사용자 역활과 관련된 토픽에 대해 읽기와 쓰기 권한 종류를 결정하고, ACLs 정보는 주키퍼가 저장한다.
+
+<br>
+
+#### `Membership of the cluster`
+
+Zookeeper는 클러스터의 일부인 모든 브로커의 목록을 유지 및 관리한다.
+
+<br>
+
+<img width="1698" alt="스크린샷 2023-01-08 오전 12 50 59" src="https://user-images.githubusercontent.com/45676906/211159164-446fbadb-f7ab-465e-8429-7d2f53a4eaef.png">
+
+위의 Zookeeper 내용은 [Zookeeper Document](https://zookeeper.apache.org/doc/current/zookeeperUseCases.html)를 보고 적어본 것이다. 
+
+원래 Zookeeper가 브로커를 관리, 리더 선출, 메타 데이터 관리를 한다는 것은 알았는데 약간의 역할이 더 있고 내부적인 동작들이 더 있는 것 같다.(아직은 Zookeeper에 대한 공부가 더 필요하다.)
+
+<br>
+
+#### `컨슈머 오프셋`
+
+0.9 이전 버전의 컨슈머는 오프셋 정보를 주키퍼에 저장했지만 성능 등의 문제로 0.9 이후 버전의 컨슈머에서는 카프카 내에 별도로 내부에서 사용하논 `토픽(_consumer_offsets)`을 만들고 그 토픽에 오프셋 정보를 저장하고 있다.
 
 
 <br>
