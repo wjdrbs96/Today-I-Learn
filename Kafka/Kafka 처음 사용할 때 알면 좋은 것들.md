@@ -29,6 +29,11 @@
     - [동기 오프셋 커밋]()
     - [비동기 오프셋 커밋]()
 - [Zookeeper란?]()
+  - [Controller election]()
+  - [Configuration Of Topics]()
+  - [Access control lists]()
+  - [Membership of the cluster]()
+  - [컨슈머 오프셋]()
 - [필수 카프카 명령어]()
   - [토픽 생성하기]()
   - [토픽 제거하기]()
@@ -62,7 +67,7 @@ Kafka에서 Lag 값을 통해 Producer, Consumer의 상태를 유추할 수 있�
 
 ### `Topic, Partition 이란?`
 
-<img width="1059" alt="스크린샷 2023-01-07 오후 4 28 28" src="https://user-images.githubusercontent.com/45676906/211139367-b25497be-eee7-4e59-a8ee-c598da0eacd0.png">
+<img width="410" alt="스크린샷 2023-01-07 오후 5 32 48" src="https://user-images.githubusercontent.com/45676906/211155139-42a5c620-d6b6-427e-a91a-579a81ba7608.png">
 
 - Kafka는 여러 개의 Topic을 가질 수 있다.
 - Topic 안에 여러 개의 파티션을 가질 수 있다.(즉, 파티션이란 토픽을 분할한 것이라 할 수 있다.)
@@ -289,8 +294,6 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
 - 메세지 처리량을 올리기 위해서 파티션 수는 늘리지 않고 컨슈머 수만 늘리는 것은 의미가 없다. 토픽의 파티션에는 하나의 컨슈머만 연결이 가능하기 때문에 컨슈머를 추가해도 메세지를 소비할 수 없기 때문이다.
 - 하나의 파티션에 하나의 컨슈머만 붙을 수 있는 이유는 `각각의 파티션에 대해서는 메세지 순서를 보장하기` 위해서다.
 - 즉, 컨슈머를 늘리고 싶으면 토픽의 파티션 수를 먼저 늘려야 한다.
-
-<img width="410" alt="스크린샷 2023-01-07 오후 5 32 48" src="https://user-images.githubusercontent.com/45676906/211155139-42a5c620-d6b6-427e-a91a-579a81ba7608.png">
 
 <br>
 
