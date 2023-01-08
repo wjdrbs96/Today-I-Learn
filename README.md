@@ -154,7 +154,7 @@
 
 ## Kafka
 
-- ### 스코프
+- ### Kafka Basic
   - [Kafka Topic이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka-Basic/Kafka%20Topic%20%EC%9D%B4%EB%9E%80.md)
   - [Kafka Lag란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka-Basic/Kafka%20Lag%EC%9D%B4%EB%9E%80.md)
   - [Kafka 조금 아는 척하기 1](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kafka/Kafka-Basic/Kafka%20%EC%A1%B0%EA%B8%88%20%EC%95%84%EB%8A%94%20%EC%B2%99%ED%95%98%EA%B8%B0%201.md)
