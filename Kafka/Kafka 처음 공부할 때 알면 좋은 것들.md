@@ -170,7 +170,7 @@ Kafka 에서는 이러한 현상을 막기 위해 `ISR` 이라는 개념이 존�
   - `ack=0`: 프로듀서는 서버로부터 어떠한 ack도 기다리지 않는다. ack 요청을 기다리지 않기 때문에 매우 빠르게 메세지를 보낼 수 있지만 메세지가 손실될 가능성이 높다.
   - `ack=1`: 리더는 데이터를 기록하지만, 모든 팔로워는 확인하지 않기 때문에 메세지 손실이 발생할 수도 있다.
   - `ack=all`: 리더는 ISR의 팔로워로부터 데이터에 대한 ack를 기다리기 때문에, 팔로워가 있는 한 데이터 무손실에 대해 강력하게 보장할 수 있다. 완벽하게 사용하기 위해서는 `Broker 설정`도 같이 조정해야 한다.
-  - `기본 깂: all`
+  - `기본 값: all`
 
 <br>
 
@@ -235,7 +235,7 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
 
 - [enable.auto.commit](https://kafka.apache.org/documentation/#consumerconfigs_enable.auto.commit)
   - 백그라운드로 주기적으로 오프셋을 커밋한다.
-  - 기본 값: `true` 
+  - `기본 값: true` 
 
 - [auto.offset.reset](https://kafka.apache.org/documentation/#consumerconfigs_auto.offset.reset)
   - Kafka에서 초기 오프셋이 없거나 현재 오프셋이 더 이상 존재하지 않은 경우(데이터가 삭제)에 다음 옵션으로 리셋한다.
@@ -245,7 +245,7 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
 
 - [max.poll.records](https://kafka.apache.org/documentation/#consumerconfigs_max.poll.records)
   - 단일 호출 poll()에 대한 최대 레코드 수를 조정한다.
-  - 기본 값은 500 이다.
+  - `기본 값: 500`
 
 - [max.poll.interval.ms](https://kafka.apache.org/documentation/#consumerconfigs_max.poll.interval.ms)
   - 해당 옵션 시간 만큼 컨슈머 그룹에서 컨슈머가 살아 있지만 poll() 메소드를 호출하지 않을 때, 장애라고 판단하여 컨슈머 그룹에서 제외한 후 다른 컨슈머가 해당 파티션에서 메세지를 가져가게 한다.
@@ -309,7 +309,7 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
 - [enable.auto.commit](https://kafka.apache.org/documentation/#consumerconfigs_enable.auto.commit)를 `true`로 설정하면 컨슈머는 `poll()`을 호출할 때 가장 마지막 오프셋을 자등으로 커밋한다. (비명시 오프셋 커밋이라고 할 수 있다.)
 - 커밋 주기는 5초가 기본 값이며, [auto.commit.interval.ms](https://kafka.apache.org/documentation/#consumerconfigs_auto.commit.interval.ms) 옵션을 통해 조정이 가능하다.
 - 커밋 주기 5초가 지나기 전, 3초가 지났을 때 컨슈머 리밸런스가 일어난다면 메세지 중복 처리가 될 수 있다.
-  - ex) A, B 메세지를 소비한 후에 3초가 지난 시기에 리밸런스가 일어났다면, A, B 메세지는 소비가 되었는데 커밋이 되지 않은 상황이다. 즉, 리밸런스 후에 컨슈머가 다시 A,b 메세지를 소비하여 메세지가 중복 처리될 수 있다.)
+  - ex) A, B 메세지를 소비한 후에 3초가 지난 시기에 리밸런스가 일어났다면, A, B 메세지는 소비가 되었는데 커밋이 되지 않은 상황이다. 즉, 리밸런스 후에 컨슈머가 다시 A,b 메세지를 소비하여 메세지가 중복 처리될 수 있다.
 - `데이터 중복이나 유실을 허용하지 않는 서비스라면 자동 커밋을 사용해서는 안 된다.`
 
 <br>
