@@ -321,6 +321,9 @@
   - [Spring Data Redis Host, Port 간단한 Tip](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Redis%20port%2C%20host%20Tip.md)
   - [Spring Data Redis에서 TTL 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Data%20Redis%20TTL%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
+- ### Rest Docs
+  - [Spring Rest Docs 사용해보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/RestDocs/Rest%20Docs%20%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90.md)
+
 - ### SOLID
   - [객체지향 설계 5원칙 SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/SOLID/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99%20SOLID.md)
 
