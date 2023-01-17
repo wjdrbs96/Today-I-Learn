@@ -308,6 +308,9 @@
   - [Netty Access log를 기록해보자 - 1](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Netty/Netty%20Access%20log%EB%A5%BC%20%EA%B8%B0%EB%A1%9D%ED%95%B4%EB%B3%B4%EC%9E%90%20-%201.md)
   - [Netty Access log를 기록해보자 - 2](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Netty/Netty%20Access%20log%EB%A5%BC%20%EA%B8%B0%EB%A1%9D%ED%95%B4%EB%B3%B4%EC%9E%90%20-%202.md)
 
+- ### ObjectMapper
+  - [직렬화, 역직렬화 기본 생성자 필요한 이유](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/ObjectMapper/%EC%A7%81%EB%A0%AC%ED%99%94%2C%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94%20%EA%B8%B0%EB%B3%B8%20%EC%83%9D%EC%84%B1%EC%9E%90%20%ED%95%84%EC%9A%94%ED%95%9C%20%EC%9D%B4%EC%9C%A0.md)
+
 - ### Paging
   - [Offset 페이징과 Cursor 페이징 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Paging/Cursor%20%ED%8E%98%EC%9D%B4%EC%A7%95%EA%B3%BC%20Offset%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EC%B0%A8%EC%9D%B4.md)
 
