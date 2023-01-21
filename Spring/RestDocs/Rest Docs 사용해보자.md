@@ -54,6 +54,7 @@ test {
 
 asciidoctor {
     inputs.dir("build/generated-snippets")
+    dependsOn(test)
     configurations "asciidoctorExtensions"
     baseDirFollowsSourceFile()
 }
