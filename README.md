@@ -547,6 +547,9 @@
   - [8장: 제네릭과 배열](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/8%EC%9E%A5.md)
   - [9장: 컬렉션](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/9%EC%9E%A5.md)
 
+- ### Document
+  - [Kotlin by 키워드에 대한 간단한 생각 정리]()
+
 - ### Kotlin In Action
   - [1장: 코틀린 이란 무엇이며, 왜 필요한가?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/1%EC%9E%A5.md)
   - [2장: 코틀린 기초](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/2%EC%9E%A5.md)
