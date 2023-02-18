@@ -1,0 +1,11 @@
+server.name: kibana
+server.host: 0.0.0.0
+server.port: 5601
+elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  username: elastic
+  password: elastic
+
+monitoring.ui.container.elasticsearch.enabled: true
+
+status.allowAnonymous: true

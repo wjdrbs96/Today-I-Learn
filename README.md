@@ -548,7 +548,7 @@
   - [9장: 컬렉션](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Do%20it%20Kotlin/9%EC%9E%A5.md)
 
 - ### Document
-  - [Kotlin by 키워드에 대한 간단한 생각 정리]()
+  - [Kotlin by 키워드에 대한 간단한 생각 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Document/Kotlin%20by%20%ED%82%A4%EC%9B%8C%EB%93%9C%EB%9E%80.md)
 
 - ### Kotlin In Action
   - [1장: 코틀린 이란 무엇이며, 왜 필요한가?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/1%EC%9E%A5.md)
