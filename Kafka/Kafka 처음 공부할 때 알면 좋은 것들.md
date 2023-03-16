@@ -49,7 +49,7 @@
 
 ### `Cluster, Broker란?`
 
-<img width="487" alt="스크린샷 2023-01-07 오후 10 02 47" src="https://user-images.githubusercontent.com/45676906/211151988-bbd39323-3010-4e20-9417-9021045d50b4.png">
+![image](https://user-images.githubusercontent.com/45676906/225637976-16c1e2e3-5717-444d-b5ad-0ec4d30f708e.png)
 
 Kafka Broker가 모여서 Cluster를 이룬다고 할 수 있다.(쉽게 말하면 Broker는 하나의 서버라고 할 수 있다.)
 
@@ -121,21 +121,44 @@ Kafka 클러스터의 다수 브로커 중 한 대가 컨트롤러 역할을 한
 
 <br>
 
+![image](https://user-images.githubusercontent.com/45676906/225634808-02a9153d-18bc-4d86-8d6b-5b9493122f44.png)
+
+- topic01, topic02가 모두 replication factor가 1인 경우의 사진이다.
+
+<br>
+
+![image](https://user-images.githubusercontent.com/45676906/225634727-178dc98c-f380-4156-9b0f-2d11561e356b.png)
+
+
+- topic02는 replication factor가 1이고, topic01 replication factor가 2인 경우의 사진이다.
+
+<br>
+
+![image](https://user-images.githubusercontent.com/45676906/225635366-2ecd93b3-5ca7-4374-bae6-7a598a781b52.png)
+
+- topic01는 replication factor가 2이고, topic02 replication factor가 3인 경우의 사진이다. 
+
+> kafka에서는 이렇게 replication factor 수를 조정하여, replication의 수를 몇 개로 할지 관리자가 조정할 수 있습니다. replication 수가 많을수록 broker 장애 발생 시 topic에 저장된 데이터 안전성이 보장되기 때문에 중요 데이터의 경우 replication factor 수를 2보다는 3으로 사용하는 것를 권장합니다. <br>
+> 
+> Reference: [https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/)
+
+<br>
+
 ### `리더, 팔로워란?`
 
-<img width="816" alt="스크린샷 2023-01-07 오후 4 53 19" src="https://user-images.githubusercontent.com/45676906/211140249-e31556b5-ebf6-443b-a455-e3d08ab82940.png">
+![image](https://user-images.githubusercontent.com/45676906/225636174-f29471b5-68f8-4f9d-815f-38c9aa4f8264.png)
 
 - 리더는 모든 데이터의 읽기 쓰기 작업을 처리히고, 팔로워는 리더를 주기적으로 보면서 자신에게 없는 데이터를 리더로부터 주기적으로 가져오는 방법으로 리플리케이션을 유지한다.
 
 <br>
 
-### `ISR 이란?`
+### `ISR(In Sync Replica) 이란?`
 
 프로듀서가 리더에게 메세지를 발행하면 팔로워가 해당 메세지를 복제한다. 그런데 팔로워에 문제가 생겨서 데이터 복제가 제대로 되지 않은 상황에서 리더가 문제가 생기면 `데이터 정합성`에 문제가 생긴다.
 
 Kafka 에서는 이러한 현상을 막기 위해 `ISR` 이라는 개념이 존재한다.
 
-<img width="786" alt="스크린샷 2023-01-07 오후 4 57 14" src="https://user-images.githubusercontent.com/45676906/211140369-36f84961-662a-4c93-b636-80bd4109db57.png">
+![image](https://user-images.githubusercontent.com/45676906/225637323-cb80a445-6789-4352-bb1f-32e6ed258514.png)
 
 - Producer가 리더에게 메세지를 보내면 팔로워가 리더로부터 메세지를 복제하게 된다.
 
@@ -477,3 +500,4 @@ Kafka CLI에 대한 좀 더 자세한 것은 [여기](https://akageun.github.io/
 - [https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html](https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html) - `Topic 설정들 참고`
 - [https://docs.confluent.io/platform/current/installation/configuration/broker-configs.html](https://docs.confluent.io/platform/current/installation/configuration/broker-configs.html) - `Broker 옵션들 참고`
 - [https://stackoverflow.com/questions/62326946/kafka-min-insync-replicas-interpretation](https://stackoverflow.com/questions/62326946/kafka-min-insync-replicas-interpretation) - `ack=all, min.insync.replicas 내용 참고`
+- [https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/)
