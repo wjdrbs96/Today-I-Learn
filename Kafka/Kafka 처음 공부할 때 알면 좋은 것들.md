@@ -119,27 +119,20 @@ Kafka 클러스터의 다수 브로커 중 한 대가 컨트롤러 역할을 한
 - 브로커에게 `리플리케이션 팩터 수 만큼 토픽안의 파티션들을 복제`하도록 하는 설정 값이다.
 - 복제본이 생기기 때문에 리더와 팔로워 개념이 존재하고, 가장 중요한 것은 모든 읽기와 쓰기가 리더를 통해서만 일어난다는 것이다.
 
-<br>
-
 ![image](https://user-images.githubusercontent.com/45676906/225634808-02a9153d-18bc-4d86-8d6b-5b9493122f44.png)
 
 - topic01, topic02가 모두 replication factor가 1인 경우의 사진이다.
 
-<br>
-
 ![image](https://user-images.githubusercontent.com/45676906/225634727-178dc98c-f380-4156-9b0f-2d11561e356b.png)
 
-
 - topic02는 replication factor가 1이고, topic01 replication factor가 2인 경우의 사진이다.
-
-<br>
 
 ![image](https://user-images.githubusercontent.com/45676906/225635366-2ecd93b3-5ca7-4374-bae6-7a598a781b52.png)
 
 - topic01는 replication factor가 2이고, topic02 replication factor가 3인 경우의 사진이다. 
 
 > kafka에서는 이렇게 replication factor 수를 조정하여, replication의 수를 몇 개로 할지 관리자가 조정할 수 있습니다. replication 수가 많을수록 broker 장애 발생 시 topic에 저장된 데이터 안전성이 보장되기 때문에 중요 데이터의 경우 replication factor 수를 2보다는 3으로 사용하는 것를 권장합니다. <br>
-> 
+
 > Reference: [https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/)
 
 <br>
