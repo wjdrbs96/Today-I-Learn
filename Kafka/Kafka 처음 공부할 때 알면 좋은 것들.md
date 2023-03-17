@@ -278,6 +278,10 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
   - 주기적으로 오프셋을 커밋하는 시간
   - `기본 값: 5초`
 
+- 컨슈머 리밸런싱과 [max.poll.records](https://kafka.apache.org/documentation/#consumerconfigs_max.poll.records), [max.poll.interval.ms](https://kafka.apache.org/documentation/#consumerconfigs_max.poll.interval.ms) 옵션의 관계
+  - 컨슈머 poll() 대기시간, 해당시간동안 poll() 이 일어나지 않을 경우 커밋전에 리밸런싱이 일어나면서 다른 곳에서 또다시 컨슘되는 문제가 발생한다.
+  - max.poll.records 만큼 가져왔을 때, 처리시간이 max.poll.interval.ms 값보다 작아야 한다.
+
 <br>
 
 ### `컨슈머 그룹이란?`
