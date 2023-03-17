@@ -71,7 +71,7 @@ Kafka에서 Lag 값을 통해 Producer, Consumer의 상태를 유추할 수 있�
 
 - Kafka는 여러 개의 Topic을 가질 수 있다.
 - Topic 안에 여러 개의 파티션을 가질 수 있다.(즉, 파티션이란 토픽을 분할한 것이라 할 수 있다.)
-- Partition은 처음 생성한 이후로는 추가할 수만 있고, 줄일 수는 없다는 특징이 있다.
+- `Partition은 처음 생성한 이후로는 추가할 수만 있고, 줄일 수는 없다는 특징이 있다.`
 
 <br>
 
@@ -506,3 +506,4 @@ Kafka CLI에 대한 좀 더 자세한 것은 [여기](https://akageun.github.io/
 - [https://docs.confluent.io/platform/current/installation/configuration/broker-configs.html](https://docs.confluent.io/platform/current/installation/configuration/broker-configs.html) - `Broker 옵션들 참고`
 - [https://stackoverflow.com/questions/62326946/kafka-min-insync-replicas-interpretation](https://stackoverflow.com/questions/62326946/kafka-min-insync-replicas-interpretation) - `ack=all, min.insync.replicas 내용 참고`
 - [https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-topic-replication/)
+- [https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-producer-acks/](https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-producer-acks/)
