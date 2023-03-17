@@ -267,6 +267,7 @@ acks와 관련된 자세한 것은 [여기](https://www.conduktor.io/kafka/kafka
   - `earliest`: 가장 초기의 오프셋값으로 설정한다.
   - `latest`: 가장 마지막의 오프셋값으로 설정한다.(기본 값)
   - `none`: 이전 오프셋값을 찾지 못하면 에러를 나타낸다.
+  - [참고 Link](https://blog.voidmainvoid.net/305)
 
 - [max.poll.records](https://kafka.apache.org/documentation/#consumerconfigs_max.poll.records)
   - 단일 호출 poll()에 대한 최대 레코드 수를 조정한다.
