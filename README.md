@@ -571,6 +571,7 @@
 - [Kubernetes 기본 명령어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kubernetes/Kubernetes%20%EA%B8%B0%EB%B3%B8%20%EB%AA%85%EB%A0%B9%EC%96%B4.md)
 - [Kubernetes 실습](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kubernetes/Kubernetes%20%EC%8B%A4%EC%8A%B5.md)
 - [Kubernetes Pod 만들기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kubernetes/Kubernetes%20Pod%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)
+- [Liveness, Readiness란?]()
 
 ## Logstash
 
