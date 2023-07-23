@@ -152,6 +152,7 @@
 
 - [Cassandra Key 개념과 Select 쿼리시 알아두어야 할 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key%20%EA%B0%9C%EB%85%90%EA%B3%BC%20Select%20%EC%BF%BC%EB%A6%AC%EC%8B%9C%20%EC%95%8C%EC%95%84%EB%91%90%EC%96%B4%EC%95%BC%20%ED%95%A0%20%EA%B2%83.md)
 - [Cassandra BloomFiler란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20BloomFilter%EB%9E%80.md)
+- [Cassandra는 데이터를 어떻게 쓸까?]()
 
 ## Kafka
 
