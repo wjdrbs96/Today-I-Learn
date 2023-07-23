@@ -153,7 +153,7 @@
 - [Cassandra Key 개념과 Select 쿼리시 알아두어야 할 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key%20%EA%B0%9C%EB%85%90%EA%B3%BC%20Select%20%EC%BF%BC%EB%A6%AC%EC%8B%9C%20%EC%95%8C%EC%95%84%EB%91%90%EC%96%B4%EC%95%BC%20%ED%95%A0%20%EA%B2%83.md)
 - [Cassandra BloomFiler란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20BloomFilter%EB%9E%80.md)
 - [Cassandra는 데이터를 어떻게 쓸까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%93%B8%EA%B9%8C.md)
-- [Cassandra는 데이터를 어떻게 삭제할까?]()
+- [Cassandra는 데이터를 어떻게 삭제할까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%82%AD%EC%A0%9C%ED%95%A0%EA%B9%8C.md)
 
 ## Kafka
 
@@ -566,6 +566,8 @@
   - [5장: 람다로 프로그래밍](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/5%EC%9E%A5.md)
   - [6장: 코틀린 타입 시스템](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/6%EC%9E%A5.md)
   - [7장: 연산자 오버로딩과 기타 관례](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Kotlin/Kotlin%20in%20Action/7%EC%9E%A5.md)
+  - [8장: 고차 함수 : 파라미터와 반환 값으로 람다 사용]()
+  - [9장: 제네릭스]()
   
 ## Kubernetes
 
