@@ -704,6 +704,7 @@
     - [MongoDB Query 문법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%EC%BF%BC%EB%A6%AC.md)
 
 - ### Redis
+    - [Redis 운영 관리]()  
     - [Redis란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Redis/Redis%EB%9E%80%3F.md)
     - [Redis Pub/Sub 이란?]()
     - [Redis CLI 한글 깨질 때 해결하기]()
