@@ -387,6 +387,7 @@
 - [ElasticSearch 기본](https://github.com/wjdrbs96/Today-I-Learn/blob/master/ElasticSearch/ElasticSearch%20%EA%B8%B0%EB%B3%B8.md)
 - [ElasticSearch 간단 정리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/ElasticSearch/ElasticSearch%20%EA%B0%84%EB%8B%A8%20%EC%A0%95%EB%A6%AC.md)
 - [ElasticSearch 인덱스 템플릿이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/ElasticSearch/%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%ED%85%9C%ED%94%8C%EB%A6%BF%EC%9D%B4%EB%9E%80.md)
+- [Warm, Hot, Data Node란?]()
 
 ## Intellij
 
