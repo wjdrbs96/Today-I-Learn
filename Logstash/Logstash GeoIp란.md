@@ -9,7 +9,7 @@ Access.log의 ip의 지리 정보를 판단할 때 사용한다.
 ```nginx configuration
 input {
   beats {
-      port => "5044" 
+      port => "5044"  // filebeat port를 적고 filbeat 를 consume 하는 구조이다.
   }
 }
 
