@@ -212,6 +212,7 @@
   - [@ConfigurationPropertiesScan 이란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Annotation/%40ConfigurationPropertiesScan%20%EC%9D%B4%EB%9E%80.md)
   - [@Qualifier란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Annotation/%40Qualifier%20%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
   - [@Primary란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Annotation/%40Primary%EB%9E%80.md)
+  - [JPA Auditing 어노테이션 정리]()
 
 - ### DI
   - [Spring 의존 자동 주입이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/DI/Spring%20%EC%9D%98%EC%A1%B4%20%EC%9E%90%EB%8F%99%EC%A3%BC%EC%9E%85%EC%9D%B4%EB%9E%80.md)
