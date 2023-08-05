@@ -241,6 +241,9 @@
   - [ResponseEntity란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ResponseEntity%EB%9E%80.md)
   - [ThreadLocal Tip 정리하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Common/ThreadLocal%20Tip.md)
 
+- ### Config
+  - [Spring Config Location 설정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Config/Spring%20Config%20location%20%EC%84%A4%EC%A0%95.md)
+
 - ### CORS
   - [Spring React에서 CORS 해결하는 방법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/CORS/Spring%EC%97%90%EC%84%9C%20CORS%20%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
