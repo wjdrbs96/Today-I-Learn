@@ -592,7 +592,7 @@
 
 ## MySQL
 
-- [CHAR, VARCHAR, TEXT 차이는 무엇일까?]()
+- [CHAR, VARCHAR, TEXT 차이는 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/CHAR%2C%20VARCHAR%2C%20TEXT%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 
 ## Filebeat
 
