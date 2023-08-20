@@ -1,29 +1,29 @@
-## `CHAR, VARCHAR, TEXT 차이는 무엇일까?`
+## `MySQL CHAR, VARCHAR, TEXT 차이는 무엇일까?`
 
-문자열을 사용한다면 `CHAR`, `VARCHAR` 타입 중에 고민할 것이다. 항상 정확하게는 모르고 대략적으로만 `VARCHAR`가 더 효율적이다 이렇게 막연하게만 알고 있었고, 어떤 기준으로 선택해야 하는지는 정확히 잘 모르고 있어서 이번 기회에 정리해보려 한다.
+현재 글의 내용은 책과 다른 기술 블로그 및 자료들을 참고하여 저의 생각을 추가하여 요약한 것인데요. 깊지 않게 가볍게 정리해본 것이라 틀린 내용이 있을 수 있고 부족함이 있을 수 있는데 많은 피드백 부탁드리겠습니다.
 
-- 버전마다 차이점이 있을텐데, 그 점에 대해 자세하게 고려하지 못하고 전반적인 특징으로 정리한 점을 고려해주세요!
+그리고 MySQL 버전마다 차이점이 있을텐데, 그 점에 대해 자세하게 고려하지 못하고 전반적인 특징으로 정리해보았습니다.
 
 <br>
 
-### `CHAR, VARCHAR, TEXT 특징`
+## `CHAR, VARCHAR, TEXT 특징`
 
 |     | CHAR                                                             | VARCHAR                                                                                                                                                                                                                      | TEXT                                                              |
 |-----|------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | 공통점 | 문자열을 저장할 수 있는 데이터 타입                                             | 문자열을 저장할 수 있는 데이터 타입                                                                                                                                                                                                         | 문자열을 저장할 수 있는 데이터 타입                                              |
-| 특징  | CHAR 타입은 이미 저장 공간의 크기가 고정적이라서 실제 저장된 값의 크기가 얼마인지 별도로 저장할 필요가 없다. | VARCHAR 타입은 가변 길이로 최대로 저장할 수 있는 값의 길이는 제한되어 있지만 그 이하 크기의 값이 저장되면 그만큼 저장 공간이 줄어든다. VARCHAR 타입은 실제 저장된 유효 크기가 얼마인지 알아야 하기 때문에 1 ~ 2 바이트의 추가 저장 공간이 필요하다. (VARCHAR 타입의 길이가 255바이트 이하면 1바이트만 사용하고, 256바이트 이상으로 설정되면 2바이트를 사용한다.) | 최대 길이가 크거나, 해당 테이블의 컬럼이 많거나, 자주 사용되지 않는 컬럼이라면 TEXT 사용해도 괜찮을 것 같다. |
 | 차이점 | 고정 길이                                                            | 가변 길이                                                                                                                                                                                                                        | 대용량                                                               |
+| 특징  | CHAR 타입은 이미 저장 공간의 크기가 고정적이라서 실제 저장된 값의 크기가 얼마인지 별도로 저장할 필요가 없다. | VARCHAR 타입은 가변 길이로 최대로 저장할 수 있는 값의 길이는 제한되어 있지만 그 이하 크기의 값이 저장되면 그만큼 저장 공간이 줄어든다. VARCHAR 타입은 실제 저장된 유효 크기가 얼마인지 알아야 하기 때문에 1 ~ 2 바이트의 추가 저장 공간이 필요하다. (VARCHAR 타입의 길이가 255바이트 이하면 1바이트만 사용하고, 256바이트 이상으로 설정되면 2바이트를 사용한다.) | 최대 길이가 크거나, 해당 테이블의 컬럼이 많거나, 자주 사용되지 않는 컬럼이라면 TEXT 사용해도 괜찮을 것 같다. |
 
 <br>
 
-### `CHAR, VARCHAR 중에 어떤 것을 사용하면 좋을까?`
+### `CHAR, VARCHAR 중에 어떤 기준으로 타입을 선정하면 될까?`
 
 문자열 값의 길이가 항상 일정하다면 `CHAR` 타입을 사용하고, 가변적이라면 `VARCHAR` 타입을 사용하는 것이 일반적이다.
 
 - 저장되는 문자열의 길이가 대게 비슷한가?
 - 컬럼의 값이 자주 변경되는가?
 
-하지만 좀 더 정확히 말하면 위의 2가지를 고려하여 데이터 타입을 결정하는 것이 필요하다.
+좀 더 구체적으로 말하면 위의 2가지를 고려하여 데이터 타입을 결정하는 것이 필요하다.
 
 <br>
 
@@ -42,7 +42,7 @@ INSERT INTO tb_test (fd1, fd2, fd3) VALUES (1, 'ABCD', '2023-08-15 21:40:11')
 ```
 
 - `fd1`: INTEGER 타입은 고정길이 4바이트 사용
-- `fd2`: 4바이트만 채워져 있고, 나머지 6바이트는 공백 문자로 채워진 것을 볼 수 있음
+- `fd2`: 4바이트만 채워져 있고, `나머지 6바이트는 공백 문자`로 채워진 것을 볼 수 있음
 - `fd3`: DATETIME 이므로 고정 길이로 8바이트를 사용
 
 <br>
@@ -88,32 +88,42 @@ TEXT 타입에 대해서 알아보기 전에, 먼저 MySQL 레코드 사이즈 �
 
 <br>
 
-### `들어가기 전에`
-
-```
-MySQL에서는 하나의 레코드에서 TEXT와 Blob 타입을 제외한 컬럼의 전체 크기가 64KB를 초과할 수 없다.
-
-테이블에서 VARCHAR 타입의 컬럼 하나만 있다면 이 VARCHAR 타입은 최대 64KB 크기의 데이터를 저장할 수 있다. 
-
-하지만 이미 다른 컬럼에서 40KB의 크기를 사용하고 있다면 VARCHAR 타입은 24KB만 사용할 수 있다.
-
-VARCHAR 16383이 최대인 이유는 모두 4바이트의 글자가 저장된다고 가정했을 때, 16383 x 4 = 65,532 이기 때문이다.
-
-(64KB = 65,532 바이트 이다.)
-```
-
-<br>
+## `들어가기 전에`
 
 ### `MySQL 레코드 사이즈 제한`
 
+MySQL에서는 하나의 레코드에서 TEXT와 Blob 타입을 제외한 컬럼의 전체 크기가 64KB를 초과할 수 없다.
+
+테이블에서 VARCHAR 타입의 컬럼 하나만 있다면 이 VARCHAR 타입은 최대 64KB 크기의 데이터를 저장할 수 있다.
+
+하지만 이미 다른 컬럼에서 40KB의 크기를 사용하고 있다면 VARCHAR 타입은 24KB만 사용할 수 있다.
+
+`VARCHAR 16383이 최대인 이유는 모두 4바이트의 글자가 저장`된다고 가정했을 때, 16383 x 4 = 65,532 이기 때문이다.(64KB = 65,532 바이트 이다.)
+
+<br>
+
+### `CHAR, VARCHAR 뒤에 지정하는 숫자의 의미`
+
+> MySQL 에서 `CHAR`, `VARCHAR` 뒤에 지정하는 숫자는 그 컬럼의 바이트 크기가 아니라 문자의 수를 의미한다.
+
+즉, `CHAR(10)`, `VARCHAR(10)`으로 컬럼을 정의하면 이 컬럼은 10바이트를 저장할 수 있는 공간이 아니라 10글자를 저장할 수 있는 공간을 의미한다.
+
+- 일반적으로 영어를 포함한 서구권 언어는 각 문자가 1바이트 사용
+- 한국어나 일본어와 같은 아시아권 언어는 각 문자가 최대 2바이트를 사용
+- UTF-8 같은 유니코드는 최대 4바이트까지 사용
+
+<br>
+
+### `예시` 
+
 ```sql
-CREATE TABLE tb_long_varchar (id INT PRIMARY KEY, fd1 VARCHAR(1000000));
+CREATE TABLE tb_long_varchar (id INT PRIMARY KEY, fd1 VARCHAR(1000000));  # 1,000,000 (백만) 
 ```
 ```
-0 row(s) affected, 1 warning(s): 1246 Converting column 'fd1' from VARCHAR to TEXT	0.147 sec
+0 row(s) affected, 1 warning(s): 1246 Converting column 'fd1' from VARCHAR to TEXT
 ```
 
-`16383` 제한을 넘어서는 숫자면 `Warning` 로그와 함께 `VARCHAR -> MEDIUMTEXT`로 변환해서 테이블을 생성한다.
+`16,383` 제한을 넘어서는 숫자면 `Warning` 로그와 함께 `VARCHAR -> MEDIUMTEXT`로 변환해서 테이블을 생성한다.
 
 <br>
 
@@ -121,10 +131,10 @@ CREATE TABLE tb_long_varchar (id INT PRIMARY KEY, fd1 VARCHAR(1000000));
 CREATE TABLE tb_long_varchar (id INT PRIMARY KEY, fd1 VARCHAR(16383));
 ```
 ```
-Error Code: 1118. Row size too large. The maximum row size for the used table type, not counting BLOBs, is 65535. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs	0.057 sec
+Error Code: 1118. Row size too large. The maximum row size for the used table type, not counting BLOBs, is 65535. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs
 ```
 
-16383 제한에 걸리도록 설정하여 생성하는 경우는 `VARCHAR -> MEDIUMTEXT`로 변환되지 않고 에러가 발생한다.
+16,383 제한에 걸리도록 설정하여 생성하는 경우는 `VARCHAR -> MEDIUMTEXT`로 변환되지 않고 에러가 발생한다.
 
 <br>
 
@@ -132,14 +142,14 @@ Error Code: 1118. Row size too large. The maximum row size for the used table ty
 CREATE TABLE tb_long_varchar (id INT PRIMARY KEY, fd VARCHAR(16382));
 ```
 
-제한 보다 낮게 설정하면 위처럼 테이블 생성하면 테이블이 정상적으로 생성된다.
+16,383 제한 보다 낮게 설정하면 위처럼 테이블 생성하면 테이블이 정상적으로 생성된다.
 
 ```sql
 ALTER TABLE tb_long_varchar ADD fd2 VARCHAR(10);
 ```
 
 ```
-Error Code: 1118. Row size too large. The maximum row size for the used table type, not counting BLOBs, is 65535. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs	0.013 sec
+Error Code: 1118. Row size too large. The maximum row size for the used table type, not counting BLOBs, is 65535. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs
 ```
 
 하지만 위처럼 `ALTER`를 진행 했을 때는 위와 같은 에러가 발생한다. 
@@ -148,7 +158,9 @@ Error Code: 1118. Row size too large. The maximum row size for the used table ty
 
 위와 같은 이유로 MySQL 서버에서는 레코드 사이즈 한계로 인해서, VARCHAR 타입의 최대 저장 길이 설정시에 공간을 아껴서 설정해야 한다.
 
-> 참고로 TEXT나 BLOB와 같은 LOB 컬럼은 이 제한 사항에 거의 영향을 미치지 않는다. 그래서 많은 컬럼을 가진 테이블에서는 VARCHAR 타입 대신 TEXT 타입을 사용해야 할 수도 있다. 
+> 참고로 TEXT나 BLOB와 같은 LOB 컬럼은 이 제한 사항에 거의 영향을 미치지 않는다. 그래서 많은 컬럼을 가진 테이블에서는 VARCHAR 타입 대신 TEXT 타입을 사용해야 할 수도 있다.
+
+즉, 이러한 특징으로 사이즈 제한이 넘어가도록 사용해야 한다면 VARCHAR가 아니라 TEXT를 사용할 수 있을 것 같다. 
 
 <br>
 
@@ -211,28 +223,16 @@ MySQL 엔진과 InnoDB 스토리지 엔진은 uchar* records[2] 메모리 포인
 
 <br>
 
-## `TEXT, VARCHAR 컬럼 타입 선정`
+## `VARCHAR, TEXT 컬럼 타입 선정`
 
 - `VARCHAR`
-  - 최대 길이가 크지 않은 경우 
+  - 최대 길이가 크지 않은 경우
   - 테이블 데이터를 읽을 때 항상 해당 컬럼이 필요한 경우 => 미리 할당 해놓은 메모리를 재사용해서 사용할 수 있기 때문에?
   - DBMS 서버의 메모리가 충분한 경우 => 이는 VARCHAR는 크기 만큼 미리 메모리를 할당 해놓기 때문에
 - `TEXT`
-  - 최대 길이가 큰 경우 
+  - 최대 길이가 큰 경우
   - 테이블에 길이가 긴 문자열 타입 컬럼이 많이 필요한 경우 => MySQL은 하나의 레코드 사이즈가 64KB로 제한되어 있기 때문에
   - 테이블 데이터를 읽을 때 해당 컬럼이 자주 필요치 않은 경우 => TEXT, BLOB은 요청이 올 때마다 메모리를 할당하고 해제하는 과정이 있기 때문에 자주 요청된다면 비효율적
-
-<br>
-
-## `알아두기`
-
-MySQL 에서 `CHAR`, `VARCHAR` 뒤에 지정하는 숫자는 그 컬럼의 바이트 크기가 아니라 문자의 수를 의미한다.
-
-즉, `CHAR(10)`, `VARCHAR(10)`으로 컬럼을 정의하면 이 컬럼은 10바이트를 저장할 수 있는 공간이 아니라 10글자를 저장할 수 있는 공간을 의미한다.
-
-- 일반적으로 영어를 포함한 서구권 언어는 각 문자가 1바이트 사용
-- 한국어나 일본어와 같은 아시아권 언어는 각 문자가 최대 2바이트를 사용
-- UTF-8 같은 유니코드는 최대 4바이트까지 사용
 
 <br>
 
