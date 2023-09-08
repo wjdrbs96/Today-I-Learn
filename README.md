@@ -19,7 +19,7 @@
     - [정적 멤버를 클래스명.정적멤버로 접근해야 하는 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EC%A0%95%EC%A0%81%20%EB%A9%A4%EB%B2%84%EB%8A%94%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%AA%85.%EC%A0%95%EC%A0%81%EB%A9%A4%EB%B2%84%EB%A1%9C%20%EC%A0%91%EA%B7%BC%ED%95%B4%EC%95%BC%20%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0.md)
     - [객체지향 설계 5원칙 - SOLID](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%205%EC%9B%90%EC%B9%99-SOLID.md)
     - [인터페이스와 추상클래스의 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/%20Object-oriented/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80%20%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4%20%EC%B0%A8%EC%9D%B4.md)
-    - [Shallow Copy와 Deep Copy 차이]()
+    - [Shallow Copy와 Deep Copy 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/Shallow%20Copy%EC%99%80%20Deep%20Copy%20%EC%B0%A8%EC%9D%B4.md)
 
 - ### Generic   
     - [Generic이란?](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/21%EC%9E%A5)
@@ -151,6 +151,7 @@
 
 ## Cassandra
 
+- [Cassandra Partition Key, Composite Key, and Clustering Key]()
 - [Cassandra Key 개념과 Select 쿼리시 알아두어야 할 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key%20%EA%B0%9C%EB%85%90%EA%B3%BC%20Select%20%EC%BF%BC%EB%A6%AC%EC%8B%9C%20%EC%95%8C%EC%95%84%EB%91%90%EC%96%B4%EC%95%BC%20%ED%95%A0%20%EA%B2%83.md)
 - [Cassandra BloomFiler란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20BloomFilter%EB%9E%80.md)
 - [Cassandra는 데이터를 어떻게 쓸까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%93%B8%EA%B9%8C.md)
