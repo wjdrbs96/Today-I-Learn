@@ -69,5 +69,10 @@ WITH CLUSTERING ORDER BY (hostname ASC, log_datetime DESC);
 
 위처럼 정렬 조건을 설정할 수도 있다.
 
+
+
 <br>
 
+## `Referenece`
+
+- [https://www.baeldung.com/cassandra-keys](https://www.baeldung.com/cassandra-keys)
