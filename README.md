@@ -152,10 +152,6 @@
 ## Cassandra
 
 - [Cassandra Partition Key, Composite Key, and Clustering Key](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Partition%20Key%2C%20Composite%20Key%2C%20and%20Clustering%20Key.md)
-- [Cassandra Key 개념과 Select 쿼리시 알아두어야 할 것](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20Key%20%EA%B0%9C%EB%85%90%EA%B3%BC%20Select%20%EC%BF%BC%EB%A6%AC%EC%8B%9C%20%EC%95%8C%EC%95%84%EB%91%90%EC%96%B4%EC%95%BC%20%ED%95%A0%20%EA%B2%83.md)
-- [Cassandra BloomFiler란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20BloomFilter%EB%9E%80.md)
-- [Cassandra는 데이터를 어떻게 쓸까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%93%B8%EA%B9%8C.md)
-- [Cassandra는 데이터를 어떻게 삭제할까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%82%AD%EC%A0%9C%ED%95%A0%EA%B9%8C.md)
 
 ## Kafka
 
@@ -328,6 +324,9 @@
 
 - ### Paging
   - [Offset 페이징과 Cursor 페이징 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Paging/Cursor%20%ED%8E%98%EC%9D%B4%EC%A7%95%EA%B3%BC%20Offset%20%ED%8E%98%EC%9D%B4%EC%A7%95%20%EC%B0%A8%EC%9D%B4.md)
+
+- ### Properties
+  - [Kotlin으로 ConfigurationProperties 사용하기]()
 
 - ### QueryDSL
   - [프로젝트에서 QueryDSL 사용하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Querydsl/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C%20QueryDSL%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
