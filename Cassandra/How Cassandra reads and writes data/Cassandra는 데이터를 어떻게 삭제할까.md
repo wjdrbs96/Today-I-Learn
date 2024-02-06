@@ -1,6 +1,8 @@
 ## `Cassandra는 데이터를 어떻게 삭제할까?`
 
-> Cassandra's processes for deleting data are designed to improve performance, and to work with Cassandra's built-in properties for data distribution and fault-tolerance.
+이번 글에서는 카산드라는 데이터 삭제를 어떻게 하고 `tombstone` 이 무엇인지 알아보겠습니다.
+
+
 
 Cassandra의 데이터 삭제 프로세스는 성능을 향상시키고 데이터 분배?(distribution) 및 내결함성을 위해 Cassandra의 기본 제공 속성과 함께 작동하도록 설계되었습니다.
 
@@ -55,4 +57,7 @@ Cassandra는 삭제를 INSERT 또는 UPSERT로 처리합니다. DELETE 명령에
 
 ### `Referenece`
 
+- [https://blog.voidmainvoid.net/469](https://blog.voidmainvoid.net/469)
 - [https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/dml/dmlAboutDeletes.html](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/dml/dmlAboutDeletes.html)
+- [https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsRepairNodesHintedHandoff.html](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsRepairNodesHintedHandoff.html)
+- [https://thelastpickle.com/blog/2016/07/27/about-deletes-and-tombstones.html](https://thelastpickle.com/blog/2016/07/27/about-deletes-and-tombstones.html)
