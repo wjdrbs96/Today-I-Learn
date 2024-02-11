@@ -8,7 +8,7 @@
 
 ![image](https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/58ac2c32-09cd-4c4b-ad69-cba5b0b966d7)
 
-카산드라는 [CAP](https://en.wikipedia.org/wiki/CAP_theorem) 3가지 특징 중에 `AP` 시스템으로 `높은 가용성`과 `파티션 허용 오차`를 제공합니다. 하지만 상황에 따라 `CP`시스템으로 동작하도록 설정할 수 있습니다.
+카산드라는 [CAP](https://en.wikipedia.org/wiki/CAP_theorem) 3가지 특징 중에 `AP` 시스템으로 `높은 가용성`과 `파티션 허용 오차`를 제공합니다. 상황에 따라 `CP`시스템으로 동작하도록 설정할 수도 있습니다.
 
 즉, 카산드라에서는 `Wrtie`, `Read`의 `Consitency Level`을 어떤 값으로 설정하냐에 따라서 `AP` 시스템이 될 수도 있고, `CP` 시스템이 될 수도 있습니다.
 
