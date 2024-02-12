@@ -155,6 +155,7 @@
 - [Cassandra에서 Cluster, Datacenters, Racks and Nodes 란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Cluster%2C%20Datacenters%2C%20Racks%20and%20Nodes%20in%20Cassandra.md)
 - [Cassandra Partition에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Partition%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 - [Cassandra Consistency Level 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Consistency%20Level%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
+- [Cassandra vnode란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20vnode%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 
 ## Kafka
 
