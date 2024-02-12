@@ -96,10 +96,12 @@ initial_token: -9223372036854775808
 
 ### `num_tokens`
 
-위의 설정은 카산드라 노드에 랜덤하게 할당된 토큰의 수를 설정하는 값입니다. 즉, 하나의 노드에서 `vnode`를 몇개 가지고 있을지를 정하는 옵션이라고 할 수 있습니다. ([Link](https://issues.apache.org/jira/browse/CASSANDRA-13701))
+위의 설정은 카산드라 노드에 랜덤하게 할당된 토큰의 수를 설정하는 값입니다. 즉, 하나의 노드에서 `vnode`를 몇개 가지고 있을지를 정하는 옵션이라고 할 수 있습니다.
 
 - Cassandra 3.x Default Value: 256 ([Link](https://cassandra.apache.org/doc/3.11/cassandra/configuration/cass_yaml_file.html))
 - Cassandra 4.x Default Value: 16 ([Link](https://cassandra.apache.org/doc/stable/cassandra/configuration/cass_yaml_file.html))
+
+카산드라 4.0 버전이 되면서 `vnode` 디폴트 값이 16으로 변경 되었는데요. 256은 너무 많다는 얘기가 나왔는데 카산드라가 이를 반영한 것으로 보입니다. ([Link](https://issues.apache.org/jira/browse/CASSANDRA-13701))
 
 <br>
 
