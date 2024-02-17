@@ -17,7 +17,7 @@
   - Commit Log의 주요 목적 중에 하나는 노드가 다운될 경우를 대비하여 미리 디스크에 써놓고, 노드가 다시 살아나면 커밋 로그 기반으로 Memtable 데이터를 복구 시키기 위함
   - Memtable이 가득 차면 SSTable로 플러시(flush) 되는데 이때 Commit Log의 데이터는 삭제
 - `SSTable(Sorted Strings Table)` 
-  – `SSTable Partition Key 기준으로 정렬하여` Cassandra가 디스크의 데이터를 저장 
+  - `SSTable Partition Key 기준으로 정렬하여` Cassandra가 디스크의 데이터를 저장 
   - `SSTable 파일은 불변`이며, 각 SSTable에는 기본적으로 각 블록의 크기가 64KB 
 
 memtable 및 SSTables은 테이블마다 관리되고, 커밋 로그는 테이블 간에 공유하여 사용합니다. 
@@ -46,7 +46,7 @@ memtable 없이 SSTable만 사용한다면 변경이 있을 때마다 SSTables�
 
 <br>
 
-### `커밋(Commit log) 로그와 SSTable의 차이점`
+### `커밋 로그(Commit log)와 SSTable의 차이점`
 
 그러면 `커밋 로그도 디스크에 접근하여 저장하는 것이니 SSTable 처럼 Disk IO가 많이 발생하니 속도가 느리지 않을까?` 라는 의문을 가질 수 있습니다.   
 
