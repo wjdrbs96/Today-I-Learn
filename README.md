@@ -427,7 +427,7 @@
 - [10장: 객체지향 쿼리 언어](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/10%EC%9E%A5.md)
 - [12장: 스프링 데이터 JPA](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/12%EC%9E%A5.md)
 - [13장: 웹 애플리케이션과 영속성 관리](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/13%EC%9E%A5.md)
-- [14장: 컬렉션과 부가 기능]()
+- [14장: 컬렉션과 부가 기능](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/14%EC%9E%A5.md)
 - [15장: 고급 주제와 성능 최적화](https://github.com/wjdrbs96/Today-I-Learn/blob/master/JPA/15%EC%9E%A5.md)
 
 ## 테스트 주도 개발 시작하기
