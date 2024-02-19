@@ -242,7 +242,88 @@ mysql> SELECT *
 
 <br>
 
+### `인덱스 풀 스캔`
+
+인덱스의 처음부터 끝ㄲ지 모두 읽는 방식을 `인덱스 풀 스캔`이라고 합니다. 대표적으로 쿼리의 조건절에 사용된 컬럼이 인덱스의 첫 번째 컬럼이 아닌 경우 인덳스 풀 스캔 방식이 사용됩니다.
+
+예를 들어, 인덱스는 (A, B, C) 컬럼의 순서로 만들어져 있지만 쿼리의 조건절은 B, C 컬럼으로 검색하는 경우 입니다.
+
+<br>
+
+### `루스 인덱스 스캔`
+
+루트 인덱스 스캔이란 듬성듬성하게 인덱스를 읽는 것을 의미합니다. 중간에 필요치 않은 인덱스 키 값은 무시하고 다음으로 넘어가는 형태로 처리합니다.
+
+```sql
+mysql> SELECT dept_no, MIN(emp_no)
+       FROM dept_emp
+       WHERE dept_no BETWEEN 'd002' AND 'd004'
+       GROUP BY dept_no;
+```
+
+위의 쿼리처럼 `GROUP BY` 함수 또는 `MIN`, `MAX` 집계 함수에서 루스 인덱스 스캔을 사용하면 최적화 할 수 있습니다.
+
+<img width="637" alt="스크린샷 2024-02-19 오전 7 03 11" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/4e25f442-21ec-4aaf-bbaf-da43e05585c5">
+
+위의 그림을 보면 `d002` 일 때 최소의 `emp_no` 하나만 찾고 나머지를 스킵하고 `d003`을 스캔하고 있는 것을 볼 수 있습니다. `d003` 일 때도 마찬가지로 최소 `emp_no`만 찾고 다음으로 넘어가게 되는데, 이것을 `루스 인덱스 스캔` 이라고 합니다.
+
+<br>
+
+### `인덱스 스킵 스캔`
+
+인덱스는 정렬 되어 있고, 인덱스를 구성하는 컬럼의 순서가 매우 중요하다는 것은 잘 알고 있을 것입니다.
+
+```sql
+mysql ALTER TABLE employees
+        ADD INDEX ix_gender_birthdate (gender, birth_date);
+```
+
+```sql
+// 인덱스를 사용하지 못하는 쿼리
+mysql> SELECT * FROM employees WHERE birth_date >= '1965-02-01';
+
+// 인덱스를 사용할 수 있는 쿼리
+mysql> SELECT * FROM employees WHERE gender = 'M' AND birth_date >= '1965-02-01';
+```
+
+인덱스가 `gender, birth_date` 순서로 생성되어 있기 때문에 첫 번째 쿼리는 인덱스를 사용할 수 없다는 것을 알 수 있습니다. 인덱스를 사용하려면 `birth_date` 컬럼부터 시작하는 인덱스를 새로 생성해야 합니다.
+
+`MySQL 8.0 버전부터는 옵티마이저가 gender 컬럼을 건너뛰어서 birth_date 컬럼만으로도 인덱스 검색이 가능하게 해주는 인덱스 스킵 스캔(index sip scan) 최적화 기능이 도입 되었습니다.`
+
+```sql
+mysql> SET optimizer_switch='sip_scan=on'
+    
+mysql> EXPLAIN
+       SELECT gender, birth_date,
+       FROM employees
+       WHERE birth_date >= '1965-02-01';
+```
+
+위처럼 `sip_scan=on` 으로 설정을 해주면 `인덱스 스킨 스캔` 기능을 사용할 수 있습니다.
+
+<img width="714" alt="스크린샷 2024-02-19 오전 7 09 49" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/4d3761c3-e94e-4ab0-b3f8-5e5751d2d8ae">
+
+MySQL 옵티마이저는 gender 컬럼에서 유니크한 값을 모두 조회해서 주어진 쿼리에 gender 컬럼의 조건을 추가해서 쿼리를 다시 실행하는 형태로 처리합니다. 
+
+```sql
+mysql> SELECT gender, birth_date FROM employees WHERE gedner = 'M' AND birth_date >= '1965-02-01';
+mysql> SELECT gender, birth_date FROM employees WHERE gedner = 'F' AND birth_date >= '1965-02-01';
+```
+
+gender 경우 `M`, `F` 값을 가지고 있기 때문에 옵티마이저는 2개의 값으로 쿼리를 실행합니다. 이 기능을 보자마자 그러면 유니크한 값이 많은 컬럼이면 어떻게 될까? 라는 생각이 들었는데요.
+
+- WHERE 조건절에 조건이 없는 인덱스의 선행 컬럼의 유니크한 값의 개수가 적어야 함
+- 쿼리가 인덱스에 존재하는 컬럼만으로 처리 가능해야 함 (커버링 인덱스)
+
+해당 기능은 유니크한 값이 많다면 MySQL 옵티마이저는 인덱스에서 스캔해야 할 시작 지점을 검색하는 작업이 많이 필요해져, 오히려 성능이 떨어질 수 있습니다.
+
+<br>
+
 ## `다중 컬럼(Multi-column) 인덱스`
+
+실제 서비스를 운영하다보면 하나의 인덱스를 사용하는 경우보다 2개 이상의 컬럼을 포함하는 인덱스를 더 많이 사용합니다.
+
+
 
 <br>
 
@@ -251,6 +332,12 @@ mysql> SELECT *
 <br>
 
 ## `클러스터링 인덱스`
+
+MySQL 클러스터링 인덱스는 InnoDB 스토리지 엔진에서만 지원하며, 나머지 스토리이지 엔진에서는 지원되지 않습니다.
+
+> 클러스터링 인덱스는 테이블의 프라이머리 키에 대해서만 적용되는 내용이다. 즉, 프라이머리 키 값이 비슷한 레코드끼리 묶어서 저장하는 것을 클러스터링 인덱스라고 표현한다.
+
+
 
 <br>
 
