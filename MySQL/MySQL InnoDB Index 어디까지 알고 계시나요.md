@@ -433,5 +433,6 @@ MySQL 클러스터링 인덱스는 InnoDB 스토리지 엔진에서만 지원하
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-change-buffer.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-change-buffer.html)
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html)
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-init-startup-configuration.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-init-startup-configuration.html)
+- [https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html)
 - [https://oriondigestive.medium.com/about-introduction-of-index-in-mysql-d8165239c2aa](https://oriondigestive.medium.com/about-introduction-of-index-in-mysql-d8165239c2aa)
 - [Real MySQL-1 8장 - 인덱스]()
