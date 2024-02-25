@@ -82,6 +82,7 @@
     - [Date & Calendar](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Calendar%EC%99%80%20Date.md)
     - [SimpleDateFormat](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/SimpleDateFormat.md)
     - [LocalDateTime에서 milliseconds 제거하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/LocalDateTime%EC%97%90%EC%84%9C%20milliseconds%20%EC%A0%9C%EA%B1%B0%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+    - [Java 날짜, 시간에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Java%20%EB%82%A0%EC%A7%9C%2C%20%EC%8B%9C%EA%B0%84%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
     
 - ### java.io
     - [파일 입출력](https://github.com/wjdrbs96/Gyunny-Java-Lab/tree/master/Java_God/26%EC%9E%A5)
