@@ -418,6 +418,61 @@ offsetDateTime: 2024-02-25T19:03:27.047537+09:00
 
 <br>
 
+## `파싱과 포맷`
+
+날짜와 시간을 원하는 형식으로 파싱하는 방법에 대해서도 알아보겠습니다.
+
+`형식화(formatting)와 관련된 클래스들은 java.time.format 패키지에 들어있는데, 이 중에서 DateTimeFormatter가 핵심입니다.`
+
+```java
+public class DateTimeFormatterExample {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.of(2016, 1, 2);
+        String yyyymmdd = DateTimeFormatter.ISO_LOCAL_DATE.format(date);
+        String yyyymmdd2 = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+
+        System.out.println("yyyymmdd: " + yyyymmdd);
+        System.out.println("yyyymmdd2: " + yyyymmdd2);
+    }
+}
+```
+```
+yyyymmdd: 2016-01-02
+yyyymmdd2: 2016-01-02
+```
+
+<br>
+
+### `문자열을 날짜와 시간으로 파싱하기`
+
+```java
+public class DateTimeFormatterExample {
+    public static void main(String[] args) {
+        LocalDate parseLocalDate = LocalDate.parse("2024-02-25");
+        LocalTime parseLocalTime = LocalTime.parse("23:59:59");
+        LocalDateTime parseLocalDateTime = LocalDateTime.parse("2024-02-25T19:54:54");
+
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime parseLocalDateTimeByPattern = LocalDateTime.parse("2022-02-25 20:03:21", pattern);
+
+        System.out.println("parseLocalDate: " + parseLocalDate);
+        System.out.println("parseLocalTime: " + parseLocalTime);
+        System.out.println("parseLocalDateTime: " + parseLocalDateTime);
+        System.out.println("parseLocalDateTimeByPattern: " + parseLocalDateTimeByPattern);
+    }
+}
+```
+```
+parseLocalDate: 2024-02-25
+parseLocalTime: 23:59:59
+parseLocalDateTime: 2024-02-25T19:54:54
+parseLocalDateTimeByPattern: 2022-02-25T20:03:21
+```
+
+위처럼 `parse()` 메소드 통해서도 문자열을 파싱할 수 있고, `DateTimeFormatter`를 사용해서 파싱할 수도 있습니다.
+
+<br>
+
 ## `Referenece`
 
 - [자바의 정석 - 2편]()
