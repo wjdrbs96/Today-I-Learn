@@ -38,11 +38,72 @@ InnoDB의 모든 테이블은 기본적으로 프라이머리 키를 기준으�
 
 ### `외래키 지원`
 
+InnoDB에서 외래 키는 부모 테이블과 자식 테이블 모두 해당 컬럼에 인덱스 생성이 필요하고, 변경 시에는 반드시 부모 테이블이나 자식 테이블에 데이터가 있는지 체크하는 작업이 필요하므로 잠금이 여러 테이블로 전파되고, 그로 인해 데드락이 발생할 때가 많으므로 개발할 때도 외래 키의 존재에 주의하는 것이 좋습니다.
+
 <br>
 
 ### `MVCC(Multi Version Concurrecy Control)`
 
 읿란적으로 레코드 레벨의 트랜잭션을 지원하는 DBMS가 제공하는 기능이며, MVCC의 가장 큰 목적은 잠금을 사용하지 않는 일관된 읽기를 제공하는 데 있습니다.
+
+멀티 버전이라 함은 하나의 레코드에 대해 여러 개의 버전이 동시에 관리된다는 것을 의미합니다. 
+
+`READ_COMMITTED`인 MySQL 서버에서 InnoDB 스토리지 엔진을 사용하는 테이블의 데이터 변경을 어떻게 처리하는지 알아보겠습니다.
+
+<img width="737" alt="스크린샷 2024-03-01 오후 8 53 09" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/db1426ad-cbad-4ec2-b1d8-3ffc2c78d812">
+
+```sql
+mysql> INSERT INTO member (m_id, m_name, m_area) VALUES (12, 'Gyunny', '서울');
+```
+
+멤버 하나를 저장 했다면 MySQL 상태는 위처럼 될 것입니다. 
+
+<br>
+
+```sql
+mysql> UPDATE member SET m_area = '경기' WHERE m_id = 12;
+```
+
+만약 위처럼 특정 컬럼을 변경했다면 MySQL InnoDB 에서는 어떤 일이 발생할까요?
+
+<br>
+
+<img width="669" alt="스크린샷 2024-03-01 오후 9 00 41" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/0598a77f-ff96-4b89-956f-0a3019d49d19">
+
+위처럼 `InnoDB 버퍼풀에 변경된 내용이 쓰여지고, 백그라운드 쓰레드에 의해 데이터 파일에 변경된 내용을 반영하게 됩니다.` 그리고 `변경 전의 내용을 언두 로그에 저장해둡니다.`
+
+그렇다면 `COMMIT, ROLLBACK이 되지 않은 상태에서 다른 사용자가 다음 같은 쿼리로 작업 중인 레코드를 조회하면 어디에 있는 데이터를 조회할까?`
+
+```sql
+mysql> SELECT * FROM member WHERE m_id = 12;
+```
+
+답은 `트랜잭션 격리 수준`을 어떤 것을 사용하고 있냐에 따라 다릅니다. 
+
+- `READ_UNCOMMITTED`: InnoDB 버퍼 풀이나 데이터 파일로부터 변경되지 않은 데이터를 읽어서 반환합니다. 즉, 데이터가 커밋됐든 아니든 변경된 상태의 데이터를 반환합니다.
+- `READ_COMMITTED, REPEATABLE READ, SERIALIZABLE`: 아직 커밋되지 않았기 때문에 InnoDB 버퍼 풀이나 데이터 파일에 있는 내용 대신 변경되기 이전의 내용을 보관하고 있는 언두 영역의 데이터를 반환합니다.
+
+이러한 과정을 DBMS 에서는 `MVCC` 라고 합니다. 하나의 레코드에 대해 2개의 버전이 유지되고, 필요에 따라 어느 데이터가 보여지는지 여러 가지 상황에 따라 달라지는 구조입니다.
+
+이 상태에서 COMMIT 명령을 실행하면 InnoDB는 더 이상의 변경 작업 없이 지금의 상태를 영구적인 데이터로 만들어 버립니다. 하지만 롤백을 실행하면 InnoDB는 언두 영역에 있는 백업된 데이터를 InnoDB 버퍼 풀로 다시 복구하고, 언두 영역의 내용을 삭제해버립니다.
+
+<br>
+
+### `잠금 없는 일관된 읽기(Non-Locking Consitent Read)`
+
+InnoDB 스토리지 엔진은 MVCC 기술을 이용해 잠금을 걸지 않고 읽기 작업을 수행합니다. 잠금을 걸지 않기 때문에 InnoDB에서 읽기 작업은 다른 트랜잭션이 가지고 있는 잠금을 기다리지 않고, 읽기 작업이 가능합니다.
+
+격리 수준이 SERIALIZABLE이 아닌 READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ 수준의 경우 INSERT와 연결되지 않은 단순 읽기 작업은 다른 트랜잭션의 변경 작업과 관계없이 항상 잠금을 대기하지 않고 바로 실행됩니다.
+
+특정 사용자가 레코드를 변경하고 아직 커밋을 수행하지 않았다 하더라도 이 변경 트랜잭션이 다른 사용자의 SELECT 작업을 방해하지 않습니다. 이를 `잠금 없는 일관된 읽기` 라고 합니다.
+
+<br>
+
+<img width="526" alt="스크린샷 2024-03-01 오후 9 50 08" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/20bc31c9-5427-45b8-a814-b686356bdce7">
+
+<br>
+
+### `InnoDB 버퍼 풀`
 
 
 
