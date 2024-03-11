@@ -88,3 +88,18 @@ mysql> UPDATE employees SET hire_date=NOW() WHERE first_name='Gyunny' AND last_n
 
 ## `MySQL 격리 수준`
 
+트랜잭션의 격리 수준(isolation level)이란 여러 트랜잭션이 동시에 처리될 때 특정 트랜잭션이 다른 트랜잭션에서 변경하거나 조회하는 데이터를 볼 수 있게 허용할지 말지를 결정하는 것입니다.
+
+4개의 격리 수준에서 순서대로 뒤로 갈수록 각 트랜잭션 간의 데이터 격리 정도가 높아지며, 동시 처리 성능도 떨어지는 것이 일반적이라고 볼 수 있습니다.
+
+<br>
+
+### `READ UNCOMMITTED`
+
+<br>
+
+### `REPETABLE READ`
+
+<br>
+
+### `SERIALIZABLE`
