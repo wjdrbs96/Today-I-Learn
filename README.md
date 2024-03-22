@@ -2,9 +2,6 @@
 
 ## Java
 
-- ### Data Type
-    - [float과 double의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Data-Type/float%20vs%20double%20%EC%B0%A8%EC%9D%B4%EB%8A%94%3F.md)
-
 - ### JVM
     - [JDK vs JRE](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Java-Basic/JDK%20vs%20JRE%20%EB%9E%80%3F.md)
     - [JVM(Java Virtual Machine)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/JVM/JVM.md)
@@ -115,6 +112,10 @@
     - [Stream이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream.md)
     - [Stream 연산](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/Stream2.md)
     - [Optional이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Lambda%20%26%20Stream/optional.md)
+
+- ### Data Type
+  - [float과 double의 차이는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Number/float%20vs%20double%20%EC%B0%A8%EC%9D%B4%EB%8A%94%3F.md)
+  - [Java 0부터 시작하는 숫자는 8진수](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Number/Java%200%EB%B6%80%ED%84%B0%20%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94%20%EC%88%AB%EC%9E%90%EB%8A%94%208%EC%A7%84%EC%88%98.md)
 
 - ### Networking
     - [Socket](https://github.com/wjdrbs96/Gyunny-Java-Lab/blob/master/Java_God/28%EC%9E%A5/%EB%8B%A4%EB%A5%B8%20%EC%84%9C%EB%B2%84%EB%A1%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EB%B3%B4%EB%82%B4%EB%A0%A4%EB%A9%B4%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%ED%95%98%EB%A9%B4%20%EB%90%98%EB%82%98%EC%9A%94%3F.md)
