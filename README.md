@@ -724,9 +724,7 @@
     - [GROUP BY & HAVING](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MySQL/GroupBy%20%26%20Having.md)
 
 - ### MongoDB
-    - [MongoDB란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84.md)
     - [MongoDB Authentication 오류 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EA%B6%8C%ED%95%9C%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0.md)
-    - [MongoDB Query 문법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%EC%BF%BC%EB%A6%AC.md)
 
 - ### Redis
     - [Redis 운영 관리]()  
