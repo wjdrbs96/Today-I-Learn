@@ -73,7 +73,7 @@
   - [String이 불변객체인 이유는?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%EC%9D%B4%20%EB%B6%88%EB%B3%80%20%EA%B0%9D%EC%B2%B4%EC%9D%B8%20%EC%9D%B4%EC%9C%A0.md)
   - [String + 연산이 일어나는 과정](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20%2B%20%EC%97%B0%EC%82%B0%20%EA%B3%BC%EC%A0%95.md)
   - [String constant pool이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20constant%20pool%EC%9D%B4%EB%9E%80%3F.md)
-  - [인코딩(Encoding) & 디코딩(Decoding)](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9D%B8%EC%BD%94%EB%94%A9%2C%20%EB%94%94%EC%BD%94%EB%94%A9.md)
+  - [String 인코딩, 디코딩](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/String/String%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9D%B8%EC%BD%94%EB%94%A9%2C%20%EB%94%94%EC%BD%94%EB%94%A9.md)
 
 - ### Date & Time
     - [Date & Calendar](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Java/Date%20%26%20Time/Calendar%EC%99%80%20Date.md)
