@@ -25,9 +25,9 @@ public class StringEncode {
         String name = new String(decode.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         System.out.println("name: " + name);
 
-        System.out.println("result1: " + result1);
-        System.out.println("result2: " + result2);
-        System.out.println("result3: " + result3);
-        System.out.println("result4: " + result4);
+//        System.out.println("result1: " + result1);
+//        System.out.println("result2: " + result2);
+//        System.out.println("result3: " + result3);
+//        System.out.println("result4: " + result4);
     }
 }
