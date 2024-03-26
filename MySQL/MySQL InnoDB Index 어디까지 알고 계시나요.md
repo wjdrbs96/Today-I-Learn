@@ -1,5 +1,42 @@
 # `MySQL InnoDB Index 어디까지 알고 계시나요?`
 
+- [인덱스란?]()
+  - [Primary Key, Secondary Key]()
+  - [인덱스 장단점]()
+  - [B-Tree 인덱스]()
+  - [InnoDB B-Tree Index]()
+- [B-Tree 인덱스 키 추가 및 삭제]()
+  - [인덱스 키 추가]()
+  - [인덱스 키 삭제]()
+  - [인덱스 키 변경]()
+  - [인덱스 키 검색]()
+- [버퍼 풀(Buffer Pool)과 체인지 버퍼(Change Buffer)란?]()
+  - [버퍼 풀(Buffer Pool)]()
+  - [체인지 버퍼(Change Buffer)]()
+  - [B-Tree 인덱스 사용에 영향을 미치는 요소]()
+  - [인덱스 키 값의 크기]()
+  - [B-Tree는 자식 노드를 얼마나 가질 수 있을까?]()
+  - [B-Tree 깊이]()
+  - [선택도(기수성)]()
+- [B-Tree 인덱스를 통한 데이터 읽기]()
+  - [인덱스 레인지 스캔]()
+  - [커버링 인덱스]()
+  - [인덱스 풀 스캔]()
+  - [루스 인덱스 스캔]()
+  - [인덱스 스킵 스캔]()
+- [다중 컬럼(Multi-column) 인덱스]()
+- [B-Tree 인덱스의 가용성과 효율성]()
+  - [비교 조건의 종류와 효율성]()
+  - [인덱스의 가용성]()
+  - [가용성과 효율성 판단]()
+- [클러스터링 인덱스]()
+  - [Clustered Key vs Non Clustered Key]()
+  - [클러스터링 인덱스 장단점]()
+- [해시(Hash) 인덱스란?]()
+- [정리하며]()
+  - [MySQL InnoDB에서 B-Tree 인덱스를 사용하는 이유는 무엇일까?]()
+  - [B-Tree 단점은 없을까?]()
+
 이번 글에서는 MySQL InnoDB Index에 대해서 정리 해보겠습니다. 잘못된 점이 있거나 피드백 주실 부분이 있다면 많은 피드백, 의견 부탁 드리겠습니다.
 
 <br>
@@ -242,9 +279,15 @@ mysql> SELECT *
 
 <br>
 
+### `커버링 인덱스`
+
+- 데이터 추출을 인덱스에서만 수행하는 것을 커버링 인덱스라고 합니다. ([참고 Link](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_covering_index))
+
+<br>
+
 ### `인덱스 풀 스캔`
 
-인덱스의 처음부터 끝까지 모두 읽는 방식을 `인덱스 풀 스캔`이라고 합니다. 대표적으로 쿼리의 조건절에 사용된 컬럼이 인덱스의 첫 번째 컬럼이 아닌 경우 인덳스 풀 스캔 방식이 사용됩니다.
+인덱스의 처음부터 끝까지 모두 읽는 방식을 `인덱스 풀 스캔`이라고 합니다. 대표적으로 쿼리의 조건절에 사용된 컬럼이 인덱스의 첫 번째 컬럼이 아닌 경우 인덱스 풀 스캔 방식이 사용됩니다.
 
 예를 들어, 인덱스는 (A, B, C) 컬럼의 순서로 만들어져 있지만 쿼리의 조건절은 B, C 컬럼으로 검색하는 경우 입니다.
 
@@ -418,10 +461,52 @@ MySQL 클러스터링 인덱스는 InnoDB 스토리지 엔진에서만 지원하
 - 단점
   - 테이블의 모든 세컨더리 인덱스가 클러스터링 키를 갖기 때문에 클러스터링 키 값의 크기가 클 경우 전체적인 인덱스의 크기가 커짐
   - 세컨더리 인덱스를 통해 검색할 때 프라이머리 키로 다시 한번 검색해야 하므로 처리 성능이 느림
-  - INSERT 할 때 프리아미러 키에 의해 레코드의 저장 위치가 결정되기 때문에 처리 성능이 느림
+  - INSERT 할 때 프라이머리 키에 의해 레코드의 저장 위치가 결정되기 때문에 처리 성능이 느림
   - 프라이머리 키를 변경할 때 레코드를 DELETE 하고 INSERT 하는 작업이 필요하기 때문에 처리 성능이 느림
 
 대부분 클러스터링 인덱스의 장점은 빠른 읽기(SELECT) 이먀, 단점은 느린 쓰기(INSERT, UPDATE, DELETE) 라는 것을 알 수 있습니다.
+
+<br>
+
+## `해시(Hash) 인덱스란?`
+
+<img width="1456" alt="스크린샷 2024-03-26 오후 6 29 22" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/cf788595-62af-4d70-a8c2-566362309290">
+
+해시 인덱스는 B-Tree 만큼 범용적으로 사용되지는 않지만 고유의 특성, 용도를 가진 인덱스입니다. `해시 인덱스는 동등 비교 검색에는 최적화되어 있지만 범위를 검색한다거나 정렬된 결과를 가져오는 목적으로는 사용할 수 없습니다.`
+
+일반적인 DBMS에서 해시 인덱스는 메모리 기반의 테이블에 주로 구현되어 있으며 디스크 기반의 대용량 테이블용으로는 거의 사용되지 않는다는 특징이 있습니다.
+
+- 장점:
+  - 실제 키 값을 저장하는 것이 아니라 해시 함수 결과인 숫자를 저장하기 때문에 인덱스 크기가 작고 검색이 빠르다.
+- 단점:
+  - 해시 인덱스는 키 값 자체가 변환되어 저장되기 때문에 [범위를 검색](https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#jointype_range)하거나 원본 값 기준으로 정렬할 수 없다.
+
+<br>
+
+## `정리하며`
+
+### `MySQL InnoDB에서 B-Tree 인덱스를 사용하는 이유는 무엇일까?`
+
+- [Why we use B+ tree for clustered index rather than hashing?](https://stackoverflow.com/questions/66547095/why-we-use-b-tree-for-clustered-index-rather-than-hashing) 
+
+스택 오버플로우에 보면 위와 같이 해시 인덱스가 아니라 B-Tree가 아니라 쓰는지 질문들이 보이는데요. 해당 질문에 대한 답변을 요약하자면 `범위 검색`, `정렬` 2가지를 할 수 없다는 해시 인덱스의 문제점 때문에 범용적으로 사용할 수 없습니다.
+
+<br>
+
+### `B-Tree 단점은 없을까?`
+
+[쓰기, 삭제 작업에 불리함]
+1. B-Tree에 저장될 때는 저장될 키 값을 이용해 B-Tree상의 적절한 위치를 검색
+2. 저장될 위치가 결정되면 레코드의 키 값과 대상 레코드의 주소 정보를 B-Tree의 리프 노드에 저장
+3. 만약 리프 노드가 꽉찬다면 리프 노드가 분리 되어야 하는데, 이는 상위 브랜치 노드까지 처리의 범위가 넓어지기에 상대적으로 비용이 많이드는 것으로 알려져 있음 
+4. 비용이 비싼 것은 디스크로부터 인덱스 페이지를 읽고 쓰기를 하기 때문
+
+위에서 정리한 것처럼 B-Tree는 쓰기, 변경이 일어날 때마다 위의 작업이 일어나기 때문에 비효율 적이라 할 수 있습니다. 
+
+<br>
+
+[디스크 용량]
+- B-Tree는 Balanced Tree 이기 때문에 해당 Tree 구조를 유지하기 위해서 디스크 공간이 많이 낭비될 수 있다는 특징이 있음
 
 <br>
 
@@ -434,5 +519,9 @@ MySQL 클러스터링 인덱스는 InnoDB 스토리지 엔진에서만 지원하
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html)
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-init-startup-configuration.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-init-startup-configuration.html)
 - [https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html)
+- [https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_hash_index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_hash_index)
+- [https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html](https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html)
+- [https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html](https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html)
 - [https://oriondigestive.medium.com/about-introduction-of-index-in-mysql-d8165239c2aa](https://oriondigestive.medium.com/about-introduction-of-index-in-mysql-d8165239c2aa)
+- [https://www.quora.com/What-are-some-of-the-disadvantages-of-using-a-B-Tree-index-in-SQL](https://www.quora.com/What-are-some-of-the-disadvantages-of-using-a-B-Tree-index-in-SQL)
 - [Real MySQL-1 8장 - 인덱스]()
