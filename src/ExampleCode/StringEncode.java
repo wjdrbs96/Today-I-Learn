@@ -9,14 +9,6 @@ public class StringEncode {
     public static void main(String[] args) throws UnsupportedEncodingException {
         String korean = "하이";
 
-        byte[] isoBytes = korean.getBytes(StandardCharsets.ISO_8859_1);
-        byte[] utf8Bytes = korean.getBytes(StandardCharsets.UTF_8);
-
-        String result1 = new String(isoBytes, StandardCharsets.ISO_8859_1);
-        String result2 = new String(utf8Bytes, StandardCharsets.UTF_8);
-        String result3 = new String(isoBytes, StandardCharsets.UTF_8);
-        String result4 = new String(isoBytes);
-
         String encode = URLEncoder.encode(korean, StandardCharsets.UTF_8);
         System.out.println("encode: " + encode);
         String decode = URLDecoder.decode(encode, StandardCharsets.ISO_8859_1);
