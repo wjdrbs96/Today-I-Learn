@@ -52,3 +52,10 @@ EXPLAIN SELECT * FROM bbang_map.Bakery WHERE id > 100 ORDER BY id desc;
 
 <br>
 
+<br>
+
+## `Extra`
+
+### `Using Index (커버링 인덱스)`
+
+데이터 파일을 전혀 읽지 않고 인덱스만 읽어서 쿼리를 몯 ㅜ처리할 수 있을 때 Extra 컬럼에 `Using Index`가 표시됩니다.
