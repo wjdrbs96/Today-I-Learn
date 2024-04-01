@@ -11,6 +11,7 @@ public class StringEncode {
 
         String encode = URLEncoder.encode(korean, StandardCharsets.UTF_8);
         System.out.println("encode: " + encode);
+
         String decode = URLDecoder.decode(encode, StandardCharsets.ISO_8859_1);
         System.out.println("decode: " + decode);
 
