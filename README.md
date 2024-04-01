@@ -607,6 +607,7 @@
 - [MySQL 트랜잭션과 잠금](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EA%B3%BC%20%EC%9E%A0%EA%B8%88.md)
 - [MySQL InnoDB 어디까지 아시나요?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20InnoDB%20Index%20%EC%96%B4%EB%94%94%EA%B9%8C%EC%A7%80%20%EC%95%8C%EA%B3%A0%20%EA%B3%84%EC%8B%9C%EB%82%98%EC%9A%94.md)
 - [CHAR, VARCHAR, TEXT 차이는 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/CHAR%2C%20VARCHAR%2C%20TEXT%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+- [MySQL Replication 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20Replication%20%EC%9D%B4%EB%9E%80.md)
 
 ## Filebeat
 
