@@ -609,6 +609,7 @@
 - [CHAR, VARCHAR, TEXT 차이는 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/CHAR%2C%20VARCHAR%2C%20TEXT%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 - [MySQL Replication 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20Replication%20%EC%9D%B4%EB%9E%80.md)
 - [MySQL 실행 계획](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%EC%8B%A4%ED%96%89%20%EA%B3%84%ED%9A%8D.md)
+- [MySQL 인덱스 컨디션 푸시 다운이란](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%EC%BB%A8%EB%94%94%EC%85%98%20%ED%91%B8%EC%8B%9C%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%9E%80.md)
 
 ## Filebeat
 
