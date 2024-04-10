@@ -175,7 +175,9 @@ Cassandra는 Cache, Index, Index summaries 등등 디스크의 SStables 파일 �
 
 파티션 크기는 JVM Heap 크기 및 카산드라 Garbage Collection 메커니즘에 직접적인 영향을 미칩니다. 파티션 사이즈가 크다면 Garbage Collection이 비효율적입니다.
 
-카산드라의 내부 동작 및 메모리 사용에 대해 좀 더 자세하 알게 되면 더 자세히 이해가 될 것 같습니다. ([Link](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/operations/opsTuneJVM.html))
+카산드라의 내부 동작 및 메모리 사용에 대해 좀 더 자세하 알게 되면 더 자세히 이해가 될 것 같습니다. ([Link](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/operations/opsTuneJVM.html#HowCassandrausesmemory))
+
+여기 내용은 알아도 끝이 없는거 같고.. 어렵고 정리할게 매우 많은 영역인거 같네요..
 
 <br>
 
