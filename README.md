@@ -614,6 +614,7 @@
 - [MySQL Filesort란 무엇일까](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20Filesort%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 - [MySQL 스트리밍 방식과 버퍼링 방식](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D%20%EB%B0%A9%EC%8B%9D%EA%B3%BC%20%EB%B2%84%ED%8D%BC%EB%A7%81%20%EB%B0%A9%EC%8B%9D.md)
 - [MySQL GROUP BY에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20GROUP%20BY%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
+- [MySQL DISTINCT에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20DISTINCT%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 
 ## Filebeat
 
