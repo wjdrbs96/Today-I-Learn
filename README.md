@@ -163,6 +163,11 @@
 - [Cassandra는 데이터를 어떻게 쓸까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EC%93%B8%EA%B9%8C.md)
 - [Cassandra truncate 이후 snapshot 제거](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20truncate%20%EC%9D%B4%ED%9B%84%20snapshot%20%EC%A0%9C%EA%B1%B0.md)
 
+## CDC
+
+- [Cdc에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cdc/Cdc%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
+
+
 ## Kafka
 
 - ### Kafka Basic
