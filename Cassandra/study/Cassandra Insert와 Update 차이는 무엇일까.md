@@ -1,4 +1,4 @@
-## `Cassandra Insert와 Update는 어떻게 동작할까?`
+## `Cassandra Insert와 Update 차이가 무엇일까?`
 
 카산드라는 append 모델을 사용하기 때문에 INSERT와 UPDATE 작업 사이에 근본적인 차이가 없습니다. 
 
