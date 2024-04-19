@@ -621,6 +621,7 @@
 - [MySQL GROUP BY에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20GROUP%20BY%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 - [MySQL DISTINCT에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20DISTINCT%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 - [MySQL 임시 테이블](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%EC%9E%84%EC%8B%9C%20%ED%85%8C%EC%9D%B4%EB%B8%94.md)
+- [B+Tree와 B-Tree 차이점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/B-Tree%EC%99%80%20B%2BTree%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 
 ## Filebeat
 
