@@ -155,7 +155,7 @@ rows 레벨에 liveness_info가 없기 때문에 50초가 지난 후에 GyunnyTT
 
 ## `요약`
 
-- 기존 행에 존재하는 PK와 동일한 데이터를 INSERT 하면 UPDATE가 되고m UPDATE를 했는데 PK가 존재하지 않으면 신규 row를 생성
+- 기존 행에 존재하는 PK와 동일한 데이터를 INSERT 하면 UPDATE가 되고 UPDATE를 했는데 PK가 존재하지 않으면 신규 row를 생성
 - INSERT 쿼리는 row 레벨의 liveness_info를 설정하고 UPDATE 쿼리는 cell 레벨의 liveness_info를 설정
 - `PK가 아닌 필드에 모두 NULL로 설정되어 있어도 row 레벨의 만료되지 않는 liveness_info가 있는 경우 row가 자동으로 삭제되지 않음`
 
