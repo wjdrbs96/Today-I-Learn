@@ -14,7 +14,8 @@
 
 ![image](https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/7ff404cc-5f5c-40e7-b204-4cc919077f67)
 
-
+- 모든 노드(internal node + leaf node)에 키와 값이 함께 저장
+- internal 노드의 포인터를 통해서만 리프 노드로 이동 가능
 
 <br>
 
@@ -22,8 +23,9 @@
 
 ![image](https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/aa0d25c5-5bc8-454d-a640-313704389213)
 
+- internal 노드에는 키만 저장, 리프 노드에는 키와 값이 저장
 - 디스크 파일에 접근할 수 있는 데이터 포인터는 리프 노드에만 존재 (데이터 포인터와 함께 모든 키 값을 저장)
-
+- 리프 노드끼리 서로 연결 리스트로 연결되어 있음
 
 <br>
 
