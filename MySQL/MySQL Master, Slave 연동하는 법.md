@@ -125,8 +125,6 @@ Master MySQL에 접근할 수 있는 상황이라면 위의 명령어를 통해�
 SHOW SLAVE STATUS\G;
 ```
 
-<img width="346" alt="스크린샷 2024-04-22 오후 10 42 33" src="https://media.oss.navercorp.com/user/30855/files/ca2d95d6-7bbf-4c02-bc96-82f1bfe61cc1">
-
 위의 명령어로 확인 했을 때 `Waiting for master to send event` 가 나오면 Slave 연동이 성공했다고 할 수 있다.
 
 이거 뿐만 아니라 Master DB에서 값을 변경 해보았을 때 Slave DB에도 결과가 잘 반영된 것을 보아 Slave 연동이 잘 된 것 같다.
