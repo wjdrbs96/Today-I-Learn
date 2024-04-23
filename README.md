@@ -623,6 +623,7 @@
 - [MySQL DISTINCT에 대해 알아보자](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20DISTINCT%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90.md)
 - [MySQL 임시 테이블](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20%EC%9E%84%EC%8B%9C%20%ED%85%8C%EC%9D%B4%EB%B8%94.md)
 - [B+Tree와 B-Tree 차이점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/B-Tree%EC%99%80%20B%2BTree%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+- [MySQL Master, Slave 연동하는 법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/MySQL/MySQL%20Master%2C%20Slave%20%EC%97%B0%EB%8F%99%ED%95%98%EB%8A%94%20%EB%B2%95.md)
 
 ## Filebeat
 
