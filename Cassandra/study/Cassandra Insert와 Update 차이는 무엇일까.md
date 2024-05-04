@@ -153,6 +153,12 @@ rows 레벨에 liveness_info가 없기 때문에 50초가 지난 후에 GyunnyTT
 
 <br>
 
+## `신규 row 가 추가되면 다르게 동작하는 부분`
+
+- 정리 중
+
+<br>
+
 ## `요약`
 
 - 기존 행에 존재하는 PK와 동일한 데이터를 INSERT 하면 UPDATE가 되고 UPDATE를 했는데 PK가 존재하지 않으면 신규 row를 생성
