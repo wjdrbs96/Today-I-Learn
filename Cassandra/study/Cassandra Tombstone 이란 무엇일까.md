@@ -1,4 +1,12 @@
-## `Cassandra Tombstone 이란 무엇이까?`
+## `Cassandra Tombstone 이란 무엇일까?`
+
+카산드라에서 데이터를 삭제하면 실제로 데이터가 삭제되지 않고, Tombstone 이라는 플래그로 삭제 예정임을 표시합니다. 
+
+Tombstone이 마크된 데이터는 쿼리를 하더라도 데이터가 나타나지 않습니다. 하지만 tombstones이 너무 많으면 카산드라 읽기 성능이 떨어질 수 있다는 점도 알아두어야 합니다.
+
+
+
+<br>
 
 - DELETE 쿼리 사용
 - TTL 쿼리 사용 
@@ -18,8 +26,6 @@
 그리고 상황에 따라 위처럼 tombstones이 생성되게 되는데 각각 어떤 특징을 가지고 있는지 하나씩 알아보겠습니다.
 
 참고로 tombstones은 하나 이상의 노드에서 SSTables에 기록되고, 테이블에 설정한 값인 `gc_grace_seconds` 설정된 기간이 지날 때까지 tombstones 으로 남아있으면 [Compaction](https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/how-data-maintain.html#dml-compaction) 과정을 거치면서 tombstones은 삭제됩니다.
-
-(참고로 tombstones이 너무 많으면 카산드라 읽기 성능이 떨어질 수 있다는 점도 알아두어야 합니다.)
 
 <br>
 
