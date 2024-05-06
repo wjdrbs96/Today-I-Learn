@@ -1,5 +1,7 @@
 ## `Cassandra Tombstone 이란 무엇일까?`
 
+해당 글을 읽기 전에 먼저 [카산드라는 데이터를 어떻게 삭제할까?](https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/about-deletes.html) 에 대해서 한번 읽어보시는 것을 추천드립니다.
+
 카산드라에서 데이터를 삭제하면 바로 데이터가 삭제되지 않고, Tombstone 이라는 플래그로 삭제 예정임을 표시합니다. 카산드라 같이 분산 시스템에서는 이렇게 데이터를 삭제하는 방법이 일반적인 방식입니다.
 
 Tombstone이 마크된 데이터는 쿼리를 하더라도 데이터가 나타나지 않습니다. 참고로 tombstones이 너무 많으면 카산드라 읽기 성능이 떨어질 수 있다는 점도 알아두어야 합니다.
