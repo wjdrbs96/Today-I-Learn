@@ -210,6 +210,16 @@ UPDATE gyunny.rank_by_year_and_name USING TTL 1
 
 <br>
 
+## `마무리 하며`
+
+카산드라는 분산 데이터베이스 이기 때문에 데이터를 삭제할 때 바로 삭제하지 않고 Tombstone 이라는 마킹을 해놓고, gc_grace_seconds 옵션 시간이 지나면 컴팩션 과정을 통해서 삭제된다는 것을 알아보았습니다.
+
+이정도는 알고 있는 개념이긴 했는데 위처럼 partition 삭제, row 삭제, TTL, cell 등등 삭제할 때마다 Tombstone 마크가 다르게 표시되는 것은 이번에 알게되었습니다.
+
+정리하면서 왜 이렇게 상황마다 Tombstone 마크가 다르게 형성되도록 해두었는지 궁금했는데요. 지금 살짝 추측해보면 INSERT, UPDATE 쿼리나 등등 어떤 특정 상황마다 Tombstone 마크가 어떻게 되어 있냐에 따라 다르게 동작하는 부분이 있지 않을까 생각합니다. (아니면 다른 내부적인 어떠한 동작이 있어서 일지도 ?!?) 
+
+<br>
+
 ## `Referenece`
 
 - [https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/architecture-tombstones.html](https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/architecture-tombstones.html)
