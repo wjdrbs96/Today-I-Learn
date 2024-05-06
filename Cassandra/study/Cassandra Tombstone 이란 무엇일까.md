@@ -1,12 +1,32 @@
 ## `Cassandra Tombstone 이란 무엇일까?`
 
-카산드라에서 데이터를 삭제하면 실제로 데이터가 삭제되지 않고, Tombstone 이라는 플래그로 삭제 예정임을 표시합니다. 
+카산드라에서 데이터를 삭제하면 바로 데이터가 삭제되지 않고, Tombstone 이라는 플래그로 삭제 예정임을 표시합니다. 카산드라 같이 분산 시스템에서는 이렇게 데이터를 삭제하는 방법이 일반적인 방식입니다.
 
-Tombstone이 마크된 데이터는 쿼리를 하더라도 데이터가 나타나지 않습니다. 하지만 tombstones이 너무 많으면 카산드라 읽기 성능이 떨어질 수 있다는 점도 알아두어야 합니다.
-
-
+Tombstone이 마크된 데이터는 쿼리를 하더라도 데이터가 나타나지 않습니다. 참고로 tombstones이 너무 많으면 카산드라 읽기 성능이 떨어질 수 있다는 점도 알아두어야 합니다.
 
 <br>
+
+## `gc_grace_seconds와 툼스톤 삭제`
+
+```sql
+CREATE TABLE Tombstone
+(
+	partition_key text,
+	test_id       text,
+	PRIMARY KEY ((partition_key), user_id)
+) WITH CLUSTERING ORDER BY (test_id DESC)
+    ... 생략
+   AND gc_grace_seconds = 864000
+    ... 생략
+```
+
+`gc_grace_seconds` 값을 위처럼 테이블마다 지정할 수 있습니다. gc_grace_seconds가 지나고 난 이후에 컴팩션 이라는 과정을 통해서 Tombstone 마크는 삭제됩니다. 
+
+자세한 내용은 [여기](https://blog.voidmainvoid.net/469) 내용을 꼭 읽어보시는 것을 추천합니다.
+
+<br>
+
+## `Cassandra Tombstone 언제 생성될까?`
 
 - DELETE 쿼리 사용
 - TTL 쿼리 사용 
@@ -29,7 +49,7 @@ Tombstone이 마크된 데이터는 쿼리를 하더라도 데이터가 나타�
 
 <br>
 
-## `테이블 생성 및 데이터 세팅`
+### `테이블 생성 및 데이터 세팅`
 
 ```sql
 CREATE KEYSPACE gyunny WITH replication = 
@@ -67,7 +87,7 @@ CREATE TABLE cycling.cyclist_career_teams (
 
 <br>
 
-## `Partition tombstones`
+### `Partition tombstones`
 
 ```sql
 DELETE from post_dev.rank_by_year_and_name 
@@ -90,7 +110,7 @@ sstable dump를 진행해보면 위와 같이 결과가 나온 것을 볼 수 �
 
 <br>
 
-## `Row tombstones`
+### `Row tombstones`
 
 Row tombstones은 말 그대로 파티션 내의 특정 row를 명시적으로 삭제될 때 생성됩니다.
 
@@ -109,7 +129,7 @@ DELETE from gyunny.rank_by_year_and_name
 
 <br>
 
-## `Range tombstones`
+### `Range tombstones`
 
 ```sql
 DELETE from gyunny.rank_by_year_and_name 
@@ -136,10 +156,9 @@ CREATE TABLE gyunny.cyclist_career_teams (
 );
 ```
 
-
 <br>
 
-## `Cell tombstones`
+### `Cell tombstones`
 
 ```sql
 INSERT INTO gyunny.rank_by_year_and_name (
@@ -158,7 +177,7 @@ VALUES (2018, 'Giro d''Italia - Stage 11 - Osimo > Imola', null, 1);
 
 <br>
 
-## `TTL tombstones`
+### `TTL tombstones`
 
 ```sql
 INSERT INTO gyunny.cyclist_career_teams (
@@ -187,11 +206,10 @@ UPDATE gyunny.rank_by_year_and_name USING TTL 1
 
 반면에 Update 쿼리와 함께 TTL을 적용 했을 경우 cyclist_name 컬럼 값이 사라지고 위처럼 만료 되었다는 표시가 생기는 것을 확인할 수 있습니다.  
 
-
-
 <br>
 
 ## `Referenece`
 
 - [https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/architecture-tombstones.html](https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/architecture-tombstones.html)
 - [https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/how-data-maintain.html#dml-compaction](https://docs.datastax.com/en/dse/5.1/docs/architecture/database-internals/how-data-maintain.html#dml-compaction)
+- [https://blog.voidmainvoid.net/469](https://blog.voidmainvoid.net/469)
