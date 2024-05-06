@@ -65,14 +65,14 @@ CREATE TABLE gyunny.rank_by_year_and_name (
     PRIMARY KEY ((race_year, race_name), rank)
 ) WITH CLUSTERING ORDER BY (rank ASC);
 
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny1 > Shinshu', 'Benjamin PRADES', 1);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny2 > Shinshu', 'Adam PHELAN', 2);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny3 > Shinshu', 'Thomas LEBAS', 3);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Giro d''Italia - Stage 11 - Gyunny4 > Imola', 'Ilnur ZAKARIN', 1);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Giro d''Italia - Stage 11 - Gyunny5 > Imola', 'Carlos BETANCUR', 2);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny6 GILBERT', 1);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny7 MARTIN', 2);
-INSERT INTO post_dev.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny8 Esteban CHAVES', 3);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny1 > Shinshu', 'Benjamin PRADES', 1);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny2 > Shinshu', 'Adam PHELAN', 2);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Tour of Japan - Stage 4 - Gyunny3 > Shinshu', 'Thomas LEBAS', 3);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Giro d''Italia - Stage 11 - Gyunny4 > Imola', 'Ilnur ZAKARIN', 1);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2015, 'Giro d''Italia - Stage 11 - Gyunny5 > Imola', 'Carlos BETANCUR', 2);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny6 GILBERT', 1);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny7 MARTIN', 2);
+INSERT INTO gyunny.rank_by_year_and_name (race_year, race_name, cyclist_name, rank) VALUES (2014, '4th Tour of Beijing', 'Gyunny8 Esteban CHAVES', 3);
 
 CREATE TABLE cycling.cyclist_career_teams (
     id UUID PRIMARY KEY,
@@ -92,7 +92,7 @@ CREATE TABLE cycling.cyclist_career_teams (
 ### `Partition tombstones`
 
 ```sql
-DELETE from post_dev.rank_by_year_and_name 
+DELETE from gyunny.rank_by_year_and_name 
    WHERE race_year = 2014 AND race_name = '4th Tour of Beijing';
 ```
 
