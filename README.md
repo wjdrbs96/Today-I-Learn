@@ -164,6 +164,7 @@
 - [Cassandra truncate 이후 snapshot 제거](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20truncate%20%EC%9D%B4%ED%9B%84%20snapshot%20%EC%A0%9C%EA%B1%B0.md)
 - [Cassandra INSERT, UPDATE는 어떻게 동작할까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Insert%EC%99%80%20Update%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 - [Cassandra Tombstone 이란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Tombstone%20%EC%9D%B4%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+- [Cassandra Statement 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/driver/Cassandra%20Statement%20%EC%A0%95%EB%A6%AC.md)
 
 ## CDC
 
