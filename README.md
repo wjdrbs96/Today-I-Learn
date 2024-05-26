@@ -752,10 +752,9 @@
     - [MongoDB Authentication 오류 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/MongoDB/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EA%B6%8C%ED%95%9C%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0.md)
 
 - ### Redis
-    - [Redis 운영 관리]()  
-    - [Redis란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/DataBase/Redis/Redis%EB%9E%80%3F.md)
-    - [Redis Pub/Sub 이란?]()
-    - [Redis CLI 한글 깨질 때 해결하기]()
+    - [Redis Pub/Sub 이란?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Redis/Redis%20pub%20sub%20%EC%9D%B4%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%3F.md)
+    - [Redis CLI 한글 깨질 때 해결하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Redis/Redis%20CLI%20%ED%95%9C%EA%B8%80%20%EA%B9%A8%EC%A7%88%20%EB%95%8C%20%ED%95%B4%EA%B2%B0.md)
+    - [Redis 확장과 분산 기법](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Redis/study/Redis%20%ED%99%95%EC%9E%A5%EA%B3%BC%20%EB%B6%84%EC%82%B0%20%EA%B8%B0%EB%B2%95.md)
 
 
 - ### Real MySQL
