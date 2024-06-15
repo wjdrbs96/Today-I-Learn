@@ -165,6 +165,7 @@
 - [Cassandra INSERT, UPDATE는 어떻게 동작할까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Insert%EC%99%80%20Update%20%EC%B0%A8%EC%9D%B4%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 - [Cassandra Tombstone 이란 무엇일까?](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/study/Cassandra%20Tombstone%20%EC%9D%B4%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
 - [Cassandra Statement 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/driver/Cassandra%20Statement%20%EC%A0%95%EB%A6%AC.md)
+- [Cassandra BatchOps Write Option에 대하여](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Cassandra/Cassandra%20BatchOps%20Write%20Option%EC%97%90%20%EB%8C%80%ED%95%98%EC%97%AC.md)
 
 ## CDC
 
