@@ -2,19 +2,19 @@
 
 float과 double 모두 실수를 표현하기 위해 사용하는 자료형이라는 것은 알고 있을 것 입니다. 하지만 정확한 차이가 무엇이냐고 물어본다면 대답하기가 쉽지 않습니다...(애매하게 float은 4byte, double은 8byte다 이정도..)
 
-![type](https://t1.daumcdn.net/cfile/tistory/2268E24058849BAA27)
+![image](https://github.com/user-attachments/assets/e4e6e73b-9e83-45d3-aa4b-3bd56310e1ad)
 
 위에서 볼 수 있듯이 `float은 4Byte`, `double은 8byte` 입니다. 실수형 데이터 타입을 다룰 때 중요한 것은 `정밀도(precision)`입니다. 
 
 정수형보다 실수형을 쓰면 훨씬 더 큰 값을 표현할 수 있지만, `오차`가 발생할 수 있다는 단점이 있습니다. 
 
-![float-double](https://media.vlpt.us/post-images/jjewqm/a5ea41f0-e071-11e9-a5d8-37f75617a124/%EC%8B%A4%EC%88%98-%EC%9E%90%EB%A3%8C%ED%98%95-%ED%81%AC%EA%B8%B0-%EB%B2%94%EC%9C%84.png)
+![image](https://github.com/user-attachments/assets/6d513ed4-6adf-4eca-b799-bdb68282a358)
 
 `유효자릿수`가 뜻하는 것은 `정밀도`를 뜻합니다. 즉, 몇자리 까지 오차없이 표현할 수 있는가입니다. float은 7자리, double은 15~16자리 까지 표현할 수 있습니다. 
 
 따라서 `float`의 정밀도보다 더 높은 정밀도가 필요하다면 `double`을 사용해야 합니다. 
 
-<img width="748" alt="스크린샷 2021-01-10 오후 6 43 00" src="https://user-images.githubusercontent.com/45676906/104119588-aafd3f00-5373-11eb-858a-801c24e78aef.png">
+![image](https://github.com/user-attachments/assets/101cb2d3-d4a0-4997-8739-2a14dba6f229)
 
 위의 그림을 보시면 실수형 범위에서 표현할 수 없는 범위가 있는 것을 볼 수 있습니다. 실수형은 `얼마나 큰 값을 표현할 수 있는가 뿐만 아니라 얼마나 0에 가깝게 표현할 수 있는가`도 중요합니다.(얼마나 정밀도 있게 표현할 수 있는가라고도 할 수 있습니다.)
 
@@ -22,12 +22,12 @@ float과 double 모두 실수를 표현하기 위해 사용하는 자료형이�
 
 ## `실수형의 저장 방식`
 
-4 byte의 정수로는 `약 +-2x10^9`의 값밖에 표현할 수 없는데, 어떻게 같은 4 byte로 `+-3.4x10^38`과 같이 큰 값을 표현할 수 있는 걸까요?
+4 byte의 정수로는 `약 +-2x10^9`의 값밖에 표현할 수 없는데, 어떻게 같은 4byte로 `+-3.4x10^38`과 같이 큰 값을 표현할 수 있는 걸까요?
 그 이유는 `바로 값을 저장하는 형식이 다르기 때문`입니다. 
 
 > int형은 32비트 중 1비트=부호비트, 31비트는 값을 표현하는데 사용합니다.
 
-<img width="735" alt="스크린샷 2021-01-10 오후 6 44 41" src="https://user-images.githubusercontent.com/45676906/104119623-e7309f80-5373-11eb-9e43-4bfbb1b2664d.png">
+![image](https://github.com/user-attachments/assets/46e8a57f-3d61-4f69-b773-75f195aa754b)
 
 `float`과 `double`은 위와 같이 `부호(S)`,`지수(E)`, `가수(M)`로 나눠서 표현하게 됩니다. 
 
@@ -68,7 +68,7 @@ float과 double 모두 실수를 표현하기 위해 사용하는 자료형이�
 
 <br>
 
-<img width="481" alt="스크린샷 2021-01-10 오후 6 59 02" src="https://user-images.githubusercontent.com/45676906/104119867-e862cc00-5375-11eb-8902-09f8da41f184.png">
+![image](https://github.com/user-attachments/assets/b8d7586e-5057-4236-ae96-2e2b988cd1ef)
 
 따라서 실제로 위와 같은 형태로 저장이 됩니다. (자세히 설명하면 엄청 복잡하지만,, 일단은 이정도에서 마무리..)
 
