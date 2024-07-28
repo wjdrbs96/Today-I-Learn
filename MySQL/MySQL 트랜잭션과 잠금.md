@@ -12,9 +12,13 @@
 
 ## `MySQL 엔진의 잠금`
 
-MySQL에서 사용되는 잠금은 크게 스토리지 엔진 레벨과 MySQL 엔진 레벨로 나눌 수 있습니다. 
+MySQL에서 사용되는 잠금은 크게 `스토리지 엔진 레벨`과 `MySQL 엔진 레벨`로 나눌 수 있습니다. 
 
-참고: (글로벌 락, 테이블 락, 네임드 락, 메타데이터 락 같은 것들이 있는데 이건 딱히 지금 공감되지 않아서 따로 정리하지 않음)
+MySQL 엔진 레벨의 잠금은 모든 스토리지 엔진에 영향을 미치지만, 스토리지 엔진 레벨의 잠금은 스토리지 엔진 간 상호 영향을 미치지는 않습니다.
+
+MySQL 엔진에서는 테이블 데이터 동기화를 위한 테이블 락 이외에도 테이블의 구조를 잠그는 `메타데이터 락(Metadata Lock)`과 사용자의 필요에 맞게 사용할 수 있는 `네임드 락(Named Lock)`이라는 잠금 기능도 제공합니다.
+
+
 
 <br>
 
@@ -221,6 +225,7 @@ SELECT * FROM child WHERE id > 100 FOR UPDATE;
 
 - [Real MySQL - 5장]()
 - [https://stackoverflow.com/questions/11043712/non-repeatable-read-vs-phantom-read](https://stackoverflow.com/questions/11043712/non-repeatable-read-vs-phantom-read)
+- [https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)
 - [https://dev.mysql.com/doc/refman/8.3/en/innodb-locking.html](https://dev.mysql.com/doc/refman/8.3/en/innodb-locking.html)
 - [https://dev.mysql.com/doc/refman/8.3/en/innodb-next-key-locking.html](https://dev.mysql.com/doc/refman/8.3/en/innodb-next-key-locking.html)
 - [https://dev.mysql.com/doc/refman/8.3/en/innodb-transaction-isolation-levels.html](https://dev.mysql.com/doc/refman/8.3/en/innodb-transaction-isolation-levels.html)
