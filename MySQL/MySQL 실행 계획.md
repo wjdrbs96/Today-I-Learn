@@ -11,7 +11,7 @@ MySQL 서버의 실행 계획은 DESC 또는 EXPLAIN 명령으로 확인할 수 
 ### `쿼리의 실행 계획 확인`
 
 ```sql
-EXPLAIN SELECT * FROM bbang_map.Bakery WHERE id > 100 ORDER BY id desc;
+EXPLAIN SELECT * FROM Test WHERE id > 100 ORDER BY id desc;
 ```
 
 <br>
@@ -25,7 +25,7 @@ MySQL 8.0.18 버전부터는 쿼리의 실행 계획과 단계별 소요된 시�
 ## `실행 계획 분석`
 
 ```
-EXPLAIN SELECT * FROM bbang_map.Bakery WHERE id > 100 ORDER BY id desc;
+EXPLAIN SELECT * FROM Test WHERE id > 100 ORDER BY id desc;
 ```
 
 <img width="814" alt="스크린샷 2024-03-28 오후 12 03 26" src="https://github.com/wjdrbs96/Today-I-Learn/assets/45676906/36d2d464-6766-47f7-b100-4a8eb084a1db">
