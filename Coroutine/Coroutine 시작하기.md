@@ -51,3 +51,69 @@ suspend fun newRoutine() {
 
 ## `스레드와 코루틴`
 
+- 스레드
+  - 프로세스보다 작은 개념 
+  - context switching 발생시 Heap 메모리를 공유하고, Stack만 교체되므로 프로세스 보다 비용이 적다.
+  - OS가 스레드를 강제로 멈추고 다른 스레드를 실행한다.
+- 코루틴
+  - 스레드보다 작은 개념이다.
+  - 한 코루틴 코드는 여러 스레드에서 실행될 수 있다.
+  - 한 스레드에서 실행하는 경우 context switching 발생시 메모리 교체가 없다.
+  - 코루틴 스스로가 다른 코루틴에게 양보한다.
+
+<br>
+
+## `코루틴 빌더와 Job`
+
+- `runBlocking`
+  - 코루틴과 루틴을 연결해주는 코루틴 빌더
+- `lanuch`: 반환 값 없음
+- `async`:반환값 존재 (Deffered)
+- 등등
+
+<br>
+
+## `부모 코루틴, 자식 코루틴`
+
+```kotlin
+fun main(): Unit = runBlocking {
+    launch {
+        delay(500L)
+        println("A")
+    }
+
+    launch {
+        delay(600L)
+        throw IllegalArgumentException("Coroutine Fail")
+    }
+}
+```
+
+- Structured Concurrency 부모와 자식이 하나처럼 동작한다.
+- 자식에서 예외 발생하면 부모로 전파
+- 부모에서 예외가 발생했기 때문에 다른 자식들도 예외 전파
+- 다만, CancellationException은 정상적인 취소로 간주하기 때문에 부모 코루틴에게 전파되지 않고, 부모 코루틴의 다른 자식 코루틴을 취소시키지도 않는다.
+
+<br>
+
+## `CoroutineScope, CoroutineContext`
+
+- CoroutineScope: 코루틴이 동작할 수 있는 영역
+- CoroutineContext: 코루틴과 관련된 데이터를 보관
+
+```kotlin
+fun main() = runBlocking {
+    // root coroutine
+    val job1 = CoroutineScope(Dispatchers.Default).launch {
+        delay(1000L)
+        println("Job 1")
+    }
+
+    // root coroutine
+    val job2 = CoroutineScope(Dispatchers.Default).launch {
+        delay(1000L)
+        println("Job 2")
+    }
+}
+```
+
