@@ -96,6 +96,19 @@ fun main(): Unit = runBlocking {
 
 <br>
 
+## `CoroutineDispatchers`
+
+- 내용
+  - 코루틴을 스레드로 보내 실행시키는 객체 
+  - 자신의 스레드 풀 존재함
+    - 코루틴을 쉬고 있는 스레드로 보내서 실행
+- 분류
+  - Dispatchers.IO: 네트워크 요청이나 DB 읽기 쓰기 같은 입출력 작업을 실행하는 디스패쳐
+  - Dispatchers.Default: CPU 바운드 작업을 위한 디스패처
+
+
+<br>
+
 ## `CoroutineScope, CoroutineContext`
 
 - CoroutineScope: 코루틴이 동작할 수 있는 영역
