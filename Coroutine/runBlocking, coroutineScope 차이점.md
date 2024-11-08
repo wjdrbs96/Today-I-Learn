@@ -190,7 +190,7 @@ suspend fun nonBlockingExample() = runBlocking {
 
 <br>
 
-<img width="1277" alt="스크린샷 2024-11-09 오전 2 38 58" src="https://github.com/user-attachments/assets/22fe21f1-ea7f-41ac-94d9-fa9fb1b80367">
+<img width="1238" alt="스크린샷 2024-11-09 오전 2 49 58" src="https://github.com/user-attachments/assets/a62102f9-9ec0-4a46-a5e8-159699049dfc">
 
 반면에 Non-Blocking 코드의 결과를 보면 coroutineScope 안에서 `delay(1000)`를 통해서 코루틴이 중단 될 때 Thread가 Block 되지 않고 다른 코루틴이 해당 쓰레드에서 실행되고 있는 것을 볼 수 있습니다.
 
