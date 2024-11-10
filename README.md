@@ -177,6 +177,7 @@
 
 - [withContext, async 차이](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Coroutine/withContext%2C%20async%20%EC%B0%A8%EC%9D%B4.md)
 - [runBlocking, coroutineScope 차이점](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Coroutine/runBlocking%2C%20coroutineScope%20%EC%B0%A8%EC%9D%B4%EC%A0%90.md)
+- [Coroutine join, await, yield 쓰레드 양보 알아보기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Coroutine/Coroutine%20join%2C%20await%2C%20yield%20%EC%93%B0%EB%A0%88%EB%93%9C%20%EC%96%91%EB%B3%B4%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0.md)
 
 ## Kafka
 
