@@ -68,7 +68,7 @@ suspend fun newRoutine() {
 - `runBlocking`
   - 코루틴과 루틴을 연결해주는 코루틴 빌더
 - `lanuch`: 반환 값 없음
-- `async`:반환값 존재 (Deffered)
+- `async`: 반환값 존재 (Deffered)
 - 등등
 
 <br>
