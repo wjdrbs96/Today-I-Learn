@@ -7,7 +7,7 @@
 - 루틴에 진입하는 곳이 한 군데이며, 종료되면 해당 루틴의 정보가 초기화된다.
 
 ```kotlin
-  fun main() {
+fun main() {
   println("START")
   newRoutine()
   println("END")
