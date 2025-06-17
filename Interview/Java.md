@@ -405,6 +405,28 @@ Old 영역은 기본적으로 데이터가 가득 차면 GC를 실행한다. GC 
 
 <br>
 
+## `Number`
+
+<details>
+    <summary>float, double에 대해서 설명해주세요.</summary>
+
+- float은 4Byte, double은 8byte
+- 유효자릿수가 뜻하는 것은 정밀도를 뜻합니다. 즉, 몇자리 까지 오차없이 표현할 수 있는가입니다. float은 7자리, double은 15~16자리 까지 표현할 수 있습니다. 따라서 float의 정밀도보다 더 높은 정밀도가 필요하다면 double을 사용해야 합니다.
+- 실수형은 얼마나 큰 값을 표현할 수 있는가 뿐만 아니라 얼마나 0에 가깝게 표현할 수 있는가도 중요합니다.(얼마나 정밀도 있게 표현할 수 있는가라고도 할 수 있습니다.)
+
+</details>
+
+<details>
+    <summary>BigDecimal이 무엇인지 설명해주세요.</summary>
+    <br>
+
+- BigDecimal 클래스는 돈 계산과 같이 중요한 작업을 할 때 사용함
+- float은 7자리, double은 15자리 까지 자릿수 정밀도를 체크할 수 있습니다. 따라서 이정도 범위 내에서 계산을 해야한다면 new를 이용해 BigDecimal의 메모리를 할당하는 것 보다는 기본 자료형을 사용하는 것이 좋습니다. 하지만 float, double로는 한계가 있다면 그 때 BigDecimal을 사용하면 됩니다.
+
+</details>
+
+<br>
+
 ## `String`
 
 <details>
